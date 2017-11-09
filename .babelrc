@@ -1,0 +1,47 @@
+{
+    "presets": [
+      ["env", {
+        "modules": false,
+        "targets": { "node": true }
+      }],
+      "stage-3",
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-export-extensions",
+      "transform-decorators-legacy",
+      "transform-object-rest-spread",
+      ["transform-runtime", { "polyfill": false }]
+    ],
+    "env": {
+      "build": {
+        "presets": ["react-optimize"]
+      },
+      "electron": {
+        "presets": [
+          ["env", {
+            "targets": { "node": 7 }
+          }]
+        ]
+      },
+      "electron-build": {
+        "presets": [
+          ["env", {
+            "targets": { "node": 7 },
+            "modules": false
+          }],
+          "react-optimize"
+        ]
+      },
+      "test": {
+        "presets": [
+          ["env", {
+            "targets": { "node": "current" }
+          }]
+        ],
+        "sourceMaps": "inline"
+      }
+    }
+  }
+  
