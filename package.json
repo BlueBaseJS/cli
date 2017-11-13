@@ -2,7 +2,7 @@
   "name": "bin",
   "version": "1.0.0",
   "description": "",
-  "main": "build",
+  "main": "node_modules/expo/AppEntry.js",
   "bin": {
     "bluerain": "index.js"
   },

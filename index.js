@@ -6,6 +6,8 @@ const crossEnv = 'node_modules/.bin/cross-env ';
 const exp = 'node_modules/.bin/exp ';
 const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
 var exec = require('exec');
+const { spawn } = require('child_process')
+const fs = require('fs');
 inquirer.prompt([
     {
       type: 'list',
@@ -21,6 +23,16 @@ inquirer.prompt([
   ]).then(function (answers) {
     const platform = answers.platform;
     if(platform === 'electron') {
+      const package = require('./package.json');
+      package.main= 'build';
+      const content = JSON.stringify(package);
+      fs.writeFile("electron/package.json", content, 'utf8', function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    
+        console.log("The file was saved!");
+    });
       inquirer.prompt([
         {
           type: 'list',
@@ -39,7 +51,7 @@ inquirer.prompt([
         const electronDir = path.resolve(__dirname, 'electron');
 
         // build script for electron
-        const remove = 'rm -rf ' + path.resolve(process.cwd(), 'electron/build') + ' yes | cp -rf package.json electron/';
+        const remove = 'rm -rf ' + path.resolve(process.cwd(), 'electron/build') ;
         const buildMain= crossEnv + 'BABEL_ENV=electron-build node_modules/.bin/webpack --env.platform=electron --env.prod --config '+ path.resolve(electronDir, 'webpack.config.js');
         const buildRenderer = crossEnv + ' BABEL_ENV=build node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js --env.prod --config '+ path.resolve(electronDir, 'webpack.config.js');
         const build = remove +' & '+ buildMain +' & '+ buildRenderer;
@@ -90,15 +102,29 @@ inquirer.prompt([
           shell.exec(execCommand);
         }
         else if ((platform === 'android' || platform==='ios') && answers2.command === 'start') {
-          const execCommand =' yes | cp -rf package.json native/ && '+ exp+' start ';
+          const execCommand =exp+' start --lan ';
           console.log(execCommand);
           shell.exec(execCommand);
         }else if (platform === 'android' && answers2.command === 'build') {
-          const execCommand =  exp+' build:android ';
-          shell.exec(execCommand);
+          // const execCommand =  exp+' build:android ';
+          // shell.exec(execCommand);
+          const child = spawn('exp', ['build:android']);
+          child.stdout.pipe(process.stdout);
+          // pipe the main process input to the child process
+          process.stdin.pipe(child.stdin);
+          child.stderr.on('data', (data) => {
+            console.log(`${data}`);
+            process.exit()
+          });
         }else if (platform === 'ios' && answers2.command === 'build') {
-          const execCommand = exp+' build:ios ';
-          shell.exec(execCommand);
+          const child = spawn('exp', ['build:ios']);
+          child.stdout.pipe(process.stdout);
+          // pipe the main process input to the child process
+          process.stdin.pipe(child.stdin);
+          child.stderr.on('data', (data) => {
+            console.error(`${data}`);
+            process.exit()
+          });
         }
 
           console.log('Your platform is: ', platform, 'Your command is: ', answers2.command)
