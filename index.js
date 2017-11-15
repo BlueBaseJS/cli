@@ -30,8 +30,6 @@ inquirer.prompt([
         if (err) {
             return console.log(err);
         }
-    
-        console.log("The file was saved!");
     });
       inquirer.prompt([
         {
@@ -62,23 +60,24 @@ inquirer.prompt([
           const devServer= webpackDevServer+ ' --config '+ path.resolve(electronDir, 'webpack.config.js');
           const execCommand = devServer+ ' & ' +  startDev;
           shell.exec(execCommand);
+          
           }
           else if ( answers2.command === 'build') {
-            shell.exec(build);
+            spawn(build, { shell: true, stdio: 'inherit' });
           }
           else if ( answers2.command === 'linux-package') {
             const package=  'rm -rf '+ path.resolve(process.cwd(), 'electron/linux-build')+ ' && '+ crossEnv + ' DEBUG_PROD=false ' + build + ' && node '+ path.resolve(electronDir, 'tasks/package');
-            shell.exec(package);
+            spawn(package, { shell: true, stdio: 'inherit' });
           }
           else if ( answers2.command === 'windows-package') {
             const runBuild = crossEnv + ' DEBUG_PROD=false ' + build + ' && ';
             const packageWin= runBuild + 'electron-packager . --overwrite --asar --platform=win32 --arch=x64 --electron-version=1.7.9 --dir=./electron --prune=true --out=electron/windows-build';
-            shell.exec(packageWin);
+            spawn(packageWin, { shell: true, stdio: 'inherit' });
           }
           else if ( answers2.command === 'mac-package') {
             const runBuild = crossEnv + ' DEBUG_PROD=false ' + build + ' && ';
             const packageMac = runBuild + 'electron-packager . --overwrite --platform=darwin --arch=x64 --electron-version=1.7.9 --dir=./electron --prune=true --out=electron/mac-build';
-            shell.exec(packageMac);
+            spawn(packageMac, { shell: true, stdio: 'inherit' });
           }
       })
     } else {
@@ -94,12 +93,18 @@ inquirer.prompt([
         }
       ]).then(function (answers2) {
         if (platform === 'web' && answers2.command === 'start') {
-        const execCommand = 'node_modules/.bin/webpack-dev-server --inline --hot --history-api-fallback --content-base ' + path.resolve(__dirname, 'web')+' --config '+ path.resolve(__dirname, 'web/webpack.config.js');
-        shell.exec(execCommand);
+          const child = spawn(webpackDevServer, 
+            ['--inline', '--hot',
+             '--history-api-fallback',
+             '--content-base '+ path.resolve(__dirname, 'web'),
+             ' --config '+ path.resolve(__dirname, 'web/webpack.config.js')],
+             { shell: true, stdio: 'inherit' });
+        // const execCommand = 'node_modules/.bin/webpack-dev-server --inline --hot --history-api-fallback --content-base ' + path.resolve(__dirname, 'web')+' --config '+ path.resolve(__dirname, 'web/webpack.config.js');
+        // shell.exec(execCommand);
         }
         else if (platform === 'web' && answers2.command === 'build') {
           const execCommand = 'babel-node '+ path.resolve(__dirname,'web/internal/scripts/build')+' --optimize';
-          shell.exec(execCommand);
+          spawn(execCommand, { shell: true, stdio: 'inherit' });
         }
         else if ((platform === 'android' || platform==='ios') && answers2.command === 'start') {
           const execCommand =exp+' start --lan ';
@@ -108,23 +113,14 @@ inquirer.prompt([
         }else if (platform === 'android' && answers2.command === 'build') {
           // const execCommand =  exp+' build:android ';
           // shell.exec(execCommand);
-          const child = spawn('exp', ['build:android']);
-          child.stdout.pipe(process.stdout);
+          const child = spawn('exp', ['build:android'], { shell: true, stdio: 'inherit' });
+          // child.stdout.pipe(process.stdout);
           // pipe the main process input to the child process
           process.stdin.pipe(child.stdin);
-          child.stderr.on('data', (data) => {
-            console.log(`${data}`);
-            process.exit()
-          });
         }else if (platform === 'ios' && answers2.command === 'build') {
           const child = spawn('exp', ['build:ios']);
-          child.stdout.pipe(process.stdout);
           // pipe the main process input to the child process
           process.stdin.pipe(child.stdin);
-          child.stderr.on('data', (data) => {
-            console.error(`${data}`);
-            process.exit()
-          });
         }
 
           console.log('Your platform is: ', platform, 'Your command is: ', answers2.command)

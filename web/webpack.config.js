@@ -1,6 +1,8 @@
 const path = require('path');
 const dir = process.cwd();
-const config = {
+const {smart} = require('webpack-merge');
+const fs = require('fs');
+let config = {
 	entry: path.resolve(dir, 'index.js'),
 	output: {
 		filename: 'bundle.js',
@@ -27,5 +29,16 @@ const config = {
 	plugins: [
 	]
 };
-
+const webpackPath = path.resolve(dir,'./web/webpack.config.js')
+if (fs.existsSync(webpackPath)) {
+	try{
+		const addedConfig = require(webpackPath);
+		if (typeof addedConfig === "function"){
+			config = addedConfig(config, 'development');
+		}else {
+		config = smart(config, addedConfig );
+		}
+	}
+	catch(e){console.error(e)};
+}
 module.exports = config;

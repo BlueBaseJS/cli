@@ -8,7 +8,9 @@ import { resolve as pathResolve } from 'path';
 import webpackConfigFactory from '../webpack/configFactory';
 import { exec } from '../utils';
 import config from '../../config';
-
+const path = require('path');
+const {smart} = require('webpack-merge');
+const fs = require('fs');
 // eslint-disable-next-line no-unused-vars
 const [x, y, ...args] = process.argv;
 
@@ -25,7 +27,21 @@ Object.keys(config('bundles'))
   // And then build them all.
   .forEach((bundleName) => {
     // console.log('bundle name: ', bundleName);
-    const compiler = webpack(webpackConfigFactory({ target: bundleName, optimize }));
+
+    let webpackConfig = webpackConfigFactory({ target: bundleName, optimize });
+    const webpackPath = path.resolve(process.cwd(),'./web/webpack.config.js')
+    if (fs.existsSync(webpackPath)) {
+      try{
+        const addedConfig = require(webpackPath);
+        if (typeof addedConfig === "function"){
+          webpackConfig = addedConfig(webpackConfig, 'production');
+        }else {
+          webpackConfig = smart( webpackConfig, addedConfig);
+        }
+      }
+      catch(e){console.error(e)};
+    }
+    const compiler = webpack(webpackConfig);
     compiler.run((err, stats) => {
 
     require('../../registerServiceWorker');

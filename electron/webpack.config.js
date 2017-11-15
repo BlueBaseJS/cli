@@ -7,6 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const {smart} = require('webpack-merge');
+const fs = require('fs');
 
 const PORT = 3000;
 
@@ -18,7 +20,7 @@ module.exports = ({ platform, prod } = {}) => {
 
 	const cssLoaders = ['css-loader', 'sass-loader'];
 
-	return {
+	let config =  {
 		devServer: {
 			hot: true,
 			port: PORT,
@@ -101,7 +103,7 @@ module.exports = ({ platform, prod } = {}) => {
         : undefined
 		},
 		plugins: [
-			new ProgressBarPlugin(),
+			// new ProgressBarPlugin(),
 			new webpack.DefinePlugin({
 				'process.env.NODE_ENV': JSON.stringify(
           prod ? 'production' : 'development'
@@ -142,4 +144,18 @@ module.exports = ({ platform, prod } = {}) => {
 		],
 		target: electronMain ? 'electron-main' : 'electron-renderer'
 	};
+	const webpackPath = path.resolve(process.cwd(),'./electron/webpack.config.js')
+	if (fs.existsSync(webpackPath)) {
+		try{
+			const addedConfig = require(webpackPath);
+			if (typeof addedConfig === "function"){
+				config = addedConfig(config, prod? 'production' : 'development');
+			}else {
+			config = smart( config, addedConfig);
+			}
+		}
+		catch(e){console.error(e)};
+	}
+	console.log(config.module.rules);
+	return config;
 };
