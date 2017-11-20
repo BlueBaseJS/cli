@@ -39,7 +39,7 @@ module.exports = ({ platform, prod } = {}) => {
 	'webpack/hot/only-dev-server'
 ]
             : []),
-	path.resolve(process.cwd(), 'index.js')
+	path.resolve(__dirname,'../', 'boot.js')
 ],
 		externals: electronMain && !prod ? ['source-map-support'] : [],
 		module: {

@@ -83,7 +83,7 @@ export default function webpackConfigFactory(buildOptions) {
             )}/__webpack_hmr`,
         ),
         // The source entry file for the bundle.
-        path.resolve(appRootDir.get(), bundleConfig.srcEntryFile),
+        path.resolve(bundleConfig.srcEntryFile),
       ]),
       vendor: ['react', 'react-dom', 'react-router-dom']
     },

@@ -6,7 +6,7 @@
  */
 
 import * as EnvVars from './utils/envVars';
-
+const path= require('path');
 const values = {
   // The configuration values that should be exposed to our client bundle.
   // This value gets passed through the /shared/utils/objects/filterWithRules
@@ -158,7 +158,7 @@ const values = {
   bundles: {
     client: {
       // Src entry file.
-      srcEntryFile: './index.js',
+      srcEntryFile: path.resolve(__dirname,'../../', 'boot.js'),
 
       // Src paths.
       srcPaths: [

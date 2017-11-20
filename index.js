@@ -8,6 +8,13 @@ const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
 var exec = require('exec');
 const { spawn } = require('child_process')
 const fs = require('fs');
+
+function editBootFile(){
+  let data = fs.readFileSync(path.join(__dirname, 'bootTemplate.js'));
+    data = data.toString();
+    data = data.replace('CONFIG_PATH', path.resolve(process.cwd(), 'bluerain.js'));
+    fs.writeFileSync(path.join(__dirname, 'boot.js'), data);
+}
 inquirer.prompt([
     {
       type: 'list',
@@ -56,6 +63,7 @@ inquirer.prompt([
 
 
         if ( answers2.command === 'start') {
+          editBootFile();
           const startDev= crossEnv + ' BABEL_ENV=electron NODE_ENV=development electron -r babel-register '+ path.resolve(electronDir, 'app/main');
           const devServer= webpackDevServer+ ' --config '+ path.resolve(electronDir, 'webpack.config.js');
           const execCommand = devServer+ ' & ' +  startDev;
@@ -66,6 +74,7 @@ inquirer.prompt([
             spawn(build, { shell: true, stdio: 'inherit' });
           }
           else if ( answers2.command === 'linux-package') {
+            editBootFile();
             const package=  'rm -rf '+ path.resolve(process.cwd(), 'electron/linux-build')+ ' && '+ crossEnv + ' DEBUG_PROD=false ' + build + ' && node '+ path.resolve(electronDir, 'tasks/package');
             spawn(package, { shell: true, stdio: 'inherit' });
           }
@@ -93,6 +102,7 @@ inquirer.prompt([
         }
       ]).then(function (answers2) {
         if (platform === 'web' && answers2.command === 'start') {
+          editBootFile();
           const child = spawn(webpackDevServer, 
             ['--inline', '--hot',
              '--history-api-fallback',
@@ -103,6 +113,7 @@ inquirer.prompt([
         // shell.exec(execCommand);
         }
         else if (platform === 'web' && answers2.command === 'build') {
+          editBootFile();
           const execCommand = 'babel-node '+ path.resolve(__dirname,'web/internal/scripts/build')+' --optimize';
           spawn(execCommand, { shell: true, stdio: 'inherit' });
         }

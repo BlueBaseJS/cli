@@ -3,7 +3,7 @@ const dir = process.cwd();
 const {smart} = require('webpack-merge');
 const fs = require('fs');
 let config = {
-	entry: path.resolve(dir, 'index.js'),
+	entry: path.resolve(__dirname,'../', 'boot.js'),
 	output: {
 		filename: 'bundle.js',
 		path:  path.resolve(dir, 'dist')
@@ -23,7 +23,8 @@ let config = {
 	},
 
 	module: {
-		loaders: []
+		loaders: [
+			{ test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ }]
 	},
 
 	plugins: [
