@@ -5,49 +5,9 @@
  * absolute paths should be resolved during runtime by our build internal/server.
  */
 
-import * as EnvVars from './utils/envVars';
 const path= require('path');
 const values = {
-  // The configuration values that should be exposed to our client bundle.
-  // This value gets passed through the /shared/utils/objects/filterWithRules
-  // util to create a filter object that can be serialised and included
-  // with our client bundle.
-  clientConfigFilter: {
-    // This is here as an example showing that you can expose variables
-    // that were potentially provivded by the environment
-    welcomeMessage: true,
-    // We only need to expose the enabled flag of the service worker.
-    serviceWorker: {
-      enabled: true,
-    },
-    // We need to expose all the polyfill.io settings.
-    polyfillIO: true,
-    // We need to expose all the htmlPage settings.
-    htmlPage: true,
-  },
 
-  // The host on which the server should run.
-  host: EnvVars.string('HOST', '0.0.0.0'),
-  // The port on which the server should run.
-  port: EnvVars.number('PORT', 1337),
-
-  // The port on which the client bundle development server should run.
-  clientDevServerPort: EnvVars.number('CLIENT_DEV_PORT', 7331),
-
-  // This is an example environment variable which is used within the react
-  // application to demonstrate the usage of environment variables across
-  // the client and server bundles.
-  welcomeMessage: EnvVars.string('WELCOME_MSG', 'Hello world!'),
-
-  // Disable server side rendering?
-  disableSSR: false,
-
-  // How long should we set the browser cache for the served assets?
-  // Don't worry, we add hashes to the files, so if they change the new files
-  // will be served to browsers.
-  // We are using the "ms" format to set the length.
-  // @see https://www.npmjs.com/package/ms
-  browserCacheMaxAge: '365d',
 
   // We use the polyfill.io service which provides the polyfills that a
   // client needs, which is far more optimal than the large output
@@ -67,37 +27,6 @@ const values = {
     ],
   },
 
-  // Basic configuration for the HTML page that hosts our application.
-  // We make use of react-helmet to consume the values below.
-  // @see https://github.com/nfl/react-helmet
-  htmlPage: {
-    titleTemplate: 'React, Universally - %s',
-    defaultTitle: 'React, Universally',
-    description:
-      'A starter kit giving you the minimum requirements for a production ready universal react application.',
-  },
-
-  // Content Security Policy (CSP)
-  // @see server/middleware/security for more info.
-  cspExtensions: {
-    childSrc: [],
-    connectSrc: [],
-    defaultSrc: [],
-    fontSrc: ['fonts.googleapis.com/css', 'fonts.gstatic.com'],
-    imgSrc: [],
-    mediaSrc: [],
-    manifestSrc: [],
-    objectSrc: [],
-    scriptSrc: [
-      // Allow scripts from cdn.polyfill.io so that we can import the
-      // polyfill.
-      'cdn.polyfill.io',
-    ],
-    styleSrc: [
-      'cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css',
-      'fonts.googleapis.com/css',
-    ],
-  },
 
   // Path to the public assets that will be served off the root of the
   // HTTP server.
@@ -205,43 +134,8 @@ const values = {
         name: '__dev_vendor_dll__',
       },
     },
-
-    // server: {
-    //   // Src entry file.
-    //   srcEntryFile: './server/index.js',
-
-    //   // Src paths.
-    //   srcPaths: ['./server', './shared', './config'],
-
-    //   // Where does the server bundle output live?
-    //   outputPath: './build/server',
-    // },
   },
 
-  additionalNodeBundles: {
-    // NOTE: The webpack configuration and build scripts have been built so
-    // that you can add arbitrary additional node bundle configurations here.
-    //
-    // A common requirement for larger projects is to add additional "node"
-    // target bundles (e.g an APi server endpoint). Therefore flexibility has been
-    // baked into our webpack config factory to allow for this.
-    //
-    // Simply define additional configurations similar to below.  The development
-    // server will manage starting them up for you.  The only requirement is that
-    // within the entry for each bundle you create and return the "express"
-    // listener.
-    /*
-    apiServer: {
-      srcEntryFile: './api/index.js',
-      srcPaths: [
-        './api',
-        './shared',
-        './config',
-      ],
-      outputPath: './build/api',
-    }
-    */
-  },
 
   // These plugin definitions provide you with advanced hooks into customising
   // the project without having to reach into the internals of the tools.
@@ -284,31 +178,11 @@ const values = {
       // eslint-disable-next-line no-unused-vars
       const { target, mode } = buildOptions;
 
-      // Example:
-      /*
-      if (target === 'server' && mode === 'development') {
-        webpackConfig.plugins.push(new MyCoolWebpackPlugin());
-      }
-      */
-
-      // Debugging/Logging Example:
-      /*
-      if (target === 'server') {
-        console.log(JSON.stringify(webpackConfig, null, 4));
-      }
-      */
 
       return webpackConfig;
     },
   },
 };
 
-// This protects us from accidentally including this configuration in our
-// client bundle. That would be a big NO NO to do. :)
-if (process.env.BUILD_FLAG_IS_CLIENT === 'true') {
-  throw new Error(
-    "You shouldn't be importing the `<projectroot>/config/values.js` directly into code that will be included in your 'client' bundle as the configuration object will be sent to user's browsers. This could be a security risk! Instead, use the `config` helper function located at `<projectroot>/config/index.js`.",
-  );
-}
 
 export default values;

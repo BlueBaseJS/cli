@@ -22,8 +22,6 @@ exec(`rm -rf ${pathResolve(appRootDir.get(), config('buildOutputPath'))}`);
 // Get our "fixed" bundle names
 // console.log('bundles: ', config('bundles'));
 Object.keys(config('bundles'))
-  // And the "additional" bundle names
-  .concat(Object.keys(config('additionalNodeBundles')))
   // And then build them all.
   .forEach((bundleName) => {
     // console.log('bundle name: ', bundleName);
@@ -44,7 +42,6 @@ Object.keys(config('bundles'))
     const compiler = webpack(webpackConfig);
     compiler.run((err, stats) => {
 
-    require('../../registerServiceWorker');
       if (err) {
         console.error('werroe', err);
         return;

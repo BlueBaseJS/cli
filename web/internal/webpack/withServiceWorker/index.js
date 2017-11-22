@@ -6,7 +6,7 @@ import OfflinePlugin from 'offline-plugin';
 
 import config from '../../../config';
 
-import ClientConfig from '../../../config/components/ClientConfig';
+
 
 export default function withServiceWorker(webpackConfig, bundleConfig) {
   if (!config('serviceWorker.enabled')) {

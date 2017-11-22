@@ -28,6 +28,7 @@ inquirer.prompt([
       ]
     }
   ]).then(function (answers) {
+    editBootFile();
     const platform = answers.platform;
     if(platform === 'electron') {
       const package = require('./package.json');
@@ -63,7 +64,6 @@ inquirer.prompt([
 
 
         if ( answers2.command === 'start') {
-          editBootFile();
           const startDev= crossEnv + ' BABEL_ENV=electron NODE_ENV=development electron -r babel-register '+ path.resolve(electronDir, 'app/main');
           const devServer= webpackDevServer+ ' --config '+ path.resolve(electronDir, 'webpack.config.js');
           const execCommand = devServer+ ' & ' +  startDev;
@@ -74,7 +74,7 @@ inquirer.prompt([
             spawn(build, { shell: true, stdio: 'inherit' });
           }
           else if ( answers2.command === 'linux-package') {
-            editBootFile();
+            // editBootFile();
             const package=  'rm -rf '+ path.resolve(process.cwd(), 'electron/linux-build')+ ' && '+ crossEnv + ' DEBUG_PROD=false ' + build + ' && node '+ path.resolve(electronDir, 'tasks/package');
             spawn(package, { shell: true, stdio: 'inherit' });
           }
@@ -102,7 +102,7 @@ inquirer.prompt([
         }
       ]).then(function (answers2) {
         if (platform === 'web' && answers2.command === 'start') {
-          editBootFile();
+          // editBootFile();
           const child = spawn(webpackDevServer, 
             ['--inline', '--hot',
              '--history-api-fallback',
@@ -113,14 +113,14 @@ inquirer.prompt([
         // shell.exec(execCommand);
         }
         else if (platform === 'web' && answers2.command === 'build') {
-          editBootFile();
+          // editBootFile();
           const execCommand = 'babel-node '+ path.resolve(__dirname,'web/internal/scripts/build')+' --optimize';
           spawn(execCommand, { shell: true, stdio: 'inherit' });
         }
         else if ((platform === 'android' || platform==='ios') && answers2.command === 'start') {
-          const execCommand =exp+' start --lan ';
+          const execCommand =exp+' start --lan --dev ' + __dirname;
           console.log(execCommand);
-          shell.exec(execCommand);
+          spawn(execCommand, { shell: true, stdio: 'inherit' });
         }else if (platform === 'android' && answers2.command === 'build') {
           // const execCommand =  exp+' build:android ';
           // shell.exec(execCommand);

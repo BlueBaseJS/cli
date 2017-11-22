@@ -71,17 +71,6 @@ export default function webpackConfigFactory(buildOptions) {
         // Therefore we need to add the regenerator-runtime as polyfill.io
         // doesn't support this.
         ifClient('regenerator-runtime/runtime'),
-        // Extends hot reloading with the ability to hot path React Components.
-        // This should always be at the top of your entries list. Only put
-        // polyfills above it.
-        ifDevClient('react-hot-loader/patch'),
-        // Required to support hot reloading of our client.
-        ifDevClient(
-          () =>
-            `webpack-hot-middleware/client?reload=true&path=http://${config('host')}:${config(
-              'clientDevServerPort',
-            )}/__webpack_hmr`,
-        ),
         // The source entry file for the bundle.
         path.resolve(bundleConfig.srcEntryFile),
       ]),
@@ -112,15 +101,7 @@ export default function webpackConfigFactory(buildOptions) {
       libraryTarget: ifNode('commonjs2', 'var'),
       // This is the web path under which our webpack bundled client should
       // be considered as being served from.
-      publicPath: ifDev(
-        // As we run a seperate development server for our client and server
-        // bundles we need to use an absolute http path for the public path.
-        `http://${config('host')}:${config('clientDevServerPort')}${config(
-          'bundles.client.webPath',
-        )}`,
-        // Otherwise we expect our bundled client to be served from this path.
-        bundleConfig.webPath,
-      ),
+      publicPath:bundleConfig.webPath
     },
 
     // target: isClient
@@ -294,12 +275,6 @@ export default function webpackConfigFactory(buildOptions) {
           }),
       ),
 
-      // We don't want webpack errors to occur during development as it will
-      // kill our dev servers.
-      ifDev(() => new webpack.NoEmitOnErrorsPlugin()),
-
-      // We need this plugin to enable hot reloading of our client.
-      ifDevClient(() => new webpack.HotModuleReplacementPlugin()),
 
       // For our production client we need to make sure we pass the required
       // configuration to ensure that the output is minimized/optimized.
@@ -375,14 +350,6 @@ export default function webpackConfigFactory(buildOptions) {
                 ].filter(x => x != null),
 
                 plugins: [
-                  // Required to support react hot loader.
-                  ifDevClient('react-hot-loader/babel'),
-                  // This decorates our components with  __self prop to JSX elements,
-                  // which React will use to generate some runtime warnings.
-                  ifDev('transform-react-jsx-self'),
-                  // Adding this will give us the path to our components in the
-                  // react dev tools.
-                  ifDev('transform-react-jsx-source'),
                   // Replaces the React.createElement function with one that is
                   // more optimized for production.
                   // NOTE: Symbol needs to be polyfilled. Ensure this feature
@@ -402,20 +369,6 @@ export default function webpackConfigFactory(buildOptions) {
         ],
       }),
 
-      // HappyPack 'css' instance for development client.
-      ifDevClient(() =>
-        happyPackPlugin({
-          name: 'happypack-devclient-css',
-          loaders: [
-            'style-loader',
-            {
-              path: 'css-loader',
-              // Include sourcemaps for dev experience++.
-              query: { sourceMap: true },
-            },
-          ],
-        }),
-      ),
 
       // END: HAPPY PACK PLUGINS
       // -----------------------------------------------------------------------
@@ -497,13 +450,7 @@ export default function webpackConfigFactory(buildOptions) {
                 {
                   test: /\.css$/,
                 },
-                // For development clients we will defer all our css processing to the
-                // happypack plugin named "happypack-devclient-css".
-                // See the respective plugin within the plugins section for full
-                // details on what loader is being implemented.
-                ifDevClient({
-                  loaders: ['happypack/loader?id=happypack-devclient-css'],
-                }),
+
                 // For a production client build we use the ExtractTextPlugin which
                 // will extract our CSS into CSS files. We don't use happypack here
                 // as there are some edge cases where it fails when used within
