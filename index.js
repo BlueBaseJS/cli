@@ -8,12 +8,84 @@ const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
 var exec = require('exec');
 const { spawn } = require('child_process')
 const fs = require('fs');
+const kebabCase = require('lodash.kebabcase');
 
 function editBootFile(){
   let data = fs.readFileSync(path.join(__dirname, 'bootTemplate.js'));
     data = data.toString();
     data = data.replace('CONFIG_PATH', path.resolve(process.cwd(), 'bluerain.js'));
     fs.writeFileSync(path.join(__dirname, 'boot.js'), data);
+}
+function createManifestJson(){
+  let bootConfig = require(path.resolve(process.cwd(), 'bluerain.js'));
+  bootConfig = bootConfig.config;
+  const manifestJson = {};
+  manifestJson.name = bootConfig.title;
+  manifestJson.short_name = bootConfig.slug || kebabCase(manifestJson.name);;
+  manifestJson.description = bootConfig.description;
+  manifestJson.icons = bootConfig.icons;
+  manifestJson.orientation = bootConfig.orientation;
+  if (bootConfig.theme && bootConfig.theme.colors){
+    manifestJson.theme_color = bootConfig.theme.colors.primary;
+  }
+  if (bootConfig.loading ){
+    manifestJson.background_color = bootConfig.loading.backgroundColor;
+  }
+  manifestJson.dir = bootConfig.dir;
+  manifestJson.display = bootConfig.display;
+  manifestJson.lang = bootConfig.lang|| bootConfig.locale;
+  manifestJson.prefer_related_applications = bootConfig.prefer_related_applications;
+  manifestJson.related_applications = bootConfig.related_applications;
+  manifestJson.scope = bootConfig.scope;
+  manifestJson.start_url = bootConfig.start_url;
+  fs.writeFileSync(path.join(__dirname, 'web/manifest.webmanifest'), JSON.stringify(manifestJson));
+}
+function createAppJson(){
+  const appJson ={};
+  let bootConfig = require(path.resolve(process.cwd(), 'bluerain.js'));
+  const packageJson = require(path.resolve(process.cwd(), 'package.json'));
+  bootConfig = bootConfig.config;
+  appJson.name = bootConfig.title;
+  appJson.slug = bootConfig.slug || kebabCase(appJson.name);
+  appJson.sdkVersion = bootConfig.sdkVersion || packageJson.devDependencies.expo || packageJson.dependencies.expo;
+  appJson.sdkVersion =appJson.sdkVersion.replace(/\^/,'')
+  appJson.version = bootConfig.version || packageJson.version;
+  appJson.description = bootConfig.description;
+  appJson.loading = bootConfig.loading;
+  if (bootConfig.theme && bootConfig.theme.colors){
+    appJson.primaryColor = bootConfig.theme.colors.primary;
+  }
+  if (bootConfig.orientation === 'any' || bootConfig.orientation === 'natural') {
+    appJson.orientation = 'default'
+  }else if (bootConfig.orientation && bootConfig.orientation.contains('landscape')){
+    appJson.orientation = 'landscape'
+  }else if (bootConfig.orientation && bootConfig.orientation.contains('portrait')){
+    appJson.orientation = 'portrait'
+  }
+  if (bootConfig.icons){
+    for (icon in icons) {
+      if ('default' in  icon){
+        appJson.icon = icon.src;
+      }
+    }
+  }
+  appJson.privacy = bootConfig.privacy;
+  appJson.notification = bootConfig.notification;
+  appJson.appKey = bootConfig.appKey;
+  appJson.androidStatusBar = bootConfig.androidStatusBar;
+  appJson.androidShowExponentNotificationInShellApp = bootConfig.androidShowExponentNotificationInShellApp;
+  appJson.scheme = bootConfig.scheme;
+  appJson.entryPoint = bootConfig.entryPoint;
+  appJson.extra = bootConfig.extra;
+  appJson.rnCliPath = bootConfig.rnCliPath;
+  appJson.packagerOpts = bootConfig.packagerOpts;
+  appJson.ignoreNodeModulesValidation = bootConfig.ignoreNodeModulesValidation;
+  appJson.nodeModulesPath = bootConfig.nodeModulesPath;
+  appJson.splash = bootConfig.splash;
+  appJson.facebookScheme = bootConfig.facebookScheme;
+  appJson.ios = bootConfig.ios;
+  appJson.android = bootConfig.android;
+  fs.writeFileSync(path.join(__dirname, 'app.json'), JSON.stringify({expo: appJson}));
 }
 inquirer.prompt([
     {
@@ -102,7 +174,7 @@ inquirer.prompt([
         }
       ]).then(function (answers2) {
         if (platform === 'web' && answers2.command === 'start') {
-          // editBootFile();
+          createManifestJson();
           const child = spawn(webpackDevServer, 
             ['--inline', '--hot',
              '--history-api-fallback',
@@ -113,22 +185,23 @@ inquirer.prompt([
         // shell.exec(execCommand);
         }
         else if (platform === 'web' && answers2.command === 'build') {
-          // editBootFile();
+          createManifestJson();
           const execCommand = 'babel-node '+ path.resolve(__dirname,'web/internal/scripts/build')+' --optimize';
           spawn(execCommand, { shell: true, stdio: 'inherit' });
         }
         else if ((platform === 'android' || platform==='ios') && answers2.command === 'start') {
+          createAppJson();
           const execCommand =exp+' start --lan --dev ' + __dirname;
           console.log(execCommand);
           spawn(execCommand, { shell: true, stdio: 'inherit' });
         }else if (platform === 'android' && answers2.command === 'build') {
-          // const execCommand =  exp+' build:android ';
-          // shell.exec(execCommand);
+          createAppJson();
           const child = spawn('exp', ['build:android'], { shell: true, stdio: 'inherit' });
           // child.stdout.pipe(process.stdout);
           // pipe the main process input to the child process
           process.stdin.pipe(child.stdin);
         }else if (platform === 'ios' && answers2.command === 'build') {
+          createAppJson();
           const child = spawn('exp', ['build:ios']);
           // pipe the main process input to the child process
           process.stdin.pipe(child.stdin);
