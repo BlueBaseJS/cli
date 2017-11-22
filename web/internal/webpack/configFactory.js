@@ -1,7 +1,6 @@
 import appRootDir from 'app-root-dir';
 import AssetsPlugin from 'assets-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import nodeExternals from 'webpack-node-externals';
 import path from 'path';
 import webpack from 'webpack';
 import WebpackMd5Hash from 'webpack-md5-hash';
@@ -28,7 +27,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
  * @return {Object} The webpack configuration.
  */
 export default function webpackConfigFactory(buildOptions) {
-  const { target, optimize = false } = buildOptions;
+  const { target, optimize = true } = buildOptions;
   const isProd = optimize;
   const isDev = !isProd;
   const isClient = target === 'client';
@@ -37,11 +36,8 @@ export default function webpackConfigFactory(buildOptions) {
 
   // Preconfigure some ifElse helper instnaces. See the util docs for more
   // information on how this util works.
-  const ifDev = ifElse(isDev);
   const ifProd = ifElse(isProd);
-  const ifNode = ifElse(isNode);
   const ifClient = ifElse(isClient);
-  const ifDevClient = ifElse(isDev && isClient);
   const ifProdClient = ifElse(isProd && isClient);
 
   console.log(
@@ -50,12 +46,7 @@ export default function webpackConfigFactory(buildOptions) {
       : 'a development'} bundle configuration for the "${target}"`,
   );
 
-  const bundleConfig =
-    isServer || isClient
-      ? // This is either our "server" or "client" bundle.
-        config(['bundles', target])// same as lodash.get
-      : // Otherwise it must be an additional node bundle.
-        config(['additionalNodeBundles', target]);
+  const bundleConfig = config('bundles.client')// same as lodash.get
 
   if (!bundleConfig) {
     throw new Error('No bundle configuration exists for target:', target);
@@ -98,7 +89,7 @@ export default function webpackConfigFactory(buildOptions) {
       // The name format for any additional chunks produced for the bundle.
       chunkFilename: '[name]-[chunkhash].js',
       // When targetting node we will output our bundle as a commonjs2 module.
-      libraryTarget: ifNode('commonjs2', 'var'),
+      libraryTarget:  'var',
       // This is the web path under which our webpack bundled client should
       // be considered as being served from.
       publicPath:bundleConfig.webPath
@@ -167,41 +158,9 @@ export default function webpackConfigFactory(buildOptions) {
     // native node module system. Therefore we use the `webpack-node-externals`
     // library to help us generate an externals configuration that will
     // ignore all the node_modules.
-    externals: removeNil([
-      ifNode(() =>
-        nodeExternals(
-          // Some of our node_modules may contain files that depend on our
-          // webpack loaders, e.g. CSS or SASS.
-          // For these cases please make sure that the file extensions are
-          // registered within the following configuration setting.
-          {
-            whitelist: removeNil([
-              // We always want the source-map-support included in
-              // our node target bundles.
-              'source-map-support/register',
-            ])
-              // And any items that have been whitelisted in the config need
-              // to be included in the bundling process too.
-              .concat(config('nodeExternalsFileTypeWhitelist') || []),
-          },
-        ),
-      ),
-    ]),
+    externals: removeNil([    ]),
 
     plugins: removeNil([
-      // This grants us source map support, which combined with our webpack
-      // source maps will give us nice stack traces for our node executed
-      // bundles.
-      // We use the BannerPlugin to make sure all of our chunks will get the
-      // source maps support installed.
-      // ifNode(
-      //   () =>
-      //     new webpack.BannerPlugin({
-      //       banner: 'require("source-map-support").install();',
-      //       raw: true,
-      //       entryOnly: false,
-      //     }),
-      // ),
 
       // Implement webpack 3 scope hoisting that will remove function wrappers
       // around your modules you may see some small size improvements. However,
@@ -343,10 +302,6 @@ export default function webpackConfigFactory(buildOptions) {
                   // transilation as webpack takes care of this for us, doing
                   // tree shaking in the process.
                   ifClient(['env', { es2015: { modules: false } }]),
-                  // For a node bundle we use the specific target against
-                  // babel-preset-env so that only the unsupported features of
-                  // our target node version gets transpiled.
-                  ifNode(['env', { targets: { node: true } }]),
                 ].filter(x => x != null),
 
                 plugins: [
@@ -445,7 +400,6 @@ export default function webpackConfigFactory(buildOptions) {
             // This is bound to our server/client bundles as we only expect to be
             // serving the client bundle as a Single Page Application through the
             // server.
-            ifElse(isClient || isServer)(
               mergeDeep(
                 {
                   test: /\.css$/,
@@ -463,32 +417,26 @@ export default function webpackConfigFactory(buildOptions) {
                     use: ['css-loader'],
                   }),
                 })),
-                // When targetting the server we use the "/locals" version of the
-                // css loader, as we don't need any css files for the server.
-                ifNode({
-                  loaders: ['css-loader/locals'],
-                }),
               ),
-            ),
 
             // MODERNIZR
             // This allows you to do feature detection.
             // @see https://modernizr.com/docs
             // @see https://github.com/peerigon/modernizr-loader
-            ifClient({
+            {
               test: /\.modernizrrc.js$/,
               loader: 'modernizr-loader',
-            }),
-            ifClient({
+            },
+            {
               test: /\.modernizrrc(\.json)?$/,
               loader: 'modernizr-loader!json-loader',
-            }),
+            },
 
             // ASSETS (Images/Fonts/etc)
             // This is bound to our server/client bundles as we only expect to be
             // serving the client bundle as a Single Page Application through the
             // server.
-            ifElse(isClient || isServer)(() => ({
+            {
               loader: 'file-loader',
               exclude: [/\.js$/, /\.html$/, /\.json$/],
               query: {
@@ -496,20 +444,13 @@ export default function webpackConfigFactory(buildOptions) {
                 // The same value has to be used for both the client and the
                 // server bundles in order to ensure that SSR paths match the
                 // paths used on the client.
-                publicPath: isDev
-                  ? // When running in dev mode the client bundle runs on a
-                    // seperate port so we need to put an absolute path here.
-                    `http://${config('host')}:${config('clientDevServerPort')}${config(
-                      'bundles.client.webPath',
-                    )}`
-                  : // Otherwise we just use the configured web path for the client.
-                    config('bundles.client.webPath'),
+                publicPath:config('bundles.client.webPath'),
                 // We only emit files when building a web bundle, for the server
                 // bundle we only care about the file loader being able to create
                 // the correct asset URLs.
                 emitFile: isClient,
               },
-            })),
+            },
 
             // Do not add any loader after file loader (fallback loader)
             // Make sure to add the new loader(s) before the "file" loader.
