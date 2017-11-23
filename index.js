@@ -43,12 +43,17 @@ function createManifestJson(){
 function createAppJson(){
   const appJson ={};
   let bootConfig = require(path.resolve(process.cwd(), 'bluerain.js'));
-  const packageJson = require(path.resolve(process.cwd(), 'package.json'));
+  const packageJson = require('./package.json');
   bootConfig = bootConfig.config;
   appJson.name = bootConfig.title;
   appJson.slug = bootConfig.slug || kebabCase(appJson.name);
-  appJson.sdkVersion = bootConfig.sdkVersion || packageJson.devDependencies.expo || packageJson.dependencies.expo;
-  appJson.sdkVersion =appJson.sdkVersion.replace(/\^/,'')
+  appJson.sdkVersion = bootConfig.sdkVersion || packageJson.dependencies.expo || packageJson.devDependencies.expo;
+  if (appJson.sdkVersion){
+    appJson.sdkVersion = appJson.sdkVersion.replace(/\^/,'');
+    const arr = appJson.sdkVersion.split('.');
+    arr[1] = arr[2] = '0';
+    appJson.sdkVersion = arr.join('.');
+  }
   appJson.version = bootConfig.version || packageJson.version;
   appJson.description = bootConfig.description;
   appJson.loading = bootConfig.loading;
@@ -57,9 +62,9 @@ function createAppJson(){
   }
   if (bootConfig.orientation === 'any' || bootConfig.orientation === 'natural') {
     appJson.orientation = 'default'
-  }else if (bootConfig.orientation && bootConfig.orientation.contains('landscape')){
+  }else if (bootConfig.orientation && bootConfig.orientation.includes('landscape')){
     appJson.orientation = 'landscape'
-  }else if (bootConfig.orientation && bootConfig.orientation.contains('portrait')){
+  }else if (bootConfig.orientation && bootConfig.orientation.includes('portrait')){
     appJson.orientation = 'portrait'
   }
   if (bootConfig.icons){
@@ -192,7 +197,6 @@ inquirer.prompt([
         else if ((platform === 'android' || platform==='ios') && answers2.command === 'start') {
           createAppJson();
           const execCommand =exp+' start --lan --dev ' + __dirname;
-          console.log(execCommand);
           spawn(execCommand, { shell: true, stdio: 'inherit' });
         }else if (platform === 'android' && answers2.command === 'build') {
           createAppJson();
