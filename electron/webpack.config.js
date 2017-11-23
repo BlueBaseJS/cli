@@ -156,6 +156,5 @@ module.exports = ({ platform, prod } = {}) => {
 		}
 		catch(e){console.error(e)};
 	}
-	console.log(config.module.rules);
 	return config;
 };

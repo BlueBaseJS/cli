@@ -2,14 +2,38 @@
 const inquirer = require('inquirer');
 const path = require('path');
 var shell = require('shelljs');
+const colors = require('colors/safe');
+const set = require('lodash.set');
 const crossEnv = 'node_modules/.bin/cross-env ';
 const exp = 'node_modules/.bin/exp ';
 const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
-var exec = require('exec');
-const { spawn } = require('child_process')
+// var exec = require('exec');
+const { spawn, exec } = require('child_process')
 const fs = require('fs');
 const kebabCase = require('lodash.kebabcase');
+if(process.argv.includes('init')){
+  console.log('Initializing your project for bluerain...');
+  if (!fs.existsSync(path.resolve(process.cwd(), 'package.json') ) ) {
+    console.log(colors.bgRed.white('No package.json found. Please run "npm init" to create package.json'))
+  }else {
+    let packageJson = require(path.join(process.cwd(), 'package.json'));
 
+    set(packageJson,'devDependencies.bluerain-cli',
+     "git+ssh://https://github.com/BlueEastCode/bluerain-cli.git#feature/boot-from-cli");
+    
+     packageJson.dependencies=Object.assign({},packageJson.dependencies, {
+      '@blueeast/bluerain-os':'^0.5.0',
+    });
+    fs.writeFileSync(path.resolve(process.cwd(), 'package.json'), JSON.stringify(packageJson, null, 2),  'utf-8');
+    shell.cp('-R', path.join(__dirname,'bluerain.js'), path.resolve(process.cwd()));
+    console.log('Project initialized.Please run "npm install" to install dependencies');
+  }
+  process.exit()
+}
+if (!fs.existsSync(path.resolve(process.cwd(), 'bluerain.js') ) ) {
+  console.log('Error: "bluerain.js" not found please run "bluerain init" to initialize directory to bluerain project.');
+  process.exit();
+}
 function editBootFile(){
   let data = fs.readFileSync(path.join(__dirname, 'bootTemplate.js'));
     data = data.toString();
@@ -108,10 +132,11 @@ inquirer.prompt([
     editBootFile();
     const platform = answers.platform;
     if(platform === 'electron') {
-      const package = require('./package.json');
+      const package = require(path.join(process.cwd(),'./package.json'));
       package.main= 'build';
-      const content = JSON.stringify(package);
-      fs.writeFile("electron/package.json", content, 'utf8', function (err) {
+      const content = JSON.stringify(package, null, 2);
+      shell.mkdir('-p', 'electron');
+      fs.writeFile(path.join(process.cwd(),"electron/package.json"), content, 'utf8', function (err) {
         if (err) {
             return console.log(err);
         }
@@ -186,8 +211,6 @@ inquirer.prompt([
              '--content-base '+ path.resolve(__dirname, 'web'),
              ' --config '+ path.resolve(__dirname, 'web/webpack.config.js')],
              { shell: true, stdio: 'inherit' });
-        // const execCommand = 'node_modules/.bin/webpack-dev-server --inline --hot --history-api-fallback --content-base ' + path.resolve(__dirname, 'web')+' --config '+ path.resolve(__dirname, 'web/webpack.config.js');
-        // shell.exec(execCommand);
         }
         else if (platform === 'web' && answers2.command === 'build') {
           createManifestJson();
@@ -200,17 +223,11 @@ inquirer.prompt([
           spawn(execCommand, { shell: true, stdio: 'inherit' });
         }else if (platform === 'android' && answers2.command === 'build') {
           createAppJson();
-          const child = spawn('exp', ['build:android'], { shell: true, stdio: 'inherit' });
-          // child.stdout.pipe(process.stdout);
-          // pipe the main process input to the child process
-          process.stdin.pipe(child.stdin);
+          const child = spawn('exp', ['build:android', __dirname], { shell: true, stdio: 'inherit' });
         }else if (platform === 'ios' && answers2.command === 'build') {
           createAppJson();
-          const child = spawn('exp', ['build:ios']);
-          // pipe the main process input to the child process
-          process.stdin.pipe(child.stdin);
+          const child = spawn('exp', ['build:ios', __dirname], { shell: true, stdio: 'inherit' });
         }
-
           console.log('Your platform is: ', platform, 'Your command is: ', answers2.command)
     }); 
   }
