@@ -1,5 +1,5 @@
 {
-  "name": "bin",
+  "name": "bluerain-cli",
   "version": "1.0.0",
   "description": "",
   "main": "node_modules/expo/AppEntry.js",
@@ -67,7 +67,7 @@
     "utf-8-validate": "^3.0.4",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.7.1",
+    "webpack-dev-server": "^2.9.4",
     "webpack-md5-hash": "0.0.5",
     "webpack-merge": "^4.1.1",
     "webpack-node-externals": "^1.6.0"
