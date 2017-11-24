@@ -11,6 +11,8 @@ const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
 const { spawn, exec } = require('child_process')
 const fs = require('fs');
 const kebabCase = require('lodash.kebabcase');
+
+// bluerain init command script
 if(process.argv.includes('init')){
   console.log('Initializing your project for bluerain...');
   if (!fs.existsSync(path.resolve(process.cwd(), 'package.json') ) ) {
@@ -30,16 +32,21 @@ if(process.argv.includes('init')){
   }
   process.exit()
 }
+
+//Check if directory has been initialized or not
 if (!fs.existsSync(path.resolve(process.cwd(), 'bluerain.js') ) ) {
   console.log('Error: "bluerain.js" not found please run "bluerain init" to initialize directory to bluerain project.');
   process.exit();
 }
+//Function to update the import path of bluerain.js in boot.js file 
 function editBootFile(){
   let data = fs.readFileSync(path.join(__dirname, 'bootTemplate.js'));
     data = data.toString();
     data = data.replace('CONFIG_PATH', path.resolve(process.cwd(), 'bluerain.js'));
     fs.writeFileSync(path.join(__dirname, 'boot.js'), data);
 }
+
+// function to create/update web-manifest file according to the config in bluerain.js
 function createManifestJson(){
   let bootConfig = require(path.resolve(process.cwd(), 'bluerain.js'));
   bootConfig = bootConfig.config;
@@ -64,6 +71,8 @@ function createManifestJson(){
   manifestJson.start_url = bootConfig.start_url;
   fs.writeFileSync(path.join(__dirname, 'web/manifest.webmanifest'), JSON.stringify(manifestJson));
 }
+
+// function to create/update expo app.json file according to the config in bluerain.js
 function createAppJson(){
   const appJson ={};
   let bootConfig = require(path.resolve(process.cwd(), 'bluerain.js'));

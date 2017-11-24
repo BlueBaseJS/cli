@@ -2,8 +2,7 @@
 // for booting bluerain-os. see https://blueeast.gitbooks.io/bluerain-os/
 module.exports={
     apps:[
-        require('@blueeast/bluerain-app-settings').default
-        // other apps will also be added in this array
+        // All bluerain apps will also be added in this array
     ],
   plugins:[
   	// All bluerain plugins will be added here
