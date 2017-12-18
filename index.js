@@ -43,6 +43,7 @@ function editBootFile(){
   let data = fs.readFileSync(path.join(__dirname, 'bootTemplate.js'));
     data = data.toString();
     data = data.replace('CONFIG_PATH', path.resolve(process.cwd(), 'bluerain.js'));
+    data = data.replace('OS_PATH', path.resolve(process.cwd(), 'node_modules/@blueeast/bluerain-os'));
     fs.writeFileSync(path.join(__dirname, 'boot.js'), data);
 }
 
