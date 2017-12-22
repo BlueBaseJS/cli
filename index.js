@@ -21,7 +21,7 @@ if(process.argv.includes('init')){
     let packageJson = require(path.join(process.cwd(), 'package.json'));
 
     set(packageJson,'devDependencies.bluerain-cli',
-     "git+ssh://https://github.com/BlueEastCode/bluerain-cli.git#feature/boot-from-cli");
+     "0.1.0");
     
      packageJson.dependencies=Object.assign({},packageJson.dependencies, {
       '@blueeast/bluerain-os':'^0.5.0',
