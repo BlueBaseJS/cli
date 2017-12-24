@@ -40,14 +40,6 @@ if (!fs.existsSync(path.resolve(process.cwd(), 'bluerain.js') ) ) {
   console.log('Error: "bluerain.js" not found please run "bluerain init" to initialize directory to bluerain project.');
   process.exit();
 }
-//Function to update the import path of bluerain.js in boot.js file
-function editBootFile(){
-  let data = fs.readFileSync(path.join(__dirname, 'bootTemplate.js'));
-    data = data.toString();
-    data = data.replace('CONFIG_PATH', path.resolve(process.cwd(), 'bluerain.js'));
-    data = data.replace('OS_PATH', path.resolve(process.cwd(), 'node_modules/@blueeast/bluerain-os'));
-    fs.writeFileSync(path.join(__dirname, 'boot.js'), data);
-}
 
 inquirer.prompt([
     {
@@ -62,7 +54,6 @@ inquirer.prompt([
       ]
     }
   ]).then(function (answers) {
-    editBootFile();
     const platform = answers.platform;
     if(platform === 'electron') {
       const package = require(path.join(process.cwd(),'./package.json'));
@@ -109,7 +100,6 @@ inquirer.prompt([
             spawn(build, { shell: true, stdio: 'inherit' });
           }
           else if ( answers2.command === 'linux-package') {
-            // editBootFile();
             const package=  'rm -rf '+ path.resolve(process.cwd(), 'electron/linux-build')+ ' && '+ crossEnv + ' DEBUG_PROD=false ' + build + ' && node '+ path.resolve(electronDir, 'tasks/package');
             spawn(package, { shell: true, stdio: 'inherit' });
           }
