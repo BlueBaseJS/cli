@@ -8,9 +8,8 @@ const crossEnv = 'node_modules/.bin/cross-env ';
 const exp = 'node_modules/.bin/exp ';
 const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
 // var exec = require('exec');
-const { spawn, exec } = require('child_process');
+const { spawn } = require('child_process');
 const fs = require('fs');
-const kebabCase = require('lodash.kebabcase');
 const createAppJson = require('./expo/createAppJson');
 const createManifestJson = require('./web/createManifestJson');
 
@@ -126,7 +125,7 @@ inquirer.prompt([
 		]).then((answers2) => {
 			if (platform === 'web' && answers2.command === 'start') {
 				createManifestJson();
-				const child = spawn(
+				spawn(
 					webpackDevServer,
 					['--inline', '--hot',
 						'--history-api-fallback',
@@ -144,10 +143,10 @@ inquirer.prompt([
 				spawn(execCommand, { shell: true, stdio: 'inherit' });
 			} else if (platform === 'android' && answers2.command === 'build') {
 				createAppJson();
-				const child = spawn('exp', ['build:android', __dirname], { shell: true, stdio: 'inherit' });
+				spawn('exp', ['build:android', __dirname], { shell: true, stdio: 'inherit' });
 			} else if (platform === 'ios' && answers2.command === 'build') {
 				createAppJson();
-				const child = spawn('exp', ['build:ios', __dirname], { shell: true, stdio: 'inherit' });
+				spawn('exp', ['build:ios', __dirname], { shell: true, stdio: 'inherit' });
 			}
 			console.log('Your platform is: ', platform, 'Your command is: ', answers2.command);
 		});
