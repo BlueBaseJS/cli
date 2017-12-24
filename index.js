@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const inquirer = require('inquirer');
 const path = require('path');
-var shell = require('shelljs');
+const shell = require('shelljs');
 const colors = require('colors/safe');
 const set = require('lodash.set');
 const crossEnv = 'node_modules/.bin/cross-env ';
@@ -11,6 +11,8 @@ const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
 const { spawn, exec } = require('child_process')
 const fs = require('fs');
 const kebabCase = require('lodash.kebabcase');
+const createAppJson = require('./expo/createAppJson');
+const createManifestJson = require('./web/createManifestJson');
 
 // bluerain init command script
 if(process.argv.includes('init')){
@@ -47,85 +49,6 @@ function editBootFile(){
     fs.writeFileSync(path.join(__dirname, 'boot.js'), data);
 }
 
-// function to create/update web-manifest file according to the config in bluerain.js
-function createManifestJson(){
-  let bootConfig = require(path.resolve(process.cwd(), 'bluerain.js'));
-  bootConfig = bootConfig.config;
-  const manifestJson = {};
-  manifestJson.name = bootConfig.title;
-  manifestJson.short_name = bootConfig.slug || kebabCase(manifestJson.name);;
-  manifestJson.description = bootConfig.description;
-  manifestJson.icons = bootConfig.icons;
-  manifestJson.orientation = bootConfig.orientation;
-  if (bootConfig.theme && bootConfig.theme.colors){
-    manifestJson.theme_color = bootConfig.theme.colors.primary;
-  }
-  if (bootConfig.loading ){
-    manifestJson.background_color = bootConfig.loading.backgroundColor;
-  }
-  manifestJson.dir = bootConfig.dir;
-  manifestJson.display = bootConfig.display;
-  manifestJson.lang = bootConfig.lang|| bootConfig.locale;
-  manifestJson.prefer_related_applications = bootConfig.prefer_related_applications;
-  manifestJson.related_applications = bootConfig.related_applications;
-  manifestJson.scope = bootConfig.scope;
-  manifestJson.start_url = bootConfig.start_url;
-  fs.writeFileSync(path.join(__dirname, 'web/manifest.webmanifest'), JSON.stringify(manifestJson));
-}
-
-// function to create/update expo app.json file according to the config in bluerain.js
-function createAppJson(){
-  const appJson ={};
-  let bootConfig = require(path.resolve(process.cwd(), 'bluerain.js'));
-  const packageJson = require('./package.json');
-  bootConfig = bootConfig.config;
-  appJson.name = bootConfig.title;
-  appJson.slug = bootConfig.slug || kebabCase(appJson.name);
-  appJson.sdkVersion = bootConfig.sdkVersion || packageJson.dependencies.expo || packageJson.devDependencies.expo;
-  if (appJson.sdkVersion){
-    appJson.sdkVersion = appJson.sdkVersion.replace(/\^/,'');
-    const arr = appJson.sdkVersion.split('.');
-    arr[1] = arr[2] = '0';
-    appJson.sdkVersion = arr.join('.');
-  }
-  appJson.version = bootConfig.version || packageJson.version;
-  appJson.description = bootConfig.description;
-  appJson.loading = bootConfig.loading;
-  if (bootConfig.theme && bootConfig.theme.colors){
-    appJson.primaryColor = bootConfig.theme.colors.primary;
-  }
-  if (bootConfig.orientation === 'any' || bootConfig.orientation === 'natural') {
-    appJson.orientation = 'default'
-  }else if (bootConfig.orientation && bootConfig.orientation.includes('landscape')){
-    appJson.orientation = 'landscape'
-  }else if (bootConfig.orientation && bootConfig.orientation.includes('portrait')){
-    appJson.orientation = 'portrait'
-  }
-  if (bootConfig.icons){
-    for (icon in icons) {
-      if ('default' in  icon){
-        appJson.icon = icon.src;
-      }
-    }
-  }
-  appJson.privacy = bootConfig.privacy;
-  appJson.notification = bootConfig.notification;
-  appJson.appKey = bootConfig.appKey;
-  appJson.androidStatusBar = bootConfig.androidStatusBar;
-  appJson.androidShowExponentNotificationInShellApp = bootConfig.androidShowExponentNotificationInShellApp;
-  appJson.scheme = bootConfig.scheme;
-  appJson.entryPoint = bootConfig.entryPoint;
-  appJson.extra = bootConfig.extra;
-  appJson.rnCliPath = bootConfig.rnCliPath;
-  appJson.packagerOpts = bootConfig.packagerOpts;
-  appJson.ignoreNodeModulesValidation = bootConfig.ignoreNodeModulesValidation;
-  appJson.nodeModulesPath = bootConfig.nodeModulesPath;
-  appJson.splash = bootConfig.splash;
-  appJson.facebookScheme = bootConfig.facebookScheme;
-  appJson.ios = bootConfig.ios;
-  appJson.android = bootConfig.android;
-  fs.writeFileSync(path.join(__dirname, 'app.json'), JSON.stringify({expo: appJson}));
-}
 inquirer.prompt([
     {
       type: 'list',
