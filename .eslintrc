@@ -1,0 +1,6 @@
+{
+	"extends": "eslint-config-blueeast/react",
+	"parser": "babel-eslint",
+	"rules": {
+	}
+}
