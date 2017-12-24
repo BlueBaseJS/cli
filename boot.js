@@ -3,6 +3,6 @@ import bootConfig from '../../bluerain.js';
 
 BR.boot(bootConfig);
 
-//require('./web/registerServiceWorker');
+// require('./web/registerServiceWorker');
 
 console.log('BR booted', BR);
