@@ -1,7 +1,5 @@
 /**
 * This entry point is request by expo.
 */
-console.log('in app.js')
-import App from './boot.js';
-
+import App from './boot';
 export default App;

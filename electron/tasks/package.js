@@ -23,19 +23,19 @@ const options = {
 
 const archs = shouldBuildAll ? ['ia32', 'x64'] : [os.arch()];
 const platforms = shouldBuildAll
-  ? ['linux', 'win32', 'darwin']
-  : [os.platform()];
+	? ['linux', 'win32', 'darwin']
+	: [os.platform()];
 platforms.forEach((platform) => {
 	archs.forEach((arch) => {
 		console.log(`${platform} ${arch} start`);
 		pack(platform, arch).then(
-      () => console.log(`${platform} ${arch} finish`),
-      (err) => {
-	if (!err) return;
-	console.log(`${platform} ${arch} error`);
-	throw err;
-}
-    );
+			() => console.log(`${platform} ${arch} finish`),
+			(err) => {
+				if (!err) return;
+				console.log(`${platform} ${arch} error`);
+				throw err;
+			}
+		);
 	});
 });
 
@@ -48,11 +48,11 @@ function pack(platform, arch) {
 		platform,
 		arch,
 		icon: options.icon
-      ? options.icon +
+			? options.icon +
           (platform === 'darwin'
-            ? '.icns'
-            : platform === 'win32' ? '.ico' : '.png')
-      : undefined
+          	? '.icns'
+          	: platform === 'win32' ? '.ico' : '.png')
+			: undefined
 	});
 
 	return new Promise((resolve, reject) => {

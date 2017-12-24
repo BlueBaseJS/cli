@@ -22,7 +22,7 @@ if(process.argv.includes('init')){
 
     set(packageJson,'devDependencies.bluerain-cli',
      "0.1.0");
-    
+
      packageJson.dependencies=Object.assign({},packageJson.dependencies, {
       '@blueeast/bluerain-os':'^0.5.0',
     });
@@ -38,7 +38,7 @@ if (!fs.existsSync(path.resolve(process.cwd(), 'bluerain.js') ) ) {
   console.log('Error: "bluerain.js" not found please run "bluerain init" to initialize directory to bluerain project.');
   process.exit();
 }
-//Function to update the import path of bluerain.js in boot.js file 
+//Function to update the import path of bluerain.js in boot.js file
 function editBootFile(){
   let data = fs.readFileSync(path.join(__dirname, 'bootTemplate.js'));
     data = data.toString();
@@ -180,7 +180,7 @@ inquirer.prompt([
           const devServer= webpackDevServer+ ' --config '+ path.resolve(electronDir, 'webpack.config.js');
           const execCommand = devServer+ ' & ' +  startDev;
           shell.exec(execCommand);
-          
+
           }
           else if ( answers2.command === 'build') {
             spawn(build, { shell: true, stdio: 'inherit' });
@@ -215,7 +215,7 @@ inquirer.prompt([
       ]).then(function (answers2) {
         if (platform === 'web' && answers2.command === 'start') {
           createManifestJson();
-          const child = spawn(webpackDevServer, 
+          const child = spawn(webpackDevServer,
             ['--inline', '--hot',
              '--history-api-fallback',
              '--content-base '+ path.resolve(__dirname, 'web'),
@@ -239,6 +239,6 @@ inquirer.prompt([
           const child = spawn('exp', ['build:ios', __dirname], { shell: true, stdio: 'inherit' });
         }
           console.log('Your platform is: ', platform, 'Your command is: ', answers2.command)
-    }); 
+    });
   }
-});  
+});

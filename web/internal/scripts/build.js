@@ -9,7 +9,7 @@ import webpackConfigFactory from '../webpack/configFactory';
 import { exec } from '../utils';
 import config from '../../config';
 const path = require('path');
-const {smart} = require('webpack-merge');
+const { smart } = require('webpack-merge');
 const fs = require('fs');
 
 
@@ -18,24 +18,23 @@ exec(`rm -rf ${pathResolve(appRootDir.get(), config('buildOutputPath'))}`);
 
 
 let webpackConfig = webpackConfigFactory({ target: 'client', optimize:true });
-const webpackPath = path.resolve(process.cwd(),'./web/webpack.config.js')
+const webpackPath = path.resolve(process.cwd(), './web/webpack.config.js');
 if (fs.existsSync(webpackPath)) {
-  try{
-    const addedConfig = require(webpackPath);
-    if (typeof addedConfig === "function"){
-      webpackConfig = addedConfig(webpackConfig, 'production');
-    }else {
-      webpackConfig = smart( webpackConfig, addedConfig);
-    }
-  }
-  catch(e){console.error(e)};
+	try {
+		const addedConfig = require(webpackPath);
+		if (typeof addedConfig === 'function') {
+			webpackConfig = addedConfig(webpackConfig, 'production');
+		} else {
+			webpackConfig = smart( webpackConfig, addedConfig);
+		}
+	} catch (e) { console.error(e); }
 }
 const compiler = webpack(webpackConfig);
 compiler.run((err, stats) => {
 
-  if (err) {
-    console.error('werroe', err);
-    return;
-  }
-  console.log('stats', stats.toString({ colors: true }));
+	if (err) {
+		console.error('werroe', err);
+		return;
+	}
+	console.log('stats', stats.toString({ colors: true }));
 });
