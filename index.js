@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 // const { request } = require('http');
 
-const inquirer = require('inquirer');
-const path = require('path');
+// const inquirer = require('inquirer');
+// const path = require('path');
 const shell = require('shelljs');
-const colors = require('colors/safe');
-const set = require('lodash.set');
+// const colors = require('colors/safe');
+// const set = require('lodash.set');
 const chalk = require('chalk');
-const crossEnv = 'node_modules/.bin/cross-env ';
-const exp = 'node_modules/.bin/exp ';
-const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
+// const crossEnv = 'node_modules/.bin/cross-env ';
+// const exp = 'node_modules/.bin/exp ';
+// const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
 // var exec = require('exec');
-const { spawn } = require('child_process');
-const fs = require('fs');
-const createAppJson = require('./expo/createAppJson');
+// const { spawn } = require('child_process');
+// const fs = require('fs');
+// const createAppJson = require('./expo/createAppJson');
 // const createManifestJson = require('./web/createManifestJson');
 const wizard = require('./src/scripts/wizard');
 
