@@ -6,6 +6,7 @@ const path = require('path');
 const shell = require('shelljs');
 const colors = require('colors/safe');
 const set = require('lodash.set');
+const chalk = require('chalk');
 const crossEnv = 'node_modules/.bin/cross-env ';
 const exp = 'node_modules/.bin/exp ';
 const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
@@ -13,10 +14,10 @@ const webpackDevServer = 'node_modules/.bin/webpack-dev-server ';
 const { spawn } = require('child_process');
 const fs = require('fs');
 const createAppJson = require('./expo/createAppJson');
-const createManifestJson = require('./web/createManifestJson');
+// const createManifestJson = require('./web/createManifestJson');
 const wizard = require('./src/scripts/wizard');
 
-const { checkPackageJson } = require('./src/tools/package');
+// const { checkPackageJson } = require('./src/tools/package');
 
 // checkPackageJson.then(result => console.log(`Project initialized: ${result}`));
 
@@ -44,8 +45,99 @@ const { checkPackageJson } = require('./src/tools/package');
 // }
 
 
+function init(type) {
+
+	switch (type) {
+	case 'app':
+		shell.echo(chalk.red('BlueRain App initializing is not implemented yet. 😞'));
+		break;
+
+	case 'plugin':
+		shell.echo(chalk.red('BlueRain Plugin initializing is not implemented yet. 😞'));
+		break;
+
+	case 'project':
+		shell.echo(chalk.red('BlueRain Project initializing is not implemented yet. 😞'));
+		break;
+
+	default:
+		break;
+	}
+}
+
+function run(type) {
+	switch (type) {
+	case 'android':
+		shell.echo(chalk.red('Running an Android project is not implemented yet. 😞'));
+		break;
+
+	case 'electron':
+		shell.echo(chalk.red('Running an Electron project is not implemented yet. 😞'));
+		break;
+
+	case 'ios':
+		shell.echo(chalk.red('Running an iOS project is not implemented yet. 😞'));
+		break;
+
+	case 'web':
+		shell.echo(chalk.red('Running a Web project is not implemented yet. 😞'));
+		break;
+
+	default:
+		break;
+	}
+}
+
+function build(type) {
+	switch (type) {
+	case 'android':
+		shell.echo(chalk.red('Building an Android project is not implemented yet. 😞'));
+		break;
+
+	case 'ios':
+		shell.echo(chalk.red('Building an iOS project is not implemented yet. 😞'));
+		break;
+
+	case 'linux':
+		shell.echo(chalk.red('Building a Linux project is not implemented yet. 😞'));
+		break;
+
+	case 'macos':
+		shell.echo(chalk.red('Building a macOS project is not implemented yet. 😞'));
+		break;
+
+	case 'web':
+		shell.echo(chalk.red('Building a Web project is not implemented yet. 😞'));
+		break;
+
+	case 'windows':
+		shell.echo(chalk.red('Building a Windows project is not implemented yet. 😞'));
+		break;
+
+	default:
+		break;
+	}
+}
+
+
 wizard.then((answers) => {
-	console.log('whats going on here?', answers)
+
+	switch (answers.action) {
+	case 'init':
+		init(answers.type);
+		break;
+
+	case 'run':
+		run(answers.type);
+		break;
+
+	case 'build':
+		build(answers.type);
+		break;
+
+	default:
+		break;
+	}
 });
 // // Check if directory has been initialized or not
 // if (!fs.existsSync(path.resolve(process.cwd(), 'bluerain.js') ) ) {
