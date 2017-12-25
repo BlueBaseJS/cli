@@ -12,7 +12,7 @@ import { removeNil } from '../utils/arrays';
 import withServiceWorker from './withServiceWorker';
 import config from '../../config';
 const CompressionPlugin = require('compression-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 /**
  * Generates a webpack configuration for the target configuration.
  *
@@ -108,7 +108,7 @@ export default function webpackConfigFactory(buildOptions) {
 		},
 
 		// Source map settings.
-		devtool: ifElse(
+		devtool: ifElse( // eslint-disable-line function-paren-newline
 			// Include source maps for ANY node bundle so that we can support
 			// nice stack traces for errors (the source maps get consumed by
 			// the `node-source-map-support` module to allow for this).

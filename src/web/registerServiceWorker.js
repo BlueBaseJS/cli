@@ -24,7 +24,7 @@ if (process.env.BUILD_FLAG_IS_DEV === 'false') {
 		// After the new SW update has been applied we will reload the users page
 		// to ensure they are using the latest assets.
 		// This only gets run if there were updates available for our cached assets.
-		onUpdated() { return window.location.reload(); },
+		onUpdated() { return window.location.reload(); }, // eslint-disable-line no-undef
 		onUpdateFailed() { return undefined; },
 	});
 }

@@ -4,9 +4,9 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+// const CopyPlugin = require('copy-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+// const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const { smart } = require('webpack-merge');
 const fs = require('fs');
 
@@ -18,7 +18,7 @@ module.exports = ({ platform, prod } = {}) => {
 	const electronMain = platform === 'electron';
 	const electronRenderer = !electronMain;
 
-	const cssLoaders = ['css-loader', 'sass-loader'];
+	// const cssLoaders = ['css-loader', 'sass-loader'];
 
 	let config =  {
 		devServer: {
