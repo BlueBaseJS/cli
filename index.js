@@ -14,34 +14,39 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 const createAppJson = require('./expo/createAppJson');
 const createManifestJson = require('./web/createManifestJson');
+const wizard = require('./src/tools/wizard');
 
 const { checkPackageJson } = require('./src/tools/package');
 
-checkPackageJson.then(result => console.log(`Project initialized: ${result}`));
+// checkPackageJson.then(result => console.log(`Project initialized: ${result}`));
 
-// bluerain init command script
-if (process.argv.includes('init')) {
-	console.log('Initializing your project for bluerain...');
-	if (!fs.existsSync(path.resolve(process.cwd(), 'package.json') ) ) {
-		console.log(colors.bgRed.white('No package.json found. Please run "npm init" to create package.json'));
-	} else {
-		const packageJson = require(path.join(process.cwd(), 'package.json'));
+// // bluerain init command script
+// if (process.argv.includes('init')) {
+// 	console.log('Initializing your project for bluerain...');
+// 	if (!fs.existsSync(path.resolve(process.cwd(), 'package.json') ) ) {
+// 		console.log(colors.bgRed.white('No package.json found. Please run "npm init" to create package.json'));
+// 	} else {
+// 		const packageJson = require(path.join(process.cwd(), 'package.json'));
 
-		set(
-			packageJson, 'devDependencies.bluerain-cli',
-			'0.1.0'
-		);
+// 		set(
+// 			packageJson, 'devDependencies.bluerain-cli',
+// 			'0.1.0'
+// 		);
 
-		packageJson.dependencies = Object.assign({}, packageJson.dependencies, {
-			'@blueeast/bluerain-os':'^0.5.0',
-		});
-		fs.writeFileSync(path.resolve(process.cwd(), 'package.json'), JSON.stringify(packageJson, null, 2),  'utf-8');
-		shell.cp('-R', path.join(__dirname, 'bluerain.js'), path.resolve(process.cwd()));
-		console.log('Project initialized.Please run "npm install" to install dependencies');
-	}
-	process.exit();
-}
+// 		packageJson.dependencies = Object.assign({}, packageJson.dependencies, {
+// 			'@blueeast/bluerain-os':'^0.5.0',
+// 		});
+// 		fs.writeFileSync(path.resolve(process.cwd(), 'package.json'), JSON.stringify(packageJson, null, 2),  'utf-8');
+// 		shell.cp('-R', path.join(__dirname, 'bluerain.js'), path.resolve(process.cwd()));
+// 		console.log('Project initialized.Please run "npm install" to install dependencies');
+// 	}
+// 	process.exit();
+// }
 
+
+wizard.then((answers) => {
+	console.log('whats going on here?', answers)
+});
 // // Check if directory has been initialized or not
 // if (!fs.existsSync(path.resolve(process.cwd(), 'bluerain.js') ) ) {
 // 	console.log('Error: "bluerain.js" not found please run "bluerain init" to initialize directory to bluerain project.');
