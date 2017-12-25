@@ -80,7 +80,8 @@ function run(type) {
 		break;
 
 	case 'web':
-		shell.echo(chalk.red('Running a Web project is not implemented yet. 😞'));
+		shell.echo(chalk.green('Running a BlueRain Web project! 🌏'));
+		require('./src/web/internal/scripts/run');
 		break;
 
 	default:

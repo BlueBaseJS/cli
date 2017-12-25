@@ -2,6 +2,7 @@ const path = require('path');
 const dir = process.cwd();
 const { smart } = require('webpack-merge');
 const fs = require('fs');
+console.log('BOOT PATH', path.resolve(__dirname, '../', 'boot.js'))
 let config = {
 	entry: path.resolve(__dirname, '../', 'boot.js'),
 	output: {
