@@ -4,7 +4,7 @@
   "description": "",
   "main": "node_modules/expo/AppEntry.js",
   "bin": {
-    "bluerain": "index.js"
+    "bluerain": "cli.js"
   },
   "electron": {
     "name": "Bluerain-OS"
