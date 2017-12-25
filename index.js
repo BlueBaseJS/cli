@@ -14,7 +14,7 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 const createAppJson = require('./expo/createAppJson');
 const createManifestJson = require('./web/createManifestJson');
-const wizard = require('./src/tools/wizard');
+const wizard = require('./src/scripts/wizard');
 
 const { checkPackageJson } = require('./src/tools/package');
 
