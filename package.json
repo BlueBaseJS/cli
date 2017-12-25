@@ -1,7 +1,7 @@
 {
   "name": "bluerain-cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "A BlueRain CLI tool",
   "main": "node_modules/expo/AppEntry.js",
   "bin": {
     "bluerain": "cli.js"
@@ -12,7 +12,7 @@
   "author": "BlueEast Team <code@blueeast.com>",
   "repository": {
     "type": "git",
-    "url": "http:git@github.com:BlueEastCode/bluerain-plugin-redux.git",
+    "url": "http:git@github.com:BlueEastCode/bluerain-cli.git",
     "dry-run": false
   },
   "license": "MIT",
