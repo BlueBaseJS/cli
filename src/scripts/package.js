@@ -2,8 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const shell = require('shelljs');
-const { exec } = require('child_process');
-
 
 /**
  * Checks if project has package.json
