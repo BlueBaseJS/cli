@@ -28,6 +28,7 @@
   "scripts": {
     "commit": "git-cz",
     "lint": "./node_modules/.bin/eslint .",
+    "test": "npm run lint",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare"
   },
