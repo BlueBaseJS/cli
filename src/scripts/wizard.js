@@ -7,8 +7,8 @@ const actionPrompt = [
 		message: 'What is your desired action?',
 		choices: [
 			{
-				name: 'Initialize',
-				value: 'init'
+				name: 'Create',
+				value: 'create'
 			},
 			{
 				name: 'Run',
@@ -114,7 +114,7 @@ const wizard = new Promise((resolve, reject) => {
 			response.action = answers.action;
 
 			switch (response.action) {
-			case 'init':
+			case 'create':
 				return inquirer.prompt(initializeActionPrompt);
 
 			case 'run':
