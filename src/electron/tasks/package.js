@@ -3,7 +3,7 @@
 const os = require('os');
 const packager = require('electron-packager');
 const argv = require('minimist')(process.argv.slice(2));
-const pkg = require('../../package.json');
+const pkg = require('../../../package.json');
 
 const shouldBuildAll = argv.all || false;
 
@@ -13,7 +13,7 @@ const options = {
 	appVersion: pkg.version,
 	asar: true,
 	dir: './electron/',
-	electronVersion: pkg.dependencies.electron.replace(/^\^/, ''),
+	electronVersion: pkg.devDependencies.electron.replace(/^\^/, ''),
 	icon: pkg.electron.icon,
 	ignore: [/^\/(?!build|package.json$)/],
 	name: pkg.electron.name || pkg.name,
