@@ -5,5 +5,6 @@ exports.command = 'electron';
 exports.desc = 'Run a Bluerain project on Electron';
 exports.builder = {};
 exports.handler = function(argv) {
-	shell.echo(chalk.red('Running an Electron project is not implemented yet. 😞'));
+	shell.echo(chalk.green('Running an Electron project! 🌏'));
+	require('../../electron/scripts/run');
 };
