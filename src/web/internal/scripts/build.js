@@ -11,6 +11,11 @@ import config from '../../config';
 const path = require('path');
 const { smart } = require('webpack-merge');
 const fs = require('fs');
+const generateBootFile = require('../../../scripts/generateBootFile');
+const createManifestJson = require('./createManifestJson');
+
+generateBootFile();
+createManifestJson();
 
 
 // First clear the build output dir.
