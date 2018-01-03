@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const shell = require('shelljs');
 const { spawn } = require('child_process');
 require('yargs') // eslint-disable-line
 
