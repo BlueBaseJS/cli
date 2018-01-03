@@ -3,7 +3,7 @@
 const os = require('os');
 const packager = require('electron-packager');
 const argv = require('minimist')(process.argv.slice(2));
-const pkg = require('../../package.json');
+const pkg = require('../../../package.json');
 
 const shouldBuildAll = argv.all || false;
 
@@ -25,6 +25,33 @@ const archs = shouldBuildAll ? ['ia32', 'x64'] : [os.arch()];
 const platforms = shouldBuildAll
 	? ['linux', 'win32', 'darwin']
 	: [os.platform()];
+
+function pack(platform, arch) {
+	if (platform === 'darwin' && arch === 'ia32') {
+		return Promise.reject(); // eslint-disable-line prefer-promise-reject-errors
+	}
+
+	const opts = Object.assign({}, options, {
+		platform,
+		arch,
+		icon: options.icon
+			? options.icon +
+						(platform === 'darwin'
+							? '.icns'
+							: platform === 'win32' ? '.ico' : '.png')
+			: undefined
+	});
+
+	return new Promise((resolve, reject) => {
+		packager(opts, (err, appPaths) => {
+			if (err) {
+				reject(err);
+				return;
+			}
+			resolve(appPaths);
+		});
+	});
+}
 platforms.forEach((platform) => {
 	archs.forEach((arch) => {
 		console.log(`${platform} ${arch} start`);
@@ -39,29 +66,3 @@ platforms.forEach((platform) => {
 	});
 });
 
-function pack(platform, arch) {
-	if (platform === 'darwin' && arch === 'ia32') {
-		return Promise.reject(); // eslint-disable-line prefer-promise-reject-errors
-	}
-
-	const opts = Object.assign({}, options, {
-		platform,
-		arch,
-		icon: options.icon
-			? options.icon +
-          (platform === 'darwin'
-          	? '.icns'
-          	: platform === 'win32' ? '.ico' : '.png')
-			: undefined
-	});
-
-	return new Promise((resolve, reject) => {
-		packager(opts, (err, appPaths) => {
-			if (err) {
-				reject(err);
-				return;
-			}
-			resolve(appPaths);
-		});
-	});
-}
