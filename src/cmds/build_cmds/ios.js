@@ -5,5 +5,6 @@ exports.command = 'ios';
 exports.desc = 'Build a Bluerain project for iOS';
 exports.builder = {};
 exports.handler = function(argv) {
-	shell.echo(chalk.red('Building an iOS project is not implemented yet. 😞'));
+	shell.echo(chalk.green('Building an iOS project! 🌏'));
+	require('../../expo/scripts/build_ios');
 };

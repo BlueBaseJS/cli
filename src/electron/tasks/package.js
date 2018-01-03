@@ -13,7 +13,7 @@ const options = {
 	appVersion: pkg.version,
 	asar: true,
 	dir: './electron/',
-	electronVersion: pkg.dependencies.electron.replace(/^\^/, ''),
+	electronVersion: pkg.devDependencies.electron.replace(/^\^/, ''),
 	icon: pkg.electron.icon,
 	ignore: [/^\/(?!build|package.json$)/],
 	name: pkg.electron.name || pkg.name,

@@ -1,12 +1,14 @@
 const path = require('path');
 const fs = require('fs');
 const kebabCase = require('lodash.kebabcase');
+const shell = require('shelljs');
+const chalk = require('chalk');
 
 /**
  * function to create/update expo app.json file according to the config in bluerain.js
  */
 function createAppJson() {
-
+	shell.echo(chalk.blue('Generating app.json'));
 	const bluerainJs = require(path.resolve(process.cwd(), 'bluerain.js'));
 	const packageJson = require(path.resolve(process.cwd(), 'package.json'));
 
@@ -60,7 +62,7 @@ function createAppJson() {
 	appJson.ios = bluerainConfig.ios;
 	appJson.android = bluerainConfig.android;
 
-	fs.writeFileSync(path.join(__dirname, 'app.json'), JSON.stringify({ expo: appJson }));
+	fs.writeFileSync(path.join(__dirname, '../../', 'app.json'), JSON.stringify({ expo: appJson }));
 }
 
 module.exports = createAppJson;

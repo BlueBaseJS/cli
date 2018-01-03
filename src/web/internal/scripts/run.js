@@ -12,7 +12,7 @@ spawn(
 	webpackDevServer,
 	['--inline', '--hot',
 		'--history-api-fallback',
-		`--content-base ${path.resolve(__dirname, 'web')}`,
+		`--content-base ${path.resolve(__dirname, '../../')}`,
 		` --config ${path.resolve(__dirname, '../../webpack.config.js')}`],
 	{ shell: true, stdio: 'inherit' }
 );
