@@ -3,6 +3,7 @@
 	"parser": "babel-eslint",
 	"rules": {
 		"import/no-dynamic-require": 0,
-		"no-console": 0
+		"no-console": 0,
+		"no-nested-ternary":0
 	}
 }

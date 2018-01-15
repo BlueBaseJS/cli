@@ -21,7 +21,8 @@ function createAppJson() {
 	if (appJson.sdkVersion) {
 		appJson.sdkVersion = appJson.sdkVersion.replace(/\^/, '');
 		const arr = appJson.sdkVersion.split('.');
-		arr[1] = arr[2] = '0';
+		arr[1] = '0';
+		arr[2] = '0';
 		appJson.sdkVersion = arr.join('.');
 	}
 	appJson.version = bluerainConfig.version || packageJson.version;
