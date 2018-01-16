@@ -14,7 +14,7 @@ const fs = require('fs');
 const generateBootFile = require('../../../scripts/generateBootFile');
 const createManifestJson = require('./createManifestJson');
 
-generateBootFile();
+generateBootFile('build.web');
 createManifestJson();
 
 
