@@ -62,7 +62,7 @@ function createAppJson() {
 	appJson.ios = bluerainConfig.ios;
 	appJson.android = bluerainConfig.android;
 
-	fs.writeFileSync(path.join(__dirname, '../../', 'app.json'), JSON.stringify({ expo: appJson }));
+	fs.writeFileSync(path.join(process.cwd(), 'app.json'), JSON.stringify({ expo: appJson }));
 }
 
 module.exports = createAppJson;

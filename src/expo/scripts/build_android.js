@@ -1,7 +1,11 @@
 const { spawn } = require('child_process');
-const path = require('path');
 const createAppJson = require('../createAppJson');
+const createAppJs = require('./createAppjs');
+const createBoot = require('./createBoot');
+const exp = 'node_modules/.bin/exp ';
 
 createAppJson();
+createAppJs();
+createBoot();
 
-spawn('exp', ['build:android', path.resolve( __dirname, '../../../')], { shell: true, stdio: 'inherit' });
+spawn(exp, ['build:android'], { shell: true, stdio: 'inherit' });
