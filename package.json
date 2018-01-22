@@ -1,6 +1,6 @@
 {
   "name": "@blueeast/bluerain-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A BlueRain CLI tool",
   "main": "node_modules/expo/AppEntry.js",
   "bin": {
