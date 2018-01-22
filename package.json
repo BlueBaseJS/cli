@@ -100,7 +100,7 @@
     "yargs": "^10.0.3"
   },
   "dependencies": {
-    "@blueeast/bluerain-os": "^0.5.0",
+    "@blueeast/bluerain-os": "1.0.0-alpha-6",
     "react-native": "0.46.4"
   }
 }
