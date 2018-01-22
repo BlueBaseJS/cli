@@ -58,7 +58,7 @@ typings/
 # dotenv environment variables file
 .env
 .idea
-
+.editorconfig
 MacOS
 .DS_Store
 
