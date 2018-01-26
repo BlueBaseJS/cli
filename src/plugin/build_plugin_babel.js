@@ -5,6 +5,6 @@ const buildPlugin = require('./../scripts/buildPluginConfig');
  * lookUpDir: string, default src
  * bundleFileName: string, default build.js
  */
-const babelPlugin = buildPlugin({ bundleFileName: 'bundle.js' });
+const babelPlugin = buildPlugin({ bundleFileName: 'build.js' });
 babelPlugin.cleanAndMakeDir();
-babelPlugin.executeBabelBuildCommand();
+babelPlugin.executeBuildCommand();
