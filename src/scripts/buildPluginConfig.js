@@ -31,8 +31,11 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 	function _createAndExtendBabelRc() {
 		// create empty Babelrc
 		shell.touch(obj.targetBabelRcPath);
-	    // write data
-	    fs.writeFileSync(obj.targetBabelRcPath, JSON.stringify({ 'extends': obj.babelRcPath }));
+		// write data
+		// eslint rule disable due to extends keyword, because bablerc file expect
+		// extend keyword in single/double quote.
+		// eslint-disable-next-line
+		fs.writeFileSync(obj.targetBabelRcPath, JSON.stringify({ 'extends': obj.babelRcPath }));
 	}
 
 	function _generateBabelCommand(targetBabelRcExist) {
