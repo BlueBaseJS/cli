@@ -7,8 +7,11 @@ const chalk = require('chalk');
 /**
  * function to create/update expo app.json file according to the config in bluerain.js
  */
+// compatible with expo version 23.0.0
 function createAppJson() {
 	shell.echo(chalk.blue('Generating app.json'));
+	// TODO: Need to resolve plugin app require statements build/run issues
+	// currently resolving by commenting and then after webpack starts uncommenting plugins/apps
 	const bluerainJs = require(path.resolve(process.cwd(), 'bluerain.js'));
 	const packageJson = require(path.resolve(process.cwd(), 'package.json'));
 
