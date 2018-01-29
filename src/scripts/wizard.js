@@ -99,6 +99,10 @@ const buildOsPrompt = [
 			{
 				name: 'Windows',
 				value: 'windows'
+			},
+			{
+				name: 'Plugin',
+				value: 'plugin'
 			}
 		]
 	}
