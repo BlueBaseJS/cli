@@ -21,7 +21,7 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 	// Decorate obj variable
 	_initPath();
 
-	function cleanAndMakeDir() {
+	function _cleanAndMakeDir() {
 		// if outPutDirectory does not exist, make new one else remove it first.
 		// Then make new one
 		if (!fs.existsSync(obj.targetRootPath, buildDirName)) {
@@ -45,10 +45,8 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 	function _generateCommand(targetBabelRcExist) {
 		// creating command of tsc cli and then run babel cli on output of tsc
 		// created directory
-		const command = `${obj.tscCli} --p ${obj.targetRootPath} && 
-						 ${obj.babelCliPath} -D ${obj.tsCompiledDirectory} 
-						 -o ${obj.targetOutputPath}/${bundleFileName} &&
-						 rm -rf ${obj.tsCompiledDirectory}`;
+		// !!! DON'T BREAK THIS COMMAND IN MULTILINE. !!!
+		const command = `${obj.tscCli} --p ${obj.targetRootPath} && ${obj.babelCliPath} -D ${obj.tsCompiledDirectory} -o ${obj.targetOutputPath}/${bundleFileName} && rm -rf ${obj.tsCompiledDirectory}`;
 		if (!targetBabelRcExist) {
 			_createAndExtendBabelRc();
 		}
@@ -56,13 +54,13 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 	}
 
 	function executeBuildCommand() {
+		_cleanAndMakeDir();
 		const command = _generateCommand(fs.existsSync(obj.targetBabelRcPath));
 		spawn(command, { shell: true, stdio: 'inherit' });
 	}
 
 	// Expose method to consumer of this function.
 	return {
-		cleanAndMakeDir,
 		executeBuildCommand
 	};
 
