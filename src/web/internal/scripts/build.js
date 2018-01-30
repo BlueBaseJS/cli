@@ -17,7 +17,10 @@ const createManifestJson = require('./createManifestJson');
 generateBootFile('build.web');
 createManifestJson();
 
-
+// Removed appRootDir.get()
+// AppRootDir basically give us root path if external project has package.json
+// Then AppRootDir is equal to process.cwd()
+// Else it will give us root path.
 // First clear the build output dir.
 exec(`rm -rf ${pathResolve(appRootDir.get(), config('buildOutputPath'))}`);
 

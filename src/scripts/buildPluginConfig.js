@@ -46,7 +46,8 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 		// creating command of tsc cli and then run babel cli on output of tsc
 		// created directory
 		// !!! DON'T BREAK THIS COMMAND IN MULTILINE. !!!
-		const command = `${obj.tscCli} --p ${obj.targetRootPath} && ${obj.babelCliPath} -D ${obj.tsCompiledDirectory} -o ${obj.targetOutputPath}/${bundleFileName} && rm -rf ${obj.tsCompiledDirectory}`;
+		// const command = `${obj.tscCli} --p ${obj.targetRootPath} && ${obj.babelCliPath} -D ${obj.tsCompiledDirectory} -o ${obj.targetOutputPath}/${bundleFileName} && rm -rf ${obj.tsCompiledDirectory}`;
+		const command = `${obj.tscCli} --p ${obj.targetRootPath} && ${obj.babelCliPath} -D ${obj.tsCompiledDirectory} -d ${buildDirName} && rm -rf ${obj.tsCompiledDirectory}`;
 		if (!targetBabelRcExist) {
 			_createAndExtendBabelRc();
 		}
