@@ -61,7 +61,7 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 		_cleanAndMakeDir();
 		const command = _generateCommand(fs.existsSync(obj.targetBabelRcPath));
 		if (isBableRcCreatedByCli) {
-			spawn(`${command} && rimraf ${obj.targetBabelRcPath}`, { shell: true, stdio: 'inherit' })
+			spawn(`${command} && rimraf ${obj.targetBabelRcPath}`, { shell: true, stdio: 'inherit' });
 		} else {
 			spawn(command, { shell: true, stdio: 'inherit' });
 		}

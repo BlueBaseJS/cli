@@ -8,11 +8,11 @@ const chalk = require('chalk');
  */
 function generateBootFile() {
 	shell.echo(chalk.blue('Generating boot.js'));
-	let data = fs.readFileSync(path.join(__dirname, '../../templates/boot.js'));
+	let data = fs.readFileSync(path.join(__dirname, '../../templates/bootTemplate.js'));
 	data = data.toString();
 	data = data.replace('CONFIG_PATH', path.resolve(process.cwd(), 'bluerain.js'));
 	const arr  = data.split('\n');
-	arr[3] = `export default ${arr[2]}`;
+	arr[3] = `export default ${arr[2]}`;// export default BR.boot(bootConfig);
 	arr[2] = 'bootConfig.renderApp = false;';
 	arr[4] = '';
 	data = arr.join('\n');

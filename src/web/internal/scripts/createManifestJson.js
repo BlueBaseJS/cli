@@ -6,6 +6,9 @@ const kebabCase = require('lodash.kebabcase');
  * function to create/update web-manifest file according to the config in bluerain.js
  */
 function createManifestJson() {
+	// revision 1328428 of https://developer.mozilla.org/en-US/docs/Web/Manifest
+	// TODO: Need to resolve plugin app require statements build/run issues
+	// currently resolving by commenting and then after webpack starts uncommenting plugins/apps
 	let bootConfig = require(path.resolve(process.cwd(), 'bluerain.js'));
 	bootConfig = bootConfig.config;
 	const manifestJson = {};
@@ -27,7 +30,7 @@ function createManifestJson() {
 	manifestJson.related_applications = bootConfig.related_applications;
 	manifestJson.scope = bootConfig.scope;
 	manifestJson.start_url = bootConfig.start_url;
-	fs.writeFileSync(path.join(__dirname, 'manifest.webmanifest'), JSON.stringify(manifestJson));
+	fs.writeFileSync(path.join(__dirname, '../../', 'manifest.webmanifest'), JSON.stringify(manifestJson));
 }
 
 module.exports = createManifestJson;

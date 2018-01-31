@@ -3,7 +3,7 @@
  */
 
 import webpack from 'webpack';
-import appRootDir from 'app-root-dir';
+import appRootDir from 'app-root-dir'; // same as process.cwd()
 import { resolve as pathResolve } from 'path';
 import webpackConfigFactory from '../webpack/configFactory';
 import { exec } from '../utils';
@@ -31,6 +31,7 @@ if (fs.existsSync(webpackPath)) {
 	try {
 		const addedConfig = require(webpackPath);
 		if (typeof addedConfig === 'function') {
+			// full control of webpack config by client
 			webpackConfig = addedConfig(webpackConfig, 'production');
 		} else {
 			webpackConfig = smart( webpackConfig, addedConfig);
