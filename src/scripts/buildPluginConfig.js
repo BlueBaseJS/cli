@@ -8,8 +8,8 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 	let isBableRcCreatedByCli = false;
 	function _initPath() {
 		// CliPath
-		obj.tscCli = path.resolve(__dirname, '../../node_modules/.bin/tsc');
-		obj.babelCliPath = path.resolve(__dirname, '../../node_modules/.bin/babel');
+		obj.tscCli = 'node_modules/.bin/tsc';
+		obj.babelCliPath = 'node_modules/.bin/babel';
 		obj.babelRcPath = path.resolve(__dirname, '../plugin/.babelrc');
 		// targetPath (External Project)
 		obj.targetRootPath = path.resolve(path.join(process.cwd()));
