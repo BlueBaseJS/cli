@@ -5,6 +5,7 @@ const { spawn } = require('child_process');
 
 const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleFileName = 'build.js'  } = {}) {
 	const obj = {};
+	let isBableRcCreatedByCli = false;
 	function _initPath() {
 		// CliPath
 		obj.tscCli = path.resolve(__dirname, '../../node_modules/.bin/tsc');
@@ -40,6 +41,7 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 		// extend keyword in single/double quote.
 		// eslint-disable-next-line
 		fs.writeFileSync(obj.targetBabelRcPath, JSON.stringify({ 'extends': obj.babelRcPath }));
+		isBableRcCreatedByCli = true;
 	}
 
 	function _generateCommand(targetBabelRcExist) {
@@ -50,6 +52,7 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 		const command = `${obj.tscCli} --p ${obj.targetRootPath} && ${obj.babelCliPath} -D ${obj.tsCompiledDirectory} -d ${buildDirName} && rm -rf ${obj.tsCompiledDirectory}`;
 		if (!targetBabelRcExist) {
 			_createAndExtendBabelRc();
+
 		}
 		return command;
 	}
@@ -57,7 +60,11 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 	function executeBuildCommand() {
 		_cleanAndMakeDir();
 		const command = _generateCommand(fs.existsSync(obj.targetBabelRcPath));
-		spawn(command, { shell: true, stdio: 'inherit' });
+		if (isBableRcCreatedByCli) {
+			spawn(`${command} && rimraf ${obj.targetBabelRcPath}`, { shell: true, stdio: 'inherit' })
+		} else {
+			spawn(command, { shell: true, stdio: 'inherit' });
+		}
 	}
 
 	// Expose method to consumer of this function.
