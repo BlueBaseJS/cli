@@ -2,7 +2,7 @@ const { spawn } = require('child_process');
 const createAppJson = require('../createAppJson');
 const createAppJs = require('./createAppjs');
 const createBoot = require('./createBoot');
-const exp = 'node_modules/.bin/exp ';
+const exp = require('./expo_cli')();
 
 createAppJson();
 createAppJs();
