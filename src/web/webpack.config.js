@@ -24,7 +24,11 @@ let config = {
 
 	module: {
 		loaders: [
-			{ test: /\.jsx?$/, loader: require.resolve('babel-loader'), exclude: /node_modules/ }]
+			{ test: /\.jsx?$/, loader: require.resolve('babel-loader'), exclude: /node_modules/ },
+			{ test: /\.(woff|woff2)$/, loader: 'url-loader?prefix=fonts/&limit=8000&mimetype=application/font-woff' },
+			{ test: /\.(ttf|eot)$/, loader: 'file-loader?prefix=fonts/' },
+			{ test: /\.(gif|png|jpe?g|svg)$/i, loader: 'file-loader' }
+		]
 	},
 
 	plugins: [
