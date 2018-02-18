@@ -8,7 +8,7 @@ const chalk = require('chalk');
  * function to create/update expo app.json file according to the config in bluerain.js
  */
 // compatible with expo version 23.0.0
-function createAppJson() {
+function createAppJson(entryPoint) {
 	shell.echo(chalk.blue('Generating app.json'));
 	// TODO: Need to resolve plugin app require statements build/run issues
 	// currently resolving by commenting and then after webpack starts uncommenting plugins/apps
@@ -54,7 +54,7 @@ function createAppJson() {
 	appJson.androidStatusBar = bluerainConfig.androidStatusBar;
 	appJson.androidShowExponentNotificationInShellApp = bluerainConfig.androidShowExponentNotificationInShellApp;
 	appJson.scheme = bluerainConfig.scheme;
-	appJson.entryPoint = bluerainConfig.entryPoint;
+	appJson.entryPoint = entryPoint || bluerainConfig.entryPoint;
 	appJson.extra = bluerainConfig.extra;
 	appJson.rnCliPath = bluerainConfig.rnCliPath;
 	appJson.packagerOpts = bluerainConfig.packagerOpts;
