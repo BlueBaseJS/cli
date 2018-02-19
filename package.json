@@ -12,9 +12,13 @@
 	"author": "BlueEast Team <code@blueeast.com>",
 	"repository": {
 		"type": "git",
-		"url": "http:git@github.com:BlueEastCode/bluerain-cli.git",
-		"dry-run": false
+		"url": "https://github.com/BlueEastCode/bluerain-cli.git"
 	},
+  "release": {
+    "branch": "master",
+    "dryRun": false,
+    "debug": true
+  },
 	"license": "MIT",
 	"config": {
 		"commitizen": {
@@ -92,7 +96,7 @@
 		"react-native": "^0.52.2",
 		"reactxp": "^0.46.5",
 		"rimraf": "^2.6.2",
-		"semantic-release": "^8.0.0",
+		"semantic-release": "^14.0.0",
 		"serialize-javascript": "^1.4.0",
 		"shelljs": "^0.7.8",
 		"source-map-loader": "^0.1.6",

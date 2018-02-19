@@ -6,10 +6,10 @@ cache:
 notifications:
   email: false
 node_js:
-  - node
+  - lts/*
 script:
   - npm run test
 after_success:
   # - npm run report-coverage
   # - test $TRAVIS_BRANCH = "master" && npm run deploy-docs
-  - test $TRAVIS_BRANCH = "master" && npm run semantic-release
+  - npx semantic-release
