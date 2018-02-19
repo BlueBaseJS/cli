@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const shell = require('shelljs');
 const { spawn } = require('child_process');
+let childProcess = {};
 
 const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleFileName = 'build.js'  } = {}) {
 	const obj = {};
@@ -61,10 +62,16 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 		_cleanAndMakeDir();
 		const command = _generateCommand(fs.existsSync(obj.targetBabelRcPath));
 		if (isBableRcCreatedByCli) {
-			spawn(`${command} && rimraf ${obj.targetBabelRcPath}`, { shell: true, stdio: 'inherit' });
+			childProcess = spawn(`${command} && rimraf ${obj.targetBabelRcPath}`, { shell: true, stdio: 'inherit' });
 		} else {
-			spawn(command, { shell: true, stdio: 'inherit' });
+			childProcess = spawn(command, { shell: true, stdio: 'inherit' });
 		}
+
+		childProcess.on('exit', (code, signal) => {
+			if (code !== 0) {
+				process.exit(code);
+			}
+		});
 	}
 
 	// Expose method to consumer of this function.
