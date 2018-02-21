@@ -11,7 +11,8 @@ const buildPlugin = function({ buildDirName = 'dist', lookUpDir = 'src', bundleF
 		// CliPath
 		obj.tscCli = 'node_modules/.bin/tsc';
 		obj.babelCliPath = 'node_modules/.bin/babel';
-		obj.babelRcPath = path.resolve(__dirname, '../plugin/.babelrc');
+		// obj.babelRcPath = path.resolve(__dirname, '../plugin/.babelrc');
+		obj.babelRcPath = '@blueeast/bluerain-cli/src/plugin/.babelrc';
 		// targetPath (External Project)
 		obj.targetRootPath = path.resolve(path.join(process.cwd()));
 		obj.tsCompiledDirectory = path.resolve(path.join(process.cwd(), 'compiled'));
