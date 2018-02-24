@@ -21,28 +21,48 @@ export default function(configType, baseConfig, configDir) {
     ...babelConfig,
   };
 
-  // Check whether a config.js file exists inside the storybook
-  // config directory and throw an error if it's not.
-  const storybookConfigPath = path.resolve(configDir, 'config.js');
-  if (!fs.existsSync(storybookConfigPath)) {
-    const err = new Error(`=> Create a storybook config file in "${configDir}/config.js".`);
-    throw err;
-  }
-  config.entry.preview.push(require.resolve(storybookConfigPath));
+  // // Check whether a config.js file exists inside the storybook
+  // // config directory and throw an error if it's not.
+  // const storybookConfigPath = path.resolve(configDir, 'config.js');
+  // if (!fs.existsSync(storybookConfigPath)) {
+  //   const err = new Error(`=> Create a storybook config file in "${configDir}/config.js".`);
+  //   throw err;
+  // }
+  // config.entry.preview.push(require.resolve(storybookConfigPath));
 
-  // Check whether addons.js file exists inside the storybook.
-  // Load the default addons.js file if it's missing.
-  // Insert it after polyfills.js, but before client/manager.
-  const storybookDefaultAddonsPath = path.resolve(__dirname, 'addons.js');
-  const storybookCustomAddonsPath = path.resolve(configDir, 'addons.js');
-  if (fs.existsSync(storybookCustomAddonsPath)) {
-    logger.info('=> Loading custom addons config.');
-    config.entry.manager.splice(1, 0, storybookCustomAddonsPath);
-  } else {
-    config.entry.manager.splice(1, 0, storybookDefaultAddonsPath);
-  }
+  // // Check whether addons.js file exists inside the storybook.
+  // // Load the default addons.js file if it's missing.
+  // // Insert it after polyfills.js, but before client/manager.
+  // const storybookDefaultAddonsPath = path.resolve(__dirname, 'addons.js');
+  // const storybookCustomAddonsPath = path.resolve(configDir, 'addons.js');
+  // if (fs.existsSync(storybookCustomAddonsPath)) {
+  //   logger.info('=> Loading custom addons config.');
+  //   config.entry.manager.splice(1, 0, storybookCustomAddonsPath);
+  // } else {
+  //   config.entry.manager.splice(1, 0, storybookDefaultAddonsPath);
+	// }
 
-  const defaultConfig = createDefaultWebpackConfig(config);
+
+	////////////// BlueRain //////////////
+
+	// Check whether addons.js file exists inside the bluerain.
+	// Load the default addons.js file if it's missing.
+	// Insert it after polyfills.js, but before client/manager.
+	const bluerainDefaultConfigsPath = path.resolve(__dirname, 'bluerain.js');
+	const bluerainCustomConfigsPath = path.resolve(configDir, 'bluerain.js');
+	if (fs.existsSync(bluerainCustomConfigsPath)) {
+		logger.info('=> Loading custom bluerain config.');
+		config.entry.manager.splice(1, 0, bluerainCustomConfigsPath);
+		config.resolve.alias.BLUERAIN_BOOT_CONFIG = bluerainCustomConfigsPath;
+	} else {
+		logger.info('=> Loading default bluerain config.');
+		config.entry.manager.splice(1, 0, bluerainDefaultConfigsPath);
+		config.resolve.alias.BLUERAIN_BOOT_CONFIG = bluerainDefaultConfigsPath;
+	}
+
+	////////////// BlueRain //////////////
+
+	const defaultConfig = createDefaultWebpackConfig(config);
 
   // Check whether user has a custom webpack config file and
   // return the (extended) base configuration if it's not available.

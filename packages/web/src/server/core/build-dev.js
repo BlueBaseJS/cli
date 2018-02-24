@@ -120,7 +120,7 @@ export function buildDev({ packageJson, getBaseConfig, loadConfig, defaultFavIco
 
   // Build the webpack configuration using the `baseConfig`
   // custom `.babelrc` file and `webpack.config.js` files
-  const configDir = program.configDir || './.storybook';
+  const configDir = program.configDir || './bluerain';
 
   // The repository info is sent to the storybook while running on
   // development mode so it'll be easier for tools to integrate.
