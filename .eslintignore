@@ -1,3 +1,14 @@
-src/boot.js
-node_modules/**
-src/templates
+dist
+build
+coverage
+node_modules
+docs/public
+lib/cli/test
+*.bundle.js
+*.js.map
+
+!.remarkrc.js
+!.eslintrc.js
+!.eslintrc-markdown.js
+!.jest.config.js
+!.storybook
