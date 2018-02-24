@@ -1,0 +1,8 @@
+{
+  "name": "@blueeast/bluerain-cli",
+  "version": "2.0.0",
+  "description": "CLI tool to make life with BlueRain easier!",
+  "main": "index.js",
+  "author": "BlueEast Team <code@blueeast.com>",
+  "license": "MIT"
+}
