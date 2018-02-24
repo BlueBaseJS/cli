@@ -4,5 +4,16 @@
   "description": "CLI tool to make life with BlueRain easier!",
   "main": "index.js",
   "author": "BlueEast Team <code@blueeast.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "bluerain": "src/index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.3.1",
+    "child_process": "^1.0.2",
+    "inquirer": "^5.1.0",
+    "path": "^0.12.7",
+    "shelljs": "^0.8.1",
+    "yargs": "^11.0.0"
+  }
 }
