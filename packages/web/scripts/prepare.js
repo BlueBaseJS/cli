@@ -30,7 +30,7 @@ function removeTsFromDist() {
 }
 
 function copyLicence() {
-	const licence = path.join(__dirname, '..', 'LICENSE');
+	const licence = path.join(__dirname, '..', '..', '..', 'LICENSE');
 	shell.cp(licence, './');
 }
 
