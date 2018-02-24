@@ -1,10 +1,10 @@
-import { buildDev } from '@storybook/core/server';
+import { buildStatic } from './core/server';
 import path from 'path';
 import packageJson from '../../package.json';
-import getBaseConfig from './config/webpack.config';
+import getBaseConfig from './config/webpack.config.prod';
 import loadConfig from './config';
 
-buildDev({
+buildStatic({
   packageJson,
   getBaseConfig,
   loadConfig,

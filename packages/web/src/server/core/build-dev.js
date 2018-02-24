@@ -6,7 +6,7 @@ import path from 'path';
 import fs from 'fs';
 import chalk from 'chalk';
 import shelljs from 'shelljs';
-import { logger } from '@storybook/node-logger';
+import { logger } from '../logger';
 import storybook, { webpackValid } from './middleware';
 import { parseList, getEnvConfig } from './utils';
 import './config/env';

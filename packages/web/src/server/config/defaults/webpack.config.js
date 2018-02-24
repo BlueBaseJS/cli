@@ -1,5 +1,5 @@
 import deprecate from 'util-deprecate';
-import { createDefaultWebpackConfig } from '@storybook/core/server';
+import { createDefaultWebpackConfig } from '../../core/server';
 
 module.exports = deprecate(
   createDefaultWebpackConfig,

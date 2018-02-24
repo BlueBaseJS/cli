@@ -2,8 +2,8 @@
 import fs from 'fs';
 import path from 'path';
 import findCacheDir from 'find-cache-dir';
-import { logger } from '@storybook/node-logger';
-import { createDefaultWebpackConfig } from '@storybook/core/server';
+import { logger } from './logger';
+import { createDefaultWebpackConfig } from './core/server';
 import loadBabelConfig from './babel_config';
 
 // `baseConfig` is a webpack configuration bundled with storybook.
