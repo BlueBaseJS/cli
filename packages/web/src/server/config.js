@@ -3,11 +3,11 @@ import fs from 'fs';
 import path from 'path';
 import findCacheDir from 'find-cache-dir';
 import { logger } from './logger';
-import { createDefaultWebpackConfig } from './core/server';
+import { createDefaultWebpackConfig } from './core';
 import loadBabelConfig from './babel_config';
 
 // `baseConfig` is a webpack configuration bundled with storybook.
-// Storybook will look in the `configDir` directory
+// BlueRain will look in the `configDir` directory
 // (inside working directory) if a config path is not provided.
 export default function(configType, baseConfig, configDir) {
   const config = baseConfig;

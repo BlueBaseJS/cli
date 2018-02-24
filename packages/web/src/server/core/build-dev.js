@@ -16,13 +16,13 @@ export function buildDev({ packageJson, getBaseConfig, loadConfig, defaultFavIco
 
   program
     .version(packageJson.version)
-    .option('-p, --port [number]', 'Port to run Storybook (Required)', str => parseInt(str, 10))
-    .option('-h, --host [string]', 'Host to run Storybook')
+    .option('-p, --port [number]', 'Port to run BlueRain (Required)', str => parseInt(str, 10))
+    .option('-h, --host [string]', 'Host to run BlueRain')
     .option('-s, --static-dir <dir-names>', 'Directory where to load static files from')
-    .option('-c, --config-dir [dir-name]', 'Directory where to load Storybook configurations from')
+    .option('-c, --config-dir [dir-name]', 'Directory where to load BlueRain configurations from')
     .option(
       '--https',
-      'Serve Storybook over HTTPS. Note: You must provide your own certificate information.'
+      'Serve BlueRain over HTTPS. Note: You must provide your own certificate information.'
     )
     .option(
       '--ssl-ca <ca>',
@@ -59,7 +59,7 @@ export function buildDev({ packageJson, getBaseConfig, loadConfig, defaultFavIco
   });
 
   if (!program.port) {
-    logger.error('Error: port to run Storybook is required!\n');
+    logger.error('Error: port to run BlueRain is required!\n');
     program.help();
     process.exit(-1);
   }
@@ -152,7 +152,7 @@ export function buildDev({ packageJson, getBaseConfig, loadConfig, defaultFavIco
     .then(() => {
       const proto = program.https ? 'https' : 'http';
       const address = `${proto}://${program.host || 'localhost'}:${program.port}/`;
-      logger.info(`Storybook started on => ${chalk.cyan(address)}\n`);
+      logger.info(`BlueRain started on => ${chalk.cyan(address)}\n`);
       if (program.smokeTest) {
         process.exit(0);
       }
