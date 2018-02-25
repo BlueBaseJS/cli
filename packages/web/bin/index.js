@@ -1,4 +1,3 @@
 #!/usr/bin/env node
 
-console.log('test 123')
-require('../dist/server');
+require('../dist/server_old');

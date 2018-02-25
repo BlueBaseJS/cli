@@ -5,6 +5,6 @@ const buildStatic = require('./build-static');
 const buildDev = require('./build-dev');
 
 module.exports = assign({}, defaultWebpackConfig, buildStatic, buildDev, {
-  WatchMissingNodeModulesPlugin,
-  clientPath: require.resolve('../../../dist/client'),
+	WatchMissingNodeModulesPlugin,
+	clientPath: require.resolve('../../../dist/client'),
 });
