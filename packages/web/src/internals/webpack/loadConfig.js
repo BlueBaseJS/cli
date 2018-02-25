@@ -30,7 +30,7 @@ export default function(configType, configDir) {
 	// Check whether bluerain.js file exists inside the bluerain.
 	// Load the default bluerain.js file if it's missing.
 	// Insert it after polyfills.js, but before client/client.
-	const bluerainDefaultConfigsPath = path.resolve(__dirname, 'bluerain.js');
+	const bluerainDefaultConfigsPath = path.resolve(__dirname, '../../client/bluerain.js');
 	const bluerainCustomConfigsPath = path.resolve(configDir, 'bluerain.js');
 	if (fs.existsSync(bluerainCustomConfigsPath)) {
 		logger.info('=> Loading custom bluerain config.');

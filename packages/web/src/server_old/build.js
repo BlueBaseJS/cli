@@ -1,4 +1,4 @@
-import { buildStatic } from './core/server';
+import { buildStatic } from './core';
 import path from 'path';
 import packageJson from '../../package.json';
 import getBaseConfig from './config/webpack.config.prod';

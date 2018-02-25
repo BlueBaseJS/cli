@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import { getMiddleware } from './utils';
-import getWebpackConfig from '../../internals/webpack';
+import getWebpackConfig from '../internals/webpack';
 
 let webpackResolve = () => {};
 let webpackReject = () => {};
@@ -49,9 +49,11 @@ export default function(configDir, loadConfig, getBaseConfig) {
 		// });
 
 		router.get('*', (req, res) => {
-			res.set('Content-Type', 'text/html');
-			console.log('__dirname', path.join(`${__dirname}/public/index.html`));
-			res.sendFile(path.join(`${__dirname}/public/index.html`));
+			res.write(webpackDevMiddlewareInstance.fileSystem.readFileSync(path.join(__dirname, '/public/index.html')));
+			res.end();
+			// res.set('Content-Type', 'text/html');
+			// console.log('__dirname', path.join(`${__dirname}/public/index.html`));
+			// res.sendFile(path.join(`${__dirname}/public/index.html`));
 		});
 
 		// router.get('/iframe.html', (req, res) => {
