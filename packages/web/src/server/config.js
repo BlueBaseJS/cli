@@ -6,7 +6,7 @@ import { logger } from './logger';
 import { createDefaultWebpackConfig } from './core';
 import loadBabelConfig from './babel_config';
 
-// `baseConfig` is a webpack configuration bundled with storybook.
+// `baseConfig` is a webpack configuration bundled with bluerain.
 // BlueRain will look in the `configDir` directory
 // (inside working directory) if a config path is not provided.
 export default function(configType, baseConfig, configDir) {
@@ -17,29 +17,29 @@ export default function(configType, baseConfig, configDir) {
     // This is a feature of `babel-loader` for webpack (not Babel itself).
     // It enables a cache directory for faster-rebuilds
     // `find-cache-dir` will create the cache directory under the node_modules directory.
-    cacheDirectory: findCacheDir({ name: 'react-storybook' }),
+    cacheDirectory: findCacheDir({ name: 'react-bluerain' }),
     ...babelConfig,
   };
 
-  // // Check whether a config.js file exists inside the storybook
+  // // Check whether a config.js file exists inside the bluerain
   // // config directory and throw an error if it's not.
-  // const storybookConfigPath = path.resolve(configDir, 'config.js');
-  // if (!fs.existsSync(storybookConfigPath)) {
-  //   const err = new Error(`=> Create a storybook config file in "${configDir}/config.js".`);
+  // const bluerainConfigPath = path.resolve(configDir, 'config.js');
+  // if (!fs.existsSync(bluerainConfigPath)) {
+  //   const err = new Error(`=> Create a bluerain config file in "${configDir}/config.js".`);
   //   throw err;
   // }
-  // config.entry.preview.push(require.resolve(storybookConfigPath));
+  // config.entry.preview.push(require.resolve(bluerainConfigPath));
 
-  // // Check whether addons.js file exists inside the storybook.
+  // // Check whether addons.js file exists inside the bluerain.
   // // Load the default addons.js file if it's missing.
-  // // Insert it after polyfills.js, but before client/manager.
-  // const storybookDefaultAddonsPath = path.resolve(__dirname, 'addons.js');
-  // const storybookCustomAddonsPath = path.resolve(configDir, 'addons.js');
-  // if (fs.existsSync(storybookCustomAddonsPath)) {
+  // // Insert it after polyfills.js, but before client/client.
+  // const bluerainDefaultAddonsPath = path.resolve(__dirname, 'addons.js');
+  // const bluerainCustomAddonsPath = path.resolve(configDir, 'addons.js');
+  // if (fs.existsSync(bluerainCustomAddonsPath)) {
   //   logger.info('=> Loading custom addons config.');
-  //   config.entry.manager.splice(1, 0, storybookCustomAddonsPath);
+  //   config.entry.client.splice(1, 0, bluerainCustomAddonsPath);
   // } else {
-  //   config.entry.manager.splice(1, 0, storybookDefaultAddonsPath);
+  //   config.entry.client.splice(1, 0, bluerainDefaultAddonsPath);
 	// }
 
 
@@ -47,16 +47,16 @@ export default function(configType, baseConfig, configDir) {
 
 	// Check whether addons.js file exists inside the bluerain.
 	// Load the default addons.js file if it's missing.
-	// Insert it after polyfills.js, but before client/manager.
+	// Insert it after polyfills.js, but before client/client.
 	const bluerainDefaultConfigsPath = path.resolve(__dirname, 'bluerain.js');
 	const bluerainCustomConfigsPath = path.resolve(configDir, 'bluerain.js');
 	if (fs.existsSync(bluerainCustomConfigsPath)) {
 		logger.info('=> Loading custom bluerain config.');
-		config.entry.manager.splice(1, 0, bluerainCustomConfigsPath);
+		config.entry.client.splice(1, 0, bluerainCustomConfigsPath);
 		config.resolve.alias.BLUERAIN_BOOT_CONFIG = bluerainCustomConfigsPath;
 	} else {
 		logger.info('=> Loading default bluerain config.');
-		config.entry.manager.splice(1, 0, bluerainDefaultConfigsPath);
+		config.entry.client.splice(1, 0, bluerainDefaultConfigsPath);
 		config.resolve.alias.BLUERAIN_BOOT_CONFIG = bluerainDefaultConfigsPath;
 	}
 

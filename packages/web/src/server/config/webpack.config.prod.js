@@ -3,7 +3,7 @@ import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
 import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { managerPath } from '../core/server';
+import { clientPath } from '../core/server';
 import babelLoaderConfig from './babel.prod';
 import { includePaths, excludePaths, loadEnv, nodePaths } from './utils';
 import { getPreviewHeadHtml, getManagerHeadHtml } from '../utils';
@@ -12,7 +12,7 @@ import { version } from '../../../package.json';
 export default function(configDir) {
   const entries = {
     preview: [require.resolve('./polyfills'), require.resolve('./globals')],
-    manager: [require.resolve('./polyfills'), managerPath],
+    client: [require.resolve('./polyfills'), clientPath],
   };
 
   const config = {
@@ -32,16 +32,16 @@ export default function(configDir) {
       new InterpolateHtmlPlugin(process.env),
       new HtmlWebpackPlugin({
         filename: 'index.html',
-        chunks: ['manager'],
+        chunks: ['client'],
         data: {
-          managerHead: getManagerHeadHtml(configDir),
+          clientHead: getManagerHeadHtml(configDir),
           version,
         },
         template: require.resolve('../index.html.ejs'),
       }),
       new HtmlWebpackPlugin({
         filename: 'iframe.html',
-        excludeChunks: ['manager'],
+        excludeChunks: ['client'],
         data: {
           previewHead: getPreviewHeadHtml(configDir),
         },

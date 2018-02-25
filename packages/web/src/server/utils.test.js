@@ -47,7 +47,7 @@ describe('getPreviewHeadHtml', () => {
 });
 
 describe('getManagerHeadHtml', () => {
-  it('returns an empty string without manager-head.html present', () => {
+  it('returns an empty string without client-head.html present', () => {
     setup({
       files: {},
     });
@@ -56,10 +56,10 @@ describe('getManagerHeadHtml', () => {
     expect(result).toEqual('');
   });
 
-  it('returns contents of manager-head.html when present', () => {
+  it('returns contents of client-head.html when present', () => {
     setup({
       files: {
-        'manager-head.html': HEAD_HTML_CONTENTS,
+        'client-head.html': HEAD_HTML_CONTENTS,
       },
     });
 

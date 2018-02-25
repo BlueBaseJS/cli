@@ -41,16 +41,22 @@ export default function(configDir, loadConfig, getBaseConfig) {
   // custom middleware
   middlewareFn(router);
 
-  webpackDevMiddlewareInstance.waitUntilValid(stats => {
-    router.get('/', (req, res) => {
-      res.set('Content-Type', 'text/html');
-      res.sendFile(path.join(`${__dirname}/public/index.html`));
-    });
+	webpackDevMiddlewareInstance.waitUntilValid(stats => {
+		// router.get('/', (req, res) => {
+		// 	res.set('Content-Type', 'text/html');
+		// 	res.sendFile(path.join(`${__dirname}/public/index.html`));
+		// });
 
-    router.get('/iframe.html', (req, res) => {
-      res.set('Content-Type', 'text/html');
-      res.sendFile(path.join(`${__dirname}/public/iframe.html`));
-    });
+		router.get('*', (req, res) => {
+			res.set('Content-Type', 'text/html');
+			console.log('__dirname', path.join(`${__dirname}/public/index.html`))
+			res.sendFile(path.join(`${__dirname}/public/index.html`));
+		});
+
+    // router.get('/iframe.html', (req, res) => {
+    //   res.set('Content-Type', 'text/html');
+    //   res.sendFile(path.join(`${__dirname}/public/iframe.html`));
+    // });
 
     if (stats.toJson().errors.length) {
       webpackReject(stats);

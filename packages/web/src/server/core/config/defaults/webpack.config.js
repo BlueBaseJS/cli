@@ -1,12 +1,12 @@
 import autoprefixer from 'autoprefixer';
 
-export function createDefaultWebpackConfig(storybookBaseConfig) {
+export function createDefaultWebpackConfig(bluerainBaseConfig) {
   return {
-    ...storybookBaseConfig,
+    ...bluerainBaseConfig,
     module: {
-      ...storybookBaseConfig.module,
+      ...bluerainBaseConfig.module,
       rules: [
-        ...storybookBaseConfig.module.rules,
+        ...bluerainBaseConfig.module.rules,
         {
           test: /\.css$/,
           use: [
@@ -54,9 +54,9 @@ export function createDefaultWebpackConfig(storybookBaseConfig) {
       ],
     },
     resolve: {
-      ...storybookBaseConfig.resolve,
+      ...bluerainBaseConfig.resolve,
       alias: {
-        ...(storybookBaseConfig.resolve && storybookBaseConfig.resolve.alias),
+        ...(bluerainBaseConfig.resolve && bluerainBaseConfig.resolve.alias),
         // This is to support NPM2
         'babel-runtime/regenerator': require.resolve('babel-runtime/regenerator'),
       },

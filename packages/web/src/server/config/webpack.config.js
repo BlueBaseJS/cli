@@ -4,7 +4,7 @@ import Dotenv from 'dotenv-webpack';
 import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { WatchMissingNodeModulesPlugin, managerPath } from '../core';
+import { WatchMissingNodeModulesPlugin, clientPath } from '../core';
 
 import { includePaths, excludePaths, nodeModulesPaths, loadEnv, nodePaths } from './utils';
 import babelLoaderConfig from './babel';
@@ -15,9 +15,9 @@ export default function(configDir) {
   const config = {
     devtool: 'cheap-module-source-map',
     entry: {
-      manager: [
+      client: [
 				require.resolve('./polyfills'),
-				managerPath,
+				clientPath,
 				`${require.resolve('webpack-hot-middleware/client')}?reload=true`,
 			],
     },
@@ -30,9 +30,9 @@ export default function(configDir) {
       new InterpolateHtmlPlugin(process.env),
       new HtmlWebpackPlugin({
         filename: 'index.html',
-        chunks: ['manager'],
+        chunks: ['client'],
         data: {
-          managerHead: getManagerHeadHtml(configDir),
+          clientHead: getManagerHeadHtml(configDir),
           version,
         },
         template: require.resolve('../index.html.ejs'),

@@ -20,7 +20,7 @@ export function getPreviewHeadHtml(configDirPath) {
 }
 
 export function getManagerHeadHtml(configDirPath) {
-  const scriptPath = path.resolve(configDirPath, 'manager-head.html');
+  const scriptPath = path.resolve(configDirPath, 'client-head.html');
   let scriptHtml = '';
   if (fs.existsSync(scriptPath)) {
     scriptHtml = fs.readFileSync(scriptPath, 'utf8');

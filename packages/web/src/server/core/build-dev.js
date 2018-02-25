@@ -7,7 +7,7 @@ import fs from 'fs';
 import chalk from 'chalk';
 import shelljs from 'shelljs';
 import { logger } from '../logger';
-import storybook, { webpackValid } from './middleware';
+import bluerain, { webpackValid } from './middleware';
 import { parseList, getEnvConfig } from './utils';
 import './config/env';
 
@@ -42,7 +42,7 @@ export function buildDev({ packageJson, getBaseConfig, loadConfig, defaultFavIco
     logger.error(
       [
         'Error: the experimental local database addon is no longer bundled with',
-        'storybook. Please remove these flags (-d,--db-path,--enable-db)',
+        'bluerain. Please remove these flags (-d,--db-path,--enable-db)',
         'from the command or npm script and try again.',
       ].join(' ')
     );
@@ -122,17 +122,17 @@ export function buildDev({ packageJson, getBaseConfig, loadConfig, defaultFavIco
   // custom `.babelrc` file and `webpack.config.js` files
   const configDir = program.configDir || './bluerain';
 
-  // The repository info is sent to the storybook while running on
+  // The repository info is sent to the bluerain while running on
   // development mode so it'll be easier for tools to integrate.
   const exec = cmd => shelljs.exec(cmd, { silent: true }).stdout.trim();
-  process.env.STORYBOOK_GIT_ORIGIN =
-    process.env.STORYBOOK_GIT_ORIGIN || exec('git remote get-url origin');
-  process.env.STORYBOOK_GIT_BRANCH =
-    process.env.STORYBOOK_GIT_BRANCH || exec('git symbolic-ref HEAD --short');
+  process.env.BLUERAIN_GIT_ORIGIN =
+    process.env.BLUERAIN_GIT_ORIGIN || exec('git remote get-url origin');
+  process.env.BLUERAIN_GIT_BRANCH =
+    process.env.BLUERAIN_GIT_BRANCH || exec('git symbolic-ref HEAD --short');
 
   // NOTE changes to env should be done before calling `getBaseConfig`
   // `getBaseConfig` function which is called inside the middleware
-  app.use(storybook(configDir, loadConfig, getBaseConfig));
+  app.use(bluerain(configDir, loadConfig, getBaseConfig));
 
   let serverResolve = () => {};
   let serverReject = () => {};

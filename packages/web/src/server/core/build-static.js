@@ -27,7 +27,7 @@ export function buildStatic({ packageJson, getBaseConfig, loadConfig, defaultFav
     logger.error(
       [
         'Error: the experimental local database addon is no longer bundled with',
-        'storybook. Please remove these flags (-d,--db-path,--enable-db)',
+        'bluerain. Please remove these flags (-d,--db-path,--enable-db)',
         'from the command or npm script and try again.',
       ].join(' ')
     );
@@ -42,8 +42,8 @@ export function buildStatic({ packageJson, getBaseConfig, loadConfig, defaultFav
     configDir: 'SBCONFIG_CONFIG_DIR',
   });
 
-  const configDir = program.configDir || './.storybook';
-  const outputDir = program.outputDir || './storybook-static';
+  const configDir = program.configDir || './.bluerain';
+  const outputDir = program.outputDir || './bluerain-static';
 
   // create output directory if not exists
   shelljs.mkdir('-p', path.resolve(outputDir));
@@ -70,17 +70,17 @@ export function buildStatic({ packageJson, getBaseConfig, loadConfig, defaultFav
   }
 
   // compile all resources with webpack and write them to the disk.
-  logger.info('Building storybook ...');
+  logger.info('Building bluerain ...');
   const webpackCb = (err, stats) => {
     if (err || stats.hasErrors()) {
-      logger.error('Failed to build the storybook');
+      logger.error('Failed to build the bluerain');
       // eslint-disable-next-line no-unused-expressions
       err && logger.error(err.message);
       // eslint-disable-next-line no-unused-expressions
       stats && stats.hasErrors() && stats.toJson().errors.forEach(e => logger.error(e));
       process.exitCode = 1;
     }
-    logger.info('Building storybook completed.');
+    logger.info('Building bluerain completed.');
   };
   const compiler = webpack(config);
   if (program.watch) {

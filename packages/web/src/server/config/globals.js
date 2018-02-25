@@ -1,4 +1,4 @@
 /* globals window */
 
-window.STORYBOOK_REACT_CLASSES = {};
-window.STORYBOOK_ENV = 'react';
+window.BLUERAIN_REACT_CLASSES = {};
+window.BLUERAIN_ENV = 'react';

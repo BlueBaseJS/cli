@@ -41,7 +41,7 @@ describe('babel_config', () => {
         [
           babelPluginReactDocgenPath,
           {
-            DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+            DOC_GEN_COLLECTION_NAME: 'BLUERAIN_REACT_CLASSES',
           },
         ],
       ],
@@ -71,7 +71,7 @@ describe('babel_config', () => {
         [
           babelPluginReactDocgenPath,
           {
-            DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+            DOC_GEN_COLLECTION_NAME: 'BLUERAIN_REACT_CLASSES',
           },
         ],
       ],
@@ -100,7 +100,7 @@ describe('babel_config', () => {
         [
           babelPluginReactDocgenPath,
           {
-            DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+            DOC_GEN_COLLECTION_NAME: 'BLUERAIN_REACT_CLASSES',
           },
         ],
       ],

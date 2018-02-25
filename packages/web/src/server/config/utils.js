@@ -11,7 +11,7 @@ export const nodePaths = (process.env.NODE_PATH || '')
   .filter(Boolean)
   .map(p => path.resolve('./', p));
 
-// Load environment variables starts with STORYBOOK_ to the client side.
+// Load environment variables starts with BLUERAIN_ to the client side.
 export function loadEnv(options = {}) {
   const defaultNodeEnv = options.production ? 'production' : 'development';
   const env = {
@@ -24,7 +24,7 @@ export function loadEnv(options = {}) {
   };
 
   Object.keys(process.env)
-    .filter(name => /^STORYBOOK_/.test(name))
+    .filter(name => /^BLUERAIN_/.test(name))
     .forEach(name => {
       env[name] = JSON.stringify(process.env[name]);
     });
