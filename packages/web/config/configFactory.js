@@ -10,9 +10,6 @@ import appRootDir from 'app-root-dir';
 import projectRootDir from './projectRootDir';
 import * as EnvVars from './utils/envVars';
 
-// Webpack plugins
-import bluerainJsWebpackplugin from './plugins/webpack/bluerain-js';
-
 const configFactory = configs => ({
   projectRootDir,
 
@@ -294,26 +291,25 @@ const configFactory = configs => ({
     // This function will be called once for each for your bundles.  It will be
     // provided the current webpack config, as well as the buildOptions which
     // detail which bundle and mode is being targetted for the current function run.
-    webpackConfig: (wpConfig, buildOptions) => {
+    webpackConfig: (webpackConfig, buildOptions) => {
       // eslint-disable-next-line no-unused-vars
       const { target, mode } = buildOptions;
 
-      wpConfig = bluerainJsWebpackplugin(wpConfig);
       // Example:
       /*
         if (target === 'server' && mode === 'development') {
-          wpConfig.plugins.push(new MyCoolWebpackPlugin());
+          webpackConfig.plugins.push(new MyCoolWebpackPlugin());
         }
         */
 
       // Debugging/Logging Example:
       /*
         if (target === 'server') {
-          console.log(JSON.stringify(wpConfig, null, 4));
+          console.log(JSON.stringify(webpackConfig, null, 4));
         }
         */
 
-      return wpConfig;
+      return webpackConfig;
     },
 
     // Merge with incoming configs

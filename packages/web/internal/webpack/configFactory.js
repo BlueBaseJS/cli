@@ -12,6 +12,8 @@ import { removeNil } from '../../shared/utils/arrays';
 import withServiceWorker from './withServiceWorker';
 import config from '../../config';
 
+import getBluerainBootOptionsPath from './bluerainBootOptionsPath';
+
 /**
  * Generates a webpack configuration for the target configuration.
  *
@@ -62,6 +64,8 @@ export default function webpackConfigFactory(buildOptions) {
     throw new Error('No bundle configuration exists for target:', target);
   }
 
+  const bluerainBootOptionsPath = getBluerainBootOptionsPath();
+
   let webpackConfig = {
     // Define our entry chunks for our bundle.
     entry: {
@@ -83,6 +87,10 @@ export default function webpackConfigFactory(buildOptions) {
               'clientDevServerPort',
             )}/__webpack_hmr`,
         ),
+
+        // BlueRain boot options file, AKA bluerain.js
+        bluerainBootOptionsPath,
+
         // The source entry file for the bundle.
         path.resolve(config('projectRootDir'), bundleConfig.srcEntryFile),
       ]),
@@ -176,6 +184,9 @@ export default function webpackConfigFactory(buildOptions) {
       // @see https://github.com/peerigon/modernizr-loader
       alias: {
         modernizr$: path.resolve(config('projectRootDir'), './.modernizrrc'),
+
+        // BlueRain boot options file, AKA bluerain.js
+        BLUERAIN_BOOT_OPTIONS: bluerainBootOptionsPath,
       },
     },
 
