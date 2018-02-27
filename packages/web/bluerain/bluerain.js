@@ -16,7 +16,7 @@ export default {
     title: 'Bluerain OS',
 
     wallpaper: {
-      backgroundColor: 'red',
+      backgroundColor: '#F2F5FE',
       // source: 'https://placeimg.com/1000/800/tech',
       // resizeMode: 'cover',
     },
