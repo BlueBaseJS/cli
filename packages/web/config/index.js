@@ -40,7 +40,8 @@ function resolveConfigForBrowserOrServer() {
   ) {
     // i.e. running in our server/node process.
     // eslint-disable-next-line global-require
-    configCache = require('./values').default;
+    const configFactory = require('./configFactory').default;
+    configCache = configFactory({});
     return configCache;
   }
 

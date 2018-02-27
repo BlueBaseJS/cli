@@ -5,10 +5,15 @@
  * absolute paths should be resolved during runtime by our build internal/server.
  */
 
+import path from 'path';
+import appRootDir from 'app-root-dir';
 import projectRootDir from './projectRootDir';
 import * as EnvVars from './utils/envVars';
 
-const values = {
+// Webpack plugins
+import bluerainJsWebpackplugin from './plugins/webpack/bluerain-js';
+
+const configFactory = configs => ({
   projectRootDir,
 
   // The configuration values that should be exposed to our client bundle.
@@ -77,7 +82,7 @@ const values = {
     titleTemplate: 'React, Universally - %s',
     defaultTitle: 'React, Universally',
     description:
-      'A starter kit giving you the minimum requirements for a production ready universal react application.',
+        'A starter kit giving you the minimum requirements for a production ready universal react application.',
   },
 
   // Content Security Policy (CSP)
@@ -87,7 +92,7 @@ const values = {
     connectSrc: [],
     defaultSrc: [],
     fontSrc: ['fonts.googleapis.com/css', 'fonts.gstatic.com'],
-    imgSrc: [],
+    imgSrc: ['placeimg.com'],
     mediaSrc: [],
     manifestSrc: [],
     objectSrc: [],
@@ -108,6 +113,12 @@ const values = {
 
   // Where does our build output live?
   buildOutputPath: './build',
+
+  // Location of bluerain directory in the project
+  bluerainDir: path.resolve(appRootDir.get(), 'bluerain'),
+
+  // Name of bluerain file with boot options object
+  bluerainJsFile: 'bluerain.js',
 
   // Do you want to included source maps for optimised builds of the client
   // bundle?
@@ -234,16 +245,16 @@ const values = {
     // within the entry for each bundle you create and return the "express"
     // listener.
     /*
-    apiServer: {
-      srcEntryFile: './api/index.js',
-      srcPaths: [
-        './api',
-        './shared',
-        './config',
-      ],
-      outputPath: './build/api',
-    }
-    */
+      apiServer: {
+        srcEntryFile: './api/index.js',
+        srcPaths: [
+          './api',
+          './shared',
+          './config',
+        ],
+        outputPath: './build/api',
+      }
+      */
   },
 
   // These plugin definitions provide you with advanced hooks into customising
@@ -266,10 +277,10 @@ const values = {
 
       // Example
       /*
-      if (target === 'server' && mode === 'development') {
-        babelConfig.presets.push('foo');
-      }
-     */
+        if (target === 'server' && mode === 'development') {
+          babelConfig.presets.push('foo');
+        }
+      */
 
       return babelConfig;
     },
@@ -283,28 +294,32 @@ const values = {
     // This function will be called once for each for your bundles.  It will be
     // provided the current webpack config, as well as the buildOptions which
     // detail which bundle and mode is being targetted for the current function run.
-    webpackConfig: (webpackConfig, buildOptions) => {
+    webpackConfig: (wpConfig, buildOptions) => {
       // eslint-disable-next-line no-unused-vars
       const { target, mode } = buildOptions;
 
+      wpConfig = bluerainJsWebpackplugin(wpConfig);
       // Example:
       /*
-      if (target === 'server' && mode === 'development') {
-        webpackConfig.plugins.push(new MyCoolWebpackPlugin());
-      }
-      */
+        if (target === 'server' && mode === 'development') {
+          wpConfig.plugins.push(new MyCoolWebpackPlugin());
+        }
+        */
 
       // Debugging/Logging Example:
       /*
-      if (target === 'server') {
-        console.log(JSON.stringify(webpackConfig, null, 4));
-      }
-      */
+        if (target === 'server') {
+          console.log(JSON.stringify(wpConfig, null, 4));
+        }
+        */
 
-      return webpackConfig;
+      return wpConfig;
     },
+
+    // Merge with incoming configs
+    ...configs,
   },
-};
+});
 
 // This protects us from accidentally including this configuration in our
 // client bundle. That would be a big NO NO to do. :)
@@ -314,4 +329,4 @@ if (process.env.BUILD_FLAG_IS_CLIENT === 'true') {
   );
 }
 
-export default values;
+export default configFactory;

@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import serialize from 'serialize-javascript';
 import filterWithRules from '../../shared/utils/objects/filterWithRules';
-import values from '../values';
+import configFactory from '../configFactory';
+
+const values = configFactory();
 
 // Filter the config down to the properties that are allowed to be included
 // in the HTML response.
