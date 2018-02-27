@@ -1,24 +1,46 @@
-node_modules
+# Environment Configuration
+.env
+
+# Build output folders
+build/
+
+# Logs
+logs
 *.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# node-waf configuration
+.lock-wscript
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+node_modules
+
+# Debug log from npm
+npm-debug.log
+
+# IntelliJ IDE ignore
 .idea
+
+# Visual Studio Code
 .vscode
-*.sw*
-npm-shrinkwrap.json
-dist
-.tern-port
-*.DS_Store
-.cache
-junit.xml
-coverage/
-*.lerna_backup
-build
-packages/examples/automated-*
-/**/LICENSE
-docs/public
-packs/*.tgz
-package-lock.json
-.nvmrc
-storybook-static
-integration/__image_snapshots__/__diff_output__
-.jest-test-results.json
-/examples/cra-kitchen-sink/src/__image_snapshots__/__diff_output__/
+.history
+
+# flow-typed Lib Defs
+flow-typed/
+
+# Flow Coverage Report
+flow-coverage/
+
+# Happypack
+.happypack
+
+# OSX Files
+.DS_Store
