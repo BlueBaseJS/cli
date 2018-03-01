@@ -11,6 +11,7 @@ import { mergeDeep } from '../../shared/utils/objects';
 import { removeNil } from '../../shared/utils/arrays';
 import withServiceWorker from './withServiceWorker';
 import config from '../../config';
+import customWebpackConfigs from './customWebpackConfigs';
 
 import getBluerainBootOptionsPath from './bluerainBootOptionsPath';
 
@@ -555,6 +556,8 @@ export default function webpackConfigFactory(buildOptions) {
   if (isProd && isClient) {
     webpackConfig = withServiceWorker(webpackConfig, bundleConfig);
   }
+
+  webpackConfig = customWebpackConfigs(webpackConfig, buildOptions);
 
   // Apply the configuration middleware.
   return config('plugins.webpackConfig')(webpackConfig, buildOptions);
