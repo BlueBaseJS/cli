@@ -1,6 +1,6 @@
 {
-	"name": "React Universally",
-	"short_name": "Rct-Unvrslly",
+	"name": "BlueRain",
+	"short_name": "BlueRain",
 	"description": "A starter kit giving you the minimum requirements for a production ready universal react application.",
 	"lang": "en",
 	"start_url": "./",

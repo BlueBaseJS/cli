@@ -7,8 +7,7 @@
     "node": ">=6"
   },
   "bin": {
-    "build-bluerain-web": "./bin/build.js",
-    "start-bluerain-web": "./bin/index.js"
+    "bluerain-cli-web-develop": "./bin/develop.js"
   },
   "scripts": {
     "analyze:client": "babel-node internal/scripts/analyze --client",
@@ -77,6 +76,7 @@
     "@blueeast/bluerain-plugin-react-router": "1.1.1",
     "@blueeast/bluerain-plugin-redux": "0.6.2",
     "app-root-dir": "1.0.2",
+    "chalk": "2.3.1",
     "colors": "1.1.2",
     "compression": "1.7.0",
     "cross-env": "5.0.5",

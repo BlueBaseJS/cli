@@ -6,5 +6,8 @@ exports.desc = 'Run a Bluerain project on Web';
 exports.builder = {};
 exports.handler = function(argv) {
 	shell.echo(chalk.green('Running a BlueRain Web project! 🌏'));
-	// require('../../web/internal/scripts/run');
+
+	process.env.DEPLOYMENT = 'development';
+
+	require('../../../node_modules/@blueeast/bluerain-cli-web/internal/development');
 };

@@ -76,8 +76,8 @@ const configFactory = configs => ({
   // We make use of react-helmet to consume the values below.
   // @see https://github.com/nfl/react-helmet
   htmlPage: {
-    titleTemplate: 'React, Universally - %s',
-    defaultTitle: 'React, Universally',
+    titleTemplate: 'BlueRain - %s',
+    defaultTitle: 'BlueRain',
     description:
         'A starter kit giving you the minimum requirements for a production ready universal react application.',
   },
