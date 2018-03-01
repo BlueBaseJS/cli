@@ -11,9 +11,10 @@ import { mergeDeep } from '../../shared/utils/objects';
 import { removeNil } from '../../shared/utils/arrays';
 import withServiceWorker from './withServiceWorker';
 import config from '../../config';
-import customWebpackConfigs from './customWebpackConfigs';
 
 import getBluerainBootOptionsPath from './bluerainBootOptionsPath';
+import customWebpackConfigs from './customWebpackConfigs';
+import customBabelConfigs from './customBabelConfigs';
 
 /**
  * Generates a webpack configuration for the target configuration.
@@ -371,7 +372,7 @@ export default function webpackConfigFactory(buildOptions) {
             // We will create a babel config and pass it through the plugin
             // defined in the project configuration, allowing additional
             // items to be added.
-            query: config('plugins.babelConfig')(
+            query: customBabelConfigs(
               // Our "standard" babel config.
               {
                 // We need to ensure that we do this otherwise the babelrc will
