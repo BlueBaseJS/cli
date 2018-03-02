@@ -2,7 +2,6 @@
 Please fill the informations requested OR use one of the following url:
   - Bug report: https://github.com/BlueEastCode/bluerain-cli/issues/new?template=bug-report.md
   - Feature request: https://github.com/BlueEastCode/bluerain-cli/issues/new?template=feature-request.md
-  - New plugin request: https://github.com/BlueEastCode/bluerain-cli/issues/new?template=plugin-request.md
 -->
 
 <!--------------------- FOR BUG REPORT ONLY --------------------->
