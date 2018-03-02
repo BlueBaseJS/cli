@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ReactHotLoader from './components/ReactHotLoader';
-import './polyfills';
+// import './polyfills';
 
 import App from '../shared/components/BlueRain';
 

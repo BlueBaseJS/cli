@@ -9,8 +9,9 @@ import path from 'path';
 import appRootDir from 'app-root-dir';
 import projectRootDir from './projectRootDir';
 import * as EnvVars from './utils/envVars';
+import customConfigs from './customConfigs';
 
-const configFactory = configs => ({
+const configFactory = configs => customConfigs({
   projectRootDir,
 
   // The configuration values that should be exposed to our client bundle.
