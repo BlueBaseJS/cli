@@ -107,10 +107,10 @@ const configFactory = configs => customConfigs({
 
   // Path to the public assets that will be served off the root of the
   // HTTP server.
-  publicAssetsPath: './public',
+  publicAssetsPath: './src/public',
 
   // Where does our build output live?
-  buildOutputPath: './build',
+  buildOutputPath: './src/build',
 
   // Location of bluerain directory in the project
   bluerainDir: path.resolve(appRootDir.get(), 'bluerain'),
@@ -170,23 +170,23 @@ const configFactory = configs => customConfigs({
   bundles: {
     client: {
       // Src entry file.
-      srcEntryFile: './client/index.js',
+      srcEntryFile: './src/client/index.js',
 
       // Src paths.
       srcPaths: [
-        './client',
-        './shared',
+        './src/client',
+        './src/shared',
         // The service worker offline page generation needs access to the
         // config folder.  Don't worry we have guards within the config files
         // to ensure they never get included in a client bundle.
-        './config',
+        './src/config',
       ],
 
       // Where does the client bundle output live?
-      outputPath: './build/client',
+      outputPath: './src/build/client',
 
       // What is the public http path at which we must serve the bundle from?
-      webPath: '/client/',
+      webPath: '/src/client/',
 
       // Configuration settings for the development vendor DLL.  This will be created
       // by our development server and provides an improved dev experience
@@ -220,13 +220,13 @@ const configFactory = configs => customConfigs({
 
     server: {
       // Src entry file.
-      srcEntryFile: './server/index.js',
+      srcEntryFile: './src/server/index.js',
 
       // Src paths.
-      srcPaths: ['./server', './shared', './config'],
+      srcPaths: ['./src/server', './src/shared', './src/config'],
 
       // Where does the server bundle output live?
-      outputPath: './build/server',
+      outputPath: './src/build/server',
     },
   },
 
