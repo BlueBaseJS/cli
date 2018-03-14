@@ -10,7 +10,6 @@ class HotNodeServer {
       compiler.options.output.path,
       `${Object.keys(compiler.options.entry)[0]}.js`,
     );
-    debugger;
 
     const startServer = () => {
       if (this.server) {
