@@ -183,7 +183,7 @@ const configFactory = configs => customConfigs({
       ],
 
       // Where does the client bundle output live?
-      outputPath: './src/build/client',
+      outputPath: path.resolve(appRootDir.get(), 'build', 'client'),
 
       // What is the public http path at which we must serve the bundle from?
       webPath: '/src/client/',
@@ -226,7 +226,7 @@ const configFactory = configs => customConfigs({
       srcPaths: ['./src/server', './src/shared', './src/config'],
 
       // Where does the server bundle output live?
-      outputPath: './src/build/server',
+      outputPath: path.resolve(appRootDir.get(), 'build', 'server'),
     },
   },
 
