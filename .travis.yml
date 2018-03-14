@@ -1,15 +1,15 @@
-# language: node_js
-# cache:
-#   yarn: true
-#   directories:
-#     - node_modules
-# notifications:
-#   email: false
-# node_js:
-#   - lts/*
+language: node_js
+cache:
+  yarn: true
+  directories:
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - lts/*
 # script:
-#   - npm run test
+#  - npm run test:prod && npm run build
 # after_success:
-#   # - npm run report-coverage
-#   # - test $TRAVIS_BRANCH = "master" && npm run deploy-docs
-#   - npx semantic-release
+  # - npm run report-coverage
+  # - test $TRAVIS_BRANCH = "master" && npm run deploy-docs
+  # - npx semantic-release
