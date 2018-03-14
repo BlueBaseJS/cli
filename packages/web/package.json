@@ -7,14 +7,15 @@
     "node": ">=6"
   },
   "bin": {
-    "bluerain-cli-web-build": "./bin/build.js",
-    "bluerain-cli-web-develop": "./bin/develop.js"
+    "bluerain-cli-web-build": "./src/bin/build.js",
+    "bluerain-cli-web-develop": "./src/bin/develop.js"
   },
   "scripts": {
     "analyze:client": "babel-node src/internal/scripts/analyze --client",
     "analyze:server": "babel-node src/internal/scripts/analyze --server",
     "build": "babel-node src/internal/scripts/build --optimize",
     "build:dev": "babel-node src/internal/scripts/build",
+    "build:plugin": "rm -rf dist && babel -D src/ -d dist/src && cp package.json dist/ && cd dist/ && npm pack",
     "clean": "cross-env babel-node src/internal/scripts/clean",
     "commit": "git-cz",
     "deploy": "babel-node src/internal/scripts/deploy",
