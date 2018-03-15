@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
-const path = require('path');
 const execSync = require('child_process').execSync;
 
 // Dependencies
-const babel = path.join(__dirname, '..', 'node_modules', '.bin', 'babel-node');
-const serverPath = path.join(__dirname, '..', 'internal', 'scripts', 'build');
+const babel = 'node_modules/.bin/babel-node';
+const serverPath = 'node_modules/@blueeast/bluerain-cli-web/src/internal/scripts/build';
 
 // Command
 const command = [
