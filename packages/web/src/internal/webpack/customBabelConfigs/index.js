@@ -5,7 +5,6 @@ import config from '../../../config';
 import { log } from '../../../internal/utils';
 
 export default function customBabelConfigs(babelConfig, buildOptions) {
-
   let customBabelConfig;
   const babelConfigPath = path.resolve(config('bluerainDir'), '.babelrc');
 
