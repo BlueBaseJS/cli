@@ -36,6 +36,8 @@ const configFactory = configs => ({
 	// Output dist path in consumer app
 	outputAppDir: path.resolve(appRootDir.get(), 'dist'),
 
+	gitPluginUrl: 'https://github.com/BlueEastCode/bluerain-boilerplate-plugin.git',
+
 	plugins: {
 		// This plugin allows you to provide final adjustments your babel
 		// configurations for each bundle before they get processed.

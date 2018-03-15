@@ -1,13 +1,14 @@
 {
-  "name": "@blueeast/bluerain-cli-build-plugin",
+  "name": "@blueeast/bluerain-cli-plugin",
   "version": "0.1.0",
-  "description": "bluerain build plugin",
+  "description": "bluerain cli plugin",
   "main": "build/server/index.js",
   "engines": {
     "node": ">=6"
   },
   "bin": {
-    "bluerain-cli-build-plugin": "./src/bin/plugin.js"
+    "bluerain-cli-build-plugin": "./src/bin/plugin.js",
+    "bluerain-cli-create-plugin": "./src/bin/create.js"
   },
   "scripts": {
     "build:plugin": "rm -rf dist && babel -D src/ -d dist/src && cp package.json dist/ && cd dist/ && npm pack"
