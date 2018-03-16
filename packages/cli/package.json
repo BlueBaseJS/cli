@@ -9,6 +9,7 @@
     "blue": "./src/index.js"
   },
   "dependencies": {
+    "@blueeast/bluerain-cli-plugin": "../plugin/dist",
     "chalk": "^2.3.1",
     "child_process": "^1.0.2",
     "inquirer": "^5.1.0",

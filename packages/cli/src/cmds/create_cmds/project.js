@@ -1,6 +1,6 @@
 const shell = require('shelljs');
 const chalk = require('chalk');
-const gitHubCloner = require('../../web/internal/scripts/create');
+// const gitHubCloner = require('../../web/internal/scripts/create');
 
 function handler(name) {
 	// Creating Project
@@ -28,6 +28,7 @@ exports.command = 'project [name]';
 exports.desc = 'Create a BlueRain project named [name]';
 exports.builder = {};
 exports.handler = function(argv) {
+	console.log('herel');
 	// if (argv && argv.name) {
 	// 	handler(argv.name);
 	// } else {

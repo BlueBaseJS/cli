@@ -5,7 +5,7 @@ require('yargs') // eslint-disable-line
 	// Default command to run the wizard
 	.command('$0', 'Run the BlueRain wizard', () => { }, (argv) => {
 		require('./wizard').then((answers) => {
-			spawn(`bluerain ${answers.action} ${answers.type}`, { shell: true, stdio: 'inherit' });
+			spawn(`blue ${answers.action} ${answers.type}`, { shell: true, stdio: 'inherit' });
 		});
 	})
 
