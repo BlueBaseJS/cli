@@ -19,14 +19,17 @@ const configFactory = configs => customConfigs({
   // Location of bluerain directory in the project
   bluerainDir: path.resolve(appRootDir.get(), 'bluerain'),
 
-  // path to babel compiler
+  // path to exp cli
   expoCli: 'node_modules/.bin/exp',
 
-  // Src folder path in consumer app
-  srcAppDir: path.resolve(appRootDir.get(), 'src'),
+  // bootPath where boot.js live
+  bootPath: './expo/boot.js',
 
-  // Output dist path in consumer app
-  outputExpoDir: path.resolve(appRootDir.get(), 'expo'),
+  // Path to default bluerain js file
+  defaultBluerainJsPathForExpo: '@blueeast/bluerain-cli-expo/src/config/default/bluerain.js',
+
+  // Path to custom bluerain js file
+  customBluerainJsPathForExpo: './bluerain/bluerain.js',
 
   // Expo default conifgurations
   expo: {

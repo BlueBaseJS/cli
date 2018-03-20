@@ -24,6 +24,10 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@blueeast/bluerain-os": "^3.9.0",
+    "@blueeast/bluerain-platform-reactxp": "^3.0.3",
+    "@blueeast/bluerain-plugin-react-router": "^1.1.2",
+    "@blueeast/bluerain-plugin-redux": "^0.6.4",
     "app-root-dir": "^1.0.2",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
@@ -43,15 +47,17 @@
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.3.0",
+    "exp": "^50.0.1",
     "node-notifier": "5.1.2",
     "prettier": "1.7.0",
     "prettier-eslint": "8.1.1",
     "prettier-eslint-cli": "4.3.2",
     "pretty-error": "2.1.1",
-    "rimraf": "2.6.2"
+    "rimraf": "2.6.2",
+    "shelljs": "0.8.1"
   },
   "devDependencies": {
-    "semver": "5.4.1",
-    "@types/node": "^9.4.7"
+    "@types/node": "^9.4.7",
+    "semver": "5.4.1"
   }
 }

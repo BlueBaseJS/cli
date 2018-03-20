@@ -1,50 +1,41 @@
-/**
- * This script will ensure that users are using a supported version of node
- * for the project.
- *
- * NOTE: Ensure this script uses ES5 only as the user may be running an old
- * version of Node, which this script wants to test against.
- */
+import { spawn } from 'child_process';
+import exp from '../module/get_expo_cli';
+import { log } from '../utils';
+import AppJson from '../module/generate_appjson';
+import AppJS from '../module/generate_app';
+import BootJS from '../module/generate_boot';
 
-/* eslint-disable */
+log({
+  title: 'expo cli',
+  level: 'info',
+  message: `using expo cli ${exp()}`,
+});
 
-var exec = require('child_process').exec;
-var existsSync = require('fs').existsSync;
-var pathResolve = require('path').resolve;
+AppJson('app.json').generate();
+log({
+  title: 'App.json',
+  level: 'warn',
+  message: 'Successfully generated app.json',
+});
 
-if (existsSync(pathResolve(__dirname, '../../../node_modules'))){
-  // An install has already occurred.
-  // return;
-}
+AppJS('App.js').generate();
+log({
+  title: 'App.js',
+  level: 'warn',
+  message: 'Successfully generated App.js',
+});
 
-// Inspired by "create-react-app". Thanks @gaearon :)
-function checkNodeVersion() {
-  var semver = require('semver');
+BootJS('boot.js').generate();
+log({
+  title: 'boot.js',
+  level: 'warn',
+  message: 'Successfully generated boot.js',
+});
 
-  if (!semver.satisfies(process.version, packageJson.engines.node)) {
-    console.error(
-      'You are currently running Node %s but %s requires %s. Please use a supported version of Node.\n',
-      process.version,
-      packageJson.name,
-      packageJson.engines.node
-    );
-    process.exit(1);
-  }
-}
+const platform = process.argv.includes('android') ? 'build:android' : 'build:ios';
 
-var packageJson = require('../../../package.json');
-if (!packageJson.engines
-  || !packageJson.engines.node
-  || !packageJson.devDependencies
-  || !packageJson.devDependencies.semver) {
-  // The package has already been customised. Ignore this script.
-  // return;
-}
-
-exec(
-  'npm install semver@' + packageJson.devDependencies.semver,
-  function installSemverCb(err, stdout, stderr) {
-    if (err) throw err;
-    checkNodeVersion();
-  }
-)
+const execCommand = `${exp()} ${platform} `;
+spawn(execCommand, {
+  shell: true,
+  stdio: 'inherit',
+});

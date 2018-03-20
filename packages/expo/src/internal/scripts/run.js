@@ -1,12 +1,10 @@
-// const { spawn } = require('child_process');
-// import fs from 'fs';
-// import path from 'path';
-// const createAppJson = require('../createAppJson');
-// const createAppJs = require('./createAppjs');
-// const createBoot = require('./createBoot');
+import { spawn } from 'child_process';
 import exp from '../module/get_expo_cli';
 import { log } from '../utils';
-import AppJson from '../module/generate_appjson_content';
+import AppJson from '../module/generate_appjson';
+import AppJS from '../module/generate_app';
+import BootJS from '../module/generate_boot';
+
 log({
   title: 'expo cli',
   level: 'info',
@@ -14,3 +12,28 @@ log({
 });
 
 AppJson('app.json').generate();
+log({
+  title: 'App.json',
+  level: 'warn',
+  message: 'Successfully generated app.json',
+});
+
+AppJS('App.js').generate();
+log({
+  title: 'App.js',
+  level: 'warn',
+  message: 'Successfully generated App.js',
+});
+
+BootJS('boot.js').generate();
+log({
+  title: 'boot.js',
+  level: 'warn',
+  message: 'Successfully generated boot.js',
+});
+
+const execCommand = `${exp()} start   `;
+spawn(execCommand, {
+  shell: true,
+  stdio: 'inherit',
+});

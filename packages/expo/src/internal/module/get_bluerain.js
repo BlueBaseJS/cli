@@ -12,7 +12,7 @@ const Bluerain = (function getBlueRainJS() {
         level: 'info',
         message: 'Loading custom bluerain',
       });
-      return customBluerainJS;
+      return ['custom', customBluerainJS];
     }
 
     log({
@@ -21,7 +21,7 @@ const Bluerain = (function getBlueRainJS() {
       message: 'Loading default bluerain',
     });
 
-    return path.resolve(__dirname, '../../config/default/bluerain.js');
+    return ['default', path.resolve(__dirname, '../../config/default/bluerain.js')];
   };
 }());
 

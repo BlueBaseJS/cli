@@ -7,7 +7,10 @@ export default function createAppJson(filename) {
   const $config = config('expo');
 
   function $createAppJsonContent() {
+    // Load package.json
     const packageJson = require(path.resolve(config('appRootDir'), 'package.json')) || {};
+    // Get expo version from dependencies if not found
+    // use from devDependencies, otherwise default is 25.0.0
     const {
       devDependencies: {
         expo: devDepExpo = '25.0.0',
@@ -18,29 +21,45 @@ export default function createAppJson(filename) {
       version: packageJsonVersion,
     } = packageJson;
 
+    // Default name, slug and version 
     const {
       name,
       slug,
       version = packageJsonVersion,
     } = $config;
 
-    const { config: bluerainConfig } = require(bluerainJS()).default;
+    // Get bluerain.js first from targetProjectDir of bluerain if not found
+    // load default bluerain.js
+    const { config: bluerainConfig } = require(bluerainJS()[1]).default;
+    const {
+      loading,
+      theme: {
+        colors: {
+          primary: primaryColor,
+        } = {},
+      } = {},
 
+    } = bluerainConfig;
+
+    // Restructure all the content need to be filled in app.json
     $content = {
       expo: {
         name,
         slug,
-        sdkVersion: sdkVersion.replace(/(\^~)/, ''),
+        sdkVersion: sdkVersion.replace(/(\^|~)/g, ''),
         version,
         description: $config.description,
-        loading: $config.loading || bluerainConfig.loading,
+        loading: $config.loading || loading,
+        primaryColor,
+        ...$config,
       },
     };
   }
 
   function $generate() {
+    // create content for app.json.
     $createAppJsonContent();
-    console.log($content);
+    // Create app.json with above content.
     Create(path.join(config('appRootDir'), filename), 'json', $content);
   }
 
