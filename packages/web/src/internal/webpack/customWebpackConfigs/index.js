@@ -54,8 +54,8 @@ export default function customWebpackConfigs(webpackConfig, buildOptions) {
       ...webpackConfig.resolve,
       ...customConfig.resolve,
       alias: {
-        ...webpackConfig.alias,
-        ...(customConfig.resolve && customConfig.resolve.alias),
+        ...webpackConfig.resolve.alias,
+        ...(customConfig.resolve.alias && customConfig.resolve.alias),
       },
     },
   };

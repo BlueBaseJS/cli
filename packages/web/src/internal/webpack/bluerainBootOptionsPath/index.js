@@ -7,7 +7,7 @@ import { log } from '../../../internal/utils';
 // Return the default bluerain.js file if it's missing.
 export default function () {
   const customFilePath = path.resolve(config('bluerainDir'), config('bluerainJsFile'));
-
+  console.log('bluerainJS', customFilePath);
   if (fs.existsSync(customFilePath)) {
     log({
       title: 'BlueRain Server',
