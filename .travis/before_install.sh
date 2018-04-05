@@ -16,11 +16,11 @@ echo "master"
   git fetch origin
   echo "going to clone"
   git clone https://github.com/BlueEastCode/bluerain-cli.git $TRAVIS_REPO_SLUG
-  echo "clone done"
+  echo "clone done, ${TRAVIS_BRANCH}"
   git checkout $TRAVIS_BRANCH
 
-  git config credential.helper store
-  echo "https://${RELEASE_GH_USERNAME}:${RELEASE_GH_TOKEN}@github.com/BlueEastCode/bluerain-cli.git" > ~/.git-credentials
+#   git config credential.helper store
+  echo "https://${RELEASE_GH_USERNAME}:${RELEASE_GH_TOKEN}@github.com/BlueEastCode/bluerain-cli.git"
 
   npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN -q
   npm prune
