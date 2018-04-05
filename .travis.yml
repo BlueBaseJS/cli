@@ -12,7 +12,5 @@ before_install:
   - chmod +x .travis/before_install.sh
 after_success: 
   - .travis/after_success.sh
-script:
-  - npm run lint && npm test
 git:
   depth: 1
