@@ -7,13 +7,16 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   exit 0
 fi
 
-if [[ $TRAVIS_BRANCH == 'master' ]]; then
+if [[ $TRAVIS_BRANCH == 'master' ]]; 
+echo "master"
   rm -rf .git
   git init
   git clean -dfx
   git remote add origin https://github.com/BlueEastCode/bluerain-cli.git
   git fetch origin
+  echo "going to clone"
   git clone https://github.com/BlueEastCode/bluerain-cli.git $TRAVIS_REPO_SLUG
+  echo "clone done"
   git checkout $TRAVIS_BRANCH
 
   git config credential.helper store
