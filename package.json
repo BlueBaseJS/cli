@@ -25,11 +25,8 @@
 		"commit": "git-cz",
 		"semantic-release": "lerna-semantic-release pre && lerna-semantic-release post && lerna-semantic-release perform",
 		"postinstall": "lerna bootstrap",
-		"precommit": "npm run lint",
 		"commitmsg": "validate-commit-msg",
-		"prepush": "npm run lint && npm run test",
-		"test": "lerna run test",
-		"lint": "eslint packages"
+		"test": "lerna run test"
 	},
 	"config": {
 		"commitizen": {
