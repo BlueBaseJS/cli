@@ -2,6 +2,8 @@
 set -e
 # Note: do not do set -x or the passwords will leak!
 
+echo "${TRAVIS_PULL_REQUEST}"
+
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   echo "We are in a pull request, not setting up release"
   exit 0
