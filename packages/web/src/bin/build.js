@@ -4,7 +4,7 @@ const execSync = require('child_process').execSync;
 
 // Dependencies
 const babel = 'node_modules/.bin/babel-node';
-const serverPath = 'node_modules/@blueeast/bluerain-cli-web/src/internal/scripts/build';
+const serverPath = 'node_modules/@blueeast/bluerain-cli-web/dist/internal/scripts/build';
 
 // Command
 const command = [

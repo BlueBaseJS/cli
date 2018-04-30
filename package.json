@@ -60,6 +60,7 @@
 		"lerna-semantic-release": "^9.0.1"
 	},
 	"release": {
-		"branch": "master"
+		"branch": "master",
+		"debug": true
 	}
 }
