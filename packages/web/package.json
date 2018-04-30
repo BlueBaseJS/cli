@@ -1,14 +1,14 @@
 {
   "name": "@blueeast/bluerain-cli-web",
-  "version": "0.1.1-alpha.0",
-  "description": "A starter kit for universal react applications.",
+  "version": "0.1.1-alpha.1",
+  "description": "A Bluerain cli tool to run and build web apps.",
   "main": "build/server/index.js",
   "engines": {
     "node": ">=6"
   },
   "bin": {
-    "bluerain-cli-web-build": "./src/bin/build.js",
-    "bluerain-cli-web-develop": "./src/bin/develop.js"
+    "bluerain-cli-web-build": "./dist/bin/build.js",
+    "bluerain-cli-web-develop": "./dist/bin/develop.js"
   },
   "scripts": {
     "analyze:client": "babel-node src/internal/scripts/analyze --client",

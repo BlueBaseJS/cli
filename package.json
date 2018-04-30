@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:BlueEastCode/bluerain-cli.git" 
+		"url": "git@github.com:BlueEastCode/bluerain-cli.git"
 	},
 	"author": "BlueEast Team <code@blueeast.com>",
 	"license": "MIT",
@@ -19,7 +19,7 @@
 		"version",
 		"lerna",
 		"bluerain"
-	  ],
+	],
 	"scripts": {
 		"wizard": "lerna-wizard",
 		"commit": "git-cz",
