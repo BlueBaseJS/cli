@@ -14,6 +14,7 @@
     "analyze:client": "babel-node src/internal/scripts/analyze --client",
     "analyze:server": "babel-node src/internal/scripts/analyze --server",
     "build": "rm -rf dist && babel -D src --out-dir dist",
+    "build:watch": "rm -rf dist && babel -D src --watch --out-dir dist",
     "build:dev": "babel-node src/internal/scripts/build",
     "build:plugin": "rm -rf dist && babel -D src/ -d dist/src && cp package.json dist/ && cd dist/ && npm pack",
     "clean": "cross-env babel-node src/internal/scripts/clean",
@@ -73,10 +74,6 @@
   },
   "homepage": "https://github.com/ctrlplusb/react-universally#readme",
   "dependencies": {
-    "@blueeast/bluerain-os": "^3.10.0",
-    "@blueeast/bluerain-platform-reactxp": "^3.0.3",
-    "@blueeast/bluerain-plugin-react-router": "^1.1.2",
-    "@blueeast/bluerain-plugin-redux": "^0.6.4",
     "app-root-dir": "1.0.2",
     "assets-webpack-plugin": "3.5.1",
     "babel-cli": "6.26.0",
@@ -136,11 +133,9 @@
     "prettier-eslint-cli": "4.3.2",
     "pretty-error": "2.1.1",
     "prop-types": "15.5.10",
-    "react": "16.2.0",
     "react-addons-test-utils": "15.2.0",
     "react-async-bootstrapper": "1.1.1",
     "react-async-component": "1.0.1",
-    "react-dom": "16.2.0",
     "react-helmet": "5.2.0",
     "react-hot-loader": "3.0.0-beta.6",
     "react-router-dom": "4.2.2",
@@ -160,6 +155,20 @@
     "webpack-node-externals": "1.6.0"
   },
   "devDependencies": {
+    "@blueeast/bluerain-os": "^3.10.0",
+    "@blueeast/bluerain-platform-reactxp": "^3.0.3",
+    "@blueeast/bluerain-plugin-react-router": "^1.1.2",
+    "@blueeast/bluerain-plugin-redux": "^0.6.4",
+    "react": "16.3.0",
+    "react-dom": "16.3.0",
     "semver": "5.4.1"
+  },
+  "peerDependencies": {
+    "@blueeast/bluerain-os": "3.x.x",
+    "@blueeast/bluerain-platform-reactxp": "*",
+    "@blueeast/bluerain-plugin-react-router": "*",
+    "@blueeast/bluerain-plugin-redux": "*",
+    "react": "16.x.x",
+    "react-dom": "16.x.x"
   }
 }

@@ -16,7 +16,7 @@ export default {
     title: 'Abdul',
 
     wallpaper: {
-      //  backgroundColor: 'red',
+      // backgroundColor: 'red',
       source: 'https://placeimg.com/1000/800/tech',
       resizeMode: 'cover',
     },
