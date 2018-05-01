@@ -8,7 +8,8 @@ import asyncBootstrapper from 'react-async-bootstrapper';
 import config from '../../../config';
 
 import ServerHTML from './ServerHTML';
-import MainApp from '../../../shared/components/MainApp';
+// import MainApp from '../../../shared/components/MainApp';
+import MainApp from '../../../shared/components/DemoApp'; // Temp
 import { log } from '../../../internal/utils';
 
 /**
