@@ -2,6 +2,7 @@
 
 import express from 'express';
 import compression from 'compression';
+import fs from 'fs';
 import { resolve as pathResolve } from 'path';
 import reactApplication from './middleware/reactApplication';
 import security from './middleware/security';
@@ -40,7 +41,25 @@ app.use(config('bundles.client.webPath'), clientBundle);
 
 // Configure static serving of our "public" root http path static files.
 // Note: these will be served off the root (i.e. '/') of our application.
-app.use(express.static(pathResolve(config('projectRootDir'), config('publicAssetsPath'))));
+let publicPath = pathResolve(config('projectRootDir'), config('publicAssetsPath'));
+const customPublicPath = pathResolve(process.env.PWD, 'public');
+
+if (!fs.existsSync(customPublicPath)) {
+  log({
+    title: 'Public Folder',
+    level: 'info',
+    message: 'Using default public folder.',
+  });
+} else {
+  log({
+    title: 'Public Folder',
+    level: 'info',
+    message: 'Using custom public folder.',
+  });
+  publicPath = customPublicPath;
+}
+
+app.use(express.static(publicPath));
 
 // The React application middleware.
 app.get('*', (request, response) => {

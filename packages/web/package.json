@@ -7,8 +7,8 @@
     "node": ">=6"
   },
   "bin": {
-    "bluerain-cli-web-build": "./dist/bin/build.js",
-    "bluerain-cli-web-develop": "./dist/bin/develop.js"
+    "bluerain-cli-web-build": "./bin/build.js",
+    "bluerain-cli-web-develop": "./bin/develop.js"
   },
   "scripts": {
     "analyze:client": "babel-node src/internal/scripts/analyze --client",

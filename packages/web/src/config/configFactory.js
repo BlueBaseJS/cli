@@ -107,7 +107,7 @@ const configFactory = configs => customConfigs({
 
   // Path to the public assets that will be served off the root of the
   // HTTP server.
-  publicAssetsPath: './src/public',
+  publicAssetsPath: './public',
 
   // Where does our build output live?
   buildOutputPath: './src/build',
@@ -116,7 +116,8 @@ const configFactory = configs => customConfigs({
   bluerainDir: path.resolve(appRootDir.get(), 'bluerain'),
 
   // Name of bluerain file with boot options object
-  bluerainJsFile: 'bluerain.js',
+  bluerainJsFile: 'bluerain.js', // deprecated
+  bootConfigFile: 'boot.js',
 
   // Do you want to included source maps for optimised builds of the client
   // bundle?
