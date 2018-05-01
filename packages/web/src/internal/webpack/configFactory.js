@@ -91,8 +91,8 @@ export default function webpackConfigFactory(buildOptions) {
         ),
 
         // BlueRain boot options file, AKA bluerain.js
-        // ifClient(bluerainBootOptionsPath),
-        bluerainBootOptionsPath,
+        ifClient(bluerainBootOptionsPath),
+        // bluerainBootOptionsPath,
 
         // The source entry file for the bundle.
         path.resolve(config('projectRootDir'), bundleConfig.srcEntryFile),
