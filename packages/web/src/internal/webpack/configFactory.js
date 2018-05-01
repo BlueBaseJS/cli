@@ -91,6 +91,7 @@ export default function webpackConfigFactory(buildOptions) {
         ),
 
         // BlueRain boot options file, AKA bluerain.js
+        // ifClient(bluerainBootOptionsPath),
         bluerainBootOptionsPath,
 
         // The source entry file for the bundle.
@@ -189,6 +190,9 @@ export default function webpackConfigFactory(buildOptions) {
 
         // BlueRain boot options file, AKA bluerain.js
         BLUERAIN_BOOT_OPTIONS: bluerainBootOptionsPath,
+
+        'react-native': path.resolve(config('projectRootDir'), './node_modules/react-native-web'),
+        'react-art': path.resolve(config('projectRootDir'), './node_modules/react-art'),
       },
     },
 
