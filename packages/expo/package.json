@@ -1,6 +1,6 @@
 {
   "name": "@blueeast/bluerain-cli-expo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "bluerain expo",
   "main": "build/server/index.js",
   "engines": {
