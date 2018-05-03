@@ -1,6 +1,6 @@
 {
   "name": "@blueeast/bluerain-cli-web",
-  "version": "0.1.1-alpha.6",
+  "version": "0.2.1",
   "description": "A Bluerain cli tool to run and build web apps.",
   "main": "build/server/index.js",
   "engines": {
@@ -8,7 +8,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "bin"
   ],
   "bin": {
     "bluerain-cli-web-build": "./bin/build.js",
