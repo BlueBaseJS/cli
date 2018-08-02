@@ -7,7 +7,13 @@
   "license": "MIT",
   "bin": {
     "bluerain": "./src/index.js"
-  },
+	},
+	"peerdependencies": {
+		"@blueeast/bluerain-cli-web": "*"
+	},
+	"devDependencies": {
+		"@blueeast/bluerain-cli-web": "^0.2.1"
+	},
   "dependencies": {
     "chalk": "^2.3.1",
     "child_process": "^1.0.2",
@@ -15,5 +21,5 @@
     "path": "^0.12.7",
     "shelljs": "^0.8.1",
     "yargs": "^11.0.0"
-  }
+	}
 }

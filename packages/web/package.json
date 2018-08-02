@@ -2,7 +2,7 @@
   "name": "@blueeast/bluerain-cli-web",
   "version": "0.2.1",
   "description": "A Bluerain cli tool to run and build web apps.",
-  "main": "build/server/index.js",
+  "main": "dist/index.js",
   "engines": {
     "node": ">=6"
   },
@@ -11,10 +11,6 @@
     "src",
     "bin"
   ],
-  "bin": {
-    "bluerain-cli-web-build": "./bin/build.js",
-    "bluerain-cli-web-develop": "./bin/develop.js"
-  },
   "scripts": {
     "analyze:client": "babel-node src/internal/scripts/analyze --client",
     "analyze:server": "babel-node src/internal/scripts/analyze --server",
