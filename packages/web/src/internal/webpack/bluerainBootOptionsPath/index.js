@@ -7,7 +7,6 @@ import { log } from '../../../internal/utils';
 // Return the default boot.js file if it's missing.
 export default function () {
   const customFilePath = path.resolve(config('bluerainDir'), config('bootConfigFile'));
-  console.log('bootJs', customFilePath);
   if (fs.existsSync(customFilePath)) {
     log({
       title: 'BlueRain Server',
