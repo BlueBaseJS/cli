@@ -94,7 +94,7 @@ export default function webpackConfigFactory(buildOptions) {
             )}/__webpack_hmr`),
         ),
 
-        // BlueRain boot options file, AKA bluerain.js
+        // BlueRain boot options file, AKA boot.js
         ifClient(bluerainBootOptionsPath),
         // bluerainBootOptionsPath,
 
@@ -192,7 +192,7 @@ export default function webpackConfigFactory(buildOptions) {
       alias: {
         modernizr$: path.resolve(config('projectRootDir'), './.modernizrrc'),
 
-        // BlueRain boot options file, AKA bluerain.js
+        // BlueRain boot options file, AKA boot.js
         BLUERAIN_BOOT_OPTIONS: bluerainBootOptionsPath,
 
         'react-native': useOwn('react-native-web'),

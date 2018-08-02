@@ -13,7 +13,7 @@ export default {
   ],
   config: {
     // Configurations for bluerain-os will be added here
-    title: 'Abdul',
+    title: 'BlueRain',
 
     wallpaper: {
       // backgroundColor: 'red',

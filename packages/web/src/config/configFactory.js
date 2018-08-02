@@ -116,7 +116,6 @@ const configFactory = configs => customConfigs({
   bluerainDir: path.resolve(appRootDir.get(), 'bluerain'),
 
   // Name of bluerain file with boot options object
-  bluerainJsFile: 'bluerain.js', // deprecated
   bootConfigFile: 'boot.js',
 
   // Do you want to included source maps for optimised builds of the client

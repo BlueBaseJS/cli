@@ -24,15 +24,22 @@ A CLI tool to run or build a BlueRain project for web.
 ## Getting started
 
 ```bash
-git clone https://github.com/ctrlplusb/react-universally my-project
-cd my-project
-npm install
-npm run develop
+yarn add npm i @blueeast/bluerain-cli-web
+bluerain-cli-web-develop
 ```
 
-Now go make some changes to the `Home` component to see the tooling in action.
+This will launch a development server with a vanilla BlueRain installation.
 
-## Docs
+## Folder Structure
+
+This tool expects your project to have a `bluerain` folder in your project root. It recognizes the following files:
+
+- `boot.js`: This file export `bootOptions` object that is passed to BlueRain's boot method. You can add all your apps, plugins, configs, etc here.
+- `config.js`: Override configs
+- `webpack.config.js`: Override webpack configs.
+- `.babelrc`: Override babel configs.
+
+<!-- ## Docs
 
 - [Project Overview](/internal/docs/PROJECT_OVERVIEW.md)
 - [Project Configuration](/internal/docs/PROJECT_CONFIG.md)
@@ -40,4 +47,4 @@ Now go make some changes to the `Home` component to see the tooling in action.
 - [FAQ](/internal/docs/FAQ.md)
 - [Feature Branches](/internal/docs/FEATURE_BRANCHES.md)
 - [Deploy your very own Server Side Rendering React App in 5 easy steps](/internal/docs/DEPLOY_TO_NOW.md)
-- [Changelog](/CHANGELOG.md)
+- [Changelog](/CHANGELOG.md) -->
