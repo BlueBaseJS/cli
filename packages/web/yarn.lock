@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@blueeast/bluerain-os@^3.10.0", "@blueeast/bluerain-os@^3.13.3":
+"@blueeast/bluerain-os@^3.10.0", "@blueeast/bluerain-os@^3.13.3", "@blueeast/bluerain-os@^3.13.4":
   version "3.13.6"
   resolved "https://registry.yarnpkg.com/@blueeast/bluerain-os/-/bluerain-os-3.13.6.tgz#aefc250dcfa72f8845badf158270b910fc00f60c"
   dependencies:
@@ -21,15 +21,16 @@
     react-dom-factories "^1.0.2"
     recompose "^0.27.1"
 
-"@blueeast/bluerain-platform-reactxp@^3.0.3":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-platform-reactxp/-/bluerain-platform-reactxp-3.0.6.tgz#d83fe060ae5c49b8b46d6eefab0155241ee89bc7"
+"@blueeast/bluerain-platform-react-native@1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-platform-react-native/-/bluerain-platform-react-native-1.1.3.tgz#db8ede757253b8bc0fc5845a832e48286712b6b1"
   dependencies:
-    "@blueeast/bluerain-os" "^3.10.0"
+    "@blueeast/bluerain-os" "^3.13.4"
+    immutable "^3.8.2"
     is-electron "^2.1.0"
-    react "^16.2.0"
-    reactxp "^0.51.8"
-    synctasks "^0.3.1"
+    react "^16.3.2"
+    react-dom "^16.3.2"
+    synctasks "^0.3.2"
 
 "@blueeast/bluerain-plugin-react-router@^1.1.2":
   version "1.1.5"
@@ -62,26 +63,9 @@
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/@blueeast/proxy-polyfill/-/proxy-polyfill-0.1.10.tgz#19dab15e66fd730c0cddc8c30318b0e9e68389f0"
 
-"@types/lodash@^4.14.64", "@types/lodash@^4.14.78":
-  version "4.14.115"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.115.tgz#54d171b2ce12c058742443b5f6754760f701b8f9"
-
 "@types/node@*":
   version "10.5.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.5.5.tgz#8e84d24e896cd77b0d4f73df274027e3149ec2ba"
-
-"@types/react-dom@^16.0.3":
-  version "16.0.6"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.6.tgz#f1a65a4e7be8ed5d123f8b3b9eacc913e35a1a3c"
-  dependencies:
-    "@types/node" "*"
-    "@types/react" "*"
-
-"@types/react@*", "@types/react@^16.0.36":
-  version "16.4.7"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.7.tgz#f33f6d759a7e1833befa15224d68942d178a5a3f"
-  dependencies:
-    csstype "^2.2.0"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -342,7 +326,7 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
 
-assert@^1.1.1, assert@^1.3.0:
+assert@^1.1.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/assert/-/assert-1.4.1.tgz#99912d591836b5a6f5b345c0f07eefc08fc65d91"
   dependencies:
@@ -2175,10 +2159,6 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   dependencies:
     cssom "0.3.x"
 
-csstype@^2.2.0:
-  version "2.5.6"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.6.tgz#2ae1db2319642d8b80a668d2d025c6196071e788"
-
 cz-conventional-changelog@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/cz-conventional-changelog/-/cz-conventional-changelog-1.2.0.tgz#2bca04964c8919b23f3fd6a89ef5e6008b31b3f8"
@@ -3948,10 +3928,6 @@ ienoopen@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ienoopen/-/ienoopen-1.0.0.tgz#346a428f474aac8f50cf3784ea2d0f16f62bda6b"
 
-ifvisible@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ifvisible/-/ifvisible-1.1.0.tgz#a47768028c7c256368b16eaf3312e6898280215c"
-
 ignore-walk@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ignore-walk/-/ignore-walk-3.0.1.tgz#a83e62e7d272ac0e3b551aaa82831a19b69f82f8"
@@ -5151,7 +5127,7 @@ lodash@4.17.4:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
-lodash@^4.15.0, lodash@^4.17.1, lodash@^4.17.10, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@^4.7.0:
+lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@^4.7.0:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -6492,7 +6468,7 @@ prop-types@15.5.10:
     fbjs "^0.8.9"
     loose-envify "^1.3.1"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.1:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -6867,7 +6843,7 @@ react@16.3.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react@^16.2.0, react@^16.3.2:
+react@^16.3.2:
   version "16.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
   dependencies:
@@ -6875,21 +6851,6 @@ react@^16.2.0, react@^16.3.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
-
-reactxp@^0.51.8:
-  version "0.51.10"
-  resolved "https://registry.yarnpkg.com/reactxp/-/reactxp-0.51.10.tgz#f50305c3db579a68ad3aa1dafc595c6efdc39423"
-  dependencies:
-    "@types/lodash" "^4.14.78"
-    "@types/react" "^16.0.36"
-    "@types/react-dom" "^16.0.3"
-    assert "^1.3.0"
-    ifvisible "^1.1.0"
-    lodash "^4.17.1"
-    prop-types "^15.5.9"
-    rebound "^0.0.13"
-    subscribableevent "^1.0.0"
-    synctasks "^0.3.0"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -6950,10 +6911,6 @@ readdirp@^2.0.0:
     minimatch "^3.0.2"
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
-
-rebound@^0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/rebound/-/rebound-0.0.13.tgz#4a225254caf7da756797b19c5817bf7a7941fac1"
 
 rechoir@^0.6.2:
   version "0.6.2"
@@ -7759,13 +7716,6 @@ style-loader@0.18.2:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
 
-subscribableevent@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/subscribableevent/-/subscribableevent-1.0.0.tgz#bde9500fa9009c7740c924109bac6119cd9898e6"
-  dependencies:
-    "@types/lodash" "^4.14.64"
-    lodash "^4.17.4"
-
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -7812,7 +7762,7 @@ symbol-tree@^3.2.1:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
 
-synctasks@^0.3.0, synctasks@^0.3.1:
+synctasks@^0.3.2:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/synctasks/-/synctasks-0.3.3.tgz#1e3dde423b39d28bc940fdb7698d8b4b7a741e77"
 

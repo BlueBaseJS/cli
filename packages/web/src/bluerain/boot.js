@@ -1,7 +1,7 @@
 // This file contain all the apps, plugins and configuration which are required
 // for booting bluerain-os. see https://blueeast.gitbooks.io/bluerain-os/
 export default {
-  platform: [require('@blueeast/bluerain-platform-reactxp')],
+  platform: [require('@blueeast/bluerain-platform-react-native')],
   apps: [
     // All bluerain apps will also be added in this array
   ],

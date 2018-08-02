@@ -79,6 +79,7 @@
   },
   "homepage": "https://github.com/ctrlplusb/react-universally#readme",
   "dependencies": {
+    "@blueeast/bluerain-platform-react-native": "1.1.3",
     "app-root-dir": "1.0.2",
     "assets-webpack-plugin": "3.5.1",
     "babel-cli": "6.26.0",
@@ -163,7 +164,6 @@
   },
   "devDependencies": {
     "@blueeast/bluerain-os": "^3.10.0",
-    "@blueeast/bluerain-platform-reactxp": "^3.0.3",
     "@blueeast/bluerain-plugin-react-router": "^1.1.2",
     "@blueeast/bluerain-plugin-redux": "^0.6.4",
     "react": "16.3.0",
@@ -172,7 +172,6 @@
   },
   "peerDependencies": {
     "@blueeast/bluerain-os": "3.x.x",
-    "@blueeast/bluerain-platform-reactxp": "*",
     "@blueeast/bluerain-plugin-react-router": "*",
     "@blueeast/bluerain-plugin-redux": "*",
     "react": "16.x.x",
