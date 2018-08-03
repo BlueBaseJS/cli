@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
  */
 function HTML(props) {
   const { htmlAttributes, headerElements, bodyElements, appBodyString } = props;
-
   return (
     <html {...htmlAttributes}>
       <head>{headerElements}</head>

@@ -13,12 +13,12 @@ export default {
   ],
   config: {
     // Configurations for bluerain-os will be added here
-    title: 'Bluerain OS',
+    title: 'Abdul',
 
     wallpaper: {
-      backgroundColor: '#F2F5FE',
-      // source: 'https://placeimg.com/1000/800/tech',
-      // resizeMode: 'cover',
+      //  backgroundColor: 'red',
+      source: 'https://placeimg.com/1000/800/tech',
+      resizeMode: 'cover',
     },
 
     plugins: {},

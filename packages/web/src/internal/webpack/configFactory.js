@@ -16,6 +16,10 @@ import getBluerainBootOptionsPath from './bluerainBootOptionsPath';
 import customWebpackConfigs from './customWebpackConfigs';
 import customBabelConfigs from './customBabelConfigs';
 
+function useOwn(loaderStr) {
+  return path.resolve(config('projectRootDir'), `./node_modules/${loaderStr}`);
+}
+
 /**
  * Generates a webpack configuration for the target configuration.
  *
@@ -77,21 +81,22 @@ export default function webpackConfigFactory(buildOptions) {
         // We are using polyfill.io instead of the very heavy babel-polyfill.
         // Therefore we need to add the regenerator-runtime as polyfill.io
         // doesn't support this.
-        ifClient('regenerator-runtime/runtime'),
+        ifClient(useOwn('regenerator-runtime/runtime')),
         // Extends hot reloading with the ability to hot path React Components.
         // This should always be at the top of your entries list. Only put
         // polyfills above it.
-        ifDevClient('react-hot-loader/patch'),
+        ifDevClient(useOwn('react-hot-loader/patch')),
         // Required to support hot reloading of our client.
         ifDevClient(
           () =>
-            `webpack-hot-middleware/client?reload=true&path=http://${config('host')}:${config(
+            useOwn(`webpack-hot-middleware/client?reload=true&path=http://${config('host')}:${config(
               'clientDevServerPort',
-            )}/__webpack_hmr`,
+            )}/__webpack_hmr`),
         ),
 
-        // BlueRain boot options file, AKA bluerain.js
-        bluerainBootOptionsPath,
+        // BlueRain boot options file, AKA boot.js
+        ifClient(bluerainBootOptionsPath),
+        // bluerainBootOptionsPath,
 
         // The source entry file for the bundle.
         path.resolve(config('projectRootDir'), bundleConfig.srcEntryFile),
@@ -187,8 +192,11 @@ export default function webpackConfigFactory(buildOptions) {
       alias: {
         modernizr$: path.resolve(config('projectRootDir'), './.modernizrrc'),
 
-        // BlueRain boot options file, AKA bluerain.js
+        // BlueRain boot options file, AKA boot.js
         BLUERAIN_BOOT_OPTIONS: bluerainBootOptionsPath,
+
+        'react-native': useOwn('react-native-web'),
+        'react-art': useOwn('react-art'),
       },
     },
 
@@ -208,7 +216,7 @@ export default function webpackConfigFactory(buildOptions) {
             whitelist: removeNil([
               // We always want the source-map-support included in
               // our node target bundles.
-              'source-map-support/register',
+              useOwn('source-map-support/register'),
             ])
               // And any items that have been whitelisted in the config need
               // to be included in the bundling process too.
@@ -368,7 +376,7 @@ export default function webpackConfigFactory(buildOptions) {
         // We will use babel to do all our JS processing.
         loaders: [
           {
-            path: 'babel-loader',
+            path: useOwn('babel-loader'),
             // We will create a babel config and pass it through the plugin
             // defined in the project configuration, allowing additional
             // items to be added.
@@ -401,7 +409,7 @@ export default function webpackConfigFactory(buildOptions) {
 
                 plugins: [
                   // Required to support react hot loader.
-                  ifDevClient('react-hot-loader/babel'),
+                  ifDevClient(useOwn('react-hot-loader/babel')),
                   // This decorates our components with  __self prop to JSX elements,
                   // which React will use to generate some runtime warnings.
                   ifDev('transform-react-jsx-self'),
@@ -432,9 +440,9 @@ export default function webpackConfigFactory(buildOptions) {
         happyPackPlugin({
           name: 'happypack-devclient-css',
           loaders: [
-            'style-loader',
+            useOwn('style-loader'),
             {
-              path: 'css-loader',
+              path: useOwn('css-loader'),
               // Include sourcemaps for dev experience++.
               query: { sourceMap: true },
             },
@@ -461,7 +469,9 @@ export default function webpackConfigFactory(buildOptions) {
               // named "happypack-javascript".
               // See the respective plugin within the plugins section for full
               // details on what loader is being implemented.
-              loader: 'happypack/loader?id=happypack-javascript',
+              // loader: 'happypack/loader?id=happypack-javascript',
+              loader: useOwn('happypack/loader'),
+              query: 'id=happypack-javascript',
               include: removeNil([
                 ...bundleConfig.srcPaths.map(srcPath =>
                   path.resolve(config('projectRootDir'), srcPath),
@@ -484,7 +494,13 @@ export default function webpackConfigFactory(buildOptions) {
                 // See the respective plugin within the plugins section for full
                 // details on what loader is being implemented.
                 ifDevClient({
-                  loaders: ['happypack/loader?id=happypack-devclient-css'],
+                  loaders: [
+                    // 'happypack/loader?id=happypack-devclient-css',
+                    {
+                      loader: useOwn('happypack/loader'),
+                      query: 'id=happypack-devclient-css',
+                    },
+                  ],
                 }),
                 // For a production client build we use the ExtractTextPlugin which
                 // will extract our CSS into CSS files. We don't use happypack here
@@ -494,14 +510,14 @@ export default function webpackConfigFactory(buildOptions) {
                 // plugins section too.
                 ifProdClient(() => ({
                   loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader'],
+                    fallback: useOwn('style-loader'),
+                    use: [useOwn('css-loader')],
                   }),
                 })),
                 // When targetting the server we use the "/locals" version of the
                 // css loader, as we don't need any css files for the server.
                 ifNode({
-                  loaders: ['css-loader/locals'],
+                  loaders: [useOwn('css-loader/locals')],
                 }),
               ),
             ),
@@ -512,11 +528,11 @@ export default function webpackConfigFactory(buildOptions) {
             // @see https://github.com/peerigon/modernizr-loader
             ifClient({
               test: /\.modernizrrc.js$/,
-              loader: 'modernizr-loader',
+              loader: useOwn('modernizr-loader'),
             }),
             ifClient({
               test: /\.modernizrrc(\.json)?$/,
-              loader: 'modernizr-loader!json-loader',
+              loader: `${useOwn('modernizr-loader')}!${useOwn('json-loader')}`,
             }),
 
             // ASSETS (Images/Fonts/etc)
@@ -524,7 +540,7 @@ export default function webpackConfigFactory(buildOptions) {
             // serving the client bundle as a Single Page Application through the
             // server.
             ifElse(isClient || isServer)(() => ({
-              loader: 'file-loader',
+              loader: useOwn('file-loader'),
               exclude: [/\.js$/, /\.html$/, /\.json$/],
               query: {
                 // What is the web path that the client bundle will be served from?

@@ -15,7 +15,12 @@ export default function customWebpackConfigs(webpackConfig, buildOptions) {
     return webpackConfig;
   }
 
-  const customConfig = require(customConfigPath);
+  let customConfig = require(customConfigPath);
+
+  // ES modules
+  if (customConfig.default) {
+    customConfig = customConfig.default;
+  }
 
   if (typeof customConfig === 'function') {
     log({
@@ -54,8 +59,8 @@ export default function customWebpackConfigs(webpackConfig, buildOptions) {
       ...webpackConfig.resolve,
       ...customConfig.resolve,
       alias: {
-        ...webpackConfig.alias,
-        ...(customConfig.resolve && customConfig.resolve.alias),
+        ...webpackConfig.resolve.alias,
+        ...(customConfig.resolve && customConfig.resolve.alias && customConfig.resolve.alias),
       },
     },
   };

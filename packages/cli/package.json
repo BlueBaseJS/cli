@@ -1,20 +1,25 @@
 {
-  "name": "@blueeast/bluerain-cli-alpha",
-  "version": "0.1.1-alpha.0",
+  "name": "@blueeast/bluerain-cli",
+  "version": "3.0.0",
   "description": "CLI tool to make life with BlueRain easier!",
   "main": "./src/index.js",
   "author": "BlueEast Team <code@blueeast.com>",
   "license": "MIT",
   "bin": {
-    "blue": "./src/index.js"
-  },
+    "bluerain": "./src/index.js"
+	},
+	"peerdependencies": {
+		"@blueeast/bluerain-cli-web": "*"
+	},
+	"devDependencies": {
+		"@blueeast/bluerain-cli-web": "^0.2.1"
+	},
   "dependencies": {
-    "@blueeast/bluerain-cli-plugin": "../plugin/dist",
     "chalk": "^2.3.1",
     "child_process": "^1.0.2",
     "inquirer": "^5.1.0",
     "path": "^0.12.7",
     "shelljs": "^0.8.1",
     "yargs": "^11.0.0"
-  }
+	}
 }

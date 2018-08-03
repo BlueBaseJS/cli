@@ -21,9 +21,7 @@ export default function customConfigs(_config) {
     return config;
   }
 
-  console.log('customConfigPath', customConfigPath);
   const customConfig = requireFunc(customConfigPath).default; // eslint-disable-line
-  console.log('customConfig', customConfig);
 
   if (typeof customConfig === 'function') {
     log({

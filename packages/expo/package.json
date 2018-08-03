@@ -1,6 +1,63 @@
 {
   "name": "@blueeast/bluerain-cli-expo",
-  "version": "0.1.0",
-  "main": "index.js",
-  "license": "MIT"
+  "version": "0.1.2",
+  "description": "bluerain expo",
+  "main": "build/server/index.js",
+  "engines": {
+    "node": ">=6"
+  },
+  "bin": {
+    "bluerain-cli-expo-run": "./src/bin/run.js",
+    "bluerain-cli-expo-build": "./src/bin/build.js"
+  },
+  "scripts": {
+    "build:plugin": "rm -rf dist && babel -D src/ -d dist/src && cp package.json dist/ && cd dist/ && npm pack"
+  },
+  "keywords": [
+    "react",
+    "build",
+    "command",
+    "babel",
+    "javascript",
+    "typescript",
+    "bluerain"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@blueeast/bluerain-os": "^3.9.0",
+    "@blueeast/bluerain-platform-reactxp": "^3.0.3",
+    "@blueeast/bluerain-plugin-react-router": "^1.1.2",
+    "@blueeast/bluerain-plugin-redux": "^0.6.4",
+    "app-root-dir": "^1.0.2",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "21.0.2",
+    "babel-loader": "7.1.2",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-env": "1.6.0",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-3": "6.24.1",
+    "babel-template": "6.26.0",
+    "chalk": "2.3.1",
+    "colors": "1.1.2",
+    "deepmerge": "2.0.1",
+    "eslint": "4.7.2",
+    "eslint-config-airbnb": "15.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.3.0",
+    "exp": "^50.0.1",
+    "node-notifier": "5.1.2",
+    "prettier": "1.7.0",
+    "prettier-eslint": "8.1.1",
+    "prettier-eslint-cli": "4.3.2",
+    "pretty-error": "2.1.1",
+    "rimraf": "2.6.2",
+    "shelljs": "0.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.7",
+    "semver": "5.4.1"
+  }
 }

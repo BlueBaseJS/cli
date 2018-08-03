@@ -1,16 +1,16 @@
+sudo: false
 language: node_js
 cache:
-  yarn: true
+  yarn: true 
   directories:
     - node_modules
 notifications:
   email: false
 node_js:
   - lts/*
-script: echo "npm test temporarily disabled"
-# script:
-#  - npm run test:prod && npm run build
-# after_success:
-  # - npm run report-coverage
-  # - test $TRAVIS_BRANCH = "master" && npm run deploy-docs
-  # - npx semantic-release
+before_install:
+  - chmod +x .travis/before_install.sh
+after_success: 
+  - .travis/after_success.sh
+git:
+  depth: 1

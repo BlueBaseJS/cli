@@ -107,7 +107,7 @@ const configFactory = configs => customConfigs({
 
   // Path to the public assets that will be served off the root of the
   // HTTP server.
-  publicAssetsPath: './src/public',
+  publicAssetsPath: './public',
 
   // Where does our build output live?
   buildOutputPath: './src/build',
@@ -116,7 +116,7 @@ const configFactory = configs => customConfigs({
   bluerainDir: path.resolve(appRootDir.get(), 'bluerain'),
 
   // Name of bluerain file with boot options object
-  bluerainJsFile: 'bluerain.js',
+  bootConfigFile: 'boot.js',
 
   // Do you want to included source maps for optimised builds of the client
   // bundle?
@@ -206,11 +206,11 @@ const configFactory = configs => customConfigs({
         // webpack loaders in order to be processed (e.g. CSS/SASS etc).
         // For these cases you don't want to include them in the Vendor DLL.
         include: [
-          'react-async-component',
+          // 'react-async-component',
           'react',
           'react-dom',
           'react-helmet',
-          'react-router-dom',
+          // 'react-router-dom',
         ],
 
         // The name of the vendor DLL.

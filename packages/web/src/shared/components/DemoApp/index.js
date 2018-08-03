@@ -12,9 +12,9 @@ import './globals.css';
 // import AsyncCounterRoute from './AsyncCounterRoute';
 // import AsyncAboutRoute from './AsyncAboutRoute';
 
-function DemoApp() {
+function MainApp() {
   return (
-    <div style={{ padding: '2rem' }}>
+    <div className="app-root">
       <Helmet>
         <html lang="en" />
         <meta charSet="utf-8" />
@@ -98,17 +98,17 @@ function DemoApp() {
           this and the related items from the Content Security Policy in the
           global config if you have no intention of using milligram.
         */}
-        <link
+        {/* <link
           rel="stylesheet"
           href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"
         />
         <link
           rel="stylesheet"
           href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"
-        />
+        /> */}
       </Helmet>
     </div>
   );
 }
 
-export default DemoApp;
+export default MainApp;
