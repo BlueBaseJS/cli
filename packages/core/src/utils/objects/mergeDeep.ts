@@ -17,20 +17,17 @@ export default function mergeDeep(...args: object[]) {
 	if (filtered.length === 1) {
 		return args[0];
 	}
-	return filtered.reduce(
-    (acc, cur) => {
-	Object.keys(cur).forEach((key) => {
-		// tslint:disable-next-line:prefer-conditional-expression
-		if (typeof acc[key] === 'object' && typeof cur[key] === 'object') {
-          // eslint-disable-next-line no-param-reassign
-			acc[key] = mergeDeep(acc[key], cur[key]);
-		} else {
-          // eslint-disable-next-line no-param-reassign
-			acc[key] = cur[key];
-		}
-	});
-	return acc;
-},
-    {},
-  );
+	return filtered.reduce((acc, cur) => {
+		Object.keys(cur).forEach(key => {
+			// tslint:disable-next-line:prefer-conditional-expression
+			if (typeof acc[key] === 'object' && typeof cur[key] === 'object') {
+				// eslint-disable-next-line no-param-reassign
+				acc[key] = mergeDeep(acc[key], cur[key]);
+			} else {
+				// eslint-disable-next-line no-param-reassign
+				acc[key] = cur[key];
+			}
+		});
+		return acc;
+	}, {});
 }
