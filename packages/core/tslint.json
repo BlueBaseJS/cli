@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "@blueeast/tslint-config-blueeast/react"
+  ],
+  "rules": {
+    "no-expression-statement": false,
+    "object-literal-sort-keys": true
+  }
+}
