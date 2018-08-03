@@ -108,6 +108,12 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@blueeast/bluerain-cli-core@../core":
+  version "1.0.0"
+  dependencies:
+    "@blueeast/bluerain-os" "^3.13.6"
+    debug "^3.1.0"
+
 "@blueeast/bluerain-os@^3.13.6":
   version "3.13.6"
   resolved "https://registry.yarnpkg.com/@blueeast/bluerain-os/-/bluerain-os-3.13.6.tgz#aefc250dcfa72f8845badf158270b910fc00f60c"
@@ -126,12 +132,6 @@
     prop-types "^15.6.0"
     react-dom-factories "^1.0.2"
     recompose "^0.27.1"
-
-"@blueeast/bluerain-ui-interfaces@^3.2.11":
-  version "3.2.11"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-ui-interfaces/-/bluerain-ui-interfaces-3.2.11.tgz#50092cd5baa8596fa0ec8854e1dca23f9efbe84a"
-  dependencies:
-    react "^16.2.0"
 
 "@blueeast/proxy-polyfill@^0.1.9":
   version "0.1.10"
@@ -4855,7 +4855,7 @@ react-lifecycles-compat@^3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
-react@^16.2.0, react@^16.4.2:
+react@^16.4.2:
   version "16.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
   dependencies:
@@ -5833,8 +5833,8 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
 ts-jest@^23.0.0:
-  version "23.1.2"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-23.1.2.tgz#34cd26f3f566924dbd385ad188ae3c3b75757f9e"
+  version "23.1.0"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-23.1.0.tgz#1d193a3b51d78793062f1f9137629f8921301aa1"
   dependencies:
     closest-file-data "^0.1.4"
     fs-extra "6.0.1"
@@ -5996,15 +5996,11 @@ typedoc@^0.11.1:
     typedoc-default-themes "^0.5.0"
     typescript "2.7.2"
 
-typescript@2.7.1:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.1.tgz#bb3682c2c791ac90e7c6210b26478a8da085c359"
-
 typescript@2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.2.tgz#2d615a1ef4aee4f574425cdff7026edf81919836"
 
-typescript@^2.5.3:
+typescript@^2.5.3, typescript@^2.9.1:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
 
