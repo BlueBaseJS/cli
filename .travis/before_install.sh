@@ -9,20 +9,17 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   exit 0
 fi
 
-if [[ $TRAVIS_BRANCH == 'master' ]]; 
-echo "master"
+if [[ $TRAVIS_BRANCH == 'master' ]]; then
   rm -rf .git
   git init
   git clean -dfx
   git remote add origin https://github.com/BlueEastCode/bluerain-cli.git
   git fetch origin
-  echo "going to clone"
   git clone https://github.com/BlueEastCode/bluerain-cli.git $TRAVIS_REPO_SLUG
-  echo "clone done, ${TRAVIS_BRANCH}"
   git checkout $TRAVIS_BRANCH
 
-#   git config credential.helper store
-  echo "https://${RELEASE_GH_USERNAME}:${RELEASE_GH_TOKEN}@github.com/BlueEastCode/bluerain-cli.git"
+  git config credential.helper store
+  echo "https://${RELEASE_GH_USERNAME}:${RELEASE_GH_TOKEN}@github.com/BlueEastCode/bluerain-cli.git" > ~/.git-credentials
 
   npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN -q
   npm prune

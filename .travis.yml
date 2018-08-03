@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 cache:
-  yarn: true 
+  yarn: true
   directories:
     - node_modules
 notifications:
@@ -10,7 +10,8 @@ node_js:
   - lts/*
 before_install:
   - chmod +x .travis/before_install.sh
-after_success: 
+after_success:
   - .travis/after_success.sh
+script: npm run lint && npm test
 git:
   depth: 1
