@@ -19,7 +19,7 @@ describe('filterWithRules', () => {
 		);
 	});
 
-	test('throws an exception if the rule doesn\'t match the object', () => {
+	test('throws an exception if the rule doesnt match the object', () => {
 		const filterRules = { a: { something: true }, b: true };
 		const obj = { a: 1, b: 2 };
 		expect(() => filterWithRules(filterRules, obj)).toThrowError(
