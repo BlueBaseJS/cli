@@ -1,4 +1,4 @@
-import { EngineRegistry, FileRegistry, FilterRegistry } from './registrys';
+import { EngineRegistry, FilterRegistry } from './registrys';
 import { Engine } from './models/Engine';
 import Debug from 'debug';
 

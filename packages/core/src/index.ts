@@ -1,4 +1,5 @@
 import * as utils from './utils';
-export * from './main';
 
+export { LaunchPad } from './LaunchPad';
+export * from './models';
 export { utils };

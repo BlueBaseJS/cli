@@ -6,7 +6,7 @@ import Debug from 'debug';
 
 const debug = Debug('Engine');
 
-type CommandStore = { [key: string]: Command };
+export type CommandStore = { [key: string]: Command };
 
 /**
  * An Engine is an implemetation of an application platform.
