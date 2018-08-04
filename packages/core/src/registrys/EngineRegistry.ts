@@ -30,6 +30,10 @@ export default class EngineRegistry extends MapRegistry<Engine> {
 		const engine = new EngineClass(this.LP);
 		engine.slug = slug;
 		this.add(slug, engine);
+
+		engine.Filters.run('bluerain.cli.engines.deployed', engine);
+		debug(`Engine deployed: ${slug}`);
+
 		return engine;
 	}
 }

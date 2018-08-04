@@ -1,4 +1,4 @@
-import { ifElse } from '../';
+import { ifElse } from '..';
 
 describe('ifElse', () => {
 	it('returns a function', () => {

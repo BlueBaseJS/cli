@@ -1,4 +1,4 @@
-import { EngineRegistry, FilterRegistry } from './registrys';
+import { EngineRegistry } from './registrys';
 import { Engine } from './models/Engine';
 import Debug from 'debug';
 
@@ -20,9 +20,6 @@ export class LaunchPad {
 	 */
 	public Engines = new EngineRegistry(this);
 
-	/** Filters for hook mechanism */
-	public Filters = new FilterRegistry(this);
-
 	/**
 	 * Load all engines!
 	 *
@@ -43,19 +40,20 @@ export class LaunchPad {
 		options?: object
 	): Promise<void> => {
 
+		debug(`Engine launching: ${engineName} with command ${command}`);
+
 		// =[ System Lifecycle Event ]= Launch Start
-		this.Filters.run('bluerain.cli.launch.start');
+		// this.Filters.run('bluerain.cli.launch.start');
 
 		// Deploy the required Engine on LaunchPad
-		// =[ System Lifecycle Event ]= Engine deployed
-		const engine = await this.Engines.deploy(engineName);
-		this.Filters.run('bluerain.cli.engines.deployed', engine);
-		debug(`Engine deployed: ${engineName}`);
+		const engine = (this.Engines.has(engineName))
+			? this.Engines.get(engineName)
+			: await this.Engines.deploy(engineName);
 
 		// Prepare engine for launce
 		// =[ System Lifecycle Event ]= Engine prepared
 		await engine.prepare();
-		this.Filters.run('bluerain.cli.engines.prepared', engine);
+		// this.Filters.run('bluerain.cli.engines.prepared', engine);
 		debug(`Engine prepared: ${engineName}`);
 
 		// 🚀 Liftoff! 🤘

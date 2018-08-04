@@ -10,7 +10,7 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "start": "DEBUG=*,-follow-redirects ts-node ./src/run.ts",
+    "start": "DEBUG=*,-follow-redirects ts-node ./src/test.ts",
     "clean": "rimraf coverage build tmp",
     "watch": "tsc -w -p tsconfig.json",
     "watch:test": "jest --watch",

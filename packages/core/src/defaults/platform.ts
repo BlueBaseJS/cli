@@ -1,3 +1,7 @@
+export interface WebPlatformConfigs {
+	mode?: 'development' | 'production' | 'none';
+}
+
 export interface PlatformConfigs {
 
 	// web: {},
@@ -7,3 +11,5 @@ export interface PlatformConfigs {
 
 	[key: string]: any;
 }
+
+export default () => ({ web: { foo: 'bar' } });

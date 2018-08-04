@@ -4,6 +4,12 @@ import { fromProjectRoot } from '../utils/paths';
 import MapRegistry from './MapRegistry';
 import findFiles from 'file-regex';
 import path from 'path';
+import Debug from 'debug';
+import { hookFn } from './FilterRegistry';
+import { EsModule } from '../../node_modules/@blueeast/bluerain-os/types/typings';
+import { isFunction } from 'util';
+
+const debug = Debug('FileRegistry');
 
 export type FileInfo = { dir: string, file: string };
 
@@ -23,20 +29,23 @@ export default class FileRegistry extends MapRegistry<ConfigFileInfo> {
 	/**
 	 * Bulk add files
 	 */
-	public addMany = (configFiles: ConfigFileInfo[]) => {
+	public addMany = (configFiles: ConfigFileInfo[] = []) => {
 		configFiles.forEach(cfile => this.add(cfile.slug, cfile));
 	}
 
 	/** Query all files that provide hooks, and register them */
 	public registerHooks = async (): Promise<void> => {
 		const fileInfoObjects = this.data.toArray();
+		debug(`Registering hooks`);
 
 		for (const fileInfo of fileInfoObjects) {
 
 			// Skip for all files that are not hooks or are directories
 			if (!fileInfo.isHook || fileInfo.isDir) {
-				return;
+				continue;
 			}
+
+			debug(`Registering hooks for ${fileInfo.slug}`);
 
 			// General hook name
 			//
@@ -50,8 +59,17 @@ export default class FileRegistry extends MapRegistry<ConfigFileInfo> {
 
 			// Import each file and add to Filter registry
 			for(const hookFile of hookFiles) {
-				const hook = await import(hookFile);
-				this.engine.LP.Filters.add(hookName, hookFile, hook);
+				let hook = await import(hookFile);
+
+				// ES modules
+				hook = ((hook as EsModule<hookFn>).default ? (hook as EsModule<hookFn>).default : hook) as hookFn;
+
+				// Check function
+				if(!isFunction(hook)) {
+					throw Error(`Registered hook is not a function in ${hookFile}`);
+				}
+
+				this.engine.Filters.add(hookName, hookFile, hook);
 			}
 		}
 
@@ -83,8 +101,10 @@ export default class FileRegistry extends MapRegistry<ConfigFileInfo> {
 
 		// BlueRain Dir
 		if (file.findInBlueRain === true) {
-			const brFilePath = await this.resolveFilePath(file.slug);
-			paths.push(brFilePath);
+			try {
+				const brFilePath = await this.resolveFilePath(file.slug);
+				paths.push(brFilePath);
+			} catch (error) {}
 		}
 
 		return paths;
@@ -95,12 +115,17 @@ export default class FileRegistry extends MapRegistry<ConfigFileInfo> {
 	 *
 	 * Example: resolveWithFallback('boot');
 	 */
-	public resolveWithFallback = async (): Promise<string> => {
+	public resolveWithFallback = async (slug: string): Promise<string> => {
+
+		if (!this.has(slug)) {
+			throw Error(`No file registered by the slug "${slug}", did you forget to add it?`);
+		}
+
 		try {
-			const result = await this.resolveFilePath('boot');
+			const result = await this.resolveFilePath(slug);
 			return result;
 		} catch (error) {
-			return this.resolveDefaultPath('boot');
+			return this.resolveDefaultPath(slug);
 		}
 	}
 
@@ -161,7 +186,7 @@ export default class FileRegistry extends MapRegistry<ConfigFileInfo> {
 	private listBlueRainPlugins = async (): Promise<string[]> => {
 
 		// We can't gauranttee availability of platform configs here
-		const isDev = (process.env.NODE_ENV === 'production') ? true : false;
+		const isDev = (process.env.NODE_ENV === 'production') ? false : true;
 
 		// Load package.json
 		const Package = await import(fromProjectRoot('package.json'));

@@ -1,8 +1,8 @@
-import { LaunchPad } from '../LaunchPad';
 import { List } from 'immutable';
 import Debug from 'debug';
 import MapRegistry from './MapRegistry';
 import isnil from 'lodash.isnil';
+import { Engine } from '../models';
 
 const debug = Debug('CLI Core - FilterRegistry');
 
@@ -21,7 +21,7 @@ export type FilterRegistryItem = List<FilterRegistryListItem>;
  * filters and their respective functions
  */
 class FilterRegistry extends MapRegistry<FilterRegistryItem> {
-	constructor(private LP: LaunchPad) {
+	constructor(private engine: Engine) {
 		super('FilterRegistry');
 	}
 
@@ -131,7 +131,7 @@ class FilterRegistry extends MapRegistry<FilterRegistryItem> {
 		}
 		const sliceNumber = 2;
 		const args = Array.prototype.slice.call(arguments).slice(sliceNumber); // eslint-disable-line prefer-rest-params
-		args.push(this.LP);
+		args.push(this.engine);
 		const filters: FilterRegistryItem = this.data.get(hook) || List();
 
 		if (isnil(filters) || filters.size === 0) {

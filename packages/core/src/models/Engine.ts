@@ -1,7 +1,9 @@
-import { ConfigRegistry, FileRegistry } from '../registrys';
+import { ConfigRegistry, FileRegistry, FilterRegistry } from '../registrys';
 import { Command } from './Command';
 import { ConfigFileInfo } from './ConfigFiles';
 import { LaunchPad } from '../LaunchPad';
+import isnil from 'lodash.isnil';
+
 import Debug from 'debug';
 
 const debug = Debug('Engine');
@@ -20,10 +22,12 @@ export class Engine {
 	public slug?: string;
 
 	/** Configuration files to load */
-	public configFiles: ConfigFileInfo[] = [];
+	public configFiles?: ConfigFileInfo[];
 
 	/** All commands of this engine */
 	public commands?: CommandStore;
+
+	//////// Registrys ////////
 
 	/** Holds all configurations */
 	public Configs = new ConfigRegistry(this);
@@ -31,11 +35,10 @@ export class Engine {
 	/** All files to be loaded and process. */
 	public Files = new FileRegistry(this);
 
-	constructor(public LP: LaunchPad) {
+	/** Filters for hook mechanism */
+	public Filters = new FilterRegistry(this);
 
-		// Search relevant files (& hooks) as required
-		// by this engine.
-		this.Files.addMany(this.configFiles);
+	constructor(public LP: LaunchPad) {
 	}
 
 	/**
@@ -48,19 +51,23 @@ export class Engine {
 	public async prepare() {
 		debug(`Preparing engine: ${this.slug}`);
 
+		// Search relevant files (& hooks) as required
+		// by this engine.
+		this.Files.addMany(this.configFiles);
+
 		// Load the relevant hook as required
 		// by this engine.
 		await this.Files.registerHooks();
 
 		// Look up platform configs
-		const engineConfigs = this.LP.Filters.run('engine.web.file.platform', {}, this);
+		const engineConfigs = this.Filters.run('engine.web.file.platform', {}, this);
 
 		// Extract engine configs, as platform.js file has configs of all engines
 		const slug = this.slug as string;
 		let configs = engineConfigs[slug] || {};
 
 		// =[ System Lifecycle Event ]= Configs Initailzed
-		configs = this.LP.Filters.run('bluerain.cli.engine.configs', configs, this);
+		configs = this.Filters.run('bluerain.cli.engine.configs', configs, this);
 		this.Configs.registerMany(configs);
 	}
 
@@ -68,11 +75,11 @@ export class Engine {
 	 * Run a command
 	 */
 	public run = async (args: { command: string, options?: object }): Promise<void> => {
-		if (!this.commands || this.commands[args.command]) {
+		if (isnil(this.commands) || isnil(this.commands[args.command])) {
 			throw Error(`A command with the slug ${args.command} doesn't exist`);
 		}
 
-		return this.commands[args.command].handler(args.options || {});
+		return this.commands[args.command].handler(args.options || {}, this);
 	}
 
 	// /**
