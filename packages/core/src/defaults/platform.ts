@@ -1,7 +1,3 @@
-export interface WebPlatformConfigs {
-	mode?: 'development' | 'production' | 'none';
-}
-
 export interface PlatformConfigs {
 
 	// web: {},

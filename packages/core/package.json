@@ -11,7 +11,7 @@
   "keywords": [],
   "scripts": {
     "start": "DEBUG=*,-follow-redirects ts-node ./src/example",
-    "clean": "rimraf coverage build tmp",
+    "clean": "rimraf coverage dist tmp",
     "watch": "tsc -w -p tsconfig.json",
     "watch:test": "jest --watch",
     "lint": "tslint -t stylish --project \"tsconfig.json\"",
@@ -57,10 +57,12 @@
   },
   "dependencies": {
     "@blueeast/bluerain-os": "^3.13.7",
+    "@types/dotenv": "^4.0.3",
     "@types/lodash.isnil": "^4.0.4",
     "app-root-dir": "^1.0.2",
     "debug": "^3.1.0",
     "deepmerge": "^2.1.1",
+    "dotenv": "^6.0.0",
     "file-regex": "^2.1.1",
     "immutable": "^3.8.2",
     "lodash.get": "^4.4.2",

@@ -1,5 +1,5 @@
-import * as utils from './utils';
+import * as Utils from './utils';
 
-export { LaunchPad } from './LaunchPad';
-export * from './models';
-export { utils };
+export { Utils };
+export { default as Defaults } from './defaults';
+export * from './launchpad';

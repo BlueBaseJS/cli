@@ -1,5 +1,5 @@
 import * as ConfigFiles from './ConfigFiles';
 
-export {
+export default {
 	ConfigFiles
 };

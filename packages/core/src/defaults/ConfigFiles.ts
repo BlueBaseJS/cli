@@ -1,4 +1,4 @@
-import { ConfigFileInfo } from '../models/ConfigFiles';
+import { ConfigFileInfo } from '../launchpad/models/ConfigFileInfo';
 import { fromBlueRainDir } from '../utils/paths/fromBlueRainDir';
 import path from 'path';
 

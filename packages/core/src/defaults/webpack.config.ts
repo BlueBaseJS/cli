@@ -1,5 +1,5 @@
 import * as webpack from 'webpack';
-import { Engine } from '../models';
+import { Engine } from '../launchpad/models';
 // import { ifElse } from '../utils';
 
 export type WebpackConfig = webpack.Configuration;

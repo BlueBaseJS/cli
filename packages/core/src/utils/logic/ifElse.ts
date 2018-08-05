@@ -1,4 +1,4 @@
-export type Condition = boolean | (() => boolean);
+export type Condition = any | (() => any);
 export type Result = any | (() => any);
 
 const execIfFunc = (x: any) => (typeof x === 'function' ? x() : x);
@@ -19,7 +19,7 @@ const execIfFunc = (x: any) => (typeof x === 'function' ? x() : x);
  *   const ifDev = ifElse(process.env.NODE_ENV === 'development');
  *   ifDev('foo', () => 'lazy resolved');  // => 'foo'
  */
-export default function ifElse(condition: Condition) {
-	return (then: Result, or: Result) =>
+export default function ifElse(condition?: Condition) {
+	return (then: Result, or?: Result) =>
 		execIfFunc(condition) ? execIfFunc(then) : execIfFunc(or);
 }
