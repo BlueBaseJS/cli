@@ -1,6 +1,6 @@
 // tslint:disable:no-submodule-imports
 import './globals.css';
-import 'normalize.css/normalize.css';
+// import 'normalize.css/normalize.css';
 
 import BlueRain from '../BlueRain';
 import Helmet from 'react-helmet';

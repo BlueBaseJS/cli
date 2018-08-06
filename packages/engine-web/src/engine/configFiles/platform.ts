@@ -1,8 +1,13 @@
 // tslint:disable:object-literal-sort-keys
 import { PlatformConfigs } from '../PlatformConfigs';
 import { Utils } from '@blueeast/bluerain-cli-core';
+import path from 'path';
 
 const EnvVars = Utils.EnvVars;
+
+const fromRoot = (file: string) => {
+	return path.resolve(__dirname, '..', '..', '..', file);
+};
 
 export const DefaultPlatformConfigs: PlatformConfigs = {
 
@@ -31,9 +36,9 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 		styleSrc: [],
 	},
 
-	buildOutputPath: './src/build',
+	buildOutputPath: Utils.fromProjectRoot('./build'),
 	includeSourceMapsForOptimisedClientBundle: false,
-	bundleSrcTypes: ['js', 'jsx', 'json'],
+	bundleSrcTypes: ['ts', 'tsx', 'js', 'jsx', 'json'],
 	bundleAssetsFileName: 'assets.json',
 	nodeExternalsFileTypeWhitelist: [
 		/\.(eot|woff|woff2|ttf|otf)$/,
@@ -58,17 +63,17 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 
 	bundles: {
 		client: {
-			srcEntryFile: './src/client/index.js',
+			srcEntryFile: fromRoot('./src/client/index'),
 			srcPaths: [
-				'./src/client',
-				'./src/shared',
+				fromRoot('./src/client'),
+				fromRoot('./src/shared'),
 				// The service worker offline page generation needs access to the
 				// config folder.  Don't worry we have guards within the config files
 				// to ensure they never get included in a client bundle.
-				'./src/config',
+				fromRoot('./src/config'),
 			],
 			outputPath: Utils.fromProjectRoot('build/client'),
-			webPath: '/src/client/',
+			webPath: fromRoot('/src/client/'),
 			devVendorDLL: {
 				enabled: true,
 				include: [
@@ -83,8 +88,12 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 		},
 
 		server: {
-			srcEntryFile: './src/server/index.js',
-			srcPaths: ['./src/server', './src/shared', './src/config'],
+			srcEntryFile: fromRoot('./src/server/index'),
+			srcPaths: [
+				fromRoot('./src/server'),
+				fromRoot('./src/shared'),
+				fromRoot('./src/config')
+			],
 			outputPath: Utils.fromProjectRoot('build/server'),
 		},
 	},
