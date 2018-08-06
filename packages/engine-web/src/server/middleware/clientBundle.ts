@@ -1,12 +1,13 @@
-import { resolve as pathResolve } from 'path';
 import express from 'express';
+import { Utils } from '@blueeast/bluerain-cli-core';
+import { PlatformConfigs } from '../../engine';
 
 /**
  * Middleware to server our client bundle.
  */
-export default (config: ((name: string) => any)) => express.static(
-  pathResolve(config('projectRootDir'), config('bundles.client.outputPath')),
+export default (configs: PlatformConfigs) => express.static(
+	Utils.fromProjectRoot(configs.bundles.client.outputPath),
 	{
-		maxAge: config('browserCacheMaxAge'),
+		maxAge: configs.browserCacheMaxAge,
 	},
 );

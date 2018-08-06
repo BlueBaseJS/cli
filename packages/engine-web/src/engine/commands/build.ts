@@ -17,7 +17,7 @@ export const build: Core.Command = {
 		const bootPath = await engine.Files.resolveWithFallback('boot');
 		// debug('bootPath', bootPath);
 
-		// const publicPath = await engine.Files.resolveWithFallback('publicDir');
+		// const publicAssetsPath = await engine.Files.resolveWithFallback('publicDir');
 		// debug('publicPath', publicPath);
 
 		// First clear the build output dir.

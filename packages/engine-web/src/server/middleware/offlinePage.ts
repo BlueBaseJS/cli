@@ -1,13 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
 import { readFile } from 'fs';
-import { resolve as pathResolve } from 'path';
+import { Utils } from '@blueeast/bluerain-cli-core';
+import { PlatformConfigs } from '../../engine';
 
 /**
  * Middleware to intercept calls to our offline page to ensure that
  * inline scripts get a nonce value attached to them.
  */
 const offlinePageMiddleware =
-	(config: ((name: string) => any))  =>
+	(configs: PlatformConfigs)  =>
 	(_req: Request, res: Response, _next: NextFunction) => {
 		// We should have had a nonce provided to us.  See the server/index.js for
 		// more information on what this is.
@@ -18,10 +19,8 @@ const offlinePageMiddleware =
 
 		readFile(
 			// Path to the offline page.
-			pathResolve(
-				config('projectRootDir'),
-				config('bundles.client.outputPath'),
-				config('serviceWorker.offlinePageFileName'),
+			Utils.fromProjectRoot(
+				`./${configs.bundles.client.outputPath}/${configs.serviceWorker.offlinePageFileName}`
 			),
 			// Charset for read
 			'utf-8',

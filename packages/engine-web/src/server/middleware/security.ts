@@ -3,8 +3,9 @@ import { NextFunction, Request, Response } from 'express';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import uuid from 'uuid';
+import { PlatformConfigs } from '../../engine';
 
-export default (config: ((name: string) => any)) => {
+export default (configs: PlatformConfigs) => {
 
 	// const cspConfig: IHelmetContentSecurityPolicyConfiguration = {
 	const cspConfig: any = {
@@ -50,7 +51,7 @@ export default (config: ((name: string) => any)) => {
 	};
 
 	// Add any additional CSP from the static config.
-	const cspExtensions = config('cspExtensions');
+	const cspExtensions: any = configs.cspExtensions;
 	Object.keys(cspExtensions).forEach((key) => {
 		// tslint:disable-next-line:prefer-conditional-expression
 		if (cspConfig.directives[key]) {
@@ -64,7 +65,7 @@ export default (config: ((name: string) => any)) => {
 		// When in development mode we need to add our secondary express server that
 		// is used to host our client bundle to our csp config.
 		Object.keys(cspConfig.directives).forEach((directive) => {
-			cspConfig.directives[directive].push(`${config('host')}:${config('clientDevServerPort')}`);
+			cspConfig.directives[directive].push(`${configs.host}:${configs.clientDevServerPort}`);
 		});
 	}
 

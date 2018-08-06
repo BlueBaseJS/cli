@@ -6,6 +6,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import React from 'react';
 import getServerHTML from './ServerHTML';
 import logger from '../../../logger';
+import { PlatformConfigs } from '../../../engine';
 
 // import { StaticRouter } from 'react-router-dom';
 // import { AsyncComponentProvider, createAsyncContext } from 'react-async-component';
@@ -16,9 +17,9 @@ import logger from '../../../logger';
 /**
  * React application middleware, supports server side rendering.
  */
-export default (config: ((name: string) => any)) => (request: Request, response: Response) => {
+export default (configs: PlatformConfigs) => (request: Request, response: Response) => {
 
-	const ServerHTML = getServerHTML(config);
+	const ServerHTML = getServerHTML(configs);
 
 	// Ensure a nonce has been provided to us.
   // See the server/middleware/security.js for more info.
@@ -29,7 +30,7 @@ export default (config: ((name: string) => any)) => (request: Request, response:
 
   // It's possible to disable SSR, which can be useful in development mode.
   // In this case traditional client side only rendering will occur.
-	if (config('disableSSR')) {
+	if (configs.disableSSR) {
 		if (process.env.BUILD_FLAG_IS_DEV === 'true') {
 			logger.info('Server', `Handling react route without SSR: ${request.url}`);
 		}

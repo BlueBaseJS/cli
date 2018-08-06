@@ -69,7 +69,7 @@ export interface PlatformConfigs {
    * What should we name the json output file that webpack generates
    * containing details of all output files for a bundle?
 	 */
-	bundleAssetsFileName: 'assets.json',
+	bundleAssetsFileName: string,
 
 	/*
    * node_modules are not included in any bundles that target "node" as a

@@ -7,6 +7,7 @@ import React, { Children } from 'react';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import HTML from '../../../components/HTML';
 import getClientBundleEntryAssets from './getClientBundleEntryAssets';
+import { PlatformConfigs } from '../../../engine';
 // import serialize from 'serialize-javascript';
 
 // import ClientConfig from '../../../config/components/ClientConfig';
@@ -35,15 +36,15 @@ export interface ServerHTMLProperties {
 	reactAppString?: string;
 }
 
-export type GetServerHTMLType = (config: ((name: string) => any)) => React.StatelessComponent<ServerHTMLProperties>;
+export type GetServerHTMLType = (configs: PlatformConfigs) => React.StatelessComponent<ServerHTMLProperties>;
 
-const getServerHTML: GetServerHTMLType = (config) => (props) => {
+const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 
 	const ifElse = Utils.ifElse;
 	const removeNil = Utils.removeNil;
 
 	// Resolve the assets (js/css) for the client bundle's entry chunk.
-	const clientEntryAssets = getClientBundleEntryAssets(config)();
+	const clientEntryAssets = getClientBundleEntryAssets(configs)();
 
 	const { helmet, reactAppString } = props;
 
@@ -89,12 +90,10 @@ const getServerHTML: GetServerHTMLType = (config) => (props) => {
 	// compilation times.  Therefore we need to inject the path to the
 	// vendor dll bundle below.
 		ifElse(
-		process.env.BUILD_FLAG_IS_DEV === 'true' && config('bundles.client.devVendorDLL.enabled'),
+			process.env.BUILD_FLAG_IS_DEV === 'true' && configs.bundles.client.devVendorDLL.enabled,
 	)(() =>
 		scriptTag(
-			`${config('bundles.client.webPath')}${config(
-				'bundles.client.devVendorDLL.name',
-			)}.js?t=${Date.now()}`,
+			`${configs.bundles.client.webPath}${configs.bundles.client.devVendorDLL.name}.js?t=${Date.now()}`,
 		),
 	),
 		ifElse(clientEntryAssets && clientEntryAssets.js)(() => scriptTag(clientEntryAssets.js)),
