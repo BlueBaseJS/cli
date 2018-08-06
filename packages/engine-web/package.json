@@ -75,6 +75,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "react-art": "^16.4.2",
     "react-helmet": "^5.2.0",
+    "react-hot-loader": "^4.3.4",
     "react-native-web": "^0.8.9",
     "rmfr": "^2.0.0",
     "speed-measure-webpack-plugin": "^1.2.2",

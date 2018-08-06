@@ -38,6 +38,12 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 
 	buildOutputPath: Utils.fromProjectRoot('./build'),
 	includeSourceMapsForOptimisedClientBundle: false,
+	// bundleSrcTypes: [
+	// 	'.web.ts', '.ts',
+	// 	'.web.tsx', '.tsx',
+	// 	'.web.js', '.js',
+	// 	'.web.jsx', '.jsx'
+	// ],
 	bundleSrcTypes: ['ts', 'tsx', 'js', 'jsx', 'json'],
 	bundleAssetsFileName: 'assets.json',
 	nodeExternalsFileTypeWhitelist: [

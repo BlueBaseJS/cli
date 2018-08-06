@@ -35,7 +35,7 @@ export const build: Core.Command = {
 				const webpackConfigs = engine.Filters.run('engine.web.file.webpack', {}, {
 					bootPath,
 					engine,
-					mode: 'production',
+					mode: 'development',
 					target,
 				});
 

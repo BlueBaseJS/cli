@@ -103,6 +103,9 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			__filename: true,
 		},
 
+		// TODO:
+		// profile: true,//ifDev(false, true),
+
 		// Define our entry chunks for our bundle.
 		entry: {
 
@@ -396,6 +399,13 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				verbose: false,
 				threads: 4,
 				loaders: [
+					{
+						loader: useOwn('babel-loader'),
+						options: {
+							babelrc: false,
+							plugins: ['react-hot-loader/babel'],
+						},
+					},
 					{
 						loader: useOwn('ts-loader'),
 						options: {
