@@ -8,7 +8,10 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+
+const HappyPack = require('happypack');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
 export type WebpackConfig = webpack.Configuration;
 
@@ -21,6 +24,8 @@ export type BuildOptions = {
 
 const ifElse = Utils.ifElse;
 const removeNil = Utils.removeNil;
+
+const smp = new SpeedMeasurePlugin();
 
 // This plugin allows you to provide final adjustments your webpack
 // configurations for each bundle before they get processed.
@@ -371,22 +376,35 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				chunkFilename: ifDev('[id].css', '[id].[hash].css')
 			}),
 
-			// Typescript
-			new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true })
-			// // -----------------------------------------------------------------------
-			// // START: HAPPY PACK PLUGINS
-			// //
-			// // @see https://github.com/amireh/happypack/
-			// //
-			// // HappyPack allows us to use threads to execute our loaders. This means
-			// // that we can get parallel execution of our loaders, significantly
-			// // improving build and recompile times.
-			// //
-			// // This may not be an issue for you whilst your project is small, but
-			// // the compile times can be signficant when the project scales. A lengthy
-			// // compile time can significantly impare your development experience.
-			// // Therefore we employ HappyPack to do threaded execution of our
-			// // "heavy-weight" loaders.
+			// -----------------------------------------------------------------------
+			// START: HAPPY PACK PLUGINS
+			//
+			// @see https://github.com/amireh/happypack/
+			//
+			// HappyPack allows us to use threads to execute our loaders. This means
+			// that we can get parallel execution of our loaders, significantly
+			// improving build and recompile times.
+			//
+			// This may not be an issue for you whilst your project is small, but
+			// the compile times can be signficant when the project scales. A lengthy
+			// compile time can significantly impare your development experience.
+			// Therefore we employ HappyPack to do threaded execution of our
+			// "heavy-weight" loaders.
+
+			new HappyPack({
+				id: 'ts',
+				verbose: false,
+				threads: 4,
+				loaders: [
+					{
+						loader: useOwn('ts-loader'),
+						options: {
+							transpileOnly: true,
+							happyPackMode: true // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+						}
+					}
+				],
+			}),
 
 			// // HappyPack 'javascript' instance.
 			// happyPackPlugin({
@@ -453,20 +471,26 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			// 	],
 			// }),
 
-			// // HappyPack 'css' instance for development client.
-			// ifDevClient(() =>
-			// 	happyPackPlugin({
-			// 		name: 'happypack-devclient-css',
-			// 		loaders: [
-			// 			useOwn('style-loader'),
-			// 			{
-			// 				path: useOwn('css-loader'),
-			// 				// Include sourcemaps for dev experience++.
-			// 				query: { sourceMap: true },
-			// 			},
-			// 		],
-			// 	}),
-			// ),
+			// Typescript
+			new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
+
+			// HappyPack 'css' instance for development client.
+
+			ifDevClient(() =>
+				new HappyPack({
+					id: 'happypack-devclient-css',
+					verbose: false,
+					threads: 4,
+					loaders: [
+						useOwn('style-loader'),
+						{
+							path: useOwn('css-loader'),
+							// Include sourcemaps for dev experience++.
+							query: { sourceMap: true },
+						},
+					],
+				})
+			),
 
 			// // END: HAPPY PACK PLUGINS
 			// // -----------------------------------------------------------------------
@@ -496,20 +520,27 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 					// "file" loader at the end of the loader list.
 					oneOf: removeNil([
 
-						// Typescript
+						// // Typescript
+
 						{
-							test: /\.(ts|tsx)$/,
-							// include: fromRoot("src"),
-							loaders: [
-								// useOwn('babel-loader'),
-								{
-									loader: useOwn('ts-loader'),
-									options: {
-										happyPackMode: true // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
-									}
-								}
-							],
+							test: /\.tsx?$/,
+							exclude: /node_modules/,
+							loader: 'happypack/loader?id=ts'
 						},
+
+						// {
+						// 	test: /\.(ts|tsx)$/,
+						// 	// include: fromRoot("src"),
+						// 	loaders: [
+						// 		// useOwn('babel-loader'),
+						// 		{
+						// 			loader: useOwn('ts-loader'),
+						// 			options: {
+						// 				happyPackMode: true // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+						// 			}
+						// 		}
+						// 	],
+						// },
 
 
 						// // JAVASCRIPT
@@ -537,14 +568,43 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 						ifElse(isClient || isServer)(
 
 							Utils.mergeDeep(
-
-								ifClient(() => ({
+								{
 									test: /\.css$/,
-									use: [
+								},
+
+								// For development clients we will defer all our css processing to the
+								// happypack plugin named "happypack-devclient-css".
+								// See the respective plugin within the plugins section for full
+								// details on what loader is being implemented.
+								ifDevClient({
+									loaders: [
+										// 'happypack/loader?id=happypack-devclient-css',
+										{
+											loader: useOwn('happypack/loader'),
+											query: 'id=happypack-devclient-css',
+										},
+									],
+								}),
+
+								// For a production client build we use the ExtractTextPlugin which
+								// will extract our CSS into CSS files. We don't use happypack here
+								// as there are some edge cases where it fails when used within
+								// an ExtractTextPlugin instance.
+								// Note: The ExtractTextPlugin needs to be registered within the
+								// plugins section too.
+								ifProdClient(() => ({
+									loaders: [
 										MiniCssExtractPlugin.loader,
 										useOwn("css-loader")
 									]
 								})),
+
+								// ifClient(() => ({
+								// 	use: [
+								// 		MiniCssExtractPlugin.loader,
+								// 		useOwn("css-loader")
+								// 	]
+								// })),
 
 								// When targetting the server we use the "/locals" version of the
 								// css loader, as we don't need any css files for the server.
@@ -602,5 +662,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 		},
 	};
 
-	return webpackConfig;
+
+
+	return smp.wrap(webpackConfig);
 };
