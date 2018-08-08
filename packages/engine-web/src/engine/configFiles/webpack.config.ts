@@ -226,13 +226,10 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			// This is required for the modernizr-loader
 			// @see https://github.com/peerigon/modernizr-loader
 			alias: {
-				// modernizr$: path.resolve(config('projectRootDir'), './.modernizrrc'),
-
 				// BlueRain boot options file, AKA boot.js
 				BLUERAIN_BOOT_OPTIONS: bootPath,
 
 				'react-native': useOwn('react-native-web'),
-				// 'react-art': useOwn('react-art'),
 			},
 		},
 

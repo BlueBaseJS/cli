@@ -12,12 +12,6 @@ import { PlatformConfigs } from '../engine';
 
 const server = (configsBundle: PlatformConfigs & { publicAssetsPath: string }): Server => {
 
-	logger.log({
-		title: 'express',
-		level: 'warn',
-		message: 'here'
-	});
-
 	const { publicAssetsPath, ...configs } = configsBundle;
 
 	// Create our express based server.

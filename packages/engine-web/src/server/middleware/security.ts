@@ -27,16 +27,17 @@ export default (configs: PlatformConfigs) => {
 			mediaSrc: ["'self'"],
 			manifestSrc: ["'self'"],
 			scriptSrc: [
-				// "*",
+
 				// Allow scripts hosted from our application.
 				"'self'",
-				`${configs.host}:*`,
+
 				// Note: We will execution of any inline scripts that have the following
 				// nonce identifier attached to them.
 				// This is useful for guarding your application whilst allowing an inline
 				// script to do data store rehydration (redux/mobx/apollo) for example.
 				// @see https://helmetjs.github.io/docs/csp/
 				(_req: Request, res: Response) => `'nonce-${res.locals.nonce}'`,
+
 				// This is a know workaround for browsers that don't support nonces.
 				// It will be ignored by browsers that do support nonces as they will
 				// recognise that we have also provided a nonce configuration and
