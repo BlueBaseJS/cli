@@ -5,12 +5,12 @@ import path from 'path';
 import nodeExternals from 'webpack-node-externals';
 import AssetsPlugin from 'assets-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+// import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 const HappyPack = require('happypack');
-const WebpackMd5Hash = require('webpack-md5-hash');
+// const WebpackMd5Hash = require('webpack-md5-hash');
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
 export type WebpackConfig = webpack.Configuration;
@@ -62,9 +62,13 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 	//// Initialize ////
 	////////////////////
 
-	logger.info(`Creating ${isProd
-		? 'an optimised'
-		: 'a development'} bundle configuration for the "${target}"`);
+	logger.log({
+		level: 'info',
+		title: 'Webpack Config',
+		message: `Creating ${isProd
+			? 'an optimised'
+			: 'a development'} bundle configuration for the "${target}"`,
+	});
 
 	// Extract configs of this bundle
 	const bundleConfig =
@@ -87,7 +91,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 		...webpackConfigInput,
 
 		// Mode
-		mode,
+		mode: ifDev('development', 'production'),
 
 		target: isClient
 			? // Only our client bundle will target the web as a runtime.
@@ -118,18 +122,18 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				// // doesn't support this.
 				// ifClient(useOwn('regenerator-runtime/runtime')),
 
-				// // Extends hot reloading with the ability to hot path React Components.
-				// // This should always be at the top of your entries list. Only put
-				// // polyfills above it.
-				// ifDevClient(useOwn('react-hot-loader/patch')),
+				// Extends hot reloading with the ability to hot path React Components.
+				// This should always be at the top of your entries list. Only put
+				// polyfills above it.
+				ifDevClient(useOwn('react-hot-loader/patch')),
 
-				// // Required to support hot reloading of our client.
-				// ifDevClient(
-				// 	() =>
-				// 		useOwn(`webpack-hot-middleware/client?reload=true&path=http://${config('host')}:${config(
-				// 			'clientDevServerPort',
-				// 		)}/__webpack_hmr`),
-				// ),
+				// Required to support hot reloading of our client.
+				ifDevClient(
+					() =>
+						useOwn(`webpack-hot-middleware/client?reload=true&path=http://${config('host')}:${config(
+							'clientDevServerPort',
+						)}/__webpack_hmr`),
+				),
 
 				// BlueRain boot options file, AKA boot.js
 				ifClient(bootPath),
@@ -228,7 +232,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				BLUERAIN_BOOT_OPTIONS: bootPath,
 
 				'react-native': useOwn('react-native-web'),
-				'react-art': useOwn('react-art'),
+				// 'react-art': useOwn('react-art'),
 			},
 		},
 
@@ -258,19 +262,40 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			),
 		]),
 
+		// Webpack 4 automatically runs UglifyPlugin and other optimization processes.
+		// It can be configured here:
 		optimization: {
 			minimizer: ifProdClient([
-
-				// For our production client we need to make sure we pass the required
-				// configuration to ensure that the output is minimized/optimized.
 				new UglifyJsPlugin({
-					cache: true,
+					uglifyOptions: {
+						ecma: 8,
+						compress: {
+							warnings: false,
+							// Disabled because of an issue with Uglify breaking seemingly valid code:
+							// https://github.com/facebook/create-react-app/issues/2376
+							// Pending further investigation:
+							// https://github.com/mishoo/UglifyJS2/issues/2011
+							comparisons: false,
+						},
+						mangle: {
+							safari10: true,
+						},
+						output: {
+							comments: false,
+							// Turned on because emoji and regex is not minified properly using default
+							// https://github.com/facebook/create-react-app/issues/2488
+							ascii_only: true,
+						},
+					},
+					// Use multi-process parallel running to improve the build speed
+					// Default number of concurrent runs: os.cpus().length - 1
 					parallel: true,
-					sourceMap: config('includeSourceMapsForOptimisedClientBundle')
+					// Enable file caching
+					cache: true,
+					sourceMap: config('includeSourceMapsForOptimisedClientBundle'),
 				}),
-
-				new OptimizeCSSAssetsPlugin({})
-			])
+				// new OptimizeCSSAssetsPlugin({})
+			]),
 		},
 
 		plugins: removeNil([
@@ -288,17 +313,17 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 					}),
 			),
 
-			// Implement webpack 3 scope hoisting that will remove function wrappers
-			// around your modules you may see some small size improvements. However,
-			// the significant improvement will be how fast the JavaScript loads in the browser.
-			ifProdClient(new webpack.optimize.ModuleConcatenationPlugin()),
+			// // Implement webpack 3 scope hoisting that will remove function wrappers
+			// // around your modules you may see some small size improvements. However,
+			// // the significant improvement will be how fast the JavaScript loads in the browser.
+			// ifProdClient(new webpack.optimize.ModuleConcatenationPlugin()),
 
-			// We use this so that our generated [chunkhash]'s are only different if
-			// the content for our respective chunks have changed.  This optimises
-			// our long term browser caching strategy for our client bundle, avoiding
-			// cases where browsers end up having to download all the client chunks
-			// even though 1 or 2 may have only changed.
-			ifClient(() => new WebpackMd5Hash()),
+			// // We use this so that our generated [chunkhash]'s are only different if
+			// // the content for our respective chunks have changed.  This optimises
+			// // our long term browser caching strategy for our client bundle, avoiding
+			// // cases where browsers end up having to download all the client chunks
+			// // even though 1 or 2 may have only changed.
+			// ifClient(() => new WebpackMd5Hash()),
 
 			// These are process.env flags that you can use in your code in order to
 			// have advanced control over what is included/excluded in your bundles.
@@ -352,7 +377,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				() =>
 					new AssetsPlugin({
 						filename: config('bundleAssetsFileName'),
-						path: path.resolve(bundleConfig.outputPath),
+						path: bundleConfig.outputPath,
 					}),
 			),
 
@@ -361,16 +386,18 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			ifDev(() => new webpack.NoEmitOnErrorsPlugin()),
 
 			// We need this plugin to enable hot reloading of our client.
-			ifDevClient(() => new webpack.HotModuleReplacementPlugin()),
+			ifDevClient(() => new webpack.HotModuleReplacementPlugin({
+				multiStep: true,
+			})),
 
-			// For our production client we need to make sure we pass the required
-			// configuration to ensure that the output is minimized/optimized.
-			ifProdClient(
-				() =>
-					new webpack.LoaderOptionsPlugin({
-						minimize: true,
-					}),
-			),
+			// // For our production client we need to make sure we pass the required
+			// // configuration to ensure that the output is minimized/optimized.
+			// ifProdClient(
+			// 	() =>
+			// 		new webpack.LoaderOptionsPlugin({
+			// 			minimize: true,
+			// 		}),
+			// ),
 
 			// For the production build of the client we need to extract the CSS into
 			// CSS files.
@@ -394,6 +421,39 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			// Therefore we employ HappyPack to do threaded execution of our
 			// "heavy-weight" loaders.
 
+			// HappyPack 'javascript' instance.
+			new HappyPack({
+				id: 'happypack-javascript',
+				verbose: false,
+				threads: 4,
+				loaders: [
+					{
+						// We will use babel to do all our JS processing.
+						path: useOwn('babel-loader'),
+
+						// We will create a babel config and pass it through the plugin
+						// defined in the project configuration, allowing additional
+						// items to be added.
+						query:
+							// Our "standard" babel config.
+							{
+								// We need to ensure that we do this otherwise the babelrc will
+								// get interpretted and for the current configuration this will mean
+								// that it will kill our webpack treeshaking feature as the modules
+								// transpilation has not been disabled within in.
+								babelrc: false,
+
+								plugins: [
+									// Required to support react hot loader.
+									// ifDevClient(useOwn('react-hot-loader/babel')),
+
+								].filter(x => x != null),
+							},
+					},
+				],
+			}),
+
+			// HappyPack 'typescript' instance.
 			new HappyPack({
 				id: 'ts',
 				verbose: false,
@@ -416,76 +476,10 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				],
 			}),
 
-			// // HappyPack 'javascript' instance.
-			// happyPackPlugin({
-			// 	name: 'happypack-javascript',
-			// 	// We will use babel to do all our JS processing.
-			// 	loaders: [
-			// 		{
-			// 			path: useOwn('babel-loader'),
-			// 			// We will create a babel config and pass it through the plugin
-			// 			// defined in the project configuration, allowing additional
-			// 			// items to be added.
-			// 			query: customBabelConfigs(
-			// 				// Our "standard" babel config.
-			// 				{
-			// 					// We need to ensure that we do this otherwise the babelrc will
-			// 					// get interpretted and for the current configuration this will mean
-			// 					// that it will kill our webpack treeshaking feature as the modules
-			// 					// transpilation has not been disabled within in.
-			// 					babelrc: false,
-
-			// 					presets: [
-			// 						// JSX
-			// 						'react',
-			// 						// Stage 3 javascript syntax.
-			// 						// "Candidate: complete spec and initial browser implementations."
-			// 						// Add anything lower than stage 3 at your own risk. :)
-			// 						'stage-3',
-			// 						// For our client bundles we transpile all the latest ratified
-			// 						// ES201X code into ES5, safe for browsers.  We exclude module
-			// 						// transilation as webpack takes care of this for us, doing
-			// 						// tree shaking in the process.
-			// 						ifClient(['env', { es2015: { modules: false } }]),
-			// 						// For a node bundle we use the specific target against
-			// 						// babel-preset-env so that only the unsupported features of
-			// 						// our target node version gets transpiled.
-			// 						ifNode(['env', { targets: { node: true } }]),
-			// 					].filter(x => x != null),
-
-			// 					plugins: [
-			// 						// Required to support react hot loader.
-			// 						ifDevClient(useOwn('react-hot-loader/babel')),
-			// 						// This decorates our components with  __self prop to JSX elements,
-			// 						// which React will use to generate some runtime warnings.
-			// 						ifDev('transform-react-jsx-self'),
-			// 						// Adding this will give us the path to our components in the
-			// 						// react dev tools.
-			// 						ifDev('transform-react-jsx-source'),
-			// 						// Replaces the React.createElement function with one that is
-			// 						// more optimized for production.
-			// 						// NOTE: Symbol needs to be polyfilled. Ensure this feature
-			// 						// is enabled in the polyfill.io configuration.
-			// 						ifProd('transform-react-inline-elements'),
-			// 						// Hoists element creation to the top level for subtrees that
-			// 						// are fully static, which reduces call to React.createElement
-			// 						// and the resulting allocations. More importantly, it tells
-			// 						// React that the subtree hasn’t changed so React can completely
-			// 						// skip it when reconciling.
-			// 						ifProd('transform-react-constant-elements'),
-			// 					].filter(x => x != null),
-			// 				},
-			// 				buildOptions,
-			// 			),
-			// 		},
-			// 	],
-			// }),
-
 			// Typescript
 			new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
 
 			// HappyPack 'css' instance for development client.
-
 			ifDevClient(() =>
 				new HappyPack({
 					id: 'happypack-devclient-css',
@@ -523,6 +517,21 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				// 	},
 				// },
 
+				// JAVASCRIPT
+				{
+					test: /\.jsx?$/,
+					// We will defer all our js processing to the happypack plugin
+					// named "happypack-javascript".
+					// See the respective plugin within the plugins section for full
+					// details on what loader is being implemented.
+					loader: useOwn('happypack/loader?id=happypack-javascript'),
+					// include: removeNil([
+					// 	...bundleConfig.srcPaths.map(srcPath =>
+					// 		path.resolve(appRootDir.get(), srcPath),
+					// 	),
+					// 	ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
+					// ]),
+				},
 
 				{
 					// "oneOf" will traverse all imports with following loaders until one will
@@ -535,7 +544,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 						{
 							test: /\.tsx?$/,
 							exclude: /node_modules/,
-							loader: 'happypack/loader?id=ts'
+							loader: useOwn('happypack/loader?id=ts')
 						},
 
 						// {

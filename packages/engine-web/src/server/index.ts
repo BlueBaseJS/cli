@@ -10,7 +10,13 @@ import security from './middleware/security';
 import serviceWorker from './middleware/serviceWorker';
 import { PlatformConfigs } from '../engine';
 
-const server = async (configsBundle: PlatformConfigs & { publicAssetsPath: string }): Promise<Server> => {
+const server = (configsBundle: PlatformConfigs & { publicAssetsPath: string }): Server => {
+
+	logger.log({
+		title: 'express',
+		level: 'warn',
+		message: 'here'
+	});
 
 	const { publicAssetsPath, ...configs } = configsBundle;
 
@@ -45,7 +51,11 @@ const server = async (configsBundle: PlatformConfigs & { publicAssetsPath: strin
 
 	// The React application middleware.
 	app.get('*', (request, response) => {
-		logger.notice('Request', `Received for "${request.url}"`);
+		logger.log({
+			title: 'Request',
+			level: 'info',
+			message: `Received for "${request.url}"`,
+		});
 		return reactApplication(configs)(request, response);
 	});
 
@@ -54,7 +64,10 @@ const server = async (configsBundle: PlatformConfigs & { publicAssetsPath: strin
 
 	// Create an http listener for our express app.
 	const listener = app.listen(configs.port, () => {
-		logger.notice('server', `✓
+		logger.log({
+			title: 'server',
+			level: 'info',
+			message: `✓
 
 			${configs.welcomeMessage}
 
@@ -70,7 +83,8 @@ const server = async (configsBundle: PlatformConfigs & { publicAssetsPath: strin
 
 
 
-		`);
+		`,
+		});
 	});
 
 	// We export the listener as it will be handy for our development hot reloader,

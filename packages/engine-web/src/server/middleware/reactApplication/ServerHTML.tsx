@@ -48,9 +48,9 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 
 	const { helmet, reactAppString } = props;
 
-// Creates an inline script definition that is protected by the nonce.
-	// const inlineScript = (body: any) =>
-	// <script nonce={nonce} type="text/javascript" dangerouslySetInnerHTML={{ __html: body }} />;
+// // Creates an inline script definition that is protected by the nonce.
+// 	const inlineScript = (body: any) =>
+// 	<script nonce={nonce} type="text/javascript" dangerouslySetInnerHTML={{ __html: body }} />;
 
 	const headerElements = removeNil([
 		...ifElse(helmet)(() => helmet.meta.toComponent(), []),
@@ -93,7 +93,7 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 			process.env.BUILD_FLAG_IS_DEV === 'true' && configs.bundles.client.devVendorDLL.enabled,
 	)(() =>
 		scriptTag(
-			`${configs.bundles.client.webPath}${configs.bundles.client.devVendorDLL.name}.js?t=${Date.now()}`,
+			`${configs.bundles.client.webPath}/${configs.bundles.client.devVendorDLL.name}.js?t=${Date.now()}`,
 		),
 	),
 		ifElse(clientEntryAssets && clientEntryAssets.js)(() => scriptTag(clientEntryAssets.js)),

@@ -17,6 +17,6 @@ async function execute(cmd: string) {
 	}
 }
 
-execute('build').then(() => {
+execute('run').then(() => {
 	debug('Done!');
 });

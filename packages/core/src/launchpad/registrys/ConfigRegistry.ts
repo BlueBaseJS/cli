@@ -68,6 +68,10 @@ class ConfigRegistry {
 	clear() {
 		this.data = {};
 	}
+
+	toObject() {
+		return { ...this.data };
+	}
 }
 
 export default ConfigRegistry;

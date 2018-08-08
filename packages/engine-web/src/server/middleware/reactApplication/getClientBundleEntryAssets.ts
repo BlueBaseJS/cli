@@ -29,9 +29,7 @@ export default (configs: PlatformConfigs) => () => {
 		return resultCache;
 	}
 
-	const assetsFilePath = Utils.fromProjectRoot(
-		`.${configs.bundles.client.outputPath}/${configs.bundleAssetsFileName}`
-	);
+	const assetsFilePath = Utils.fromProjectRoot(configs.bundleAssetsFileName);
 
 	if (!fs.existsSync(assetsFilePath)) {
 		throw new Error(

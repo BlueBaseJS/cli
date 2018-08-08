@@ -15,7 +15,7 @@ export default (configs: PlatformConfigs) => {
 			// I can't figure out how to get around this, so if you know of a safer
 			// implementation that is kinder to service workers please let me know.
 			connectSrc: ['*'], // ["'self'", 'ws:'],
-			defaultSrc: ["'self'"],
+			defaultSrc: [`'self'`],
 			imgSrc: [
 				"'self'",
 				// If you use Base64 encoded images (i.e. inlined images), then you will
@@ -27,8 +27,10 @@ export default (configs: PlatformConfigs) => {
 			mediaSrc: ["'self'"],
 			manifestSrc: ["'self'"],
 			scriptSrc: [
+				// "*",
 				// Allow scripts hosted from our application.
 				"'self'",
+				`${configs.host}:*`,
 				// Note: We will execution of any inline scripts that have the following
 				// nonce identifier attached to them.
 				// This is useful for guarding your application whilst allowing an inline
