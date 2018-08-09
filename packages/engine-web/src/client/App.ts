@@ -1,7 +1,6 @@
 import * as React from 'react';
 import BR from '@blueeast/bluerain-os';
 
-
 // tslint:disable-next-line:no-var-requires
 let bootConfig = require('BLUERAIN_BOOT_OPTIONS');
 // ES Module

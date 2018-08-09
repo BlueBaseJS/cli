@@ -1,5 +1,7 @@
+import './globals.css';
+
 import { render } from 'react-dom';
-import App from '../components/MainApp';
+import App from './App';
 import React from 'react';
 // import ReactHotLoader from './components/ReactHotLoader';
 import { hot } from 'react-hot-loader';
@@ -7,7 +9,6 @@ import { hot } from 'react-hot-loader';
 // Get the DOM Element that will host our React application.
 const container = document.querySelector('#app');
 
-const HotApp = hot(module)(App);
 const isDev = process.env.NODE_ENV === 'development';
 
 /**
@@ -21,7 +22,7 @@ function renderApp(TheApp: React.ComponentType) {
   //     <TheApp />
   //   </ReactHotLoader>
   // );
-	const RenderApp = isDev ? HotApp : App;
+	const RenderApp = isDev ? hot(module)(App) : App;
 	render(<RenderApp />, container);
 }
 

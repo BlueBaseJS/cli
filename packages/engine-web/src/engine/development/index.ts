@@ -21,7 +21,7 @@ export default async (configsBundle: ConfigsBundle, getWebpackConfigs: getWebpac
 	], { ignored: '*.js', });
 
 	watcher.on('ready', () => {
-		watcher.on('change', async (path) => {
+		watcher.on('change', async () => {
 			logger.log({
 				level: 'warn',
 				message: 'Project build configuration has changed. Restarting the development devServer...',

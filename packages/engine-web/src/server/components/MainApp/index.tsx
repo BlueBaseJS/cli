@@ -1,18 +1,6 @@
-// tslint:disable:no-submodule-imports
-import './globals.css';
-// import 'normalize.css/normalize.css';
-
-import BlueRain from '../BlueRain';
+import BlueRain from '../../../client/App';
 import Helmet from 'react-helmet';
 import React from 'react';
-
-
-// import Error404 from './Error404';
-// import Header from './Header';
-
-// import AsyncHomeRoute from './AsyncHomeRoute';
-// import AsyncCounterRoute from './AsyncCounterRoute';
-// import AsyncAboutRoute from './AsyncAboutRoute';
 
 function MainApp() {
 	return (
@@ -94,20 +82,6 @@ function MainApp() {
         <meta name="msapplication-wide310x150logo" content="/favicons/mstile-310x150.png" />
         <meta name="msapplication-square310x310logo" content="/favicons/mstile-310x310.png" />
         <link rel="manifest" href="/manifest.json" />
-
-        {/*
-          NOTE: This is simply for quick and easy styling on the demo. Remove
-          this and the related items from the Content Security Policy in the
-          global config if you have no intention of using milligram.
-        */}
-        {/* <link
-          rel="stylesheet"
-          href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"
-        />
-        <link
-          rel="stylesheet"
-          href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"
-        /> */}
       </Helmet>
 			<BlueRain />
     </div>

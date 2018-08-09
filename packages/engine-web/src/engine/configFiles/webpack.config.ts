@@ -400,7 +400,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			// CSS files.
 			new MiniCssExtractPlugin({
 				filename: ifDev('[name].css', '[name].[hash].css'),
-				chunkFilename: ifDev('[id].css', '[id].[hash].css')
+				chunkFilename: ifDev('[id].css', '[id].[hash].css'),
 			}),
 
 			// -----------------------------------------------------------------------
@@ -574,13 +574,6 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 										useOwn("css-loader")
 									]
 								})),
-
-								// ifClient(() => ({
-								// 	use: [
-								// 		MiniCssExtractPlugin.loader,
-								// 		useOwn("css-loader")
-								// 	]
-								// })),
 
 								// When targetting the server we use the "/locals" version of the
 								// css loader, as we don't need any css files for the server.
