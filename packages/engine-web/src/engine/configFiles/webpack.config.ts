@@ -418,41 +418,41 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			// Therefore we employ HappyPack to do threaded execution of our
 			// "heavy-weight" loaders.
 
-			// HappyPack 'javascript' instance.
-			new HappyPack({
-				id: 'happypack-javascript',
-				verbose: false,
-				threads: 4,
-				loaders: [
-					{
-						// We will use babel to do all our JS processing.
-						path: useOwn('babel-loader'),
+			// // HappyPack 'javascript' instance.
+			// new HappyPack({
+			// 	id: 'happypack-javascript',
+			// 	verbose: false,
+			// 	threads: 4,
+			// 	loaders: [
+			// 		{
+			// 			// We will use babel to do all our JS processing.
+			// 			path: useOwn('babel-loader'),
 
-						// We will create a babel config and pass it through the plugin
-						// defined in the project configuration, allowing additional
-						// items to be added.
-						query:
-							// Our "standard" babel config.
-							{
-								// We need to ensure that we do this otherwise the babelrc will
-								// get interpretted and for the current configuration this will mean
-								// that it will kill our webpack treeshaking feature as the modules
-								// transpilation has not been disabled within in.
-								babelrc: false,
+			// 			// We will create a babel config and pass it through the plugin
+			// 			// defined in the project configuration, allowing additional
+			// 			// items to be added.
+			// 			query:
+			// 				// Our "standard" babel config.
+			// 				{
+			// 					// We need to ensure that we do this otherwise the babelrc will
+			// 					// get interpretted and for the current configuration this will mean
+			// 					// that it will kill our webpack treeshaking feature as the modules
+			// 					// transpilation has not been disabled within in.
+			// 					babelrc: false,
 
-								plugins: [
-									// Required to support react hot loader.
-									// ifDevClient(useOwn('react-hot-loader/babel')),
+			// 					plugins: [
+			// 						// Required to support react hot loader.
+			// 						// ifDevClient(useOwn('react-hot-loader/babel')),
 
-								].filter(x => x != null),
-							},
-					},
-				],
-			}),
+			// 					].filter(x => x != null),
+			// 				},
+			// 		},
+			// 	],
+			// }),
 
 			// HappyPack 'typescript' instance.
 			new HappyPack({
-				id: 'ts',
+				id: 'happypack-typescript',
 				verbose: false,
 				threads: 4,
 				loaders: [
@@ -505,59 +505,11 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			strictExportPresence: true,
 
 			rules: [
-				// { loader: useOwn('cache-loader') },
-				// {
-				// 	loader: useOwn('thread-loader'),
-				// 	options: {
-				// 		// there should be 1 cpu for the fork-ts-checker-webpack-plugin
-				// 		workers: require('os').cpus().length - 1,
-				// 	},
-				// },
-
-				// JAVASCRIPT
-				{
-					test: /\.jsx?$/,
-					// We will defer all our js processing to the happypack plugin
-					// named "happypack-javascript".
-					// See the respective plugin within the plugins section for full
-					// details on what loader is being implemented.
-					loader: useOwn('happypack/loader?id=happypack-javascript'),
-					// include: removeNil([
-					// 	...bundleConfig.srcPaths.map(srcPath =>
-					// 		path.resolve(appRootDir.get(), srcPath),
-					// 	),
-					// 	ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
-					// ]),
-				},
-
 				{
 					// "oneOf" will traverse all imports with following loaders until one will
 					// match the requirements. When no loader matches it will fallback to the
 					// "file" loader at the end of the loader list.
 					oneOf: removeNil([
-
-						// // Typescript
-
-						{
-							test: /\.tsx?$/,
-							exclude: /node_modules/,
-							loader: useOwn('happypack/loader?id=ts')
-						},
-
-						// {
-						// 	test: /\.(ts|tsx)$/,
-						// 	// include: fromRoot("src"),
-						// 	loaders: [
-						// 		// useOwn('babel-loader'),
-						// 		{
-						// 			loader: useOwn('ts-loader'),
-						// 			options: {
-						// 				happyPackMode: true // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
-						// 			}
-						// 		}
-						// 	],
-						// },
-
 
 						// // JAVASCRIPT
 						// {
@@ -566,16 +518,24 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 						// 	// named "happypack-javascript".
 						// 	// See the respective plugin within the plugins section for full
 						// 	// details on what loader is being implemented.
-						// 	// loader: 'happypack/loader?id=happypack-javascript',
-						// 	loader: useOwn('happypack/loader'),
-						// 	query: 'id=happypack-javascript',
+						// 	loader: useOwn('happypack/loader?id=happypack-javascript'),
 						// 	include: removeNil([
-						// 		...bundleConfig.srcPaths.map(srcPath =>
-						// 			path.resolve(config('projectRootDir'), srcPath),
-						// 		),
-						// 		ifProdClient(path.resolve(config('projectRootDir'), 'src/html')),
+						// 		...bundleConfig.srcPaths,
+						// 		// ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
 						// 	]),
 						// },
+
+						// Typescript
+						{
+							test: /\.tsx?$/,
+							exclude: /node_modules/,
+							// TODO: why does it throw on include?
+							// include: removeNil([
+							// 	...bundleConfig.srcPaths,
+							// 	// ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
+							// ]),
+							loader: useOwn('happypack/loader?id=happypack-typescript')
+						},
 
 						// CSS
 						// This is bound to our server/client bundles as we only expect to be
@@ -629,19 +589,6 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 								}),
 							),
 						),
-
-						// // MODERNIZR
-						// // This allows you to do feature detection.
-						// // @see https://modernizr.com/docs
-						// // @see https://github.com/peerigon/modernizr-loader
-						// ifClient({
-						// 	test: /\.modernizrrc.js$/,
-						// 	loader: useOwn('modernizr-loader'),
-						// }),
-						// ifClient({
-						// 	test: /\.modernizrrc(\.json)?$/,
-						// 	loader: `${useOwn('modernizr-loader')}!${useOwn('json-loader')}`,
-						// }),
 
 						// ASSETS (Images/Fonts/etc)
 						// This is bound to our server/client bundles as we only expect to be

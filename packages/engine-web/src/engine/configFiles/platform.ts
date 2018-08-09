@@ -71,12 +71,12 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 		client: {
 			srcEntryFile: fromRoot('./src/client/index'),
 			srcPaths: [
-				fromRoot('./src/client'),
-				fromRoot('./src/shared'),
+				Utils.fromProjectRoot('./bluerain/boot'),
+				Utils.fromProjectRoot('./src'),
 				// The service worker offline page generation needs access to the
 				// config folder.  Don't worry we have guards within the config files
 				// to ensure they never get included in a client bundle.
-				fromRoot('./src/config'),
+				// fromRoot('./src/config'),
 			],
 			outputPath: Utils.fromProjectRoot('build/client'),
 			webPath: fromRoot('/src/client/'),
@@ -85,7 +85,7 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 				include: [
 					'react',
 					'react-dom',
-					'react-helmet',
+					// 'react-helmet',
 					// 'react-router-dom',
 				],
 
@@ -96,9 +96,10 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 		server: {
 			srcEntryFile: fromRoot('./src/server/index'),
 			srcPaths: [
-				fromRoot('./src/server'),
-				fromRoot('./src/shared'),
-				fromRoot('./src/config')
+				Utils.fromProjectRoot('./bluerain/hooks'),
+				// fromRoot('./src/server'),
+				// fromRoot('./src/components'),
+				// fromRoot('./src/config')
 			],
 			outputPath: Utils.fromProjectRoot('build/server'),
 		},

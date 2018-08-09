@@ -5,6 +5,8 @@ import { Utils } from '@blueeast/bluerain-cli-core'
 import logger from '../../logger';
 import { ConfigsBundle } from '.';
 
+const isInstalled = require('is-installed')
+
 async function createVendorDLL(bundleName: string, bundleConfig: any, configs: ConfigsBundle) {
 
 	///////////////////////////
@@ -36,11 +38,14 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
 	//////// Paths ////////
 	///////////////////////
 
-	const vendorDLLHashFilePath = Utils.fromProjectRoot(
-		`${bundleConfig.outputPath}/${dllConfig.name}_hash`,
-	);
-
+	const vendorDLLHashFilePath = `${bundleConfig.outputPath}/${dllConfig.name}_hash`;
 	const vendorDLLJsonFilePath = `${bundleConfig.outputPath}/${dllConfig.name}.json`;
+
+	console.error('vendorDLLHashFilePath', {
+		path: bundleConfig.outputPath,
+		filename: `${dllConfig.name}.js`,
+		library: dllConfig.name,
+	})
 
 	//////////////////////////////////
 	//////// Helper functions ////////
@@ -70,6 +75,18 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
 
 	// Build DLL through webpack
   async function buildVendorDLL() {
+
+		const missing = await isMissing(devDLLDependencies);
+
+		if (missing) {
+			const err = `${missing} is not installed, could not generate Vendor DLL.`;
+			logger.log({
+				title: 'vendorDLL',
+				level: 'error',
+				message: err,
+			});
+			throw new Error(err)
+		}
     return new Promise((resolve, reject) => {
 			logger.log({
 				title: 'vendorDLL',
@@ -83,16 +100,31 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
       const vendorDLLCompiler = webpack(webpackConfig);
       vendorDLLCompiler.run((err: Error) => {
         if (err) {
+					console.error('dll compile error')
           reject(err);
           return;
-        }
-        // Update the dependency hash
+				}
+
+				// Update the dependency hash
         fs.writeFileSync(vendorDLLHashFilePath, currentDependenciesHash);
 
         resolve();
       });
     });
-  }
+	}
+
+	// If a dependency is missing, return its name
+	async function isMissing(dependencies: string[]) {
+		for(const dep of dependencies) {
+			const installed = await isInstalled(dep);
+
+			if (!installed) {
+				return dep;
+			}
+		}
+
+		return null;
+	}
 
 	//////////////////////////////
 	//////// Actual logic ////////
