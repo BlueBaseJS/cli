@@ -21,7 +21,8 @@ function renderApp(TheApp: React.ComponentType) {
 	// 	<ReactHotLoader>
   //     <TheApp />
   //   </ReactHotLoader>
-  // );
+	// );
+	// const app = (App.default ? App.default : App);
 	const RenderApp = isDev ? hot(module)(App) : App;
 	render(<RenderApp />, container);
 }

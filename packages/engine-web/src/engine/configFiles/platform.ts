@@ -73,6 +73,7 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 			srcPaths: [
 				Utils.fromProjectRoot('./bluerain/boot'),
 				Utils.fromProjectRoot('./src'),
+				fromRoot('./src/client'),
 				// The service worker offline page generation needs access to the
 				// config folder.  Don't worry we have guards within the config files
 				// to ensure they never get included in a client bundle.
@@ -96,9 +97,9 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 		server: {
 			srcEntryFile: fromRoot('./src/server/index'),
 			srcPaths: [
-				Utils.fromProjectRoot('./bluerain/hooks'),
-				// fromRoot('./src/server'),
-				// fromRoot('./src/components'),
+				Utils.fromProjectRoot('./bluerain'),
+				fromRoot('./src/server'),
+				fromRoot('./src/client/App'),
 				// fromRoot('./src/config')
 			],
 			outputPath: Utils.fromProjectRoot('build/server'),

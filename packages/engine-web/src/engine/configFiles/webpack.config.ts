@@ -418,37 +418,37 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			// Therefore we employ HappyPack to do threaded execution of our
 			// "heavy-weight" loaders.
 
-			// // HappyPack 'javascript' instance.
-			// new HappyPack({
-			// 	id: 'happypack-javascript',
-			// 	verbose: false,
-			// 	threads: 4,
-			// 	loaders: [
-			// 		{
-			// 			// We will use babel to do all our JS processing.
-			// 			path: useOwn('babel-loader'),
+			// HappyPack 'javascript' instance.
+			new HappyPack({
+				id: 'happypack-javascript',
+				verbose: false,
+				threads: 4,
+				loaders: [
+					{
+						// We will use babel to do all our JS processing.
+						path: useOwn('babel-loader'),
 
-			// 			// We will create a babel config and pass it through the plugin
-			// 			// defined in the project configuration, allowing additional
-			// 			// items to be added.
-			// 			query:
-			// 				// Our "standard" babel config.
-			// 				{
-			// 					// We need to ensure that we do this otherwise the babelrc will
-			// 					// get interpretted and for the current configuration this will mean
-			// 					// that it will kill our webpack treeshaking feature as the modules
-			// 					// transpilation has not been disabled within in.
-			// 					babelrc: false,
+						// We will create a babel config and pass it through the plugin
+						// defined in the project configuration, allowing additional
+						// items to be added.
+						query:
+							// Our "standard" babel config.
+							{
+								// We need to ensure that we do this otherwise the babelrc will
+								// get interpretted and for the current configuration this will mean
+								// that it will kill our webpack treeshaking feature as the modules
+								// transpilation has not been disabled within in.
+								babelrc: false,
 
-			// 					plugins: [
-			// 						// Required to support react hot loader.
-			// 						// ifDevClient(useOwn('react-hot-loader/babel')),
+								plugins: [
+									// Required to support react hot loader.
+									ifDevClient(useOwn('react-hot-loader/babel')),
 
-			// 					].filter(x => x != null),
-			// 				},
-			// 		},
-			// 	],
-			// }),
+								].filter(x => x != null),
+							},
+					},
+				],
+			}),
 
 			// HappyPack 'typescript' instance.
 			new HappyPack({
@@ -460,7 +460,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 						loader: useOwn('babel-loader'),
 						options: {
 							babelrc: false,
-							plugins: ['react-hot-loader/babel'],
+							plugins: [useOwn('react-hot-loader/babel')],
 						},
 					},
 					{
@@ -511,29 +511,29 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 					// "file" loader at the end of the loader list.
 					oneOf: removeNil([
 
-						// // JAVASCRIPT
-						// {
-						// 	test: /\.jsx?$/,
-						// 	// We will defer all our js processing to the happypack plugin
-						// 	// named "happypack-javascript".
-						// 	// See the respective plugin within the plugins section for full
-						// 	// details on what loader is being implemented.
-						// 	loader: useOwn('happypack/loader?id=happypack-javascript'),
-						// 	include: removeNil([
-						// 		...bundleConfig.srcPaths,
-						// 		// ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
-						// 	]),
-						// },
+						// JAVASCRIPT
+						{
+							test: /\.jsx?$/,
+							// We will defer all our js processing to the happypack plugin
+							// named "happypack-javascript".
+							// See the respective plugin within the plugins section for full
+							// details on what loader is being implemented.
+							loader: useOwn('happypack/loader?id=happypack-javascript'),
+							include: removeNil([
+								...bundleConfig.srcPaths,
+								// ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
+							]),
+						},
 
 						// Typescript
 						{
 							test: /\.tsx?$/,
 							exclude: /node_modules/,
 							// TODO: why does it throw on include?
-							// include: removeNil([
-							// 	...bundleConfig.srcPaths,
-							// 	// ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
-							// ]),
+							include: removeNil([
+								...bundleConfig.srcPaths,
+								// ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
+							]),
 							loader: useOwn('happypack/loader?id=happypack-typescript')
 						},
 
