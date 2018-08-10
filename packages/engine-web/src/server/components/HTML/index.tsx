@@ -19,12 +19,13 @@ const HTML = (props: HTMLProperties) => {
 	} = props;
 
 	return (
-    <html {...htmlAttributes}>
+		<html style={{ height: '100%' }} {...htmlAttributes}>
       <head>{headerElements}</head>
-      <body>
+      <body style={{ height: '100%' }}>
         <div
-          id="app"
+					id="app"
           className="app-container"
+					style={{ display: 'flex', height: '100%' }}
           dangerouslySetInnerHTML={{ __html: appBodyString }}
         />
         {bodyElements}

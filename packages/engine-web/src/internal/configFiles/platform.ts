@@ -1,12 +1,16 @@
 // tslint:disable:object-literal-sort-keys
-import { PlatformConfigs } from '../PlatformConfigs';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import path from 'path';
+import { PlatformConfigs } from '../../engine';
 
 const EnvVars = Utils.EnvVars;
 
-const fromRoot = (file: string) => {
-	return path.resolve(__dirname, '..', '..', '..', file);
+// const fromRoot = (file: string) => {
+// 	return path.resolve(__dirname, '..', '..', '..', file);
+// };
+
+export const fromHere = (file: string) => {
+	return path.resolve(__dirname, file);
 };
 
 export const DefaultPlatformConfigs: PlatformConfigs = {
@@ -69,18 +73,18 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 
 	bundles: {
 		client: {
-			srcEntryFile: fromRoot('./src/client/index'),
+			srcEntryFile: fromHere('../../client/index'),
 			srcPaths: [
 				Utils.fromProjectRoot('./bluerain/boot'),
 				Utils.fromProjectRoot('./src'),
-				fromRoot('./src/client'),
+				// fromHere('../../client'),
 				// The service worker offline page generation needs access to the
 				// config folder.  Don't worry we have guards within the config files
 				// to ensure they never get included in a client bundle.
 				// fromRoot('./src/config'),
 			],
 			outputPath: Utils.fromProjectRoot('build/client'),
-			webPath: fromRoot('/src/client/'),
+			webPath: fromHere('../../client'),
 			devVendorDLL: {
 				enabled: true,
 				include: [
@@ -95,12 +99,11 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 		},
 
 		server: {
-			srcEntryFile: fromRoot('./src/server/index'),
+			srcEntryFile: fromHere('../../server/index'),
 			srcPaths: [
 				Utils.fromProjectRoot('./bluerain'),
-				fromRoot('./src/server'),
-				fromRoot('./src/client/App'),
-				// fromRoot('./src/config')
+				// fromHere('../../server'),
+				// fromHere('../../client/App'),
 			],
 			outputPath: Utils.fromProjectRoot('build/server'),
 		},

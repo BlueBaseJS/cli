@@ -41,12 +41,6 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
 	const vendorDLLHashFilePath = `${bundleConfig.outputPath}/${dllConfig.name}_hash`;
 	const vendorDLLJsonFilePath = `${bundleConfig.outputPath}/${dllConfig.name}.json`;
 
-	console.error('vendorDLLHashFilePath', {
-		path: bundleConfig.outputPath,
-		filename: `${dllConfig.name}.js`,
-		library: dllConfig.name,
-	})
-
 	//////////////////////////////////
 	//////// Helper functions ////////
 	//////////////////////////////////
@@ -100,7 +94,6 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
       const vendorDLLCompiler = webpack(webpackConfig);
       vendorDLLCompiler.run((err: Error) => {
         if (err) {
-					console.error('dll compile error')
           reject(err);
           return;
 				}

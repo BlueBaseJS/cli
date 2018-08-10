@@ -43,7 +43,7 @@
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "."
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.ts", "src/**/*.test.ts"],
   "compileOnSave": false
 }

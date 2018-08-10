@@ -2,7 +2,7 @@ import * as webpack from 'webpack';
 import chokidar from 'chokidar';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import logger from '../../logger';
-import { PlatformConfigs } from '../PlatformConfigs';
+import { PlatformConfigs } from '../../engine/PlatformConfigs';
 
 const HotDevelopment = require('./hotDevelopment').default;
 
@@ -16,9 +16,9 @@ export default async (configsBundle: ConfigsBundle, getWebpackConfigs: getWebpac
 
   // Any changes to our webpack bundleConfigs should restart the development devServer.
 	const watcher = chokidar.watch([
-    // Utils.fromProjectRoot('bluerain'),
+    Utils.fromProjectRoot('bluerain'),
 		Utils.fromProjectRoot('src'),
-	], { ignored: '*.js', });
+	]);
 
 	watcher.on('ready', () => {
 		watcher.on('change', async () => {

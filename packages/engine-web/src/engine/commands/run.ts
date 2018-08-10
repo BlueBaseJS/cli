@@ -1,6 +1,6 @@
 import { Command, Engine } from '@blueeast/bluerain-cli-core';
 import Debug from 'debug';
-import development from '../development';
+import development from '../../internal/development';
 import { PlatformConfigs } from '../PlatformConfigs';
 
 const debug = Debug('web-engine-run');

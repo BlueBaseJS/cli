@@ -11,7 +11,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 const HappyPack = require('happypack');
 // const WebpackMd5Hash = require('webpack-md5-hash');
-const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+// const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
 export type WebpackConfig = webpack.Configuration;
 
@@ -25,7 +25,7 @@ export type BuildOptions = {
 const ifElse = Utils.ifElse;
 const removeNil = Utils.removeNil;
 
-const smp = new SpeedMeasurePlugin();
+// const smp = new SpeedMeasurePlugin();
 
 // This plugin allows you to provide final adjustments your webpack
 // configurations for each bundle before they get processed.
@@ -136,7 +136,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				),
 
 				// BlueRain boot options file, AKA boot.js
-				ifClient(bootPath),
+				// ifClient(bootPath),
 
 				// The source entry file for the bundle.
 				path.resolve(bundleConfig.srcEntryFile),
@@ -529,7 +529,6 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 						{
 							test: /\.tsx?$/,
 							exclude: /node_modules/,
-							// TODO: why does it throw on include?
 							include: removeNil([
 								...bundleConfig.srcPaths,
 								// ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
@@ -618,7 +617,6 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 		},
 	};
 
-
-
-	return smp.wrap(webpackConfig);
+	// return smp.wrap(webpackConfig);
+	return webpackConfig;
 };
