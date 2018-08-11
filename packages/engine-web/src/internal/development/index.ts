@@ -19,7 +19,7 @@ export default async (configsBundle: ConfigsBundle, getWebpackConfigs: getWebpac
   // Any changes to our webpack bundleConfigs should restart the development devServer.
 	const watcher = chokidar.watch([
 		Utils.fromProjectRoot('bluerain'),
-		Utils.fromProjectRoot('src'),
+		// Utils.fromProjectRoot('src'),
 	]);
 
 	watcher.on('ready', () => {
@@ -40,31 +40,10 @@ export default async (configsBundle: ConfigsBundle, getWebpackConfigs: getWebpac
 				}
 			});
 
-			// // Re-require the development devServer so that all new configs are used.
-			// HotDevelopment = require('./hotDevelopment').default;
-
 			// Create a new development devServer.
 			devServer = new HotDevelopment();
 
 			await devServer.start(configsBundle, getWebpackConfigs);
-
-      // devServer.dispose().then(() => {
-      //   // Make sure our new webpack bundleConfigs aren't in the module cache.
-      //   Object.keys(require.cache).forEach((modulePath) => {
-      //     if (modulePath.indexOf('bluerain') !== -1) {
-      //       delete require.cache[modulePath];
-      //     } else if (modulePath.indexOf('src') !== -1) {
-      //       delete require.cache[modulePath];
-      //     }
-      //   });
-
-      //   // Re-require the development devServer so that all new configs are used.
-      //   HotDevelopment = require('./hotDevelopment').default;
-
-      //   // Create a new development devServer.
-			// 	devServer = new HotDevelopment();
-			// 	devServer.start(configsBundle, getWebpackConfigs).then();
-      // });
 		});
 	});
 
