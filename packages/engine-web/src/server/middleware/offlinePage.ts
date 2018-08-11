@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { readFile } from 'fs';
-import { Utils } from '@blueeast/bluerain-cli-core';
 import { PlatformConfigs } from '../../engine';
+import { Utils } from '@blueeast/bluerain-cli-core';
+import { readFile } from 'fs';
 
 /**
  * Middleware to intercept calls to our offline page to ensure that

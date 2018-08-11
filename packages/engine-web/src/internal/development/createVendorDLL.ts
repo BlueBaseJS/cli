@@ -1,11 +1,13 @@
-import webpack from 'webpack';
-import md5 from 'md5';
-import fs from 'fs';
-import { Utils } from '@blueeast/bluerain-cli-core'
-import logger from '../../logger';
 import { ConfigsBundle } from '.';
+import { Utils } from '@blueeast/bluerain-cli-core';
+import fs from 'fs';
+import md5 from 'md5';
+import webpack from 'webpack';
 
-const isInstalled = require('is-installed')
+// tslint:disable-next-line:no-var-requires
+const isInstalled = require('is-installed');
+
+const logger = Utils.logger;
 
 async function createVendorDLL(bundleName: string, bundleConfig: any, configs: ConfigsBundle) {
 
@@ -17,15 +19,15 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
 	const dllConfig = configs.bundles.client.devVendorDLL;
 
 	// Package.json
-  const pkg = require(Utils.fromProjectRoot('./package.json'));
+	const pkg = require(Utils.fromProjectRoot('./package.json'));
 
 	// Get list of dependencies to add to dll
-  const devDLLDependencies = dllConfig.include.sort();
+	const devDLLDependencies = dllConfig.include.sort();
 
   // We calculate a hash of the package.json's dependencies, which we can use
   // to determine if dependencies have changed since the last time we built
   // the vendor dll.
-  const currentDependenciesHash = md5(
+	const currentDependenciesHash = md5(
     JSON.stringify(
       devDLLDependencies.map((dep: string) => [dep, pkg.dependencies[dep], pkg.devDependencies[dep]]),
       // We do this to include any possible version numbers we may have for
@@ -46,64 +48,64 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
 	//////////////////////////////////
 
 	// Create webpack configs to generate DLL
-  function webpackConfigFactory() {
-    return {
+	function webpackConfigFactory() {
+		return {
       // We only use this for development, so lets always include source maps.
-      devtool: 'inline-source-map',
-      entry: {
-        [dllConfig.name]: devDLLDependencies,
-      },
-      output: {
+			devtool: 'inline-source-map',
+			entry: {
+				[dllConfig.name]: devDLLDependencies,
+			},
+			output: {
+				filename: `${dllConfig.name}.js`,
+				library: dllConfig.name,
 				path: bundleConfig.outputPath,
-        filename: `${dllConfig.name}.js`,
-        library: dllConfig.name,
-      },
-      plugins: [
-        new webpack.DllPlugin({
+			},
+			plugins: [
+				new webpack.DllPlugin({
+					name: dllConfig.name,
 					path: vendorDLLJsonFilePath,
-          name: dllConfig.name,
-        }),
-      ],
-    };
-  }
+				}),
+			],
+		};
+	}
 
 	// Build DLL through webpack
-  async function buildVendorDLL() {
+	async function buildVendorDLL() {
 
 		const missing = await isMissing(devDLLDependencies);
 
 		if (missing) {
 			const err = `${missing} is not installed, could not generate Vendor DLL.`;
 			logger.log({
-				title: 'vendorDLL',
+				label: 'Vendor DLL',
 				level: 'error',
 				message: err,
 			});
-			throw new Error(err)
+			throw new Error(err);
 		}
-    return new Promise((resolve, reject) => {
+		return new Promise((resolve, reject) => {
 			logger.log({
-				title: 'vendorDLL',
+				label: 'Vendor DLL',
 				level: 'info',
 				message: `Vendor DLL build complete. The following dependencies have been included:\n\t- ${devDLLDependencies.join(
 					'\n\t- ',
 				)}\n`,
 			});
 
-      const webpackConfig: any = webpackConfigFactory();
-      const vendorDLLCompiler = webpack(webpackConfig);
-      vendorDLLCompiler.run((err: Error) => {
-        if (err) {
-          reject(err);
-          return;
+			const webpackConfig: any = webpackConfigFactory();
+			const vendorDLLCompiler = webpack(webpackConfig);
+			vendorDLLCompiler.run((err: Error) => {
+				if (err) {
+					reject(err);
+					return;
 				}
 
 				// Update the dependency hash
-        fs.writeFileSync(vendorDLLHashFilePath, currentDependenciesHash);
+				fs.writeFileSync(vendorDLLHashFilePath, currentDependenciesHash);
 
-        resolve();
-      });
-    });
+				resolve();
+			});
+		});
 	}
 
 	// If a dependency is missing, return its name
@@ -126,10 +128,10 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
 	if (!fs.existsSync(vendorDLLHashFilePath)) {
 		// builddll
 		logger.log({
-			title: 'vendorDLL',
+			label: 'Vendor DLL',
 			level: 'warn',
-			message: `Generating a new "${bundleName}" Vendor DLL for boosted development performance.
-The Vendor DLL helps to speed up your development workflow by reducing Webpack build times.  It does this by seperating Vendor DLLs from your primary bundles, thereby allowing Webpack to ignore them when having to rebuild your code for changes.  We recommend that you add all your client bundle specific dependencies to the Vendor DLL configuration (within /config).`,
+			// tslint:disable-next-line:max-line-length
+			message: `Generating a new "${bundleName}" Vendor DLL for boosted development performance. The Vendor DLL helps to speed up your development workflow by reducing Webpack build times.  It does this by seperating Vendor DLLs from your primary bundles, thereby allowing Webpack to ignore them when having to rebuild your code for changes.  We recommend that you add all your client bundle specific dependencies to the Vendor DLL configuration (within /config).`,
 		});
 
 		await buildVendorDLL();
@@ -142,7 +144,7 @@ The Vendor DLL helps to speed up your development workflow by reducing Webpack b
 
 		if (dependenciesChanged) {
 			logger.log({
-				title: 'vendorDLL',
+				label: 'Vendor DLL',
 				level: 'warn',
 				message: `New "${bundleName}" vendor dependencies detected. Regenerating the vendor dll...`,
 			});
@@ -152,7 +154,7 @@ The Vendor DLL helps to speed up your development workflow by reducing Webpack b
 
 		} else {
 			logger.log({
-				title: 'vendorDLL',
+				label: 'Vendor DLL',
 				level: 'info',
 				message: `No changes to existing "${bundleName}" vendor dependencies. Using the existing vendor dll.`,
 			});

@@ -1,9 +1,9 @@
 /* tslint:disable:quotemark object-literal-sort-keys */
 import { NextFunction, Request, Response } from 'express';
+import { PlatformConfigs } from '../../engine';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import uuid from 'uuid';
-import { PlatformConfigs } from '../../engine';
 
 export default (configs: PlatformConfigs) => {
 

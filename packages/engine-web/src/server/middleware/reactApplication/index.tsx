@@ -1,18 +1,19 @@
 import { Request, Response } from 'express';
+import { PlatformConfigs } from '../../../engine';
+import { Utils } from '@blueeast/bluerain-cli-core';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup } from 'react-dom/server';
 // import Helmet from 'react-helmet';
 // import MainApp from '../../../shared/components/DemoApp'; // Temp
 import React from 'react';
 import getServerHTML from './ServerHTML';
-import logger from '../../../logger';
-import { PlatformConfigs } from '../../../engine';
 
 // import { StaticRouter } from 'react-router-dom';
 // import { AsyncComponentProvider, createAsyncContext } from 'react-async-component';
 // import asyncBootstrapper from 'react-async-bootstrapper';
 
 // import MainApp from '../../../shared/components/MainApp';
+const logger = Utils.logger;
 
 /**
  * React application middleware, supports server side rendering.
@@ -32,7 +33,11 @@ export default (configs: PlatformConfigs) => (request: Request, response: Respon
   // In this case traditional client side only rendering will occur.
 	if (configs.disableSSR) {
 		if (process.env.BUILD_FLAG_IS_DEV === 'true') {
-			logger.info('Server', `Handling react route without SSR: ${request.url}`);
+			logger.log({
+				label: `BlueRain Server`,
+				level: 'info',
+				message: `Handling react route without SSR: ${request.url}`,
+			});
 		}
     // SSR is disabled so we will return an "empty" html page and
     // rely on the client to initialize and render the react application.

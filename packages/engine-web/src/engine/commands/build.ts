@@ -1,9 +1,8 @@
 import * as Core from '@blueeast/bluerain-cli-core';
-import Debug from 'debug';
 import rmfr from 'rmfr';
 import webpack from 'webpack';
 
-const debug = Debug('web-engine-build');
+const logger = Core.Utils.logger;
 
 export const build: Core.Command = {
 	slug: 'build',
@@ -22,7 +21,11 @@ export const build: Core.Command = {
 
 		// First clear the build output dir.
 		const buildOutputPath = Core.Utils.fromProjectRoot(config('buildOutputPath'));
-		debug('Deleting previous build at:', buildOutputPath);
+		logger.log({
+			label: 'BlueRain Engine Web',
+			level: 'info',
+			message: `Deleting previous build at: ${buildOutputPath}`
+		});
 		await rmfr(buildOutputPath);
 
 		// Get our "fixed" bundle names
@@ -39,18 +42,18 @@ export const build: Core.Command = {
 					target,
 				});
 
-				try {
-					const compiler = webpack(webpackConfigs);
-					debug(`Compiling Webpack on ${target}`);
+				const compiler = webpack(webpackConfigs);
+				logger.log({
+					label: 'BlueRain Engine Web',
+					level: 'info',
+					message: `Compiling Webpack on ${target}`
+				});
 
-					compiler.run((err, stats) => {
-						if (err) { throw err; }
-						debug(stats.toString({ colors: true }));
-					});
+				compiler.run((err) => {
+					if (err) { throw err; }
+					// debug(stats.toString({ colors: true }));
+				});
 
-				} catch (error) {
-					debug(error);
-				}
 			});
 		return;
 	},

@@ -1,7 +1,8 @@
 // tslint:disable:object-literal-sort-keys
+
+import { PlatformConfigs } from '../../engine';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import path from 'path';
-import { PlatformConfigs } from '../../engine';
 
 const EnvVars = Utils.EnvVars;
 
@@ -84,7 +85,7 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 				// fromRoot('./src/config'),
 			],
 			outputPath: Utils.fromProjectRoot('build/client'),
-			webPath: fromHere('../../client'),
+			webPath: '/client',
 			devVendorDLL: {
 				enabled: true,
 				include: [

@@ -1,3 +1,4 @@
+// tslint:disable:jsx-alignment
 import React from 'react';
 
 export interface HTMLProperties {
@@ -33,14 +34,5 @@ const HTML = (props: HTMLProperties) => {
     </html>
 	);
 };
-
-// HTML.defaultProps = {
-// 	htmlAttributes: null,
-// 	headerElements: null,
-// 	bodyElements: null,
-// 	appBodyString: '',
-// };
-
-// EXPORT
 
 export default HTML;

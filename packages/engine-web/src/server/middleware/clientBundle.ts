@@ -1,6 +1,6 @@
-import express from 'express';
-import { Utils } from '@blueeast/bluerain-cli-core';
 import { PlatformConfigs } from '../../engine';
+import { Utils } from '@blueeast/bluerain-cli-core';
+import express from 'express';
 
 /**
  * Middleware to server our client bundle.

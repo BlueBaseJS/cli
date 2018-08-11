@@ -1,5 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import logger from '../../logger';
+import { Utils } from '@blueeast/bluerain-cli-core';
+
+const logger = Utils.logger;
 
 const errorHandlersMiddleware = [
   /**
@@ -23,7 +25,12 @@ const errorHandlersMiddleware = [
 	// tslint:disable-next-line:only-arrow-functions
 	function unexpectedErrorMiddleware(err: Error, _req: Request, res: Response, _next: NextFunction) {
 		if (err) {
-			logger.error(err);
+			logger.log({
+				error: err,
+				label: 'BlueRain Server',
+				level: 'error',
+				message: 'An unexpected error occurred',
+			});
 		}
 		res.status(500).send('Sorry, an unexpected error occurred.');
 	},

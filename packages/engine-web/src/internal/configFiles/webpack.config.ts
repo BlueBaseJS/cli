@@ -1,17 +1,19 @@
 import * as webpack from 'webpack';
 import { Engine, Utils } from '@blueeast/bluerain-cli-core';
-import logger from '../../logger';
-import path from 'path';
-import nodeExternals from 'webpack-node-externals';
 import AssetsPlugin from 'assets-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 // import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import nodeExternals from 'webpack-node-externals';
+import path from 'path';
 
+// tslint:disable-next-line:no-var-requires
 const HappyPack = require('happypack');
 // const WebpackMd5Hash = require('webpack-md5-hash');
 // const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+
+const logger = Utils.logger;
 
 export type WebpackConfig = webpack.Configuration;
 
@@ -63,8 +65,8 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 	////////////////////
 
 	logger.log({
+		label: 'BlueRain Webpack Config',
 		level: 'info',
-		title: 'Webpack Config',
 		message: `Creating ${isProd
 			? 'an optimised'
 			: 'a development'} bundle configuration for the "${target}"`,
@@ -130,9 +132,9 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				// Required to support hot reloading of our client.
 				ifDevClient(
 					() =>
-						useOwn(`webpack-hot-middleware/client?reload=true&path=http://${config('host')}:${config(
+						`${useOwn('webpack-hot-middleware/client')}?reload=true&path=http://${config('host')}:${config(
 							'clientDevServerPort',
-						)}/__webpack_hmr`),
+						)}/__webpack_hmr`,
 				),
 
 				// BlueRain boot options file, AKA boot.js
@@ -172,6 +174,9 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 
 			// When targetting node we will output our bundle as a commonjs2 module.
 			libraryTarget: ifNode('commonjs2', 'var'),
+
+
+			pathinfo: true,
 
 			// This is the web path under which our webpack bundled client should
 			// be considered as being served from.
@@ -264,32 +269,40 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 		optimization: {
 			minimizer: ifProdClient([
 				new UglifyJsPlugin({
+
+					// Enable file caching
+					cache: true,
+
+					// Use multi-process parallel running to improve the build speed
+					// Default number of concurrent runs: os.cpus().length - 1
+					parallel: true,
+
+					sourceMap: config('includeSourceMapsForOptimisedClientBundle'),
+
 					uglifyOptions: {
-						ecma: 8,
+
 						compress: {
-							warnings: false,
 							// Disabled because of an issue with Uglify breaking seemingly valid code:
 							// https://github.com/facebook/create-react-app/issues/2376
 							// Pending further investigation:
 							// https://github.com/mishoo/UglifyJS2/issues/2011
 							comparisons: false,
+							warnings: false,
 						},
+
+						ecma: 8,
+
 						mangle: {
 							safari10: true,
 						},
+
 						output: {
-							comments: false,
 							// Turned on because emoji and regex is not minified properly using default
 							// https://github.com/facebook/create-react-app/issues/2488
 							ascii_only: true,
+							comments: false,
 						},
 					},
-					// Use multi-process parallel running to improve the build speed
-					// Default number of concurrent runs: os.cpus().length - 1
-					parallel: true,
-					// Enable file caching
-					cache: true,
-					sourceMap: config('includeSourceMapsForOptimisedClientBundle'),
 				}),
 				// new OptimizeCSSAssetsPlugin({})
 			]),
@@ -305,8 +318,8 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				() =>
 					new webpack.BannerPlugin({
 						banner: 'require("source-map-support").install();',
-						raw: true,
 						entryOnly: false,
+						raw: true,
 					}),
 			),
 
@@ -352,17 +365,17 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			// expected type of a typical process.env member (i.e. string).
 			// @see https://github.com/ctrlplusb/react-universally/issues/395
 			new webpack.EnvironmentPlugin({
+				// Is this the "client" bundle?
+				BUILD_FLAG_IS_CLIENT: JSON.stringify(isClient),
+				// Is this a development build?
+				BUILD_FLAG_IS_DEV: JSON.stringify(isDev),
+				// Is this a node bundle?
+				BUILD_FLAG_IS_NODE: JSON.stringify(isNode),
+				// Is this the "server" bundle?
+				BUILD_FLAG_IS_SERVER: JSON.stringify(isServer),
 				// It is really important to use NODE_ENV=production in order to use
 				// optimised versions of some node_modules, such as React.
 				NODE_ENV: isProd ? 'production' : 'development',
-				// Is this the "client" bundle?
-				BUILD_FLAG_IS_CLIENT: JSON.stringify(isClient),
-				// Is this the "server" bundle?
-				BUILD_FLAG_IS_SERVER: JSON.stringify(isServer),
-				// Is this a node bundle?
-				BUILD_FLAG_IS_NODE: JSON.stringify(isNode),
-				// Is this a development build?
-				BUILD_FLAG_IS_DEV: JSON.stringify(isDev),
 			}),
 
 			// Generates a JSON file containing a map of all the output files for
@@ -384,7 +397,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 
 			// We need this plugin to enable hot reloading of our client.
 			ifDevClient(() => new webpack.HotModuleReplacementPlugin({
-				multiStep: true,
+				// multiStep: true,
 			})),
 
 			// // For our production client we need to make sure we pass the required
@@ -399,8 +412,8 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			// For the production build of the client we need to extract the CSS into
 			// CSS files.
 			new MiniCssExtractPlugin({
-				filename: ifDev('[name].css', '[name].[hash].css'),
 				chunkFilename: ifDev('[id].css', '[id].[hash].css'),
+				filename: ifDev('[name].css', '[name].[hash].css'),
 			}),
 
 			// -----------------------------------------------------------------------
@@ -422,6 +435,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			new HappyPack({
 				id: 'happypack-javascript',
 				verbose: false,
+				// tslint:disable-next-line:object-literal-sort-keys
 				threads: 4,
 				loaders: [
 					{
@@ -432,20 +446,20 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 						// defined in the project configuration, allowing additional
 						// items to be added.
 						query:
-							// Our "standard" babel config.
-							{
-								// We need to ensure that we do this otherwise the babelrc will
-								// get interpretted and for the current configuration this will mean
-								// that it will kill our webpack treeshaking feature as the modules
-								// transpilation has not been disabled within in.
-								babelrc: false,
+						// Our "standard" babel config.
+						{
+							// We need to ensure that we do this otherwise the babelrc will
+							// get interpretted and for the current configuration this will mean
+							// that it will kill our webpack treeshaking feature as the modules
+							// transpilation has not been disabled within in.
+							babelrc: false,
 
-								plugins: [
+							plugins: [
 									// Required to support react hot loader.
 									ifDevClient(useOwn('react-hot-loader/babel')),
 
 								].filter(x => x != null),
-							},
+						},
 					},
 				],
 			}),
@@ -454,6 +468,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			new HappyPack({
 				id: 'happypack-typescript',
 				verbose: false,
+				// tslint:disable-next-line:object-literal-sort-keys
 				threads: 4,
 				loaders: [
 					{
@@ -467,7 +482,9 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 						loader: useOwn('ts-loader'),
 						options: {
 							transpileOnly: true,
-							happyPackMode: true // IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+
+							// IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+							happyPackMode: true,
 						}
 					}
 				],
@@ -481,6 +498,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				new HappyPack({
 					id: 'happypack-devclient-css',
 					verbose: false,
+					// tslint:disable-next-line:object-literal-sort-keys
 					threads: 4,
 					loaders: [
 						useOwn('style-loader'),
@@ -570,7 +588,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 								ifProdClient(() => ({
 									loaders: [
 										MiniCssExtractPlugin.loader,
-										useOwn("css-loader")
+										useOwn('css-loader')
 									]
 								})),
 

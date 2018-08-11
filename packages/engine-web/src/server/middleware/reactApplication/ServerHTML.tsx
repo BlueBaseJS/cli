@@ -4,10 +4,10 @@
  */
 
 import React, { Children } from 'react';
+import { PlatformConfigs } from '../../../engine';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import HTML from '../../components/HTML';
 import getClientBundleEntryAssets from './getClientBundleEntryAssets';
-import { PlatformConfigs } from '../../../engine';
 // import serialize from 'serialize-javascript';
 
 // import ClientConfig from '../../../config/components/ClientConfig';

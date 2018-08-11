@@ -1,61 +1,63 @@
-import webpack from 'webpack';
-import HotNodeServer from './hotNodeServer';
-import HotClientServer from './hotClientServer';
-import createVendorDLL from './createVendorDLL';
-import { Utils } from '@blueeast/bluerain-cli-core';
-import logger from '../../logger';
 import { ConfigsBundle, getWebpackConfigsFn } from '.';
+import { Utils } from '@blueeast/bluerain-cli-core';
+import HotClientServer from './hotClientServer';
+import HotNodeServer from './hotNodeServer';
+import createVendorDLL from './createVendorDLL';
+import webpack from 'webpack';
+
+const logger = Utils.logger;
 
 const usesDevVendorDLL = (bundleConfig: any) =>
   bundleConfig.devVendorDLL != null && bundleConfig.devVendorDLL.enabled;
 
 const vendorDLLsFailed = (err: Error) => {
 	logger.log({
-		title: 'vendorDLL',
+		error: err,
+		label: 'BlueRain Dev',
 		level: 'error',
 		message:
-			'Unfortunately an error occured whilst trying to build the vendor dll(s) used by the development server. Please check the console for more information.',
+		// tslint:disable-next-line:max-line-length
+		'Unfortunately an error occured whilst trying to build the vendor dll(s) used by the development server. Please check the console for more information.',
 		notify: true,
 	});
-
-	if (err) {
-    console.error(err);
-  }
 };
 
 const initializeBundle = (name: string, bundleConfig: any, getWebpackConfigs: any) => {
-  const createCompiler = () => {
-    try {
+	const createCompiler = () => {
+		try {
 			const webpackConfig = getWebpackConfigs({
-        target: name,
-        mode: 'development',
-      });
+				mode: 'development',
+				target: name,
+			});
+
       // Install the vendor DLL config for the client bundle if required.
-      if (name === 'client' && usesDevVendorDLL(bundleConfig)) {
+			if (name === 'client' && usesDevVendorDLL(bundleConfig)) {
+
+				const plugin = new webpack.DllReferencePlugin({
+					context: Utils.fromProjectRoot(''),
+					manifest: require(Utils.fromProjectRoot(
+						`${bundleConfig.outputPath}/${bundleConfig.devVendorDLL.name}.json`,
+					)),
+				});
+
         // Install the vendor DLL plugin.
-        webpackConfig.plugins.push(
-          new webpack.DllReferencePlugin({
-						context: Utils.fromProjectRoot(''),
-						manifest: require(Utils.fromProjectRoot(
-							`${bundleConfig.outputPath}/${bundleConfig.devVendorDLL.name}.json`,
-            )),
-          }),
-        );
-      }
-      return webpack(webpackConfig);
-    } catch (err) {
+				webpackConfig.plugins.push(plugin);
+			}
+			return webpack(webpackConfig);
+		} catch (err) {
+
 			logger.log({
-				title: `Development: ${name}`,
+				error: err,
+				label: `BlueRain CLI: ${name}`,
 				level: 'error',
 				message: 'Webpack config is invalid, please check the console for more information.',
 				notify: true,
 			});
-			console.error(err);
 			throw err;
-    }
-  };
+		}
+	};
 
-  return { name, bundleConfig, createCompiler };
+	return { name, bundleConfig, createCompiler };
 };
 
 class HotDevelopment {
@@ -64,8 +66,8 @@ class HotDevelopment {
 	private hotNodeServers: any;
 
 	async start(configs: ConfigsBundle, getWebpackConfigs: getWebpackConfigsFn) {
-    this.hotClientServer = null;
-    this.hotNodeServers = [];
+		this.hotClientServer = null;
+		this.hotNodeServers = [];
 
 		const clientBundle = initializeBundle('client', configs.bundles.client, getWebpackConfigs);
 
@@ -74,11 +76,6 @@ class HotDevelopment {
 				initializeBundle(name, configs.additionalNodeBundles[name], getWebpackConfigs),
       ),
 		);
-
-
-
-
-
 
 		if (usesDevVendorDLL(configs.bundles.client)) {
 			await createVendorDLL('client', configs.bundles.client, configs);
@@ -111,58 +108,18 @@ class HotDevelopment {
 				new HotNodeServer(name, createCompiler(), compiler, configs),
 		);
 
+	}
 
-
-
-
-
-
-    // Promise.resolve(
-    //   // First ensure the client dev vendor DLLs is created if needed.
-		// 	usesDevVendorDLL(configs.bundles.client)
-		// 		? await createVendorDLL('client', configs.bundles.client, configs)
-    //     : true,
-    // )
-    //   // Then start the client development server.
-    //   .then(
-    //     () =>
-    //       new Promise((resolve) => {
-    //         const { createCompiler } = clientBundle;
-    //         const compiler = createCompiler();
-    //         compiler.plugin('done', (stats) => {
-    //           if (!stats.hasErrors()) {
-    //             resolve(compiler);
-    //           }
-    //         });
-		// 				this.hotClientServer = new HotClientServer(compiler, configs);
-    //       }),
-    //     vendorDLLsFailed,
-    //   )
-    //   // Then start the node development server(s).
-    //   .then((clientCompiler) => {
-    //     this.hotNodeServers = nodeBundles.map(
-    //       ({ name, createCompiler }) =>
-    //         // $FlowFixMe
-    //         new HotNodeServer(name, createCompiler(), clientCompiler, configs),
-		// 		);
-		// 	// nsole.log('donneeeee')
-		// 	})
-		// 	.catch(err => {
-		// 		console.log('errrrrrr', err)
-
-		// 	});
-  }
-
-  dispose() {
+	dispose() {
 		const safeDisposer = (server: any) => (server ? server.dispose() : Promise.resolve());
 
     // First the hot client server.
-    return (
+		return (
       safeDisposer(this.hotClientServer)
         // Then dispose the hot node server(s).
 				.then(() => Promise.all(this.hotNodeServers.map(safeDisposer)))
-    );
-  }
+		);
+	}
 }
 
 export default HotDevelopment;

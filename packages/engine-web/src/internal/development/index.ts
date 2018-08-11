@@ -1,10 +1,12 @@
 import * as webpack from 'webpack';
-import chokidar from 'chokidar';
-import { Utils } from '@blueeast/bluerain-cli-core';
-import logger from '../../logger';
 import { PlatformConfigs } from '../../engine/PlatformConfigs';
+import { Utils } from '@blueeast/bluerain-cli-core';
+import chokidar from 'chokidar';
 
+// tslint:disable-next-line:no-var-requires
 const HotDevelopment = require('./hotDevelopment').default;
+
+const logger = Utils.logger;
 
 export type ConfigsBundle = PlatformConfigs & { publicAssetsPath: string };
 export type getWebpackConfigsFn = (configs: PlatformConfigs) => webpack.Configuration;
@@ -16,16 +18,16 @@ export default async (configsBundle: ConfigsBundle, getWebpackConfigs: getWebpac
 
   // Any changes to our webpack bundleConfigs should restart the development devServer.
 	const watcher = chokidar.watch([
-    Utils.fromProjectRoot('bluerain'),
+		Utils.fromProjectRoot('bluerain'),
 		Utils.fromProjectRoot('src'),
 	]);
 
 	watcher.on('ready', () => {
 		watcher.on('change', async () => {
 			logger.log({
+				label: 'BlueRain Engine Web',
 				level: 'warn',
 				message: 'Project build configuration has changed. Restarting the development devServer...',
-				title: 'webpack',
 			});
 
 			await devServer.dispose();

@@ -1,7 +1,7 @@
 import { Command, Engine } from '@blueeast/bluerain-cli-core';
+import { PlatformConfigs } from '../PlatformConfigs';
 import Debug from 'debug';
 import development from '../../internal/development';
-import { PlatformConfigs } from '../PlatformConfigs';
 
 const debug = Debug('web-engine-run');
 
@@ -32,7 +32,7 @@ export const run: Command = {
 				mode: 'development',
 				...configs
 			});
-		}
+		};
 
 		await development({ ...configs, publicAssetsPath }, getWebpackConfigs);
 		return;

@@ -1,14 +1,16 @@
+import { PlatformConfigs } from '../engine';
 import { Server } from 'http';
+import { Utils } from '@blueeast/bluerain-cli-core';
 import clientBundle from './middleware/clientBundle';
 import compression from 'compression';
 import errorHandlers from './middleware/errorHandlers';
 import express from 'express';
-import logger from '../logger';
 import offlinePage from './middleware/offlinePage';
 import reactApplication from './middleware/reactApplication';
 import security from './middleware/security';
 import serviceWorker from './middleware/serviceWorker';
-import { PlatformConfigs } from '../engine';
+
+const logger = Utils.logger;
 
 const server = (configsBundle: PlatformConfigs & { publicAssetsPath: string }): Server => {
 
@@ -46,7 +48,7 @@ const server = (configsBundle: PlatformConfigs & { publicAssetsPath: string }): 
 	// The React application middleware.
 	app.get('*', (request, response) => {
 		logger.log({
-			title: 'Request',
+			label: 'BlueRain Server',
 			level: 'info',
 			message: `Received for "${request.url}"`,
 		});
@@ -59,8 +61,9 @@ const server = (configsBundle: PlatformConfigs & { publicAssetsPath: string }): 
 	// Create an http listener for our express app.
 	const listener = app.listen(configs.port, () => {
 		logger.log({
-			title: 'server',
+			label: 'BlueRain Server',
 			level: 'info',
+			// tslint:disable-next-line:object-literal-sort-keys
 			message: `✓
 
 			${configs.welcomeMessage}
