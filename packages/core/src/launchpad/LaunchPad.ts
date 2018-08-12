@@ -1,10 +1,7 @@
 import { EngineRegistry } from './registrys';
-import { Engine } from './models/Engine';
 import Debug from 'debug';
 
 const debug = Debug('LaunchPad');
-
-type EngineStore = { [key: string]: Engine };
 
 /**
  * This is the main application, that is responsible to do all
@@ -26,9 +23,8 @@ export class LaunchPad {
 	 * Searches package.json for any packages who's names start
 	 * with: "bluerain-cli-engine-"
 	 */
-	public loadEngines = async (): Promise<EngineStore> => {
-		debug('Loading engines!');
-		return {};
+	public loadEngines = async (): Promise<void> => {
+		await this.Engines.loadEngines();
 	}
 
 	/**

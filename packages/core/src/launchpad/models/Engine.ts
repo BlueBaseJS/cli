@@ -26,9 +26,10 @@ export class Engine {
 	public configFiles?: ConfigFileInfo[];
 
 	/** All commands of this engine */
+	// TODO: Remove
 	public commands?: CommandStore;
 
-	hooks?: { [id: string]: hookFn };
+	public hooks?: { [id: string]: hookFn };
 
 	//////// Registrys ////////
 
@@ -41,7 +42,8 @@ export class Engine {
 	/** Filters for hook mechanism */
 	public Filters = new FilterRegistry(this);
 
-	constructor(public LP: LaunchPad) {
+	// TODO: remove
+	constructor(public LP?: LaunchPad) {
 	}
 
 	/**
@@ -70,7 +72,7 @@ export class Engine {
 			});
 		}
 
-		// Load the relevant hook as required by this engine from different files.
+		// Load the relevant hooks as required by this engine from different files.
 		await this.Files.registerHooks();
 
 		// Look up platform configs
@@ -91,6 +93,7 @@ export class Engine {
 
 	/**
 	 * Run a command
+	 * TODO: remove
 	 */
 	public run = async (args: { command: string, options?: object }): Promise<void> => {
 		if (isnil(this.commands) || isnil(this.commands[args.command])) {

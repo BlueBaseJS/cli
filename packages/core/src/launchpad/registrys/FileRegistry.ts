@@ -8,6 +8,7 @@ import Debug from 'debug';
 import { hookFn } from './FilterRegistry';
 import { EsModule } from '@blueeast/bluerain-os/types/typings';
 import { isFunction } from 'util';
+import { isProduction } from '../../utils';
 
 const debug = Debug('FileRegistry');
 
@@ -186,7 +187,7 @@ export default class FileRegistry extends MapRegistry<ConfigFileInfo> {
 	private listBlueRainPlugins = async (): Promise<string[]> => {
 
 		// We can't gauranttee availability of platform configs here
-		const isDev = (process.env.NODE_ENV === 'production') ? false : true;
+		const isDev = !isProduction();
 
 		// Load package.json
 		const Package = await import(fromProjectRoot('package.json'));
