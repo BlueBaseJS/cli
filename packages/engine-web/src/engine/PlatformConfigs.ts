@@ -17,6 +17,12 @@ export interface PlatformConfigs {
 	/** The port on which the client bundle development server should run. */
 	clientDevServerPort: number,
 
+	/** The port on which to serve webpack dashboard on. */
+	clientDevDashboardPort: number,
+
+	/** Disable webpack dashboard? */
+	disableDevDashboard: boolean,
+
 	/*
 	 * This is an example environment variable which is used within the react
 	 * application to demonstrate the usage of environment variables across

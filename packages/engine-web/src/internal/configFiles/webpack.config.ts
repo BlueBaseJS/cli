@@ -5,13 +5,16 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 // import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
 import path from 'path';
 
-// tslint:disable-next-line:no-var-requires
+// tslint:disable:no-var-requires
 const HappyPack = require('happypack');
+const Jarvis = require('webpack-jarvis');
 // const WebpackMd5Hash = require('webpack-md5-hash');
 // const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+
 
 const logger = Utils.logger;
 
@@ -87,10 +90,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 	/////////////////
 	//// Webpack ////
 	/////////////////
-	const webpackConfig: WebpackConfig = {
-
-		// TODO: do this properly
-		...webpackConfigInput,
+	const webpackConfig: WebpackConfig = merge(webpackConfigInput, {
 
 		// Mode
 		mode: ifDev('development', 'production'),
@@ -321,6 +321,13 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 						entryOnly: false,
 						raw: true,
 					}),
+			),
+
+			ifDevClient(
+				() =>
+					new Jarvis({
+						port: 1338 // optional: set a port
+					})
 			),
 
 			// // Implement webpack 3 scope hoisting that will remove function wrappers
@@ -635,7 +642,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				},
 			],
 		},
-	};
+	});
 
 	// return smp.wrap(webpackConfig);
 	return webpackConfig;

@@ -19,6 +19,10 @@ export const DefaultPlatformConfigs: PlatformConfigs = {
 	host: EnvVars.string('HOST', '0.0.0.0'),
 	port: EnvVars.number('PORT', 1337),
 	clientDevServerPort: EnvVars.number('CLIENT_DEV_PORT', 7331),
+	
+	clientDevDashboardPort: EnvVars.number('CLIENT_DEV_DASHBOARD_PORT', 7331),
+	disableDevDashboard: false,
+	
 	welcomeMessage: EnvVars.string('WELCOME_MSG', 'Hello world!'),
 	disableSSR: true,
 	browserCacheMaxAge: '365d',
