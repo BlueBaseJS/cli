@@ -4,6 +4,7 @@ import ReactHotLoaderPlugin from './ReactHotLoaderPlugin/HOC';
 
 const isDev = process.env.BUILD_FLAG_IS_DEV === 'true';
 const isClient = process.env.BUILD_FLAG_IS_CLIENT === 'true';
+const isSSR = process.env.BUILD_FLAG_IS_SSR === 'true';
 
 // tslint:disable-next-line:no-var-requires
 let bootConfig = require('BLUERAIN_BOOT_OPTIONS');
@@ -13,7 +14,11 @@ bootConfig = (bootConfig.default ? bootConfig.default : bootConfig);
 
 if (isDev && isClient) {
 	bootConfig.plugins = bootConfig.plugins || [];
-	bootConfig.plugins.push(ReactHotLoaderPlugin)
+	bootConfig.plugins.push(ReactHotLoaderPlugin);
+}
+
+if (isSSR) {
+	BR.enableSsrMode();
 }
 
 // Execute the first render of our app.

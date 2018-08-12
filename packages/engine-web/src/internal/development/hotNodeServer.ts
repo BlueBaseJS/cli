@@ -102,7 +102,8 @@ class HotNodeServer {
 						message: 'Build failed, check the console for more information.',
 						notify: true,
 					});
-					// console.log(stats.toString());
+					// tslint:disable-next-line:no-console
+					console.log(stats.toString());
 					// TODO: throw error here
 					return;
 				}
@@ -110,6 +111,7 @@ class HotNodeServer {
 				waitForClientThenStartServer();
 			} catch (err) {
 				logger.log({
+					error: err,
 					label: `BlueRain Server: ${name}`,
 					level: 'error',
 					message: 'Failed to start, please check the console for more information.',

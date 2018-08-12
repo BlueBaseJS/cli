@@ -373,6 +373,8 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				BUILD_FLAG_IS_NODE: JSON.stringify(isNode),
 				// Is this the "server" bundle?
 				BUILD_FLAG_IS_SERVER: JSON.stringify(isServer),
+				// Is SSR mode active?
+				BUILD_FLAG_IS_SSR: JSON.stringify(isServer && !config('disableSSR')),
 				// It is really important to use NODE_ENV=production in order to use
 				// optimised versions of some node_modules, such as React.
 				NODE_ENV: isProd ? 'production' : 'development',
