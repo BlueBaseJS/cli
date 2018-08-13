@@ -17,13 +17,8 @@ class HotNodeServer {
 	constructor(name: string, compiler: any, clientCompiler: any, _configsBundle: ConfigsBundle) {
 
 		const startServer = async () => {
-			console.log('hmmm')
-			console.log('what now?', this.server)
 			if (this.server) {
-				console.log('a')
-				
 				this.server.kill();
-				console.log('b')
 				this.server = null;
 				logger.log({
 					label: `BlueRain Server: ${name}`,
@@ -31,17 +26,13 @@ class HotNodeServer {
 					message: 'Restarting server...',
 				});
 			}
-			console.log('what?')
 
 			const compiledEntryFile = Utils.fromProjectRoot(
 				`${compiler.options.output.path}/${Object.keys(compiler.options.entry)[0]}`
 			);
-			console.log('ha!', compiledEntryFile)
-			// console.log('configsBundle!', configsBundle)
 
 			// const server = await import(compiledEntryFile);
 			const newServer = spawn('node', [compiledEntryFile, '--color']);
-			// console.log('4', newServer)
 			// const newServer = server.default(configsBundle);
 
 			logger.log({
@@ -51,15 +42,27 @@ class HotNodeServer {
 				notify: true,
 			});
 
-      // newServer.stdout.on('data', data => console.log(data.toString().trim()));
-			newServer.on('error', (error: Error) => {
+
+			newServer.stdout.on('data', data => console.log(data.toString().trim()));
+			newServer.stderr.on('data', (data) => {
 				logger.log({
-					error,
 					label: `BlueRain Server: ${name}`,
 					level: 'error',
 					message: 'Error in server execution, check the console for more info.',
 				});
+				console.error(data.toString().trim());
 			});
+
+
+      // newServer.stdout.on('data', data => console.log(data.toString().trim()));
+			// newServer.on('error', (error: Error) => {
+			// 	logger.log({
+			// 		error,
+			// 		label: `BlueRain Server: ${name}`,
+			// 		level: 'error',
+			// 		message: 'Error in server execution, check the console for more info.',
+			// 	});
+			// });
 			this.server = newServer;
 		};
 
@@ -67,18 +70,14 @@ class HotNodeServer {
     // build.  This avoids any issues with node server bundles depending on
     // client bundle assets.
 		const waitForClientThenStartServer = () => {
-			console.log('am i stuck?')
 			if (this.serverCompiling) {
-				console.log('1')
         // A new server bundle is building, break this loop.
 				return;
 			}
 			if (this.clientCompiling) {
-				console.log('2')
 				setTimeout(waitForClientThenStartServer, 50);
 				
 			} else {
-				console.log('3')
 				startServer();
 			}
 		};
@@ -104,14 +103,12 @@ class HotNodeServer {
 
 		compiler.plugin('done', (stats: any) => {
 
-			console.log('heeerree')
 			this.serverCompiling = false;
 			
 			if (this.disposing) {
 				return;
 			}
 			
-			console.log('thereeee')
 			try {
 				if (stats.hasErrors()) {
 					logger.log({

@@ -1,4 +1,4 @@
-import BlueRain from '../../../client/App';
+// import BlueRain from '../../../client/App';
 import Helmet from 'react-helmet';
 import React from 'react';
 
@@ -83,7 +83,7 @@ function MainApp() {
         <meta name="msapplication-square310x310logo" content="/favicons/mstile-310x310.png" />
         <link rel="manifest" href="/manifest.json" />
       </Helmet>
-			<BlueRain />
+			{/* <BlueRain /> */}
     </div>
 	);
 }

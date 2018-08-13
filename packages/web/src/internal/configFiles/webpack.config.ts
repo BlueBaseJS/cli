@@ -5,7 +5,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 // import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import merge from 'webpack-merge';
+// import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
 import path from 'path';
 import { PlatformConfigs } from '../../engine';
@@ -15,7 +15,7 @@ const HappyPack = require('happypack');
 const Jarvis = require('webpack-jarvis');
 // const WebpackMd5Hash = require('webpack-md5-hash');
 // const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
-
+var WriteJsonPlugin = require('write-json-webpack-plugin');
 
 const logger = Utils.logger;
 
@@ -40,7 +40,7 @@ const removeNil = Utils.removeNil;
 //
 // I would recommend looking at the "webpack-merge" module to help you with
 // merging modifications to each config.
-export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): WebpackConfig => {
+export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): WebpackConfig => {
 
 	const { bootPath, target, mode, publicAssetsPath, engine } = buildOptions;
 	
@@ -98,7 +98,7 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 	/////////////////
 	//// Webpack ////
 	/////////////////
-	const webpackConfig: WebpackConfig = merge(webpackConfigInput, {
+	const webpackConfig: WebpackConfig = {
 
 		// Mode
 		mode: ifDev('development', 'production'),
@@ -236,13 +236,11 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 			// These extensions are tried when resolving a file.
 			extensions: config('bundleSrcTypes').map((ext: string) => `.${ext}`),
 
-			// This is required for the modernizr-loader
-			// @see https://github.com/peerigon/modernizr-loader
 			alias: {
 				// BlueRain boot options file, AKA boot.js
 				BLUERAIN_BOOT_OPTIONS: bootPath,
 
-				'react-native': useOwn('react-native-web'),
+				'react-native$': useOwn('react-native-web'),
 			},
 		},
 
@@ -263,6 +261,9 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 							// We always want the source-map-support included in
 							// our node target bundles.
 							useOwn('source-map-support/register'),
+
+							// useOwn('react-native-web'),
+							// 'react-native-web'
 						])
 							// And any items that have been whitelisted in the config need
 							// to be included in the bundling process too.
@@ -395,6 +396,14 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				NODE_ENV: isProd ? 'production' : 'development',
 
 				SERVER_CONFIGS: ifNode(() => JSON.stringify(configs))
+			}),
+
+			new WriteJsonPlugin({
+				object: configs,
+				// path: bundleConfig.outputPath,
+				// default output is timestamp.json
+				filename: 'configs.json',
+				pretty: true // makes file human-readable (default false)
 			}),
 
 			// Generates a JSON file containing a map of all the output files for
@@ -652,8 +661,9 @@ export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): 
 				},
 			],
 		},
-	});
+	};
 
+	console.log(webpackConfig)
 	// return smp.wrap(webpackConfig);
 	return webpackConfig;
 };
