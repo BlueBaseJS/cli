@@ -8,8 +8,6 @@ const debug = Debug('web-engine-run');
 
 export class RunCommand extends Command {
 	async run() {
-		console.log('Hi, world!')
-
 		const engine = new WebEngine();
 		await engine.prepare();
 

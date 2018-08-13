@@ -12,7 +12,7 @@ const platform: ConfigFileInfo = {
 
 const publicDir: ConfigFileInfo = {
 	...Defaults.ConfigFiles.publicDir,
-	defaultPath: fromHere('../../public')
+	defaultPath: fromHere('../../../public')
 };
 
 const webpack: ConfigFileInfo = {

@@ -6,7 +6,10 @@
 import React, { Children } from 'react';
 import { PlatformConfigs } from '../../../engine';
 import { Utils } from '@blueeast/bluerain-cli-core';
+// tslint:disable-next-line:no-submodule-imports
+import { renderToStaticMarkup } from 'react-dom/server';
 import HTML from '../../components/HTML';
+import SplashScreen from '../../components/SplashScreen';
 import getClientBundleEntryAssets from './getClientBundleEntryAssets';
 // import serialize from 'serialize-javascript';
 
@@ -100,6 +103,7 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 		...ifElse(helmet)(() => helmet.script.toComponent(), []),
 	]);
 
+
 	return (
 	<HTML
 		htmlAttributes={ifElse(helmet)(() => helmet.htmlAttributes.toComponent(), null)}
@@ -113,7 +117,7 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 				{x}
 			</KeyedComponent>),
 		)}
-		appBodyString={reactAppString}
+		appBodyString={reactAppString || renderToStaticMarkup(<SplashScreen />)}
 	/>
 	);
 };

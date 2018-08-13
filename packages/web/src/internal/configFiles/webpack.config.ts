@@ -661,7 +661,6 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 		},
 	};
 
-	console.log(webpackConfig)
 	// return smp.wrap(webpackConfig);
 	return webpackConfig;
 };

@@ -1,16 +1,16 @@
 import { Request, Response } from 'express';
-// tslint:disable-next-line:no-submodule-imports
-import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 // import { AppRegistry } from 'react-native-web';
 import { PlatformConfigs } from '../../../engine';
 import { Utils } from '@blueeast/bluerain-cli-core';
-import Helmet from 'react-helmet';
-import MainApp from '../../components/MainApp';
+// tslint:disable-next-line:no-submodule-imports
+import { renderToStaticMarkup } from 'react-dom/server';
+// import App from '../../../client/App';
+// import Helmet from 'react-helmet';
 import React from 'react';
 import getServerHTML from './ServerHTML';
 
 // tslint:disable-next-line:no-var-requires
-const { AppRegistry } = require('react-native-web');
+// const { AppRegistry } = require('react-native-web');
 // import { StaticRouter } from 'react-router-dom';
 // import { AsyncComponentProvider, createAsyncContext } from 'react-async-component';
 // import asyncBootstrapper from 'react-async-bootstrapper';
@@ -59,10 +59,10 @@ export default (configs: PlatformConfigs) => (request: Request, response: Respon
   // // Declare our React application.
 
   // register the app
-	AppRegistry.registerComponent('App', () => MainApp);
+	// AppRegistry.registerComponent('App', () => App);
 
   // prerender the app
-	const { element } = AppRegistry.getApplication('App');
+	// const { element } = AppRegistry.getApplication('App');
   // // first the element
 	// const html = renderToString(element);
   // then the styles (optionally include a nonce if your CSP policy requires it)
@@ -81,30 +81,30 @@ export default (configs: PlatformConfigs) => (request: Request, response: Respon
   // // components are resolved for the render.
 	// asyncBootstrapper(app).then(() => {
 
-	if (typeof window === 'undefined') {
-		(global as any).window = {
-			createElement: () => null,
-		};
-	}
+	// if (typeof window === 'undefined') {
+	// 	(global as any).window = {
+	// 		createElement: () => null,
+	// 	};
+	// }
 
-	let appString;
-	try {
-		appString = renderToString(element);
+	// let appString;
+	// try {
+	// 	appString = renderToString(element);
 
-	} catch (error) {
-		console.error('5', error);
+	// } catch (error) {
+	// 	console.error('5', error);
 
-	}
+	// }
 
-    // Generate the html response.
-	const html = renderToStaticMarkup(
-    <ServerHTML
-      reactAppString={appString}
-      nonce={nonce}
-      helmet={Helmet.rewind()}
-      // asyncComponentsState={asyncComponentsContext.getState()}
-    />,
-  );
+  //   // Generate the html response.
+	// const html = renderToStaticMarkup(
+  //   <ServerHTML
+  //     reactAppString={appString}
+  //     nonce={nonce}
+  //     helmet={Helmet.rewind()}
+  //     // asyncComponentsState={asyncComponentsContext.getState()}
+  //   />,
+  // );
 
   //   // Check if the router context contains a redirect, if so we need to set
   //   // the specific status and redirect header and end the response.
@@ -114,15 +114,15 @@ export default (configs: PlatformConfigs) => (request: Request, response: Respon
 	// 		return;
 	// 	}
 
-	response
-    .status(
-      // reactRouterContext.missed
-      //   ? // If the renderResult contains a "missed" match then we set a 404 code.
-      //   // Our App component will handle the rendering of an Error404 view.
-      //   404
-      //   : // Otherwise everything is all good and we send a 200 OK status.
-      200,
-    )
-    .send(`<!DOCTYPE html>${html}`);
-	// });
+	// response
+  //   .status(
+  //     // reactRouterContext.missed
+  //     //   ? // If the renderResult contains a "missed" match then we set a 404 code.
+  //     //   // Our App component will handle the rendering of an Error404 view.
+  //     //   404
+  //     //   : // Otherwise everything is all good and we send a 200 OK status.
+  //     200,
+  //   )
+  //   .send(`<!DOCTYPE html>${html}`);
+	// // });
 };
