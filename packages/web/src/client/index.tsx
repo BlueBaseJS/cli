@@ -4,6 +4,7 @@ import 'normalize.css';
 import App from './App';
 // import React from 'react';
 // import { AppRegistry } from 'react-native';
+// tslint:disable-next-line:no-var-requires
 const { AppRegistry } = require('react-native');
 
 // register the app

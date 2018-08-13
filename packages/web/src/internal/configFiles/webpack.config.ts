@@ -395,14 +395,12 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 				// optimised versions of some node_modules, such as React.
 				NODE_ENV: isProd ? 'production' : 'development',
 
-				SERVER_CONFIGS: ifNode(() => JSON.stringify(configs))
+				// SERVER_CONFIGS: ifNode(() => JSON.stringify(configs))
 			}),
 
 			new WriteJsonPlugin({
-				object: configs,
-				// path: bundleConfig.outputPath,
-				// default output is timestamp.json
 				filename: 'configs.json',
+				object: configs,
 				pretty: true // makes file human-readable (default false)
 			}),
 

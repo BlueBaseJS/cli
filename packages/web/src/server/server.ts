@@ -13,7 +13,6 @@ import serviceWorker from './middleware/serviceWorker';
 const logger = Utils.logger;
 
 const server = (configsBundle: PlatformConfigs & { publicAssetsPath: string }): Server => {
-	console.log('did i reach here?', process.env.SERVER_CONFIGS)
 
 	const { publicAssetsPath, ...configs } = configsBundle;
 

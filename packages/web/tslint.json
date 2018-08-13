@@ -1,3 +1,10 @@
 {
-  "extends": "@oclif/tslint"
+  "extends": [
+    "@blueeast/tslint-config-blueeast/react"
+  ],
+  "rules": {
+    "no-expression-statement": false,
+    "object-literal-sort-keys": true,
+    "no-implicit-dependencies": false
+  }
 }
