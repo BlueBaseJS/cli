@@ -17,15 +17,10 @@ hello world from ./src/hello.ts!
     force: flags.boolean({char: 'f'}),
   }
 
-  static args = [{name: 'file'}]
+  static args = [{ name: 'build' }, { name: 'run' }]
 
   async run() {
-    const { args, flags } = this.parse(Electron)
-
-    const name = flags.name || 'world'
-    this.log(`hello ${name} from electron plugin`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
-    }
+    const {args, flags} = this.parse(Electron)
+    this.log(`Electron`, args, flags);
   }
 }

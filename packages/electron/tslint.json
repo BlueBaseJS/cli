@@ -4,7 +4,7 @@
   ],
   "rules": {
     "no-expression-statement": false,
-		"object-literal-sort-keys": true,
-		"no-implicit-dependencies": false
+    "object-literal-sort-keys": true,
+    "no-implicit-dependencies": false
   }
 }

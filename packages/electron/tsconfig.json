@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "outDir": "dist",
+    "outDir": "lib",
     "rootDir": "src",
     "moduleResolution": "node",
     "module": "commonjs",
@@ -39,11 +39,16 @@
     // "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
     "lib": ["es2017", "dom"],
-    "types": ["node", "jest"],
+    "types": ["node"],
     "typeRoots": ["node_modules/@types"],
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "react-native": [
+        "./node_modules/react-native-web"
+      ]
+    }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "src/**/*.test.ts"],
+  "exclude": ["node_modules", "lib", "**/*.test.ts", "src/**/*.test.ts"],
   "compileOnSave": false
 }

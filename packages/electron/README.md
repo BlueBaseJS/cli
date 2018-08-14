@@ -1,7 +1,7 @@
 @blueeast/bluerain-cli-electron
 ===============================
 
-Run BlueRain project on electron
+An Electron plugin for BlueRain CLI
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@blueeast/bluerain-cli-electron.svg)](https://npmjs.org/package/@blueeast/bluerain-cli-electron)

@@ -1,7 +1,7 @@
 {
   "name": "@blueeast/bluerain-cli-web",
   "version": "0.0.0",
-  "author": "\"BlueEast Team <code@blueeast.com>",
+  "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
   "dependencies": {
     "@blueeast/bluerain-cli-core": "^0.0.0",
