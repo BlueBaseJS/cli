@@ -18,6 +18,16 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
 	// Get configuration
 	const dllConfig = configs.bundles.client.devVendorDLL;
 
+	if (!dllConfig) {
+		const error = 'Vendor DLL configs missing.';
+		logger.log({
+			label: 'Vendor DLL',
+			level: 'error',
+			message: error,
+		});
+		throw Error(error);
+	}
+
 	// Package.json
 	const pkg = require(Utils.fromProjectRoot('./package.json'));
 
@@ -49,6 +59,16 @@ async function createVendorDLL(bundleName: string, bundleConfig: any, configs: C
 
 	// Create webpack configs to generate DLL
 	function webpackConfigFactory() {
+		if (!dllConfig) {
+			const error = 'Vendor DLL configs missing.';
+			logger.log({
+				label: 'Vendor DLL',
+				level: 'error',
+				message: error,
+			});
+			throw Error(error);
+		}
+		
 		return {
       // We only use this for development, so lets always include source maps.
 			devtool: 'inline-source-map',

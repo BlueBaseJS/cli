@@ -63,16 +63,18 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 		ifElse(helmet)(() => styleElement),
 	]);
 
+	const devVendorDLL = configs.bundles.client.devVendorDLL;
+
 	const bodyElements = removeNil([
 	// When we are in development mode our development server will
 	// generate a vendor DLL in order to dramatically reduce our
 	// compilation times.  Therefore we need to inject the path to the
 	// vendor dll bundle below.
 		ifElse(
-			process.env.BUILD_FLAG_IS_DEV === 'true' && configs.bundles.client.devVendorDLL.enabled,
+			process.env.BUILD_FLAG_IS_DEV === 'true' && devVendorDLL && devVendorDLL.enabled,
 	)(() =>
 		scriptTag(
-			`${configs.bundles.client.webPath}/${configs.bundles.client.devVendorDLL.name}.js?t=${Date.now()}`,
+			`${configs.bundles.client.webPath}/${devVendorDLL && devVendorDLL.name}.js?t=${Date.now()}`,
 		),
 	),
 		ifElse(clientEntryAssets && clientEntryAssets.js)(() => scriptTag(clientEntryAssets.js)),

@@ -40,7 +40,9 @@ const server = (configsBundle: PlatformConfigs & { publicAssetsPath: string }): 
 	}
 
 	// Configure serving of our client bundle.
-	app.use(configs.bundles.client.webPath, clientBundle(configs));
+	if (configs.bundles.client.webPath) {
+		app.use(configs.bundles.client.webPath, clientBundle(configs));
+	}
 
 	// Configure static serving of our "public" root http path static files.
 	app.use(express.static(publicAssetsPath));

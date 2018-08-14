@@ -8,7 +8,9 @@ import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 // import merge from 'webpack-merge';
 // import nodeExternals from 'webpack-node-externals';
 import path from 'path';
-import { PlatformConfigs } from '../../engine';
+import { PlatformConfigs } from '../../../engine';
+import webBuilder from './web';
+import electron from './electron';
 
 // tslint:disable:no-var-requires
 const HappyPack = require('happypack');
@@ -40,7 +42,7 @@ const removeNil = Utils.removeNil;
 //
 // I would recommend looking at the "webpack-merge" module to help you with
 // merging modifications to each config.
-export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): WebpackConfig => {
+export default (webpackConfigInput: WebpackConfig, buildOptions: BuildOptions): WebpackConfig => {
 
 	const { bootPath, target, mode, publicAssetsPath, engine } = buildOptions;
 	
@@ -49,11 +51,15 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 		publicAssetsPath,
 	}
 
+	webBuilder(webpackConfigInput, buildOptions);
+	electron(webpackConfigInput, buildOptions);
+
 	/////////////////
 	//// Helpers ////
 	/////////////////
+
 	const config = (key: string) => engine.Configs.get(key);
-	const useOwn = (loaderStr: string) => path.resolve(__dirname, `../../../node_modules/${loaderStr}`)
+	const useOwn = (loaderStr: string) => path.resolve(__dirname, `../../../../node_modules/${loaderStr}`)
 	// const fromRoot = (loaderStr: string) => path.resolve(__dirname, `../../../${loaderStr}`);
 
 	const isProd = mode === 'production' ? true : false;
@@ -70,7 +76,7 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 	const ifClient = ifElse(isClient);
 	const ifDevClient = ifElse(isDev && isClient);
 	const ifProdClient = ifElse(isProd && isClient);
-
+	
 	////////////////////
 	//// Initialize ////
 	////////////////////
@@ -101,8 +107,10 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 	const webpackConfig: WebpackConfig = {
 
 		// Mode
+		// TODO: DONE
 		mode: ifDev('development', 'production'),
-
+		
+		// TODO: DONE
 		target: isClient
 			? // Only our client bundle will target the web as a runtime.
 			'web'
@@ -112,15 +120,14 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 		// Ensure that webpack polyfills the following node features for use
 		// within any bundles that are targetting node as a runtime. This will be
 		// ignored otherwise.
+		// TODO: DONE
 		node: {
 			__dirname: true,
 			__filename: true,
 		},
 
-		// TODO:
-		// profile: true,//ifDev(false, true),
-
 		// Define our entry chunks for our bundle.
+		// TODO: DONE
 		entry: {
 
 			// We name our entry files "index" as it makes it easier for us to
@@ -148,6 +155,7 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 				// BlueRain boot options file, AKA boot.js
 				// ifClient(bootPath),
 
+				// TODO: DONE
 				// The source entry file for the bundle.
 				path.resolve(bundleConfig.srcEntryFile),
 			]),
@@ -155,6 +163,7 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 
 
 		// Bundle output configuration.
+		// TODO: DONE
 		output: {
 
 			// The dir in which our bundle should be output.
@@ -202,6 +211,7 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 		},
 
 		// Source map settings.
+		// TODO: DONE
 		devtool: ifElse(
 			// Include source maps for ANY node bundle so that we can support
 			// nice stack traces for errors (the source maps get consumed by
@@ -225,6 +235,7 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 		// We only want this enabled for our production client.  Please
 		// see the webpack docs on how you can configure this to your own needs:
 		// https://webpack.js.org/configuration/performance/
+		// TODO: DONE
 		performance: ifProdClient(
 			// Enable webpack's performance hints for production client builds.
 			{ hints: 'warning' },
@@ -232,6 +243,7 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 			false,
 		),
 
+		// TODO: DONE
 		resolve: {
 			// These extensions are tried when resolving a file.
 			extensions: config('bundleSrcTypes').map((ext: string) => `.${ext}`),
@@ -275,6 +287,7 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 
 		// Webpack 4 automatically runs UglifyPlugin and other optimization processes.
 		// It can be configured here:
+		// TODO: DONE, FIXME: except react native
 		optimization: {
 			minimizer: ifProdClient([
 				new UglifyJsPlugin({
@@ -323,6 +336,7 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 			// bundles.
 			// We use the BannerPlugin to make sure all of our chunks will get the
 			// source maps support installed.
+		// TODO: DONE
 			ifNode(
 				() =>
 					new webpack.BannerPlugin({
@@ -422,6 +436,7 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 			ifDev(() => new webpack.NoEmitOnErrorsPlugin()),
 
 			// We need this plugin to enable hot reloading of our client.
+		// TODO: DONE
 			ifDevClient(() => new webpack.HotModuleReplacementPlugin({
 				// multiStep: true,
 			})),

@@ -17,7 +17,7 @@ const publicDir: ConfigFileInfo = {
 
 const webpack: ConfigFileInfo = {
 	...Defaults.ConfigFiles.webpack,
-	defaultPath: fromHere('webpack.config')
+	defaultPath: fromHere('./webpack/index')
 };
 
 export const ConfigFiles: ConfigFileInfo[] = [
