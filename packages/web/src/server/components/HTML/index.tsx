@@ -1,5 +1,3 @@
-// tslint:disable:jsx-alignment
-// import BlueRain from '../../../client/App';
 import Helmet from 'react-helmet';
 import React from 'react';
 

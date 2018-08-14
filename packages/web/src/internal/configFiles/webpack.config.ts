@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 // import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 // import merge from 'webpack-merge';
-import nodeExternals from 'webpack-node-externals';
+// import nodeExternals from 'webpack-node-externals';
 import path from 'path';
 import { PlatformConfigs } from '../../engine';
 
@@ -244,34 +244,34 @@ export default (_webpackConfigInput: WebpackConfig, buildOptions: BuildOptions):
 			},
 		},
 
-		// We don't want our node_modules to be bundled with any bundle that is
-		// targetting the node environment, prefering them to be resolved via
-		// native node module system. Therefore we use the `webpack-node-externals`
-		// library to help us generate an externals configuration that will
-		// ignore all the node_modules.
-		externals: removeNil([
-			ifNode(() =>
-				nodeExternals(
-					// Some of our node_modules may contain files that depend on our
-					// webpack loaders, e.g. CSS or SASS.
-					// For these cases please make sure that the file extensions are
-					// registered within the following configuration setting.
-					{
-						whitelist: removeNil([
-							// We always want the source-map-support included in
-							// our node target bundles.
-							useOwn('source-map-support/register'),
+		// // We don't want our node_modules to be bundled with any bundle that is
+		// // targetting the node environment, prefering them to be resolved via
+		// // native node module system. Therefore we use the `webpack-node-externals`
+		// // library to help us generate an externals configuration that will
+		// // ignore all the node_modules.
+		// externals: removeNil([
+		// 	ifNode(() =>
+		// 		nodeExternals(
+		// 			// Some of our node_modules may contain files that depend on our
+		// 			// webpack loaders, e.g. CSS or SASS.
+		// 			// For these cases please make sure that the file extensions are
+		// 			// registered within the following configuration setting.
+		// 			{
+		// 				whitelist: removeNil([
+		// 					// We always want the source-map-support included in
+		// 					// our node target bundles.
+		// 					'source-map-support/register',
 
-							// useOwn('react-native-web'),
-							// 'react-native-web'
-						])
-							// And any items that have been whitelisted in the config need
-							// to be included in the bundling process too.
-							.concat(config('nodeExternalsFileTypeWhitelist') || []),
-					},
-				),
-			),
-		]),
+		// 					// useOwn('react-native-web'),
+		// 					'react-native-web'
+		// 				])
+		// 					// And any items that have been whitelisted in the config need
+		// 					// to be included in the bundling process too.
+		// 					.concat(config('nodeExternalsFileTypeWhitelist') || []),
+		// 			},
+		// 		),
+		// 	),
+		// ]),
 
 		// Webpack 4 automatically runs UglifyPlugin and other optimization processes.
 		// It can be configured here:

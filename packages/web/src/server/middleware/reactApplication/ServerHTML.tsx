@@ -11,12 +11,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import HTML from '../../components/HTML';
 import SplashScreen from '../../components/SplashScreen';
 import getClientBundleEntryAssets from './getClientBundleEntryAssets';
-// import serialize from 'serialize-javascript';
-
-// import ClientConfig from '../../../config/components/ClientConfig';
 
 // PRIVATES
-
 function KeyedComponent({ children }: { children: React.ReactNode }) {
 	return Children.only(children);
 }
@@ -33,10 +29,10 @@ function scriptTag(jsFilePath: string) {
 
 // ServerHTML Component
 export interface ServerHTMLProperties {
-	// asyncComponentsState?: object;
 	helmet?: any;
 	nonce: string;
 	reactAppString?: string;
+	styleElement?: any;
 }
 
 export type GetServerHTMLType = (configs: PlatformConfigs) => React.StatelessComponent<ServerHTMLProperties>;
@@ -49,7 +45,7 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 	// Resolve the assets (js/css) for the client bundle's entry chunk.
 	const clientEntryAssets = getClientBundleEntryAssets(configs)();
 
-	const { helmet, reactAppString } = props;
+	const { helmet, reactAppString, styleElement } = props;
 
 // // Creates an inline script definition that is protected by the nonce.
 // 	const inlineScript = (body: any) =>
@@ -62,32 +58,10 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 		...ifElse(helmet)(() => helmet.link.toComponent(), []),
 		ifElse(clientEntryAssets && clientEntryAssets.css)(() => stylesheetTag(clientEntryAssets.css)),
 		...ifElse(helmet)(() => helmet.style.toComponent(), []),
+		ifElse(helmet)(() => styleElement),
 	]);
 
 	const bodyElements = removeNil([
-	// Binds the client configuration object to the window object so
-	// that we can safely expose some configuration values to the
-	// client bundle that gets executed in the browser.
-		// tslint:disable-next-line:jsx-key
-		// <ClientConfig nonce={nonce} />,
-	// Bind our async components state so the client knows which ones
-	// to initialise so that the checksum matches the server response.
-	// @see https://github.com/ctrlplusb/react-async-component
-	// 	ifElse(asyncComponentsState)(() =>
-	// 	inlineScript(
-	// 		`window.__ASYNC_COMPONENTS_REHYDRATE_STATE__=${serialize(asyncComponentsState)};`,
-	// 	),
-	// ),
-
-
-	// // Enable the polyfill io script?
-	// // This can't be configured within a react-helmet component as we
-	// // may need the polyfill's before our client JS gets parsed.
-	// 	ifElse(config('polyfillIO.enabled'))(() =>
-	// 	scriptTag(`${config('polyfillIO.url')}?features=${config('polyfillIO.features').join(',')}`),
-	// ),
-
-
 	// When we are in development mode our development server will
 	// generate a vendor DLL in order to dramatically reduce our
 	// compilation times.  Therefore we need to inject the path to the
@@ -102,7 +76,6 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 		ifElse(clientEntryAssets && clientEntryAssets.js)(() => scriptTag(clientEntryAssets.js)),
 		...ifElse(helmet)(() => helmet.script.toComponent(), []),
 	]);
-
 
 	return (
 	<HTML
@@ -121,8 +94,5 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 	/>
 	);
 };
-
-
-// EXPORT
 
 export default getServerHTML;
