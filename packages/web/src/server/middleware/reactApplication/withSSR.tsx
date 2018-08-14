@@ -3,7 +3,6 @@ import { Request, Response } from 'express';
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import { PlatformConfigs } from '../../../engine';
 import App from '../../../client/App';
-import Helmet from 'react-helmet';
 import React from 'react';
 import getServerHTML from './ServerHTML';
 
@@ -45,7 +44,6 @@ export default (_request: Request, response: Response, configs: PlatformConfigs)
 		<ServerHTML
 			reactAppString={appString}
 			nonce={nonce}
-			helmet={Helmet.rewind()}
 			styleElement={StyleElement}
 		/>,
 	);

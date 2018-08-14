@@ -9,6 +9,7 @@ import { Utils } from '@blueeast/bluerain-cli-core';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup } from 'react-dom/server';
 import HTML from '../../components/HTML';
+import Helmet from 'react-helmet';
 import SplashScreen from '../../components/SplashScreen';
 import getClientBundleEntryAssets from './getClientBundleEntryAssets';
 
@@ -29,7 +30,6 @@ function scriptTag(jsFilePath: string) {
 
 // ServerHTML Component
 export interface ServerHTMLProperties {
-	helmet?: any;
 	nonce: string;
 	reactAppString?: string;
 	styleElement?: any;
@@ -45,7 +45,9 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 	// Resolve the assets (js/css) for the client bundle's entry chunk.
 	const clientEntryAssets = getClientBundleEntryAssets(configs)();
 
-	const { helmet, reactAppString, styleElement } = props;
+	const { reactAppString, styleElement } = props;
+
+	const helmet = Helmet.rewind();
 
 // // Creates an inline script definition that is protected by the nonce.
 // 	const inlineScript = (body: any) =>
