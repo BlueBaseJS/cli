@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
-import { PlatformConfigs } from '../../../engine';
 import App from '../../../client/App';
 import React from 'react';
 import getServerHTML from './ServerHTML';
+import { PlatformConfigs } from '../../../internal/configFiles';
 
 // tslint:disable-next-line:no-var-requires
 const { AppRegistry } = require('react-native-web');

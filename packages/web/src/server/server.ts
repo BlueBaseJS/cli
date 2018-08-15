@@ -1,4 +1,4 @@
-import { PlatformConfigs } from '../engine';
+import { PlatformConfigs } from '../internal/configFiles';
 import { Server } from 'http';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import clientBundle from './middleware/clientBundle';

@@ -4,7 +4,6 @@
  */
 
 import React, { Children } from 'react';
-import { PlatformConfigs } from '../../../engine';
 import { Utils } from '@blueeast/bluerain-cli-core';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -12,6 +11,7 @@ import HTML from '../../components/HTML';
 import Helmet from 'react-helmet';
 import SplashScreen from '../../components/SplashScreen';
 import getClientBundleEntryAssets from './getClientBundleEntryAssets';
+import { PlatformConfigs } from '../../../internal/configFiles';
 
 // PRIVATES
 function KeyedComponent({ children }: { children: React.ReactNode }) {

@@ -1,8 +1,8 @@
 import { Configuration as WebpackConfig } from 'webpack';
 import { Engine, Utils } from '@blueeast/bluerain-cli-core';
-import { PlatformConfigs, PlatformBundleConfig } from '../../../engine';
 import path from 'path';
 import merge from 'webpack-merge';
+import { PlatformConfigs, PlatformBundleConfig } from '../../configFiles';
 // import baseConfig from './baseConfig';
 
 export type ConfigsBundle = PlatformConfigs & { publicAssetsPath: string };

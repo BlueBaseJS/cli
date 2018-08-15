@@ -1,5 +1,6 @@
 import { ConfigFileInfo, Defaults } from '@blueeast/bluerain-cli-core';
 import path from 'path';
+export * from './PlatformConfigs';
 
 export const fromHere = (file: string) => {
 	return path.resolve(__dirname, file);
@@ -17,7 +18,7 @@ const publicDir: ConfigFileInfo = {
 
 const webpack: ConfigFileInfo = {
 	...Defaults.ConfigFiles.webpack,
-	defaultPath: fromHere('./webpack/index')
+	defaultPath: fromHere('./webpack.config')
 };
 
 export const ConfigFiles: ConfigFileInfo[] = [

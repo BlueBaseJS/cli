@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup } from 'react-dom/server';
-import { PlatformConfigs } from '../../../engine';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import React from 'react';
 import getServerHTML from './ServerHTML';
+import { PlatformConfigs } from '../../../internal/configFiles';
 
 const logger = Utils.logger;
 

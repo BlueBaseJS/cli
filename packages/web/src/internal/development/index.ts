@@ -1,7 +1,7 @@
 import * as webpack from 'webpack';
-import { PlatformConfigs } from '../../engine/PlatformConfigs';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import chokidar from 'chokidar';
+import { PlatformConfigs } from '../configFiles';
 
 // tslint:disable-next-line:no-var-requires
 const HotDevelopment = require('./hotDevelopment').default;

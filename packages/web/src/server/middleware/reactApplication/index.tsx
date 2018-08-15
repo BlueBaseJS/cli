@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { PlatformConfigs } from '../../../engine';
 import withoutSSR from './withoutSSR';
 import withSSR from './withSSR';
+import { PlatformConfigs } from '../../../internal/configFiles';
 
 /**
  * React application middleware, supports server side rendering.

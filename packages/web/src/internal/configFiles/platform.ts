@@ -1,8 +1,8 @@
 // tslint:disable:object-literal-sort-keys
 
-import { PlatformConfigs } from '../../engine';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import path from 'path';
+import { PlatformConfigs } from './PlatformConfigs';
 
 const EnvVars = Utils.EnvVars;
 

@@ -1,8 +1,8 @@
 import { Command } from '@oclif/command';
-import { WebEngine } from '../../engine';
 import Debug from 'debug';
 import development from '../../internal/development';
-import { PlatformConfigs } from '../../engine/PlatformConfigs';
+import { PlatformConfigs } from '../../internal/configFiles';
+import { WebEngine } from '../../internal/engine';
 
 const debug = Debug('web-engine-run');
 

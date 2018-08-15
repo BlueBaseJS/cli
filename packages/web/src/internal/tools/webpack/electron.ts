@@ -1,9 +1,6 @@
 import * as webpack from 'webpack';
-import { Utils } from '@blueeast/bluerain-cli-core';
 import WebpackBuilder, { BuildOptions } from './WebpackBuilder';
 import BaseConfig from './middlewares/BaseConfig';
-
-const logger = Utils.logger;
 
 export default (webpackConfigInput: webpack.Configuration = {}, buildOptions: BuildOptions): webpack.Configuration => {
 	const builder = new WebpackBuilder(buildOptions);

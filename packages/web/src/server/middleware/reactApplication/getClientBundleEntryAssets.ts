@@ -2,9 +2,9 @@
  * This file resolves the entry assets available from our client bundle.
  */
 
-import { PlatformConfigs } from '../../../engine';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import fs from 'fs';
+import { PlatformConfigs } from '../../../internal/configFiles';
 
 let resultCache: any;
 
