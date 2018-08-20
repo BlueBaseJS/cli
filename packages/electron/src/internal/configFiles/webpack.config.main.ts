@@ -4,39 +4,48 @@ import { WebpackTools } from '@blueeast/bluerain-cli-web';
 import path from 'path';
 
 const fromRoot = (pathSegment: string) => path.resolve(__dirname, `../../../${pathSegment}`);
+const fromHere = (pathSegment: string) => path.resolve(__dirname, `${pathSegment}`);
 
 export default
-	(webpackConfigInput: webpack.Configuration = {}, buildOptions: WebpackTools.BuildOptions): webpack.Configuration => {
+	async (webpackConfigInput: webpack.Configuration = {}, buildOptions: WebpackTools.BuildOptions): Promise<any> => {
+
 		const builder = new WebpackTools.WebpackBuilder(buildOptions, webpackConfigInput);
 		const configs = builder
 
 			// // Base Config
-			// .use(WebpackTools.BaseConfig)
+			.use(WebpackTools.BaseConfig)
 
 			// Manually set target to electron
 			.merge({
-				entry: fromRoot('./src/app/main_process.ts'),
+
+				mode: buildOptions.mode,
+
+				entry: fromHere('../../app/main_process.js'),
 
 				output: {
 					filename: 'main.js',
-					path: Utils.fromProjectRoot('/build/electron'),
+					path: Utils.fromProjectRoot('build/electron'),
 					publicPath: 'build/',
 				},
 
 				target: 'electron-main',
 
-				module: {
+				// module: {
 
-					// Use strict export presence so that a missing export becomes a compile error.
-					strictExportPresence: true,
+				// 	// Use strict export presence so that a missing export becomes a compile error.
+				// 	strictExportPresence: true,
 
-					noParse: [/aws\-sdk/],
+				// 	// noParse: [/aws\-sdk/],
 
-					rules: [{
-						oneOf: []
-					}]
-				}
+				// 	rules: [{
+				// 		oneOf: []
+				// 	}]
+				// }
 			})
+
+			.use(WebpackTools.NodeExternals({
+				modulesDir: fromRoot('./node_modules'),
+			}))
 
 			// // Hot Module Replacement
 			// .use(WebpackTools.HotModuleReplacement)
@@ -59,7 +68,7 @@ export default
 			.use(WebpackTools.LoaderTypescript)
 
 			// JS Loader
-			.use(WebpackTools.LoaderJavascript)
+			// .use(WebpackTools.LoaderJavascript)
 
 			// Finally, merge user input overrides
 			.merge(webpackConfigInput)

@@ -1,59 +1,80 @@
 import * as webpack from 'webpack';
-// import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@blueeast/bluerain-cli-core';
 import { WebpackTools } from '@blueeast/bluerain-cli-web';
 import path from 'path';
 
 const fromRoot = (pathSegment: string) => path.resolve(__dirname, `../../../${pathSegment}`);
+const fromHere = (pathSegment: string) => path.resolve(__dirname, `${pathSegment}`);
 
 export default
-	(webpackConfigInput: webpack.Configuration = {}, buildOptions: WebpackTools.BuildOptions): webpack.Configuration => {
+	async (webpackConfigInput: webpack.Configuration = {}, buildOptions: WebpackTools.BuildOptions): Promise<any> => {
+
 		const builder = new WebpackTools.WebpackBuilder(buildOptions, webpackConfigInput);
 		const configs = builder
 
-		// // Base Config
-		// .use(WebpackTools.BaseConfig)
+			// // Base Config
+			.use(WebpackTools.BaseConfig)
 
-		// Manually set target to electron
-		.merge({
-			entry: fromRoot('./src/app/renderer_process'),
+			// Manually set target to electron
+			.merge({
 
-			output: {
-				filename: 'renderer.js',
-				path: __dirname + '/build/electron',
-				publicPath: 'build/',
-			},
+				mode: buildOptions.mode,
 
-			target: 'electron-renderer'
-		})
+				entry: fromHere('../../app/renderer_process.js'),
 
-		// // Hot Module Replacement
-		// .use(WebpackTools.HotModuleReplacement)
+				output: {
+					filename: 'renderer.js',
+					path: Utils.fromProjectRoot('build/electron'),
+					publicPath: 'build/',
+				},
 
-		// // Source Maps
-		// .use(WebpackTools.SourceMaps)
+				target: 'electron-main',
 
-		// // Patch React Native
-		// .use(WebpackTools.ReactNative)
+				// module: {
 
-		// // Add Jarvis Dashboard
-		// .use(WebpackTools.Jarvis)
+				// 	// Use strict export presence so that a missing export becomes a compile error.
+				// 	strictExportPresence: true,
 
-		///// Loaders
+				// 	// noParse: [/aws\-sdk/],
 
-		// // CSS Loader
-		// .use(WebpackTools.LoaderCss)
+				// 	rules: [{
+				// 		oneOf: []
+				// 	}]
+				// }
+			})
 
-		// TS Loader
-		.use(WebpackTools.LoaderTypescript)
+			.use(WebpackTools.NodeExternals({
+				modulesDir: fromRoot('./node_modules'),
+			}))
 
-		// JS Loader
-		.use(WebpackTools.LoaderJavascript)
+			// Hot Module Replacement
+			.use(WebpackTools.HotModuleReplacement)
 
-		// Finally, merge user input overrides
-		.merge(webpackConfigInput)
+			// Source Maps
+			.use(WebpackTools.SourceMaps)
 
-		// Build
-		.build();
+			// Patch React Native
+			.use(WebpackTools.ReactNative)
+
+			// // Add Jarvis Dashboard
+			// .use(WebpackTools.Jarvis)
+
+			///// Loaders
+
+			// CSS Loader
+			.use(WebpackTools.LoaderCss)
+
+			// TS Loader
+			.use(WebpackTools.LoaderTypescript)
+
+			// JS Loader
+			// .use(WebpackTools.LoaderJavascript)
+
+			// Finally, merge user input overrides
+			.merge(webpackConfigInput)
+
+			// Build
+			.build();
 
 		return configs;
 	};
