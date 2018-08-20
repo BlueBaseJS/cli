@@ -37,7 +37,8 @@
     "nyc": "^12",
     "ts-node": "^6",
     "tslint": "^5",
-    "typescript": "^2.9"
+    "typescript": "^2.9",
+    "webpack-serve-waitpage": "^1.0.2"
   },
   "peerDependencies": {
     "@blueeast/bluerain-os": "^3.*",

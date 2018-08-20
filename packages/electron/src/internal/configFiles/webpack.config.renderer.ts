@@ -50,17 +50,6 @@ export default
 				// 	}
 				// }
 
-				// module: {
-
-				// 	// Use strict export presence so that a missing export becomes a compile error.
-				// 	strictExportPresence: true,
-
-				// 	// noParse: [/aws\-sdk/],
-
-				// 	rules: [{
-				// 		oneOf: []
-				// 	}]
-				// }
 			} as any)
 
 			// .use(WebpackTools.NodeExternals({
@@ -81,6 +70,8 @@ export default
 
 
 			.use(WebpackTools.ClientHTML)
+			// .use(WebpackTools.CopyAssets)
+			// .use(WebpackTools.CleanBuildDir)
 
 			///// Loaders
 

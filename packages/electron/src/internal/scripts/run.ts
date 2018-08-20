@@ -7,6 +7,7 @@ import rendererWebpackConfigs from '../configFiles/webpack.config.renderer';
 import serve from 'webpack-serve';
 import webpack from 'webpack';
 const { spawn } = require('child_process');
+const webpackServeWaitpage = require('webpack-serve-waitpage');
 
 const fromRoot = (pathSegment: string) => path.resolve(__dirname, `../../../${pathSegment}`);
 
@@ -67,6 +68,16 @@ export const run = async (ctx: Command): Promise<void> => {
 				publicPath: '/',
 				writeToDisk: true,
 			},
+
+			add: (app, _middleware, options) => {
+    // Be sure to pass the options argument from the arguments
+				app.use(webpackServeWaitpage(options, { theme: 'material' }));
+
+    // Make sure the usage of webpack-serve-waitpage will be before the following commands if exists
+    // middleware.webpack();
+    // middleware.content();
+			},
+
 			on: {
 				'build-started': () => {
 					Utils.logger.info('Electronnnnnn...');
