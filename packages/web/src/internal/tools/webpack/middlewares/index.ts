@@ -6,6 +6,7 @@ import Jarvis from './Jarvis';
 import LoaderCss from './LoaderCss';
 import LoaderJavascript from './LoaderJavascript';
 import LoaderTypescript from './LoaderTypescript';
+import NodeExternals from './NodeExternals';
 import ReactNative from './ReactNative';
 import SourceMaps from './SourceMaps';
 
@@ -18,6 +19,7 @@ export {
 	LoaderCss,
 	LoaderJavascript,
 	LoaderTypescript,
+	NodeExternals,
 	ReactNative,
 	SourceMaps,
 }

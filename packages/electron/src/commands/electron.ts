@@ -1,26 +1,32 @@
-import {Command, flags} from '@oclif/command'
+import { build, run } from '../internal/scripts';
+import { Command } from '@oclif/command';
 
 export default class Electron extends Command {
-  static description = 'describe the command here'
+	static description = 'describe the command here';
 
-  static examples = [
-    `$ oclif-example hello
-hello world from ./src/hello.ts!
-`,
-  ]
+	static examples = [
+		`$ oclif-example hello
+    hello world from ./src/hello.ts!
+    `,
+	];
 
-  static flags = {
-    help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
-  }
+	static args = [{
+		default: 'run',              // default value if no arg input
+		name: 'action',                  // name of arg to show in help and reference with args[name]
+		options: ['build', 'run'],           // only allow input to be from a discrete set
+		required: true,               // make the arg required with `required: true`
+    // description: 'The action to perform ', // help description
+    // hidden: true,                  // hide this arg from help
+    // parse: input => 'output',      // instead of the user input, return a different value
+	}];
 
-  static args = [{ name: 'build' }, { name: 'run' }]
+	async run() {
+		const { args } = this.parse(Electron);
 
-  async run() {
-    const {args, flags} = this.parse(Electron)
-    this.log(`Electron`, args, flags);
-  }
+		if (args.action === 'build') {
+			await build(this);
+		} else if (args.action === 'run') {
+			await run(this);
+		}
+	}
 }

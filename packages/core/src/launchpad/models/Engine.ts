@@ -79,7 +79,7 @@ export class Engine {
 		// Run generic hook, so engines can add their defaults here
 		const enginePlatform = this.Filters.run('engine.platform', {});
 		// Hook through all platform.js files
-		const engineConfigs = this.Filters.run('engine.web.file.platform', enginePlatform);
+		const engineConfigs = this.Filters.run(`engine.${this.slug}.file.platform`, enginePlatform);
 
 		// Extract engine configs, as platform.js file has configs of all engines
 		const slug = this.slug as string;

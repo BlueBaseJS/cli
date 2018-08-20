@@ -38,15 +38,12 @@
     // "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
     // "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
+    "skipLibCheck": true,
+    
     "lib": ["es2017", "dom"],
     "types": ["node"],
     "typeRoots": ["node_modules/@types"],
-    "baseUrl": ".",
-    "paths": {
-      "react-native": [
-        "./node_modules/react-native-web"
-      ]
-    }
+    "baseUrl": "."
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "lib", "**/*.test.ts", "src/**/*.test.ts"],

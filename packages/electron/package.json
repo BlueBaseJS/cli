@@ -1,15 +1,23 @@
 {
   "name": "@blueeast/bluerain-cli-electron",
   "description": "An Electron plugin for BlueRain CLI",
-  "version": "0.0.0",
+  "version": "2.0.0-aplha.1",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
   "dependencies": {
+    "@blueeast/bluerain-cli-core": "^2.0.0-aplha.1",
+    "@blueeast/bluerain-cli-web": "^2.0.0-aplha.1",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "tslib": "^1"
+    "electron": "^2.0.7",
+    "electron-reload": "^1.2.5",
+    "electron-webpack": "^2.1.2",
+    "tslib": "^1",
+    "url": "^0.11.0",
+    "webpack": "^4.16.5"
   },
   "devDependencies": {
+    "@blueeast/bluerain-os": "^3.13.8",
     "@blueeast/tslint-config-blueeast": "^0.5.6",
     "@oclif/dev-cli": "^1",
     "@oclif/plugin-help": "^2",
@@ -20,13 +28,19 @@
     "@types/node": "^10.7.0",
     "@types/react": "^16.4.10",
     "@types/react-dom": "^16.0.7",
+    "@types/webpack": "^4.4.9",
     "chai": "^4",
     "globby": "^8",
     "mocha": "^5",
+    "npm-run-all": "^4.1.3",
     "nyc": "^12",
     "ts-node": "^6",
     "tslint": "^5",
     "typescript": "^2.9"
+  },
+  "peerDependencies": {
+    "@blueeast/bluerain-os": "^3.*",
+    "react": "^16.*"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -55,7 +69,47 @@
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",
     "prepack": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme && npm shrinkwrap",
     "prepare": "rm -rf lib && tsc",
-    "test": "nyc mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "test:unit": "nyc mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md",
+    "start": "ts-node ./src/test.ts",
+    "clean": "rimraf coverage lib tmp",
+    "watch": "tsc -w -p tsconfig.json",
+    "watch:test": "jest --watch",
+    "lint": "tslint -t stylish --project \"tsconfig.json\"",
+    "test:only": "jest --coverage",
+    "info": "npm-scripts-info",
+    "build": "run-s clean && run-p build:*",
+    "build:main": "tsc -p tsconfig.json",
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write",
+    "fix:tslint": "tslint --fix --project .",
+    "test": "run-s build test:*",
+    "test:lint": "npm run lint",
+    "test:prettier": "prettier \"src/**/*.ts\" --list-different",
+    "commit": "git-cz",
+    "cov": "run-s build test:unit cov:html && opn coverage/index.html",
+    "cov:html": "nyc report --reporter=html",
+    "cov:send": "nyc report --reporter=lcov > coverage.lcov && codecov",
+    "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
+    "doc": "run-s doc:html && opn lib/docs/index.html",
+    "doc:html": "typedoc src/ --target ES6 --mode file --out lib/docs",
+    "doc:json": "typedoc src/ --target ES6 --mode file --json lib/docs/typedoc.json",
+    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d lib/docs",
+    "reset": "git clean -dfx && git reset --hard && npm i",
+    "all": "run-s reset test cov:check doc:html",
+    "prepare-release": "run-s all version doc:publish"
+  },
+  "scripts-info": {
+    "info": "Display information about the package scripts",
+    "build": "Clean and rebuild the project",
+    "fix": "Try to automatically fix any linting problems",
+    "test": "Lint and unit test the project",
+    "watch": "Watch and rebuild the project on save",
+    "cov": "Rebuild, run tests, then create and open the coverage report",
+    "doc": "Generate HTML API documentation and open it in a browser",
+    "doc:json": "Generate API documentation in typedoc JSON format",
+    "version": "Bump package.json version, update CHANGELOG.md, tag release",
+    "reset": "Delete all untracked files and reset the repo to the last commit",
+    "prepare-release": "One-step: clean, build, test, publish docs, and prep a release"
   }
 }
