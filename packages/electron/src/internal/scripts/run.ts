@@ -62,7 +62,11 @@ export const run = async (ctx: Command): Promise<void> => {
 
 		serve({}, {
 			config: rendererConfigs,
-			content: Utils.fromProjectRoot('./build/electron'),
+			// content: Utils.fromProjectRoot('./build/electron'),
+			devMiddleware: {
+				publicPath: '/',
+				writeToDisk: true,
+			},
 			on: {
 				'build-started': () => {
 					Utils.logger.info('Electronnnnnn...');

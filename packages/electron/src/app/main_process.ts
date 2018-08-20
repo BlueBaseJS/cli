@@ -15,7 +15,7 @@ function createMainWindow() {
 	}
 
 	if (isDevelopment) {
-		window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`)
+		window.loadURL(`http://localhost:8080`)
 	}
 	else {
 		window.loadURL(formatUrl({

@@ -1,5 +1,6 @@
 import AssetsJson from './AssetsJson';
 import BaseConfig from './BaseConfig';
+import ClientHTML from './ClientHTML';
 import ConfigsJson from './ConfigsJson';
 import HotModuleReplacement from './HotModuleReplacement';
 import Jarvis from './Jarvis';
@@ -13,6 +14,7 @@ import SourceMaps from './SourceMaps';
 export {
 	AssetsJson,
 	BaseConfig,
+	ClientHTML,
 	ConfigsJson,
 	HotModuleReplacement,
 	Jarvis,
