@@ -13,7 +13,8 @@
     "electron-reload": "^1.2.5",
     "tslib": "^1",
     "url": "^0.11.0",
-    "webpack": "^4.16.5"
+    "webpack": "^4.16.5",
+    "webpack-serve": "^2.0.2"
   },
   "devDependencies": {
     "@blueeast/bluerain-os": "^3.13.8",
@@ -28,6 +29,7 @@
     "@types/react": "^16.4.10",
     "@types/react-dom": "^16.0.7",
     "@types/webpack": "^4.4.9",
+    "@types/webpack-serve": "^2.0.0",
     "chai": "^4",
     "globby": "^8",
     "mocha": "^5",

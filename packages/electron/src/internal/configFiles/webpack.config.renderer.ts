@@ -3,6 +3,8 @@ import { Utils } from '@blueeast/bluerain-cli-core';
 import { WebpackTools } from '@blueeast/bluerain-cli-web';
 import path from 'path';
 
+const { spawn } = require('child_process');
+
 const fromRoot = (pathSegment: string) => path.resolve(__dirname, `../../../${pathSegment}`);
 const fromHere = (pathSegment: string) => path.resolve(__dirname, `${pathSegment}`);
 
@@ -28,7 +30,25 @@ export default
 					publicPath: 'build/',
 				},
 
-				target: 'electron-main',
+				target: 'electron-renderer',
+
+				devServer: {
+					contentBase: Utils.fromProjectRoot('build/electron'),
+					stats: {
+						colors: true,
+						chunks: false,
+						children: false
+					},
+					before() {
+						spawn(
+							'electron',
+							['./build/electron/main.js'],
+							{ shell: true, env: process.env, stdio: 'inherit' }
+						)
+							.on('close', (_code: number) => process.exit(0))
+							.on('error', (spawnError: Error) => console.error(spawnError))
+					}
+				}
 
 				// module: {
 
@@ -41,7 +61,7 @@ export default
 				// 		oneOf: []
 				// 	}]
 				// }
-			})
+			} as any)
 
 			.use(WebpackTools.NodeExternals({
 				modulesDir: fromRoot('./node_modules'),
