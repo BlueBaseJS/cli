@@ -70,8 +70,8 @@ export default
 
 
 			.use(WebpackTools.ClientHTML)
-			// .use(WebpackTools.CopyAssets)
 			// .use(WebpackTools.CleanBuildDir)
+			// .use(WebpackTools.CopyAssets)
 
 			///// Loaders
 
