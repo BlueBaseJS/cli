@@ -53,7 +53,12 @@
     "bin": "oclif-example",
     "devPlugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "hooks": {
+      "prerun": [
+        "./lib/hooks/prerun/prepare-files"
+      ]
+    }
   },
   "repository": "BlueEastCode/bluerain-cli",
   "scripts": {

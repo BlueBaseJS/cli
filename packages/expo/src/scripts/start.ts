@@ -3,7 +3,7 @@ import path from 'path';
 import { spawn } from 'child_process';
 import { Utils } from '@blueeast/bluerain-cli-core';
 
-const fromRoot = (pathSegment: string) => path.resolve(__dirname, `../../../${pathSegment}`);
+const fromRoot = (pathSegment: string) => path.resolve(__dirname, `../../${pathSegment}`);
 
 export const start = async (ctx: Command): Promise<void> => {
 

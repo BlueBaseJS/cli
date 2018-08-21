@@ -1,13 +1,12 @@
-import { Command } from '@oclif/command';
-import { build, start } from '../internal/scripts';
+import { Command, flags } from '@oclif/command';
+import { build, start } from '../scripts';
+import { ConfigFiles } from '../configFiles';
 
 export default class Expo extends Command {
-	static description = 'describe the command here';
+	static description = 'Brings BlueRain projects to expo platform';
 
 	static examples = [
-		`$ oclif-example hello
-    hello world from ./src/hello.ts!
-    `,
+		`$ bluerain expo start`,
 	];
 
 	static args = [{
@@ -20,10 +19,37 @@ export default class Expo extends Command {
     // parse: input => 'output',      // instead of the user input, return a different value
 	}];
 
+	static flags = {
+		configDir: flags.string({
+			// char: 'c',                    // shorter flag version
+			description: 'Path to config directory relative to the root directory', // help description for flag
+			hidden: false,                // hide from help
+			multiple: false,              // allow setting this flag multiple times
+			env: 'CONFIG_DIR',               // default to value of environment variable
+			// parse: input => 'output',     // instead of the user input, return a different value
+			default: './bluerain/expo',             // default value if flag not passed
+			required: false,              // make flag required (this is not common and you should probably use an argument instead)
+		}),
+
+		buildDir: flags.string({
+			// char: 'b',                    // shorter flag version
+			description: 'Path to build directory relative to the root directory', // help description for flag
+			hidden: false,                // hide from help
+			multiple: false,              // allow setting this flag multiple times
+			env: 'BUILD_DIR',               // default to value of environment variable
+			// parse: input => 'output',     // instead of the user input, return a different value
+			default: './build/expo',             // default value if flag not passed
+			required: false,              // make flag required (this is not common and you should probably use an argument instead)
+		}),
+
+	}
+
+	static configFiles = ConfigFiles;
+
 	async run() {
 		const { args } = this.parse(Expo);
 
-		console.log('Expo', args);
+		console.log('Expo', this);
 		if (args.action === 'build') {
 			await build(this);
 		} else if (args.action === 'start') {
