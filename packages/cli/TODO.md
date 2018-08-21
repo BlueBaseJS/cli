@@ -32,6 +32,8 @@ should we have a common assets?
 bluerain-project
 ├─ assets
 ├─ bluerain
+│  ├─ common
+│  │  ├─ boot.ts
 │  ├─ electron
 │  │  ├─ boot.ts
 │  │  ├─ config.ts
