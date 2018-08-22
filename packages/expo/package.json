@@ -55,8 +55,8 @@
       "@oclif/plugin-help"
     ],
     "hooks": {
-      "prerun": [
-        "./lib/hooks/prerun/prepare-files"
+      "preexec": [
+        "node_modules/@blueeast/bluerain-cli-core/lib/hooks/prepare-files"
       ]
     }
   },

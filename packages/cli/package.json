@@ -50,9 +50,7 @@
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins",
-      "@blueeast/bluerain-cli-electron",
-      "@blueeast/bluerain-cli-expo",
-      "@blueeast/bluerain-cli-web"
+      "@blueeast/bluerain-cli-expo"
     ]
   },
   "repository": "BlueEastCode/bluerain-cli",

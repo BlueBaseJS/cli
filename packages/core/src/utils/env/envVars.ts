@@ -8,14 +8,11 @@
 
 import dotenv from 'dotenv';
 import fs from 'fs';
-import Debug from 'debug';
-
 
 import ifElse from '../logic/ifElse';
 import removeNil from '../arrays/removeNil';
 import { fromProjectRoot } from '../paths';
-
-const debug = Debug('envVars');
+import { Utils } from '@blueeast/bluerain-cli-core';
 
 // PRIVATES
 
@@ -41,7 +38,7 @@ function registerEnvFile() {
 
   // If we found an env file match the register it.
   if (envFilePath) {
-		debug(`Registering environment variables from: ${envFilePath}`);
+		Utils.logger.info(`Registering environment variables from: ${envFilePath}`);
     dotenv.config({ path: envFilePath });
   }
 }
