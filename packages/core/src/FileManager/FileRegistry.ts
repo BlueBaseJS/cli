@@ -1,9 +1,10 @@
-import { ConfigFileInfo, Utils } from '@blueeast/bluerain-cli-core';
 import { Registry } from '@blueeast/bluerain';
 import findFiles from 'file-regex';
 import path from 'path';
 import { isFunction } from 'util';
 import { FileManager } from '.';
+import { Utils } from '..';
+import { ConfigFileInfo } from './ConfigFileInfo';
 
 const logger = Utils.logger;
 

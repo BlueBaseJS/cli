@@ -12,7 +12,7 @@ import fs from 'fs';
 import ifElse from '../logic/ifElse';
 import removeNil from '../arrays/removeNil';
 import { fromProjectRoot } from '../paths';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '../..';
 
 // PRIVATES
 

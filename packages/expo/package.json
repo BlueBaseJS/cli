@@ -9,6 +9,8 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "expo-cli": "^1.1.0-beta.5",
+    "rimraf": "^2.6.2",
+    "shelljs": "^0.8.2",
     "tslib": "^1"
   },
   "devDependencies": {
@@ -23,6 +25,8 @@
     "@types/mocha": "^5",
     "@types/node": "^10.7.0",
     "@types/react": "^16.4.10",
+    "@types/rimraf": "^2.0.2",
+    "@types/shelljs": "^0.8.0",
     "chai": "^4",
     "expo": "^26.1.1",
     "mocha": "^5",

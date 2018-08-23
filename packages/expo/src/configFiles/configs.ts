@@ -1,10 +1,10 @@
 import { Constants } from 'expo';
 
 export interface ExpoConfigs {
-	mainfest: Partial<Constants.Manifest>
+	manifest: Partial<Constants.Manifest>
 }
 export const DefaultPlatformConfigs: ExpoConfigs = {
-	mainfest: {
+	manifest: {
 		name: "BlueRain",
 		description: "This project is really great.",
 		slug: "bluerain-project-expo",

@@ -1,11 +1,12 @@
 import { ConfigFileInfo } from './ConfigFileInfo';
 import { HookRegistry } from '@blueeast/bluerain';
-import { Utils } from '@blueeast/bluerain-cli-core';
 import { FileRegistry } from '.';
 import { Command } from '@oclif/config';
+import { Utils } from '..';
 
 export interface BRCommand extends Command {
 	configFiles: ConfigFileInfo[];
+	fileManager: FileManager;
 }
 
 /**

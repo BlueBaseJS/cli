@@ -1,4 +1,4 @@
-@blueeast/bluerain-cli-electron
+@blueeast/bluerain-cli-expo
 ===============================
 
 An Electron plugin for BlueRain CLI
@@ -71,3 +71,4 @@ EXAMPLE
 
 _See code: [src/commands/hi.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.1/src/commands/hi.ts)_
 <!-- commandsstop -->
+
