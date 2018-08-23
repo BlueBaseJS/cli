@@ -9,6 +9,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "expo-cli": "^1.1.0-beta.5",
+    "react-native-typescript-transformer": "^1.2.10",
     "rimraf": "^2.6.2",
     "shelljs": "^0.8.2",
     "tslib": "^1"

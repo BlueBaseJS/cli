@@ -13,7 +13,8 @@ export default (configDir: string): ConfigFileInfo[] => {
 		{
 			...defaults.configs,
 			defaultPath: fromHere('configs')
-		}
+		},
+		defaults.bluerain,
 	];
 }
 

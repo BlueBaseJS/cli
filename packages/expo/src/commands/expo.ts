@@ -58,7 +58,7 @@ export default class Expo extends Command {
 
 		// Initialize file manager through 'prexec' hook
 		this.configFiles = getConfigFiles(flags.configDir as string);
-		await this.config.runHook('preexec', { class: this.parse(Expo), command: this });
+		await this.config.runHook('preexec', { inputs: this.parse(Expo), command: this });
 
 		if (args.action === 'build') {
 			await build(this);
