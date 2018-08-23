@@ -32,13 +32,13 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 			},
 			entryPoint: path.join(paths.buildDir, 'AppEntry.js'),
 
-			// packagerOpts: {
-			// 	sourceExts: [
-			// 		"ts",
-			// 		"tsx"
-			// 	],
-			// 	transformer: path.join('node_modules', '@blueeast/bluerain-cli-expo', 'react-native-typescript-transformer', 'index.js')
-			// },
+			packagerOpts: {
+				sourceExts: [
+					"ts",
+					"tsx"
+				],
+				transformer: path.join('node_modules', '@blueeast/bluerain-cli', 'node_modules', '@blueeast/bluerain-cli-expo', 'react-native-typescript-transformer', 'index.js')
+			},
 		}
 	};
 };

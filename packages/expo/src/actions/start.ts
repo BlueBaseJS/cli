@@ -1,6 +1,7 @@
-import { BRCommand, Utils } from '@blueeast/bluerain-cli-core';
+import { BRCommand, Utils, FileManager } from '@blueeast/bluerain-cli-core';
 import { ExpoFlags } from '../commands/expo';
 import fs from 'fs';
+import getConfigFiles from '../configFiles';
 import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
@@ -9,22 +10,25 @@ import fromRoot from '../scripts/fromRoot';
 
 export const start = async (ctx: any, flags: ExpoFlags): Promise<void> => {
 
-	ctx = ctx as BRCommand;
-
-	// Absolute path of build dir
-	const buildDir = Utils.fromProjectRoot(flags.buildDir);
-	
-	// Path to blueeast.js file
-	let blueeastJsPath = await ctx.fileManager.resolveWithFallback('bluerain');
-	
-	// Remove (.ts|.js) extension
-	blueeastJsPath = blueeastJsPath.replace(/\.[^/.]+$/, '');
-
 	Utils.logger.log({
 		label: '@bluerain/cli/expo',
 		level: 'info',
 		message: '🏗 Building project...',
 	});
+
+	ctx = ctx as BRCommand;
+
+	// Absolute path of build dir
+	const buildDir = Utils.fromProjectRoot(flags.buildDir);
+
+	////////////////////////////
+	///// Setup FileManagr /////
+	////////////////////////////
+
+	// Set config files
+	const configFiles = getConfigFiles(flags.configDir);
+	const fileManager = new FileManager('expo', configFiles);
+	await fileManager.setup();
 
 	///////////////////////////
 	///// Clear build dir /////
@@ -42,7 +46,7 @@ export const start = async (ctx: any, flags: ExpoFlags): Promise<void> => {
 	///// Generate app.json /////
 	/////////////////////////////
 
-	const configs = ctx.fileManager.configs;
+	const configs = await fileManager.Hooks.run(`expo.configs`, {}, { buildDir, configDir: flags.configDir });
 	const appJson = { expo: configs.manifest };
 	const appJsonPath = path.join(buildDir, 'app.json');
 
@@ -51,11 +55,21 @@ export const start = async (ctx: any, flags: ExpoFlags): Promise<void> => {
 	///////////////////////////
 	///// Generate app.js /////
 	///////////////////////////
-	
-	
+
+	// Path to blueeast.js file
+	let blueeastJsPath = await fileManager.resolveWithFallback('bluerain');
+
+	// Remove (.ts|.js) extension
+	blueeastJsPath = blueeastJsPath.replace(/\.[^/.]+$/, '');
+
+	// Where do we save this file?
 	const appJsPath = path.join(buildDir, 'App.js');
+
+	// Inject bluerain.js path in template
 	let data = fs.readFileSync(path.join(__dirname, '../../templates/App.js')).toString();
 	data = data.replace('BLUERAIN_JS_PATH', path.relative(buildDir, blueeastJsPath));
+	
+	// Save file
 	fs.writeFileSync(appJsPath, data);
 
 	////////////////////////////
@@ -75,7 +89,7 @@ export const start = async (ctx: any, flags: ExpoFlags): Promise<void> => {
 	Utils.logger.log({
 		label: '@bluerain/cli/expo',
 		level: 'info',
-		message: '🚀 Launching expo',
+		message: '🚀 Launching Expo',
 	});
 
 	spawn(

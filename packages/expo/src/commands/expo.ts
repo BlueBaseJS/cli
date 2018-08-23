@@ -1,7 +1,5 @@
 import { Command, flags } from '@oclif/command';
 import { build, start } from '../actions';
-import getConfigFiles from '../configFiles';
-import { ConfigFileInfo } from '@blueeast/bluerain-cli-core';
 
 export interface ExpoFlags {
 	buildDir: string;
@@ -50,15 +48,8 @@ export default class Expo extends Command {
 
 	}
 
-	public configFiles: ConfigFileInfo[] = [];
-	// static configFiles = ConfigFiles;
-
 	async run() {
 		const { args, flags } = this.parse(Expo);
-
-		// Initialize file manager through 'prexec' hook
-		this.configFiles = getConfigFiles(flags.configDir as string);
-		await this.config.runHook('preexec', { inputs: this.parse(Expo), command: this });
 
 		if (args.action === 'build') {
 			await build(this);

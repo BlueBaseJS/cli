@@ -82,12 +82,6 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@blueeast/bluerain@^4.0.0-aplha.1":
-  version "4.0.0-aplha.1"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain/-/bluerain-4.0.0-aplha.1.tgz#8296fc86a571f669168ca401ae1079ab3b49fa02"
-  dependencies:
-    lodash.isnil "^4.0.0"
-
 "@blueeast/tslint-config-blueeast@^0.5.6":
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/@blueeast/tslint-config-blueeast/-/tslint-config-blueeast-0.5.6.tgz#9efb0acbe0bd1ba45588d511fbef8cec29768758"
@@ -223,7 +217,13 @@
   dependencies:
     "@types/node" "*"
 
-"@types/lodash@^4.14.116":
+"@types/lodash.isnil@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/lodash.isnil/-/lodash.isnil-4.0.4.tgz#b513a973656bcfdcd61ae11fcd3f3ccb862e8711"
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*", "@types/lodash@^4.14.116":
   version "4.14.116"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.116.tgz#5ccf215653e3e8c786a58390751033a9adca0eb9"
 
@@ -2790,7 +2790,7 @@ winston-transport@^4.2.0:
     readable-stream "^2.3.6"
     triple-beam "^1.2.0"
 
-winston@*:
+winston@*, winston@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/winston/-/winston-3.0.0.tgz#1f0b24a96586798bcf0cd149fb07ed47cb01a1b2"
   dependencies:

@@ -1,11 +1,11 @@
 {
   "name": "@blueeast/bluerain-cli-expo",
   "description": "An Expo plugin for BlueRain CLI",
-  "version": "2.0.0-aplha.1",
+  "version": "2.0.0-aplha.7",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
   "dependencies": {
-    "@blueeast/bluerain-cli-core": "^2.0.0-aplha.1",
+    "@blueeast/bluerain-cli-core": "^2.0.0-aplha.5",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "expo-cli": "^1.1.0-beta.5",
@@ -46,6 +46,7 @@
   },
   "files": [
     "/lib",
+    "/templates",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
     "/yarn.lock"
@@ -60,12 +61,7 @@
     "bin": "oclif-example",
     "devPlugins": [
       "@oclif/plugin-help"
-    ],
-    "hooks": {
-      "preexec": [
-        "node_modules/@blueeast/bluerain-cli-core/lib/hooks/prepare-files"
-      ]
-    }
+    ]
   },
   "repository": "BlueEastCode/bluerain-cli",
   "scripts": {

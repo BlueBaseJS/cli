@@ -1,7 +1,7 @@
 {
   "name": "@blueeast/bluerain-cli",
   "description": "CLI tool to make life with BlueRain easier!",
-  "version": "4.0.0-aplha.1",
+  "version": "4.0.0-aplha.4",
   "author": "BlueEast Team <code@blueeast.com>",
   "bin": {
     "bluerain": "./bin/run"

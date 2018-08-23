@@ -1,8 +1,8 @@
 import { ConfigFileInfo } from './ConfigFileInfo';
-import { HookRegistry } from '@blueeast/bluerain';
+import { HookRegistry } from './bluerain-4/HookRegistry';
 import { Command } from '@oclif/config';
 import { Utils } from '..';
-import { Registry } from '@blueeast/bluerain';
+import { Registry } from './bluerain-4/Registry';
 import { isFunction } from 'util';
 import path from 'path';
 import findFiles from 'file-regex';
@@ -22,21 +22,15 @@ const logger = Utils.logger;
  */
 export class FileManager extends Registry<ConfigFileInfo> {
 
-	/** Configuration files to load */
-	public configFiles?: ConfigFileInfo[];
-
 	public Logger: any = Utils.logger;
 
 	//////// Registrys ////////
 
-	/** Holds all configurations */
-	public configs: { [key: string]: any } = {};
-
 	/** Hooks for hook mechanism */
 	public Hooks = new HookRegistry(this as any);
 
-	constructor(public command: BRCommand) {
-		super({ Logger: logger })
+	constructor(private slug: string, private configFiles?: ConfigFileInfo[]) {
+		super({ Logger: logger });
 	}
 
 	/**
@@ -44,24 +38,20 @@ export class FileManager extends Registry<ConfigFileInfo> {
 	 * - Registers all hooks from various files across project.
 	 * - Loads all command specific configs from platform.js
 	 */
-	public async prepare(paths: { configDir: string, buildDir: string }) {
+	public async setup() {
 		this.Logger.info(`Preparing FileManager`);
-		
-		const slug = this.command.id;
-		
+
+		if (!this.configFiles) {
+			return;
+		}
+
 		// Search relevant files (& hooks) as required
 		// by this FileManager.
-		this.Logger.info(`Adding ${this.command.configFiles.length} config file definitions.`)
-		this.addMany(this.command.configFiles);
+		this.Logger.info(`Adding ${this.configFiles.length} config file definitions.`)
+		this.addMany(this.configFiles);
 
 		// Load the relevant hooks as required by this Command from different files.
 		await this.registerHooks();
-		
-		// Look up platform configs
-		// Hook through all configs.js files
-		this.configs = await this.Hooks.run(`${slug}.configs`, {}, paths);
-
-		this.Logger.info(`FileManager preperation completed`);
 
 		return this;
 	}
@@ -101,7 +91,7 @@ export class FileManager extends Registry<ConfigFileInfo> {
 			// Examples:
 			// configs hook: web.configs
 			// webpack hook: web.webpack
-			const hookName = `${this.command.id}.${fileInfo.slug}`;
+			const hookName = `${this.slug}.${fileInfo.slug}`;
 
 			// Resolve all paths that have the relevant hook files
 			const hookFiles = await this.resolveAllPaths(fileInfo);
