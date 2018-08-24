@@ -7,6 +7,8 @@ import rimraf from 'rimraf';
 import shell from 'shelljs';
 import { spawn } from 'child_process';
 import fromRoot from '../scripts/fromRoot';
+import checkReactNativeTransformer from '../scripts/checkReactNativeTransformer';
+
 
 export const start = async (ctx: any, flags: ExpoFlags): Promise<void> => {
 
@@ -21,9 +23,15 @@ export const start = async (ctx: any, flags: ExpoFlags): Promise<void> => {
 	// Absolute path of build dir
 	const buildDir = Utils.fromProjectRoot(flags.buildDir);
 
-	////////////////////////////
-	///// Setup FileManagr /////
-	////////////////////////////
+	///////////////////////////////////
+	///// Check Required Packages /////
+	///////////////////////////////////
+
+	await checkReactNativeTransformer();
+	
+	/////////////////////////////
+	///// Setup FileManager /////
+	/////////////////////////////
 
 	// Set config files
 	const configFiles = getConfigFiles(flags.configDir);

@@ -1,6 +1,7 @@
 import { Constants } from 'expo';
 import path from 'path';
 import { ExpoFlags } from '../commands/expo';
+import { getSdk } from '../scripts/getExpoSdk';
 
 export interface ExpoConfigs {
 	manifest: Partial<Constants.Manifest>
@@ -16,8 +17,7 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 			description: "This project is really great.",
 			slug: "bluerain-project-expo",
 			privacy: "public",
-			// sdkVersion: "28.0.0",
-			sdkVersion: "UNVERSIONED",
+			sdkVersion: getSdk(),
 			platforms: ["ios", "android"],
 			version: "1.0.0",
 			orientation: "portrait",
@@ -37,7 +37,7 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 					"ts",
 					"tsx"
 				],
-				transformer: path.join('node_modules', '@blueeast/bluerain-cli', 'node_modules', '@blueeast/bluerain-cli-expo', 'react-native-typescript-transformer', 'index.js')
+				transformer: path.join('node_modules', 'react-native-typescript-transformer', 'index.js')
 			},
 		}
 	};
