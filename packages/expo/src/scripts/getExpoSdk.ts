@@ -9,8 +9,6 @@ import fs from 'fs';
  */
 export const getSdk = () => {
 
-	// const Package = await import(Utils.fromProjectRoot('package.json'));
-
 	const Package = fs.readFileSync(Utils.fromProjectRoot('node_modules/expo/package.json'));
 
 	let expoVersion = JSON.parse(Package.toString()).version;
@@ -19,10 +17,6 @@ export const getSdk = () => {
 	}
 
 	const sdk = expoVersions.find(expoVerObj => semver.satisfies(expoVersion, expoVerObj.expo))
-
-	// const major = semver.major(semver.coerce(expoVersion));
-
-	// const sdk = expoVersions.find(ver => major === ver.id);
 
 	if (!sdk) {
 		throw Error('⛔️ Unsupported expo version.');

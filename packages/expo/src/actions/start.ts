@@ -1,4 +1,4 @@
-import { BRCommand, Utils, FileManager } from '@blueeast/bluerain-cli-core';
+import { Utils, FileManager } from '@blueeast/bluerain-cli-core';
 import { ExpoFlags } from '../commands/expo';
 import fs from 'fs';
 import getConfigFiles from '../configFiles';
@@ -8,17 +8,16 @@ import shell from 'shelljs';
 import { spawn } from 'child_process';
 import fromRoot from '../scripts/fromRoot';
 import checkReactNativeTransformer from '../scripts/checkReactNativeTransformer';
+import Command from '@oclif/command';
 
 
-export const start = async (ctx: any, flags: ExpoFlags): Promise<void> => {
+export const start = async (_ctx: Command, flags: ExpoFlags): Promise<void> => {
 
 	Utils.logger.log({
 		label: '@bluerain/cli/expo',
 		level: 'info',
 		message: '🏗 Building project...',
 	});
-
-	ctx = ctx as BRCommand;
 
 	// Absolute path of build dir
 	const buildDir = Utils.fromProjectRoot(flags.buildDir);

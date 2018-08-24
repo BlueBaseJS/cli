@@ -1,5 +1,5 @@
 import { Command, flags } from '@oclif/command';
-import { build, start } from '../actions';
+import { build, start, init } from '../actions';
 
 export interface ExpoFlags {
 	buildDir: string;
@@ -16,7 +16,7 @@ export default class Expo extends Command {
 	static args = [{
 		default: 'start',              // default value if no arg input
 		name: 'action',                  // name of arg to show in help and reference with args[name]
-		options: ['build', 'start'],           // only allow input to be from a discrete set
+		options: ['build', 'init', 'start'],           // only allow input to be from a discrete set
 		required: true,               // make the arg required with `required: true`
     // description: 'The action to perform ', // help description
     // hidden: true,                  // hide this arg from help
@@ -53,6 +53,8 @@ export default class Expo extends Command {
 
 		if (args.action === 'build') {
 			await build(this);
+		} else if (args.action === 'init') {
+			await init(this, flags as ExpoFlags);
 		} else if (args.action === 'start') {
 			await start(this, flags as ExpoFlags);
 		}

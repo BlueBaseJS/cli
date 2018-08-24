@@ -8,13 +8,11 @@
     "@blueeast/bluerain-cli-core": "^2.0.0-aplha.5",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "detect-installed": "^2.0.4",
     "expo-cli": "^1.1.0-beta.5",
     "rimraf": "^2.6.2",
     "semver": "^5.5.1",
     "shelljs": "^0.8.2",
-    "tslib": "^1",
-    "yarn-install": "^1.0.0"
+    "tslib": "^1"
   },
   "devDependencies": {
     "@blueeast/bluerain-os": "^3.13.8",
@@ -25,6 +23,7 @@
     "@oclif/tslint": "^1",
     "@types/chai": "^4",
     "@types/expo": "^27.0.8",
+    "@types/inquirer": "^0.0.43",
     "@types/mocha": "^5",
     "@types/node": "^10.7.0",
     "@types/react": "^16.4.10",

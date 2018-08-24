@@ -21,9 +21,9 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 			platforms: ["ios", "android"],
 			version: "1.0.0",
 			orientation: "portrait",
-			icon: "./assets/icon.png",
+			icon: path.join(paths.configDir, "./assets/icon.png"),
 			splash: {
-				image: "./assets/splash.png",
+				image: path.join(paths.configDir, "./assets/splash.png"),
 				resizeMode: "contain",
 				backgroundColor: "#ffffff"
 			},

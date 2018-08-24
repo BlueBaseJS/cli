@@ -9,12 +9,16 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "app-root-dir": "^1.0.2",
+    "detect-installed": "^2.0.4",
     "dotenv": "^6.0.0",
     "file-regex": "^2.1.1",
+    "inquirer": "^6.2.0",
     "lodash.isnil": "^4.0.0",
     "node-notifier": "^5.2.1",
+    "shelljs": "^0.8.2",
     "tslib": "^1",
-    "winston": "^3.0.0"
+    "winston": "^3.0.0",
+    "yarn-install": "^1.0.0"
   },
   "devDependencies": {
     "@blueeast/tslint-config-blueeast": "^0.5.6",
@@ -25,11 +29,13 @@
     "@types/app-root-dir": "^0.1.0",
     "@types/chai": "^4",
     "@types/dotenv": "^4.0.3",
+    "@types/inquirer": "^0.0.43",
     "@types/lodash.isnil": "^4.0.4",
     "@types/mocha": "^5",
     "@types/node": "^10.7.0",
     "@types/node-notifier": "^0.0.28",
     "@types/react": "^16.4.10",
+    "@types/shelljs": "^0.8.0",
     "@types/winston": "^2.4.4",
     "chai": "^4",
     "mocha": "^5",
@@ -47,6 +53,7 @@
   },
   "files": [
     "/lib",
+    "/templates",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json",
     "/yarn.lock"

@@ -18,6 +18,7 @@ An Electron plugin for BlueRain CLI
 * [Commands](#commands)
 <!-- tocstop -->
 # Usage
+boo
 <!-- usage -->
 ```sh-session
 $ npm install -g @blueeast/bluerain-cli-expo

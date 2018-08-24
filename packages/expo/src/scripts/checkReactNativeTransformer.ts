@@ -1,6 +1,4 @@
 import { Utils } from "@blueeast/bluerain-cli-core";
-import detectInstalled from 'detect-installed';
-import install from 'yarn-install';
 
 /**
  * This package is required to build react native with typescript.
@@ -10,7 +8,7 @@ import install from 'yarn-install';
  * and just import it in app.json.
  */
 export default async () => {
-	const isTransformerInstalled = await detectInstalled('react-native-typescript-transformer', { local: true });
+	const isTransformerInstalled = await Utils.detectInstalled('react-native-typescript-transformer', { local: true });
 
 	if (!isTransformerInstalled) {
 
@@ -20,6 +18,6 @@ export default async () => {
 			message: '🎛 react-native-typescript-transformer not found, installing now...',
 		});
 
-		install({ deps: ['react-native-typescript-transformer'], dev: true })
+		Utils.install({ deps: ['react-native-typescript-transformer'], dev: true })
 	}
 };
