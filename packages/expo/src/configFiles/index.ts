@@ -1,4 +1,4 @@
-import { getDefaults, ConfigFileInfo,  } from '@blueeast/bluerain-cli-core';
+import { ConfigFileInfo, getDefaults, } from '@blueeast/bluerain-cli-core';
 import path from 'path';
 
 const fromHere = (file: string) => {
@@ -16,7 +16,7 @@ export default (configDir: string): ConfigFileInfo[] => {
 		},
 		defaults.bluerain,
 	];
-}
+};
 
 // const publicDir: ConfigFileInfo = {
 // 	...Defaults.ConfigFiles.publicDir,

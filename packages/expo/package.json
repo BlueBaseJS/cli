@@ -60,7 +60,7 @@
   "license": "MIT",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "oclif-example",
+    "bin": "bluerain",
     "devPlugins": [
       "@oclif/plugin-help"
     ]

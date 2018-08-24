@@ -1,6 +1,6 @@
 import { format } from 'winston';
-import notifier from 'node-notifier';
 import { fromCore } from '../paths';
+import notifier from 'node-notifier';
 
 //////// Notify
 const successIcon = fromCore('./assets/br-success.png');

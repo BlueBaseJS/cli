@@ -6,23 +6,23 @@
  * Please read the application configuration docs for more info.
  */
 
+import { Utils } from '../..';
+import { fromProjectRoot } from '../paths';
 import dotenv from 'dotenv';
 import fs from 'fs';
 
 import ifElse from '../logic/ifElse';
 import removeNil from '../arrays/removeNil';
-import { fromProjectRoot } from '../paths';
-import { Utils } from '../..';
 
 // PRIVATES
 
 function registerEnvFile() {
-  const DEPLOYMENT = process.env.DEPLOYMENT;
-  const envFile = '.env';
+	const DEPLOYMENT = process.env.DEPLOYMENT;
+	const envFile = '.env';
 
   // This is the order in which we will try to resolve an environment configuration
   // file.
-  const envFileResolutionOrder = removeNil([
+	const envFileResolutionOrder = removeNil([
     // Is there an environment config file at the app root?
     // This always takes preference.
     // e.g. /.env
@@ -31,16 +31,16 @@ function registerEnvFile() {
     // environment name?
     // e.g. /projects/react-universally/.env.staging
 		ifElse(DEPLOYMENT)(fromProjectRoot(`${envFile}.${DEPLOYMENT}`)),
-  ]);
+	]);
 
   // Find the first env file path match.
-  const envFilePath = envFileResolutionOrder.find(filePath => fs.existsSync(filePath));
+	const envFilePath = envFileResolutionOrder.find(filePath => fs.existsSync(filePath));
 
   // If we found an env file match the register it.
-  if (envFilePath) {
+	if (envFilePath) {
 		Utils.logger.info(`Registering environment variables from: ${envFilePath}`);
-    dotenv.config({ path: envFilePath });
-  }
+		dotenv.config({ path: envFilePath });
+	}
 }
 
 // Ensure that we first register any environment variables from an existing
@@ -58,7 +58,7 @@ registerEnvFile();
  * @return {String} The value.
  */
 export function string(name: string, defaultVal: string): string {
-  return process.env[name] || defaultVal;
+	return process.env[name] || defaultVal;
 }
 
 /**
@@ -71,9 +71,9 @@ export function string(name: string, defaultVal: string): string {
  */
 export function number(name: string, defaultVal: number): number {
 	const num = process.env[name];
-  return num ? parseInt(num, 10) : defaultVal;
+	return num ? parseInt(num, 10) : defaultVal;
 }
 
 export function bool(name: string, defaultVal: boolean): boolean {
-  return process.env[name] ? process.env[name] === 'true' || process.env[name] === '1' : defaultVal;
+	return process.env[name] ? process.env[name] === 'true' || process.env[name] === '1' : defaultVal;
 }

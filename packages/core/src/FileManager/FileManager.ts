@@ -1,11 +1,11 @@
+import { Command } from '@oclif/config';
 import { ConfigFileInfo } from './ConfigFileInfo';
 import { HookRegistry } from './bluerain-4/HookRegistry';
-import { Command } from '@oclif/config';
-import { Utils } from '..';
 import { Registry } from './bluerain-4/Registry';
+import { Utils } from '..';
 import { isFunction } from 'util';
-import path from 'path';
 import findFiles from 'file-regex';
+import path from 'path';
 
 export interface BRCommand extends Command {
 	configFiles: ConfigFileInfo[];
@@ -29,6 +29,13 @@ export class FileManager extends Registry<ConfigFileInfo> {
 	/** Hooks for hook mechanism */
 	public Hooks = new HookRegistry(this as any);
 
+	/**
+	 * The file pattern to used to find BlueRain Engine repos in
+	 * package.json.
+	 */
+	// private engineRepoPrefix: string = 'bluerain-cli-engine-';
+	private pluginRepoPrefix: string = '^bluerain-(platform|plugin|app)-.+$';
+
 	constructor(private slug: string, private configFiles?: ConfigFileInfo[]) {
 		super({ Logger: logger });
 	}
@@ -47,7 +54,7 @@ export class FileManager extends Registry<ConfigFileInfo> {
 
 		// Search relevant files (& hooks) as required
 		// by this FileManager.
-		this.Logger.info(`Adding ${this.configFiles.length} config file definitions.`)
+		this.Logger.info(`Adding ${this.configFiles.length} config file definitions.`);
 		this.addMany(this.configFiles);
 
 		// Load the relevant hooks as required by this Command from different files.
@@ -55,15 +62,6 @@ export class FileManager extends Registry<ConfigFileInfo> {
 
 		return this;
 	}
-
-	// FileRegistry
-
-	/**
-	 * The file pattern to used to find BlueRain Engine repos in
-	 * package.json.
-	 */
-	// private engineRepoPrefix: string = 'bluerain-cli-engine-';
-	private pluginRepoPrefix: string = '^bluerain-(platform|plugin|app)-.+$';
 
 	/**
 	 * Bulk add files
@@ -142,7 +140,8 @@ export class FileManager extends Registry<ConfigFileInfo> {
 			try {
 				const brFilePath = await this.resolveFilePath(file.slug);
 				paths.push(brFilePath);
-			} catch (error) { }
+			// tslint:disable-next-line:no-empty
+			} catch (error) {}
 		}
 
 		return paths;

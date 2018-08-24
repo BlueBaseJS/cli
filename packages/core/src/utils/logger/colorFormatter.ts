@@ -10,7 +10,7 @@ import { format } from 'winston';
 let colors = [6, 2, 3, 4, 5, 1];
 
 try {
-	var supportsColor = require('supports-color');
+	const supportsColor = require('supports-color');
 	if (supportsColor && supportsColor.level >= 2) {
 		colors = [
 			20, 21, 26, 27, 32, 33, 38, 39, 40, 41, 42, 43, 44, 45, 56, 57, 62, 63, 68,
@@ -31,9 +31,11 @@ try {
  * @api private
  */
 function selectColor(namespace: string) {
-	var hash = 0, i;
+	let hash = 0, i;
 
+	// tslint:disable-next-line:forin
 	for (i in (namespace as any)) {
+		// tslint:disable-next-line:radix
 		hash = ((hash << 5) - hash) + namespace.charCodeAt(parseInt(i));
 		hash |= 0; // Convert to 32bit integer
 	}
@@ -43,8 +45,8 @@ function selectColor(namespace: string) {
 
 function addColor(name: string) {
 	const c = selectColor(name);
-	var colorCode = '\u001b[3' + (c < 8 ? c : '8;5;' + c);
-	return colorCode + ';1m' + name + ' ' + '\u001b[0m';
+	const colorCode = '\u001b[3' + (c < 8 ? c : '8;5;' + c);
+	return `${colorCode};1m${name}\u001b[0m`;
 }
 
 // Ignore log messages if they have { private: true }

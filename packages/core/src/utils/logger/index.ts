@@ -1,6 +1,6 @@
-import winston from 'winston';
 import { addColorToLabel } from './colorFormatter';
 import notifyFormatter from './notifyFormatter';
+import winston from 'winston';
 
 const alignedWithColorsAndTime = winston.format.combine(
 	notifyFormatter(),
