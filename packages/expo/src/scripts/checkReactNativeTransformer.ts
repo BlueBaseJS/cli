@@ -7,7 +7,7 @@ import { Utils } from '@blueeast/bluerain-cli-core';
  * Otherwise it wouldv'e been better to just install this package here
  * and just import it in app.json.
  */
-export default async () => {
+export const checkReactNativeTransformer = async () => {
 	const isTransformerInstalled = await Utils.detectInstalled('react-native-typescript-transformer', { local: true });
 
 	if (!isTransformerInstalled) {

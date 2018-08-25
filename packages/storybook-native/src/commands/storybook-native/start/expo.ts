@@ -1,16 +1,15 @@
-import { ExpoFlagDefs, ExpoFlags } from '../../expo';
+import { ExpoFlagDefs, ExpoFlags } from '../../../expo';
 import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
+import { checkReactNativeTransformer, getConfigFiles } from '@blueeast/bluerain-cli-expo';
 import { Command } from '@oclif/command';
-import { checkReactNativeTransformer } from '../../scripts/checkReactNativeTransformer';
-import { spawn } from 'child_process';
-import fromRoot from '../../scripts/fromRoot';
+import { execSync } from 'child_process';
+import fromRoot from '../../../scripts/fromRoot';
 import fs from 'fs';
-import getConfigFiles from '../../configFiles';
 import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
 
-export default class ExpoStart extends Command {
+export default class CustomCommand extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
 
 	static examples = [
@@ -20,17 +19,18 @@ export default class ExpoStart extends Command {
 	static flags = ExpoFlagDefs;
 
 	async run() {
-		const parsed = this.parse(ExpoStart);
+		const parsed = this.parse(CustomCommand);
 		const flags = parsed.flags as ExpoFlags;
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluerain/cli/storybook-native',
 			level: 'info',
-			message: '🏗 Building project...',
+			message: '🏗 Building Expo project...',
 		});
 
 		// Absolute path of build dir
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
+		const configDir = Utils.fromProjectRoot(flags.configDir);
 
 		///////////////////////////////////
 		///// Check Required Packages /////
@@ -44,7 +44,7 @@ export default class ExpoStart extends Command {
 
 		// Set config files
 		const configFiles = getConfigFiles(flags.configDir);
-		const fileManager = new FileManager('expo', configFiles);
+		const fileManager = new FileManager('storybook-native', configFiles);
 		await fileManager.setup();
 
 		///////////////////////////
@@ -63,59 +63,40 @@ export default class ExpoStart extends Command {
 		///// Generate app.json /////
 		/////////////////////////////
 
-		const configs = await fileManager.Hooks.run(`expo.configs`, {}, { buildDir, configDir: flags.configDir });
+		const configs = await fileManager.Hooks.run(`storybook-native.configs`, {}, { buildDir, configDir: flags.configDir });
 		const appJson = { expo: configs.manifest };
 		const appJsonPath = path.join(buildDir, 'app.json');
 
 		fs.writeFileSync(appJsonPath, JSON.stringify(appJson, null, 2));
 
-		///////////////////////////
-		///// Generate app.js /////
-		///////////////////////////
-
-		// Path to blueeast.js file
-		let blueeastJsPath = await fileManager.resolveWithFallback('bluerain');
-
-		// Remove (.ts|.js) extension
-		blueeastJsPath = blueeastJsPath.replace(/\.[^/.]+$/, '');
+		////////////////////////////////
+		///// Generate AppEntry.js /////
+		////////////////////////////////
 
 		// Where do we save this file?
-		const appJsPath = path.join(buildDir, 'App.js');
+		const appJsPath = path.join(buildDir, 'AppEntry.js');
 
 		// Inject bluerain.js path in template
-		let data = fs.readFileSync(fromRoot('./templates/App.js')).toString();
-		data = data.replace('BLUERAIN_JS_PATH', path.relative(buildDir, blueeastJsPath));
+		let data = fs.readFileSync(fromRoot('./templates/AppEntry.js')).toString();
+		data = data.replace('STORYBOOK_APP_PATH', path.relative(buildDir, path.join(configDir, 'storybook/')));
 
 		// Save file
 		fs.writeFileSync(appJsPath, data);
-
-		////////////////////////////
-		///// Copy other files /////
-		////////////////////////////
-
-		// AppEntry.js
-		shell.cp('-u',
-			path.join(fromRoot('./templates/AppEntry.js')),
-			path.join(buildDir, 'AppEntry.js')
-		);
 
 		///////////////////////
 		///// Launch expo /////
 		///////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluerain/cli/storybook-native',
 			level: 'info',
-			message: '🚀 Launching Expo',
+			message: '🚀 Launching Storybook Native',
 		});
 
-		spawn(
-			fromRoot('./node_modules/.bin/expo'),
-			['start', '--config', Utils.fromProjectRoot(appJsonPath)],
-			{ shell: true, env: process.env, stdio: 'inherit' }
-		)
-			.on('close', (_code: number) => process.exit(0))
-			.on('error', (spawnError: Error) => Utils.logger.error(spawnError));
+		execSync(
+			`${fromRoot('./node_modules/.bin/expo')} start --config ${Utils.fromProjectRoot(appJsonPath)}`,
+			{ env: process.env, stdio: 'inherit' }
+		);
 
 		return;
 	}

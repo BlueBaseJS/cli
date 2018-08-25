@@ -52,7 +52,8 @@
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins",
-      "@blueeast/bluerain-cli-expo"
+      "@blueeast/bluerain-cli-expo",
+      "@blueeast/bluerain-cli-storybook-native"
     ]
   },
   "repository": "BlueEastCode/bluerain-cli",

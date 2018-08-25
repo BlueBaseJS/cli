@@ -1,6 +1,6 @@
 import { Constants } from 'expo';
 import { ExpoFlags } from '../expo';
-import { getSdk } from '../scripts/getExpoSdk';
+import { getExpoSdk } from '../scripts/getExpoSdk';
 import path from 'path';
 
 export interface ExpoConfigs {
@@ -30,7 +30,7 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 			},
 			platforms: ['ios', 'android'],
 			privacy: 'public',
-			sdkVersion: getSdk(),
+			sdkVersion: getExpoSdk(),
 			slug: 'bluerain-project-expo',
 			splash: {
 				backgroundColor: '#ffffff',

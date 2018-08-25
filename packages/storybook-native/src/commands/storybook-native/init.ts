@@ -1,36 +1,42 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../expo';
 import { Utils, init as coreInit } from '@blueeast/bluerain-cli-core';
 import { Command } from '@oclif/command';
-import { getLatestExpoVersion } from '../../scripts/getLatestExpoVersion';
+import { getLatestExpoVersion } from '@blueeast/bluerain-cli-expo';
 import fromRoot from '../../scripts/fromRoot';
 import fs from 'fs';
+import path from 'path';
 
 const requiredDependencies = [
 	'deepmerge',
 ];
 
 const requiredDevDependencies = [
+	'@blueeast/bluerain-storybook-addon',
+	'@storybook/addon-actions',
+	'@storybook/addon-links',
+	'@storybook/react-native',
 	'@types/deepmerge',
+	'react-native-storybook-loader',
 	'react-native-typescript-transformer',
 ];
 
-export default class ExpoStart extends Command {
+export default class CustomCommand extends Command {
 	static description = 'Initializes a directory with an example project.';
 
 	static examples = [
-		`$ bluerain expo:start`,
+		`$ bluerain storybook-native:start`,
 	];
 
 	static flags = ExpoFlagDefs;
 
 	async run() {
-		const parsed = this.parse(ExpoStart);
+		const parsed = this.parse(CustomCommand);
 		const flags = parsed.flags as ExpoFlags;
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluerain/cli/storybook-native',
 			level: 'info',
-			message: '🛠 Initializing a new BlueRain + Expo project...',
+			message: '🛠 Initializing a new BlueRain + Storybook Native project...',
 		});
 
 		// Absolute path of build dir
@@ -47,19 +53,19 @@ export default class ExpoStart extends Command {
 		///////////////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluerain/cli/storybook-native',
 			level: 'info',
-			message: '📂 Creating Expo configuration directory...',
+			message: '📂 Creating Storybook configuration directory...',
 		});
 
-		await Utils.copyAll(fromRoot('templates/expo'), Utils.fromProjectRoot(configDir));
+		await Utils.copyAll(fromRoot('templates/storybook-native'), Utils.fromProjectRoot(configDir));
 
 		////////////////////////////
 		///// Add dependencies /////
 		////////////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluerain/cli/storybook-native',
 			level: 'info',
 			message: '📦 Installing dependencies...',
 		});
@@ -68,14 +74,28 @@ export default class ExpoStart extends Command {
 
 		///// Read package.json
 		const pkgJsonPath = Utils.fromProjectRoot('package.json');
-		const pkgJsonBuffer = fs.readFileSync(pkgJsonPath);
-		const pkgJson = JSON.parse(pkgJsonBuffer.toString());
+		const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath).toString());
 
 		// Modify package.json
 		pkgJson.dependencies.expo = `^${expoVersion.expo}`;
-		pkgJson.dependencies['react'] = (!pkgJson.dependencies['react']) ? `^${expoVersion.react}` : pkgJson.dependencies['react'];
+		pkgJson.dependencies.react = (!pkgJson.dependencies.react) ? `^${expoVersion.react}` : pkgJson.dependencies.react;
 		pkgJson.dependencies['react-native'] = expoVersion.reactNative;
-		pkgJson.scripts['expo:start'] = 'bluerain expo:start';
+		pkgJson.scripts['storybook-native:start'] = 'bluerain storybook-native:start';
+
+		// Storybook loader configs
+		let pkgJsonTemplateStr = fs.readFileSync(fromRoot('templates/package.template.json')).toString();
+		pkgJsonTemplateStr = pkgJsonTemplateStr.replace(
+			new RegExp('CONFIG_DIR_PATH', 'g'),
+			path.relative(Utils.fromProjectRoot(), configDir)
+		);
+
+		const pkgJsonTemplate = JSON.parse(pkgJsonTemplateStr);
+
+		if (!pkgJson.config) {
+			pkgJson.config = {};
+		}
+
+		pkgJson.config['react-native-storybook-loader'] = pkgJsonTemplate.config['react-native-storybook-loader'];
 
 		// Update package.json
 		fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
@@ -105,7 +125,7 @@ export default class ExpoStart extends Command {
 
 		// Finish
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluerain/cli/storybook-native',
 			level: 'info',
 			message: '✅ Done! BlueRain + Expo project initialized.',
 		});

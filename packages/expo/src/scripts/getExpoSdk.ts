@@ -7,7 +7,7 @@ import semver from 'semver';
  * Check the version of expo installed in package.json and return the relevant
  * sdk version to use in app.json
  */
-export const getSdk = () => {
+export const getExpoSdk = () => {
 
 	const Package = fs.readFileSync(Utils.fromProjectRoot('node_modules/expo/package.json'));
 
