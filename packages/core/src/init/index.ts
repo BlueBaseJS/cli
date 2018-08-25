@@ -2,6 +2,15 @@ import { Utils } from '..';
 import fs from 'fs';
 import shell from 'shelljs';
 
+const requiredDependencies = [
+	'react',
+	'typescript',
+];
+
+const requiredDevDependencies = [
+	'@blueeast/tslint-config-blueeast'
+];
+
 /**
  * Global initializer.
  *
@@ -25,15 +34,30 @@ export default async (configDir: string, _buildDir: string) => {
 		shell.cp('-rf', tslintPath, Utils.fromProjectRoot());
 	}
 
-	// Install deps
-	const depsToInstall = [];
-	const tsconfigDep = await Utils.detectInstalled('@blueeast/tslint-config-blueeast', { local: true });
+	// Install dependencies
+	const pkgJsonPath = Utils.fromProjectRoot('package.json');
+	const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath).toString());
 
-	if (!tsconfigDep) {
-		depsToInstall.push('@blueeast/tslint-config-blueeast');
-	}
+	const depsToInstall: string[] = [];
+	const devDepsToInstall: string[] = [];
+
+	requiredDependencies.forEach(dep => {
+		if (!pkgJson.dependencies[dep]) {
+			depsToInstall.push(dep);
+		}
+	});
+
+	requiredDevDependencies.forEach(dep => {
+		if (!pkgJson.dependencies[dep]) {
+			devDepsToInstall.push(dep);
+		}
+	});
 
 	if (depsToInstall.length > 0) {
-		Utils.install({ deps: depsToInstall, dev: true });
+		Utils.install({ deps: depsToInstall, dev: false });
+	}
+
+	if (devDepsToInstall.length > 0) {
+		Utils.install({ deps: devDepsToInstall, dev: true });
 	}
 };

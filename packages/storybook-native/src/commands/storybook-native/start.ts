@@ -7,7 +7,7 @@ export default class CustomCommand extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
 
 	static examples = [
-		`$ bluerain expo:start`,
+		`$ bluerain storybook-native:start`,
 	];
 
 	static flags = ExpoFlagDefs;

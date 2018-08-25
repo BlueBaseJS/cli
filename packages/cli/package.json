@@ -53,6 +53,7 @@
       "@oclif/plugin-help",
       "@oclif/plugin-plugins",
       "@blueeast/bluerain-cli-expo",
+      "@blueeast/bluerain-cli-storybook",
       "@blueeast/bluerain-cli-storybook-native"
     ]
   },
