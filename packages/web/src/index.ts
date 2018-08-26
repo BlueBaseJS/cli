@@ -1,4 +1,4 @@
-import * as WebpackTools from './internal/tools/webpack';
+import * as WebpackTools from './webpack';
 
 export default {};
 

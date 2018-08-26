@@ -2,9 +2,9 @@
  * This file resolves the entry assets available from our client bundle.
  */
 
+import { ServerConfigsBundle } from '../../server';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import fs from 'fs';
-import { PlatformConfigs } from '../../../internal/configFiles';
 
 let resultCache: any;
 
@@ -21,7 +21,7 @@ let resultCache: any;
  *     to the render logic.  Having this method allows us to easily fetch
  *     the respective assets simply by using a chunk name. :)
  */
-export default (configs: PlatformConfigs) => () => {
+export default (configs: ServerConfigsBundle) => () => {
   // Return the assets json cache if it exists.
   // In development mode we always read the assets json file from disk to avoid
   // any cases where an older version gets cached.
@@ -29,7 +29,8 @@ export default (configs: PlatformConfigs) => () => {
 		return resultCache;
 	}
 
-	const assetsFilePath = Utils.fromProjectRoot(`${configs.bundles.client.outputPath}/${configs.bundleAssetsFileName}`);
+	// tslint:disable-next-line:max-line-length
+	const assetsFilePath = Utils.fromProjectRoot(`${configs.client.outputPath}/${configs.client.bundleAssetsFileName}`);
 
 	if (!fs.existsSync(assetsFilePath)) {
 		throw new Error(

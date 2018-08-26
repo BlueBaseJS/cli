@@ -1,11 +1,11 @@
 /* tslint:disable:quotemark object-literal-sort-keys */
 import { NextFunction, Request, Response } from 'express';
+import { ServerConfigsBundle } from '../server';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import uuid from 'uuid';
-import { PlatformConfigs } from '../../internal/configFiles';
 
-export default (configs: PlatformConfigs) => {
+export default (configs: ServerConfigsBundle) => {
 
 	// const cspConfig: IHelmetContentSecurityPolicyConfiguration = {
 	const cspConfig: any = {
@@ -54,7 +54,7 @@ export default (configs: PlatformConfigs) => {
 	};
 
 	// Add any additional CSP from the static config.
-	const cspExtensions: any = configs.cspExtensions;
+	const cspExtensions: any = configs.server.cspExtensions;
 	Object.keys(cspExtensions).forEach((key) => {
 		// tslint:disable-next-line:prefer-conditional-expression
 		if (cspConfig.directives[key]) {
@@ -68,7 +68,7 @@ export default (configs: PlatformConfigs) => {
 		// When in development mode we need to add our secondary express server that
 		// is used to host our client bundle to our csp config.
 		Object.keys(cspConfig.directives).forEach((directive) => {
-			cspConfig.directives[directive].push(`${configs.host}:${configs.clientDevServerPort}`);
+			cspConfig.directives[directive].push(`${configs.server.host}:${configs.client.devServerPort}`);
 		});
 	}
 

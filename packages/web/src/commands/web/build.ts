@@ -1,64 +1,127 @@
-import * as Core from '@blueeast/bluerain-cli-core';
+import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
 import { Command } from '@oclif/command';
-import rmfr from 'rmfr';
-import webpack from 'webpack';
-import { WebEngine } from '../../internal/engine';
+import { Flags } from '../../cli-flags';
+import { webpackCompile } from '../../webpack/webpackCompile';
+import fs from 'fs';
+import getConfigFiles from '../../configFiles';
+import rimraf from 'rimraf';
+import shell from 'shelljs';
 
-const logger = Core.Utils.logger;
-
-export class GoodbyeCommand extends Command {
+export class CustomCommand extends Command {
 	async run() {
-		console.log('goodbye, world!')
 
-		const engine = new WebEngine();
-		await engine.prepare();
+		const parsed = this.parse(CustomCommand);
+		const flags = parsed.flags as Flags;
 
-
-		const config = (key: string) => engine.Configs.get(key);
-
-		// Configs
-		const bootPath = await engine.Files.resolveWithFallback('boot');
-		// debug('bootPath', bootPath);
-
-		// const publicAssetsPath = await engine.Files.resolveWithFallback('publicDir');
-		// debug('publicPath', publicPath);
-
-		// First clear the build output dir.
-		const buildOutputPath = Core.Utils.fromProjectRoot(config('buildOutputPath'));
-		logger.log({
-			label: 'BlueRain Engine Web',
+		Utils.logger.log({
+			label: '@bluerain/cli/web',
 			level: 'info',
-			message: `Deleting previous build at: ${buildOutputPath}`
+			message: '🏗 Building project...',
 		});
-		await rmfr(buildOutputPath);
 
-		// Get our "fixed" bundle names
-		Object.keys(config('bundles'))
-			// And the "additional" bundle names
-			.concat(Object.keys(config('additionalNodeBundles')))
-			// And then build them all.
-			.forEach((target) => {
+		// Absolute path of build dir
+		const buildDir = Utils.fromProjectRoot(flags.buildDir);
+		const configDir = Utils.fromProjectRoot(flags.configDir);
 
-				const webpackConfigs = engine.Filters.run('engine.web.file.webpack', {}, {
-					bootPath,
-					engine,
-					mode: 'development',
-					target,
-				});
+		/////////////////////////////
+		///// Setup FileManager /////
+		/////////////////////////////
 
-				const compiler = webpack(webpackConfigs);
-				logger.log({
-					label: 'BlueRain Engine Web',
-					level: 'info',
-					message: `Compiling Webpack on ${target}`
-				});
+		// Set config files
+		const configFiles = getConfigFiles(flags.configDir);
+		const fileManager = new FileManager('web', configFiles);
+		await fileManager.setup();
 
-				compiler.run((err) => {
-					if (err) { throw err; }
-					// debug(stats.toString({ colors: true }));
-				});
+		///////////////////////////
+		///// Clear build dir /////
+		///////////////////////////
 
+		// Delete dir if already exists
+		if (fs.existsSync(buildDir)) {
+			rimraf.sync(buildDir);
+		}
+
+		// Create a new build dir
+		shell.mkdir('-p', buildDir);
+
+		////////////////////////////
+		///// Generate Configs /////
+		////////////////////////////
+
+		const clientConfigs = await fileManager.Hooks.run(`web.client-config`, {}, { buildDir, configDir: flags.configDir });
+		const serverConfigs = await fileManager.Hooks.run(`web.server-config`, {}, { buildDir, configDir: flags.configDir });
+
+		// Path to bluerain.js file
+		const bluerainJsPath = await fileManager.resolveWithFallback('bluerain');
+		const assetsDirPath = await fileManager.resolveWithFallback('assets-dir');
+
+		const baseWebpackBuildOptions = {
+			assetsDirPath,
+			bluerainJsPath,
+			buildDirPath: buildDir,
+			configDirPath: configDir,
+			mode: 'production',
+		};
+
+		////////////////////////
+		///// Build Client /////
+		////////////////////////
+
+		Utils.logger.log({
+			label: '@bluerain/cli/web',
+			level: 'info',
+			message: `🎛 Compiling Webpack Client bundle`
+		});
+
+		const webpackClientConfigs = await fileManager.Hooks.run(
+			`web.client-webpack-config`,
+			{},
+			{
+
+				...baseWebpackBuildOptions,
+
+				clientConfigs,
+				configs: { ...clientConfigs, mode: 'development' },
+				serverConfigs,
+				target: 'web',
 			});
-		return;
+		const clientStats = await webpackCompile(webpackClientConfigs);
+
+		// tslint:disable-next-line:no-console
+		console.log(clientStats.toString({ colors: true }));
+
+		////////////////////////
+		///// Build Server /////
+		////////////////////////
+
+		Utils.logger.log({
+			label: '@bluerain/cli/web',
+			level: 'info',
+			message: `🎛 Compiling Webpack Server bundle`
+		});
+
+		const webpackServerConfigs = await fileManager.Hooks.run(
+			`web.server-webpack-config`,
+			{},
+			{
+
+				...baseWebpackBuildOptions,
+
+				clientConfigs,
+				configs: { ...serverConfigs, mode: 'development' },
+				serverConfigs,
+				target: 'node',
+			});
+		const serverStats = await webpackCompile(webpackServerConfigs);
+
+		// tslint:disable-next-line:no-console
+		console.log(serverStats.toString({ colors: true }));
+
+		// Finish
+		Utils.logger.log({
+			label: '@bluerain/cli/web',
+			level: 'info',
+			message: '✅ Done!',
+		});
 	}
 }

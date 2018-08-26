@@ -73,7 +73,7 @@ export default class ExpoStart extends Command {
 		///// Generate app.js /////
 		///////////////////////////
 
-		// Path to blueeast.js file
+		// Path to bluerain.js file
 		let blueeastJsPath = await fileManager.resolveWithFallback('bluerain');
 
 		// Remove (.ts|.js) extension

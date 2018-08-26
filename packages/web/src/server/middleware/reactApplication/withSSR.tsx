@@ -1,16 +1,16 @@
 import { Request, Response } from 'express';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
+import { ServerConfigsBundle } from '../../server';
 import App from '../../../client/App';
 import React from 'react';
 import getServerHTML from './ServerHTML';
-import { PlatformConfigs } from '../../../internal/configFiles';
 
 // tslint:disable-next-line:no-var-requires
 const { AppRegistry } = require('react-native-web');
 
-export default (_request: Request, response: Response, configs: PlatformConfigs) => {
-	
+export default (_request: Request, response: Response, configs: ServerConfigsBundle) => {
+
 	const ServerHTML = getServerHTML(configs);
 
 	// Ensure a nonce has been provided to us.
@@ -67,4 +67,4 @@ export default (_request: Request, response: Response, configs: PlatformConfigs)
 	)
 		.send(`<!DOCTYPE html>${html}`);
 	// });
-}
+};

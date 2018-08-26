@@ -52,7 +52,7 @@ export const getDefaults = (configDir: string) => {
 			isDir: true,
 			isHook: false,
 			name: 'assets',
-			slug: 'assetsDir',
+			slug: 'assets-dir',
 		},
 
 		// /** Typescript config settings */

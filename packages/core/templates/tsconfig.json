@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "outDir": "lib",
+    "outDir": "dist",
     "rootDirs": ["bluerain", "src"],
     "moduleResolution": "node",
     "module": "commonjs",
@@ -46,6 +46,6 @@
     "baseUrl": "."
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "lib", "**/*.test.ts", "src/**/*.test.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "src/**/*.test.ts"],
   "compileOnSave": false
 }

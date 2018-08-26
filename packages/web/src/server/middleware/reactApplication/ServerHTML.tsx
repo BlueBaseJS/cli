@@ -4,6 +4,7 @@
  */
 
 import React, { Children } from 'react';
+import { ServerConfigsBundle } from '../../server';
 import { Utils } from '@blueeast/bluerain-cli-core';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -11,7 +12,6 @@ import HTML from '../../components/HTML';
 import Helmet from 'react-helmet';
 import SplashScreen from '../../components/SplashScreen';
 import getClientBundleEntryAssets from './getClientBundleEntryAssets';
-import { PlatformConfigs } from '../../../internal/configFiles';
 
 // PRIVATES
 function KeyedComponent({ children }: { children: React.ReactNode }) {
@@ -35,7 +35,7 @@ export interface ServerHTMLProperties {
 	styleElement?: any;
 }
 
-export type GetServerHTMLType = (configs: PlatformConfigs) => React.StatelessComponent<ServerHTMLProperties>;
+export type GetServerHTMLType = (configs: ServerConfigsBundle) => React.StatelessComponent<ServerHTMLProperties>;
 
 const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 
@@ -63,20 +63,20 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 		ifElse(helmet)(() => styleElement),
 	]);
 
-	const devVendorDLL = configs.bundles.client.devVendorDLL;
+	// const devVendorDLL = configs.client.devVendorDLL;
 
 	const bodyElements = removeNil([
 	// When we are in development mode our development server will
 	// generate a vendor DLL in order to dramatically reduce our
 	// compilation times.  Therefore we need to inject the path to the
 	// vendor dll bundle below.
-		ifElse(
-			process.env.BUILD_FLAG_IS_DEV === 'true' && devVendorDLL && devVendorDLL.enabled,
-	)(() =>
-		scriptTag(
-			`${configs.bundles.client.webPath}/${devVendorDLL && devVendorDLL.name}.js?t=${Date.now()}`,
-		),
-	),
+	// 	ifElse(
+	// 		process.env.BUILD_FLAG_IS_DEV === 'true' && devVendorDLL && devVendorDLL.enabled,
+	// )(() =>
+	// 	scriptTag(
+	// 		`${configs.client.publicPath}/${devVendorDLL && devVendorDLL.name}.js?t=${Date.now()}`,
+	// 	),
+	// ),
 		ifElse(clientEntryAssets && clientEntryAssets.js)(() => scriptTag(clientEntryAssets.js)),
 		...ifElse(helmet)(() => helmet.script.toComponent(), []),
 	]);
