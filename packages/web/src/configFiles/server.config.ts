@@ -10,7 +10,12 @@ export const fromHere = (file: string) => {
 	return path.resolve(__dirname, file);
 };
 
-export default (input: ServerConfigs): ServerConfigs => {
+export interface HookArgs {
+	buildDir: string,
+	configDir: string,
+}
+
+export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 
 	const configs: ServerConfigs = {
 
@@ -60,8 +65,9 @@ export default (input: ServerConfigs): ServerConfigs => {
 		// ],
 		extensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
 
-		srcEntryFile: fromHere('../../server/index'),
+		srcEntryFile: fromHere('../server/index'),
 		includePaths: [
+			args.configDir,
 			Utils.fromProjectRoot('./bluerain'),
 			// fromHere('../../server'),
 			// fromHere('../../client/App'),

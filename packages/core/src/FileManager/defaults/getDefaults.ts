@@ -1,5 +1,6 @@
 import { ConfigFileInfo } from '../ConfigFileInfo';
 import path from 'path';
+import { fromCore } from '../../utils';
 
 const fromHere = (filename: string) => path.resolve(__dirname, filename);
 
@@ -21,7 +22,7 @@ export const getDefaults = (configDir: string) => {
 
 		/** BlueRain bluerain options */
 		bluerain: {
-			defaultPath: fromHere('bluerain'),
+			defaultPath: fromCore('templates/common/bluerain'),
 			dir: configDir,
 			findInBlueRain: true,
 			findInPlugins: false,

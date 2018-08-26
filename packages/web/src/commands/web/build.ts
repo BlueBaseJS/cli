@@ -1,13 +1,17 @@
 import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
+import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { Flags } from '../../cli-flags';
 import { webpackCompile } from '../../webpack/webpackCompile';
 import fs from 'fs';
 import getConfigFiles from '../../configFiles';
+import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
 
 export class CustomCommand extends Command {
+
+	static flags = FlagDefs;
+
 	async run() {
 
 		const parsed = this.parse(CustomCommand);
@@ -19,6 +23,7 @@ export class CustomCommand extends Command {
 			message: '🏗 Building project...',
 		});
 
+		debugger;
 		// Absolute path of build dir
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
@@ -48,12 +53,13 @@ export class CustomCommand extends Command {
 		///// Generate Configs /////
 		////////////////////////////
 
-		const clientConfigs = await fileManager.Hooks.run(`web.client-config`, {}, { buildDir, configDir: flags.configDir });
-		const serverConfigs = await fileManager.Hooks.run(`web.server-config`, {}, { buildDir, configDir: flags.configDir });
+		const clientConfigs = await fileManager.Hooks.run(`web.client-config`, {}, { buildDir, configDir });
+		const serverConfigs = await fileManager.Hooks.run(`web.server-config`, {}, { buildDir, configDir });
 
 		// Path to bluerain.js file
-		const bluerainJsPath = await fileManager.resolveWithFallback('bluerain');
-		const assetsDirPath = await fileManager.resolveWithFallback('assets-dir');
+		const bluerainJsPath = await fileManager.resolveFilePath('bluerain');
+		// const assetsDirPath = await fileManager.resolveFilePath('assets-dir');
+		const assetsDirPath = path.join(configDir, 'assets');
 
 		const baseWebpackBuildOptions = {
 			assetsDirPath,

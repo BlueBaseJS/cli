@@ -10,7 +10,12 @@ export const fromHere = (file: string) => {
 	return path.resolve(__dirname, file);
 };
 
-export default (input: ClientConfigs): ClientConfigs => {
+export interface HookArgs {
+	buildDir: string,
+	configDir: string,
+}
+
+export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 	const configs: ClientConfigs = {
 
 		target: 'web',
@@ -39,13 +44,12 @@ export default (input: ClientConfigs): ClientConfigs => {
 
 		bundleAssetsFileName: 'assets.json',
 
-		srcEntryFile: fromHere('../../client/index'),
+		srcEntryFile: fromHere('../client/index'),
 
 
-		includeSourceMapsForOptimisedBundle: false,
 
 		includePaths: [
-			Utils.fromProjectRoot('./bluerain/boot'),
+			args.configDir,
 			Utils.fromProjectRoot('./src'),
 			// fromHere('../../client'),
 			// The service worker offline page generation needs access to the
@@ -57,6 +61,8 @@ export default (input: ClientConfigs): ClientConfigs => {
 		outputPath: Utils.fromProjectRoot('build/client'),
 
 		publicPath: '/client',
+
+		includeSourceMapsForOptimisedBundle: false,
 
 		nodeExternalsFileTypeWhitelist: [],
 			// devVendorDLL: {

@@ -46,7 +46,13 @@ const HotModuleReplacement: WebpackBuilderMiddleware =
 				builder.ifDevClient(() => new HotModuleReplacementPlugin({
 					// multiStep: true,
 				})),
-			])
+			]),
+
+			resolve: {
+				alias: {
+					'react-hot-loader': useOwn('react-hot-loader'),
+				},
+			},
 		});
 	};
 

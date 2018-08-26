@@ -1,5 +1,5 @@
 import { ConfigFileInfo, getDefaults, } from '@blueeast/bluerain-cli-core';
-import fromRoot from '../scripts/fromRoot';
+// import fromRoot from '../scripts/fromRoot';
 import path from 'path';
 
 const fromHere = (file: string) => {
@@ -35,11 +35,11 @@ export default (configDir: string): ConfigFileInfo[] => {
 			name: '^webpack.config.server.(js|ts)$',
 			slug: 'server-webpack-config',
 		},
-		{
+		// {
 
-			...defaults.assetsDir,
-			defaultPath: fromRoot('templates/web/assets'),
-		},
+		// 	...defaults.assetsDir,
+		// 	defaultPath: fromRoot('templates/web/assets'),
+		// },
 		defaults.bluerain,
 	];
 };
