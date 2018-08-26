@@ -58,7 +58,7 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 			// fromRoot('./src/config'),
 		],
 
-		outputPath: Utils.fromProjectRoot('build/client'),
+		outputPath: path.join(args.buildDir, 'client'),
 
 		publicPath: '/client',
 

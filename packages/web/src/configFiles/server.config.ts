@@ -72,7 +72,7 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 			// fromHere('../../server'),
 			// fromHere('../../client/App'),
 		],
-		outputPath: Utils.fromProjectRoot('build/server'),
+		outputPath: path.join(args.buildDir, 'server'),
 
 		nodeExternalsFileTypeWhitelist: [],
 	};
