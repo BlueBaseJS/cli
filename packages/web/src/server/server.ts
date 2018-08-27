@@ -18,13 +18,13 @@ export interface ServerConfigsBundle {
 	server: ServerConfigs,
 }
 
-const server = (): Server => {
+const server = (configs: ServerConfigsBundle): Server => {
 
-	const configs: ServerConfigsBundle = {
-		assetsDirPath: JSON.parse(process.env.ASSETS_DIR_PATH as string),
-		client: JSON.parse(process.env.CLIENT_CONFIGS as string),
-		server: JSON.parse(process.env.SERVER_CONFIGS as string),
-	};
+	// const configs: ServerConfigsBundle = {
+	// 	assetsDirPath: JSON.parse(process.env.ASSETS_DIR_PATH as string),
+	// 	client: JSON.parse(process.env.CLIENT_CONFIGS as string),
+	// 	server: JSON.parse(process.env.SERVER_CONFIGS as string),
+	// };
 
 	// Create our express based server.
 	const app = express();

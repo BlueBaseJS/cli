@@ -26,6 +26,7 @@ const AssetsJson: WebpackBuilderMiddleware = () => (config: WebpackConfig, build
 					new AssetsPlugin({
 						filename: builder.configs.bundleAssetsFileName,
 						path: builder.configs.outputPath,
+						prettyPrint: builder.isDev ? true : false,
 					}),
 			),
 		]),

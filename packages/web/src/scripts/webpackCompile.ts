@@ -6,12 +6,12 @@ import webpack from 'webpack';
  */
 export const webpackCompile = async (configs: webpack.Configuration): Promise<webpack.Stats> => {
 
-	return new Promise((resolve, reject) => {
+	return new Promise((resolve, _reject) => {
 
 		const compiler = webpack(configs);
 
 		compiler.run((err, stats) => {
-			if (err) { reject(err); }
+			if (err) { throw (err); }
 
 			resolve(stats);
 		});

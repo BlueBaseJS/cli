@@ -25,6 +25,8 @@ export default
 			// Patch React Native
 			.use(WebpackTools.ReactNative())
 
+			.use(WebpackTools.NodeExternals())
+
 			// // Add Jarvis Dashboard
 			// .use(WebpackTools.Jarvis())
 

@@ -2,6 +2,7 @@
 import { ServerConfigs } from '../types';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import deepmerge from 'deepmerge';
+import fromRoot from '../scripts/fromRoot';
 import path from 'path';
 
 const EnvVars = Utils.EnvVars;
@@ -19,7 +20,7 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 
 	const configs: ServerConfigs = {
 
-		target: 'web',
+		target: 'node',
 		mode: Utils.isProduction() ? 'production' : 'development',
 
 		host: EnvVars.string('HOST', '0.0.0.0'),
@@ -68,7 +69,8 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 		srcEntryFile: fromHere('../server/index'),
 		includePaths: [
 			args.configDir,
-			Utils.fromProjectRoot('./bluerain'),
+			Utils.fromProjectRoot('./src'),
+			fromRoot('node_modules')
 			// fromHere('../../server'),
 			// fromHere('../../client/App'),
 		],

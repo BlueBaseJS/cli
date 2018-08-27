@@ -46,8 +46,6 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 
 		srcEntryFile: fromHere('../client/index'),
 
-
-
 		includePaths: [
 			args.configDir,
 			Utils.fromProjectRoot('./src'),
@@ -60,7 +58,7 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 
 		outputPath: path.join(args.buildDir, 'client'),
 
-		publicPath: '/client',
+		publicPath: '/',
 
 		includeSourceMapsForOptimisedBundle: false,
 

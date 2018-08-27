@@ -1,12 +1,17 @@
 import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { webpackCompile } from '../../scripts/webpackCompile';
+import { HotClientServer } from '../../dev/HotClientServer';
+// import { HotNodeServer } from '../../dev/HotNodeServer';
+// import { webpackCompileDev } from '../../scripts/webpackCompileDev';
 import fs from 'fs';
+// import fromRoot from '../../scripts/fromRoot';
 import getConfigFiles from '../../configFiles';
 import path from 'path';
 import rimraf from 'rimraf';
+import server from '../../server/server';
 import shell from 'shelljs';
+import webpack from 'webpack';
 
 export class CustomCommand extends Command {
 
@@ -23,6 +28,7 @@ export class CustomCommand extends Command {
 			message: '🏗 Building project...',
 		});
 
+		debugger;
 		// Absolute path of build dir
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
@@ -65,8 +71,25 @@ export class CustomCommand extends Command {
 			bluerainJsPath,
 			buildDirPath: buildDir,
 			configDirPath: configDir,
-			mode: 'production',
+			// mode: 'development',
 		};
+
+		// ///////////////////////////
+		// ///// Generate app.js /////
+		// ///////////////////////////
+
+		// // Remove (.ts|.js) extension
+		// const bluerainJsPathNoExt = bluerainJsPath.replace(/\.[^/.]+$/, '');
+
+		// // Where do we save this file?
+		// const appEntryPath = path.join(buildDir, 'AppEntry.js');
+
+		// // Inject bluerain.js path in template
+		// let data = fs.readFileSync(fromRoot('./templates/AppEntry.js')).toString();
+		// data = data.replace('BLUERAIN_JS_PATH', path.relative(buildDir, bluerainJsPathNoExt));
+
+		// // Save file
+		// fs.writeFileSync(appEntryPath, data);
 
 		////////////////////////
 		///// Build Client /////
@@ -88,12 +111,14 @@ export class CustomCommand extends Command {
 				clientConfigs,
 				configs: { ...clientConfigs, mode: 'development' },
 				serverConfigs,
-				target: 'web',
 			});
-		const clientStats = await webpackCompile(webpackClientConfigs);
+
+		const clientCompiler = webpack(webpackClientConfigs);
+
+		// const clientStats = await webpackCompileDev(webpackClientConfigs);
 
 		// tslint:disable-next-line:no-console
-		console.log(clientStats.toString({ colors: true }));
+		// console.log(clientStats);
 
 		////////////////////////
 		///// Build Server /////
@@ -115,12 +140,69 @@ export class CustomCommand extends Command {
 				clientConfigs,
 				configs: { ...serverConfigs, mode: 'development' },
 				serverConfigs,
-				target: 'node',
 			});
-		const serverStats = await webpackCompile(webpackServerConfigs);
 
-		// tslint:disable-next-line:no-console
-		console.log(serverStats.toString({ colors: true }));
+		const serverCompiler = webpack(webpackServerConfigs);
+
+
+
+
+
+		server({
+			assetsDirPath,
+			client: clientConfigs,
+			server: serverConfigs,
+		});
+
+
+
+
+
+
+
+
+
+		// const serverStats = await webpackCompiler(compiler);
+
+		// // tslint:disable-next-line:no-console
+		// console.log(serverStats.toString({ colors: true }));
+
+		// const cpath = compiler.options.output && compiler.options.output.path;
+		// const centry = compiler.options.entry || {};
+
+		// const compiledEntryFile = Utils.fromProjectRoot(
+		// 	`${cpath}/${Object.keys(centry)[0]}`
+		// );
+
+		// // const server = await import(compiledEntryFile);
+		// spawn('node', [compiledEntryFile, '--color']);
+
+
+
+
+
+
+
+
+		const hotClient = new HotClientServer({
+			...baseWebpackBuildOptions,
+			clientCompiler,
+			clientConfigs: webpackClientConfigs,
+			serverCompiler,
+			serverConfigs: webpackServerConfigs,
+		});
+
+		// const hotNode = new HotNodeServer({
+		// 	...baseWebpackBuildOptions,
+		// 	clientCompiler,
+		// 	clientConfigs: webpackClientConfigs,
+		// 	serverCompiler,
+		// 	serverConfigs: webpackServerConfigs,
+		// });
+
+		hotClient.start();
+		// hotNode.start();
+
 
 		// Finish
 		Utils.logger.log({

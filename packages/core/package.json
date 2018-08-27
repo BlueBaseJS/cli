@@ -1,9 +1,10 @@
 {
   "name": "@blueeast/bluerain-cli-core",
   "description": "A plugin for BlueRain CLI",
-  "version": "2.0.0-aplha.6",
+  "version": "2.0.0-aplha.7",
   "author": "BlueEast Team <code@blueeast.com>",
   "main": "./lib",
+  "sideEffects": false,
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
   "dependencies": {
     "@oclif/command": "^1",

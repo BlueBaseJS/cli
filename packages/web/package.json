@@ -7,10 +7,11 @@
   "typings": "lib/index.d.ts",
   "module": "lib/index.js",
   "dependencies": {
-    "@blueeast/bluerain-cli-core": "^2.0.0-aplha.1",
+    "@blueeast/bluerain-cli-core": "^2.0.0-aplha.7",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@types/html-webpack-plugin": "^3.2.0",
+    "@types/webpack-serve": "^2.0.0",
     "assets-webpack-plugin": "^3.8.4",
     "babel-loader": "^7.1.5",
     "cache-loader": "^1.2.2",
@@ -52,6 +53,7 @@
     "webpack-md5-hash": "^0.0.6",
     "webpack-merge": "^4.1.4",
     "webpack-node-externals": "^1.7.2",
+    "webpack-serve": "^2.0.2",
     "write-json-webpack-plugin": "^1.0.2"
   },
   "devDependencies": {

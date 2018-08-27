@@ -88,7 +88,7 @@ export const run = async (ctx: Command): Promise<void> => {
 					)
 						.on('close', (_code: number) => process.exit(0))
 						.on('error', (spawnError: Error) => console.error(spawnError));
-				}
+				},
 			}
 		}).then((_result: any) => {
 			Utils.logger.info('Serve...');

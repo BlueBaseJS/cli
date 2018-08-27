@@ -32,11 +32,11 @@ const BaseConfig: WebpackBuilderMiddleware =
 			// Mode
 			mode: builder.configs.mode,
 
-			target: builder.configs.target || builder.isClient
+			target: builder.configs.target || (builder.isClient
 				? // Only our client bundle will target the web as a runtime.
 				'web'
 				: // Any other bundle must be targetting node as a runtime.
-				'node',
+				'node'),
 
 			// Ensure that webpack polyfills the following node features for use
 			// within any bundles that are targetting node as a runtime. This will be
@@ -119,8 +119,10 @@ const BaseConfig: WebpackBuilderMiddleware =
 
 				...resolve,
 
-				// // These extensions are tried when resolving a file.
-				// extensions: builder.configs.bundleSrcTypes.map((ext: string) => `.${ext}`),
+				// These extensions are tried when resolving a file.
+				extensions: builder.configs.extensions.map((ext: string) => `.${ext}`),
+
+				// modules: [useOwn(), 'node_modules'],
 
 				alias: {
 					// BlueRain boot options file, AKA bluerain.js
@@ -172,18 +174,17 @@ const BaseConfig: WebpackBuilderMiddleware =
 					// new OptimizeCSSAssetsPlugin({})
 				]),
 
-				// Automatically split vendor and commons
-				// https://twitter.com/wSokra/status/969633336732905474
-				// https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-				splitChunks: {
-					chunks: 'all',
-					name: 'vendors',
-				},
-				// Keep the runtime chunk seperated to enable long term caching
-				// https://twitter.com/wSokra/status/969679223278505985
-				runtimeChunk: true,
+				// // Automatically split vendor and commons
+				// // https://twitter.com/wSokra/status/969633336732905474
+				// // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+				// splitChunks: {
+				// 	chunks: 'all',
+				// 	name: 'vendors',
+				// },
+				// // Keep the runtime chunk seperated to enable long term caching
+				// // https://twitter.com/wSokra/status/969679223278505985
+				// runtimeChunk: true,
 			},
-
 
 			plugins: removeNil([
 

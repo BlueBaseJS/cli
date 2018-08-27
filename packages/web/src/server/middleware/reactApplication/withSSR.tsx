@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import { ServerConfigsBundle } from '../../server';
-import App from '../../../client/App';
+// import App from '../../../client/App';
 import React from 'react';
 import getServerHTML from './ServerHTML';
 
@@ -28,7 +28,7 @@ export default (_request: Request, response: Response, configs: ServerConfigsBun
 	}
 
 	// register the app
-	AppRegistry.registerComponent('App', () => App);
+	AppRegistry.registerComponent('App', () => null);
 
 	// prerender the app
 	const { element, getStyleElement } = AppRegistry.getApplication('App');

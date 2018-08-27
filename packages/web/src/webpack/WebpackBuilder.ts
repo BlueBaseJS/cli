@@ -77,8 +77,8 @@ export default class WebpackBuilder implements BuilderOptions {
 			throw Error(`No bundle configuration given to WebpackBuilder.`);
 		}
 
-		this.configs = configs;
-		this.configs.mode = configs.mode || Utils.isProduction() ? 'production' : 'development';
+		this.configs = { ...configs };
+		this.configs.mode = configs.mode || (Utils.isProduction() ? 'production' : 'development');
 		this.configs.target = configs.target || 'web';
 
 		const ifElse = Utils.ifElse;

@@ -3,6 +3,7 @@ import { Utils } from '@blueeast/bluerain-cli-core';
 import { WebpackBuilderMiddleware } from '../../types';
 import WebpackBuilder from '../WebpackBuilder';
 import fromRoot from '../../scripts/fromRoot';
+// import fs from 'fs';
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
 
@@ -37,6 +38,11 @@ const NodeExternals: WebpackBuilderMiddleware =
 							// We always want the source-map-support included in
 							// our node target bundles.
 							'source-map-support/register',
+
+							// // Since the CLI maybe installed globally, the dependencies
+							// // of these repo may not be available in project modules
+							// // So, we're not excluding them.
+							// ...getMyDependencies()
 						])
 							// And any items that have been whitelisted in the config need
 							// to be included in the bundling process too.
@@ -50,5 +56,14 @@ const NodeExternals: WebpackBuilderMiddleware =
 
 		});
 	};
+
+
+// function getMyDependencies() {
+
+// 	const pkgJsonPath = fromRoot('package.json');
+// 	const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath).toString());
+
+// 	return Object.keys(pkgJson.dependencies);
+// }
 
 export default NodeExternals;

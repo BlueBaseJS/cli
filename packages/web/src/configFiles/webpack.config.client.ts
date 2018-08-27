@@ -5,6 +5,7 @@ import { WebpackHookArguments } from '../types';
 export default
 	(webpackConfigInput: webpack.Configuration = {}, buildOptions: WebpackHookArguments)
 	: webpack.Configuration => {
+
 		const builder = new WebpackTools.WebpackBuilder(buildOptions, webpackConfigInput);
 		const configs = builder
 			// Base Config
@@ -28,6 +29,8 @@ export default
 			// // Generate configs.json
 			// .use(WebpackTools.ConfigsJson())
 
+			// .use(WebpackTools.ClientHTML())
+
 			///// Loaders
 
 			// CSS Loader
@@ -36,8 +39,8 @@ export default
 			// TS Loader
 			.use(WebpackTools.LoaderTypescript())
 
-			// JS Loader
-			.use(WebpackTools.LoaderJavascript())
+			// // JS Loader
+			// .use(WebpackTools.LoaderJavascript())
 
 			// Finally, merge user input overrides
 			.merge(webpackConfigInput)
