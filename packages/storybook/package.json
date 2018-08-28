@@ -1,12 +1,12 @@
 {
   "name": "@blueeast/bluerain-cli-storybook",
   "description": "An BlueRain CLI plugin to integrate Storybook",
-  "version": "2.0.0-aplha.1",
+  "version": "2.0.0-beta.1",
   "main": "./lib",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
   "dependencies": {
-    "@blueeast/bluerain-cli-core": "^2.0.0-aplha.6",
+    "@blueeast/bluerain-cli-core": "^2.0.0-beta.1",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "expo-cli": "^1.1.0-beta.5",

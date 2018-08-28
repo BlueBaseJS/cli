@@ -27,42 +27,80 @@ $ bluerain plugins:install @blueeast/bluerain-cli-storybook-native
 ```
 # Commands
 <!-- commands -->
-* [`bluerain expo:init`](#bluerain-expoinit)
-* [`bluerain expo:start`](#bluerain-expostart)
+* [`bluerain storybook-native:init`](#bluerain-storybook-nativeinit)
+* [`bluerain storybook-native:start`](#bluerain-storybook-nativestart)
+* [`bluerain storybook-native:start:expo`](#bluerain-storybook-nativestartexpo)
+* [`bluerain storybook-native:start:server`](#bluerain-storybook-nativestartserver)
 
-## `bluerain expo:init`
+## `bluerain storybook-native:init`
 
 Initializes a directory with an example project.
 
 ```
 USAGE
-  $ bluerain expo:init
+  $ bluerain storybook-native:init
 
 OPTIONS
-  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
-  --configDir=configDir  [default: ./bluerain/expo] Path to config directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/storybook-native] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/storybook-native] Path to config directory relative to the root directory
 
 EXAMPLE
-  $ bluerain expo:start
+  $ bluerain storybook-native:start
 ```
 
-_See code: [src/commands/expo/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.7/src/commands/expo/init.ts)_
+_See code: [src/commands/storybook-native/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/storybook-native/init.ts)_
 
-## `bluerain expo:start`
+## `bluerain storybook-native:start`
 
 Starts or restarts a local server for your app and gives you a URL to it.
 
 ```
 USAGE
-  $ bluerain expo:start
+  $ bluerain storybook-native:start
 
 OPTIONS
-  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
-  --configDir=configDir  [default: ./bluerain/expo] Path to config directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/storybook-native] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/storybook-native] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluerain storybook-native:start
+```
+
+_See code: [src/commands/storybook-native/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/storybook-native/start.ts)_
+
+## `bluerain storybook-native:start:expo`
+
+Starts or restarts a local server for your app and gives you a URL to it.
+
+```
+USAGE
+  $ bluerain storybook-native:start:expo
+
+OPTIONS
+  --buildDir=buildDir    [default: ./build/storybook-native] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/storybook-native] Path to config directory relative to the root directory
 
 EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [src/commands/expo/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.7/src/commands/expo/start.ts)_
+_See code: [src/commands/storybook-native/start/expo.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/storybook-native/start/expo.ts)_
+
+## `bluerain storybook-native:start:server`
+
+Starts or restarts a local server for your app and gives you a URL to it.
+
+```
+USAGE
+  $ bluerain storybook-native:start:server
+
+OPTIONS
+  --buildDir=buildDir    [default: ./build/storybook-native] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/storybook-native] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluerain expo:start
+```
+
+_See code: [src/commands/storybook-native/start/server.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/storybook-native/start/server.ts)_
 <!-- commandsstop -->

@@ -24,7 +24,7 @@ $ npm install -g @blueeast/bluerain-cli
 $ bluerain COMMAND
 running command...
 $ bluerain (-v|--version|version)
-@blueeast/bluerain-cli/4.0.0-aplha.4 darwin-x64 node-v10.8.0
+@blueeast/bluerain-cli/4.0.0-beta.1 darwin-x64 node-v10.8.0
 $ bluerain --help [COMMAND]
 USAGE
   $ bluerain COMMAND
@@ -33,33 +33,12 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`bluerain hello [FILE]`](#bluerain-hello-file)
 * [`bluerain help [COMMAND]`](#bluerain-help-command)
 * [`bluerain plugins`](#bluerain-plugins)
 * [`bluerain plugins:install PLUGIN...`](#bluerain-pluginsinstall-plugin)
 * [`bluerain plugins:link PLUGIN`](#bluerain-pluginslink-plugin)
 * [`bluerain plugins:uninstall PLUGIN...`](#bluerain-pluginsuninstall-plugin)
 * [`bluerain plugins:update`](#bluerain-pluginsupdate)
-
-## `bluerain hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ bluerain hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ bluerain hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v4.0.0-aplha.4/src/commands/hello.ts)_
 
 ## `bluerain help [COMMAND]`
 

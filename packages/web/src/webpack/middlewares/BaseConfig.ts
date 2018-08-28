@@ -7,6 +7,9 @@ import WebpackBuilder from '../WebpackBuilder';
 import merge from 'webpack-merge';
 import useOwn from '../../scripts/useOwn';
 
+// tslint:disable-next-line:no-var-requires
+const WebpackStylish = require('webpack-stylish');
+
 const ifElse = Utils.ifElse;
 const removeNil = Utils.removeNil;
 
@@ -241,6 +244,9 @@ const BaseConfig: WebpackBuilderMiddleware =
 				// We don't want webpack errors to occur during development as it will
 				// kill our dev servers.
 				builder.ifDev(() => new NoEmitOnErrorsPlugin()),
+
+				// Stylish build output on console
+				builder.ifDev(() => new WebpackStylish()),
 			]),
 
 			module: {

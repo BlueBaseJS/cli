@@ -21,6 +21,10 @@ export class HotClientServer {
 				writeToDisk: true,
 			},
 
+			clipboard: false,
+
+			logLevel: 'warn',
+
 			// add: (app, _middleware, options) => {
 			// 	// Be sure to pass the options argument from the arguments
 			// 	app.use(webpackServeWaitpage(options, { theme: 'material' }));

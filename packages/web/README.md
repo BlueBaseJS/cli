@@ -24,7 +24,7 @@ $ npm install -g @blueeast/bluerain-cli-web
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@blueeast/bluerain-cli-web/2.0.0-aplha.1 darwin-x64 node-v10.8.0
+@blueeast/bluerain-cli-web/2.0.0-beta.1 darwin-x64 node-v10.8.0
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -35,7 +35,8 @@ USAGE
 <!-- commands -->
 * [`oclif-example web [FILE]`](#oclif-example-web-file)
 * [`oclif-example web:build`](#oclif-example-webbuild)
-* [`oclif-example web:run`](#oclif-example-webrun)
+* [`oclif-example web:init`](#oclif-example-webinit)
+* [`oclif-example web:start`](#oclif-example-webstart)
 
 ## `oclif-example web [FILE]`
 
@@ -55,23 +56,49 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/web.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.1/src/commands/web.ts)_
+_See code: [src/commands/web.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/web.ts)_
 
 ## `oclif-example web:build`
 
 ```
 USAGE
   $ oclif-example web:build
+
+OPTIONS
+  --buildDir=buildDir    [default: ./build/web] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/web] Path to config directory relative to the root directory
 ```
 
-_See code: [src/commands/web/build.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.1/src/commands/web/build.ts)_
+_See code: [src/commands/web/build.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/web/build.ts)_
 
-## `oclif-example web:run`
+## `oclif-example web:init`
+
+Initializes a directory with an example project.
 
 ```
 USAGE
-  $ oclif-example web:run
+  $ oclif-example web:init
+
+OPTIONS
+  --buildDir=buildDir    [default: ./build/web] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/web] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluerain web:init
 ```
 
-_See code: [src/commands/web/run.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.1/src/commands/web/run.ts)_
+_See code: [src/commands/web/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/web/init.ts)_
+
+## `oclif-example web:start`
+
+```
+USAGE
+  $ oclif-example web:start
+
+OPTIONS
+  --buildDir=buildDir    [default: ./build/web] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/web] Path to config directory relative to the root directory
+```
+
+_See code: [src/commands/web/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/web/start.ts)_
 <!-- commandsstop -->

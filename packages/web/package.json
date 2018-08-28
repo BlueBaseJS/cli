@@ -1,13 +1,13 @@
 {
   "name": "@blueeast/bluerain-cli-web",
-  "version": "2.0.0-aplha.1",
+  "version": "2.0.0-beta.1",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "module": "lib/index.js",
   "dependencies": {
-    "@blueeast/bluerain-cli-core": "^2.0.0-aplha.7",
+    "@blueeast/bluerain-cli-core": "^2.0.0-beta.1",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@types/html-webpack-plugin": "^3.2.0",
@@ -55,6 +55,7 @@
     "webpack-merge": "^4.1.4",
     "webpack-node-externals": "^1.7.2",
     "webpack-serve": "^2.0.2",
+    "webpack-stylish": "^0.1.8",
     "write-json-webpack-plugin": "^1.0.2"
   },
   "devDependencies": {

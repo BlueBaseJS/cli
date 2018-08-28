@@ -27,42 +27,42 @@ $ bluerain plugins:install @blueeast/bluerain-cli-storybook
 ```
 # Commands
 <!-- commands -->
-* [`bluerain expo:init`](#bluerain-expoinit)
-* [`bluerain expo:start`](#bluerain-expostart)
+* [`bluerain storybook:init`](#bluerain-storybookinit)
+* [`bluerain storybook:start`](#bluerain-storybookstart)
 
-## `bluerain expo:init`
+## `bluerain storybook:init`
 
 Initializes a directory with an example project.
 
 ```
 USAGE
-  $ bluerain expo:init
+  $ bluerain storybook:init
 
 OPTIONS
-  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
-  --configDir=configDir  [default: ./bluerain/expo] Path to config directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/storybook] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/storybook] Path to config directory relative to the root directory
 
 EXAMPLE
-  $ bluerain expo:start
+  $ bluerain storybook:init
 ```
 
-_See code: [src/commands/expo/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.7/src/commands/expo/init.ts)_
+_See code: [src/commands/storybook/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/storybook/init.ts)_
 
-## `bluerain expo:start`
+## `bluerain storybook:start`
 
 Starts or restarts a local server for your app and gives you a URL to it.
 
 ```
 USAGE
-  $ bluerain expo:start
+  $ bluerain storybook:start
 
 OPTIONS
-  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
-  --configDir=configDir  [default: ./bluerain/expo] Path to config directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/storybook] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/storybook] Path to config directory relative to the root directory
 
 EXAMPLE
-  $ bluerain expo:start
+  $ bluerain storybook:start
 ```
 
-_See code: [src/commands/expo/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.7/src/commands/expo/start.ts)_
+_See code: [src/commands/storybook/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/storybook/start.ts)_
 <!-- commandsstop -->

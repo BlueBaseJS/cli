@@ -2,7 +2,7 @@
   "name": "@blueeast/bluerain-cli-essentials",
   "description": "This package has all the essential exports for use with BlueRain CLI projects.",
   "author": "BlueEast Team <code@blueeast.com>",
-  "version": "4.0.0-aplha.2",
+  "version": "4.0.0-beta.1",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/index.js",

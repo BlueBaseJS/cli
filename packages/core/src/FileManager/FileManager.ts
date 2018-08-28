@@ -46,7 +46,7 @@ export class FileManager extends Registry<ConfigFileInfo> {
 	 * - Loads all command specific configs from platform.js
 	 */
 	public async setup() {
-		this.Logger.info(`Preparing FileManager`);
+		this.Logger.debug(`Preparing FileManager`);
 
 		if (!this.configFiles) {
 			return;
@@ -54,7 +54,7 @@ export class FileManager extends Registry<ConfigFileInfo> {
 
 		// Search relevant files (& hooks) as required
 		// by this FileManager.
-		this.Logger.info(`Adding ${this.configFiles.length} config file definitions.`);
+		this.Logger.debug(`Adding ${this.configFiles.length} config file definitions.`);
 		this.addMany(this.configFiles);
 
 		// Load the relevant hooks as required by this Command from different files.
@@ -73,7 +73,7 @@ export class FileManager extends Registry<ConfigFileInfo> {
 	/** Query all files that provide hooks, and register them */
 	public registerHooks = async (): Promise<void> => {
 		const fileInfoObjects = [...this.data.values()];
-		logger.info(`Registering hooks`);
+		logger.debug(`Registering hooks`);
 
 		for (const fileInfo of fileInfoObjects) {
 
@@ -82,7 +82,7 @@ export class FileManager extends Registry<ConfigFileInfo> {
 				continue;
 			}
 
-			logger.info(`Registering hooks for ${fileInfo.slug} file.`);
+			logger.debug(`Registering hooks for ${fileInfo.slug} file.`);
 
 			// General hook name
 			//

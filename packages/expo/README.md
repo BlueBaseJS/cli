@@ -46,7 +46,7 @@ EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [src/commands/expo/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.8/src/commands/expo/init.ts)_
+_See code: [src/commands/expo/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/expo/init.ts)_
 
 ## `bluerain expo:start`
 
@@ -64,5 +64,5 @@ EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [src/commands/expo/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-aplha.8/src/commands/expo/start.ts)_
+_See code: [src/commands/expo/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/expo/start.ts)_
 <!-- commandsstop -->
