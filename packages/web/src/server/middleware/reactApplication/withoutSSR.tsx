@@ -22,7 +22,7 @@ export default (request: Request, response: Response, configs: ServerConfigsBund
 
 	if (process.env.BUILD_FLAG_IS_DEV === 'true') {
 		logger.log({
-			label: `BlueRain Server`,
+			label: `@bluerain/cli/server`,
 			level: 'info',
 			message: `Handling react route without SSR: ${request.url}`,
 		});

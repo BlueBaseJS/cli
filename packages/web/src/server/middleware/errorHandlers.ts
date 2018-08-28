@@ -27,7 +27,7 @@ const errorHandlersMiddleware = [
 		if (err) {
 			logger.log({
 				error: err,
-				label: 'BlueRain Server',
+				label: '@bluerain/cli/server',
 				level: 'error',
 				message: 'An unexpected error occurred',
 			});

@@ -29,7 +29,7 @@ export class HotNodeServer {
 		this.configs.serverCompiler.plugin('compile', () => {
 			this.serverCompiling = true;
 			Utils.logger.log({
-				label: `BlueRain Server`,
+				label: `@bluerain/cli/server`,
 				level: 'info',
 				message: 'Building new bundle...',
 			});
@@ -51,7 +51,7 @@ export class HotNodeServer {
 				if (stats.hasErrors()) {
 					Utils.logger.log({
 						error: stats,
-						label: `BlueRain Server`,
+						label: `@bluerain/cli/server`,
 						level: 'error',
 						message: 'Build failed, check the console for more information.',
 						notify: true,
@@ -68,7 +68,7 @@ export class HotNodeServer {
 				Utils.logger.log({
 					error: err,
 					stats,
-					label: `BlueRain Server`,
+					label: `@bluerain/cli/server`,
 					level: 'error',
 					message: 'Failed to start, please check the console for more information.',
 					notify: true,
@@ -97,7 +97,7 @@ export class HotNodeServer {
 			this.server.kill();
 			this.server = null;
 			Utils.logger.log({
-				label: `BlueRain Server`,
+				label: `@bluerain/cli/server`,
 				level: 'info',
 				message: 'Restarting server...',
 			});
@@ -113,7 +113,7 @@ export class HotNodeServer {
 		// const newServer = server.default(configsBundle);
 
 		Utils.logger.log({
-			label: `BlueRain Server`,
+			label: `@bluerain/cli/server`,
 			level: 'info',
 			message: 'Server running with latest changes.',
 			notify: true,
@@ -123,7 +123,7 @@ export class HotNodeServer {
 		newServer.stdout.on('data', data => console.log(data.toString().trim()));
 		newServer.stderr.on('data', (data) => {
 			Utils.logger.log({
-				label: `BlueRain Server`,
+				label: `@bluerain/cli/server`,
 				level: 'error',
 				message: 'Error in server execution, check the console for more info.',
 			});
@@ -135,7 +135,7 @@ export class HotNodeServer {
 		// newServer.on('error', (error: Error) => {
 		// 	Utils.logger.log({
 		// 		error,
-		// 		label: `BlueRain Server`,
+		// 		label: `@bluerain/cli/server`,
 		// 		level: 'error',
 		// 		message: 'Error in server execution, check the console for more info.',
 		// 	});

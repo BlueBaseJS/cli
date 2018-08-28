@@ -61,7 +61,7 @@ const server = (configs: ServerConfigsBundle): Server => {
 	// The React application middleware.
 	app.get('*', (request, response) => {
 		logger.log({
-			label: 'BlueRain Server',
+			label: '@bluerain/cli/server',
 			level: 'info',
 			message: `Received for "${request.url}"`,
 		});
@@ -74,7 +74,7 @@ const server = (configs: ServerConfigsBundle): Server => {
 	// Create an http listener for our express app.
 	const listener = app.listen(configs.server.port, () => {
 		logger.log({
-			label: 'BlueRain Server',
+			label: '@bluerain/cli/server',
 			level: 'info',
 			// tslint:disable-next-line:object-literal-sort-keys
 			message: `✓

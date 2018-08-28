@@ -21,7 +21,7 @@
 // 				this.server.kill();
 // 				this.server = null;
 // 				logger.log({
-// 					label: `BlueRain Server: ${name}`,
+// 					label: `@bluerain/cli/server: ${name}`,
 // 					level: 'info',
 // 					message: 'Restarting server...',
 // 				});
@@ -36,7 +36,7 @@
 // 			// const newServer = server.default(configsBundle);
 
 // 			logger.log({
-// 				label: `BlueRain Server: ${name}`,
+// 				label: `@bluerain/cli/server: ${name}`,
 // 				level: 'info',
 // 				message: 'Server running with latest changes.',
 // 				notify: true,
@@ -46,7 +46,7 @@
 // 			newServer.stdout.on('data', data => console.log(data.toString().trim()));
 // 			newServer.stderr.on('data', (data) => {
 // 				logger.log({
-// 					label: `BlueRain Server: ${name}`,
+// 					label: `@bluerain/cli/server: ${name}`,
 // 					level: 'error',
 // 					message: 'Error in server execution, check the console for more info.',
 // 				});
@@ -58,7 +58,7 @@
 // 			// newServer.on('error', (error: Error) => {
 // 			// 	logger.log({
 // 			// 		error,
-// 			// 		label: `BlueRain Server: ${name}`,
+// 			// 		label: `@bluerain/cli/server: ${name}`,
 // 			// 		level: 'error',
 // 			// 		message: 'Error in server execution, check the console for more info.',
 // 			// 	});
@@ -95,7 +95,7 @@
 // 		compiler.plugin('compile', () => {
 // 			this.serverCompiling = true;
 // 			logger.log({
-// 				label: `BlueRain Server: ${name}`,
+// 				label: `@bluerain/cli/server: ${name}`,
 // 				level: 'info',
 // 				message: 'Building new bundle...',
 // 			});
@@ -113,7 +113,7 @@
 // 				if (stats.hasErrors()) {
 // 					logger.log({
 // 						error: stats,
-// 						label: `BlueRain Server: ${name}`,
+// 						label: `@bluerain/cli/server: ${name}`,
 // 						level: 'error',
 // 						message: 'Build failed, check the console for more information.',
 // 						notify: true,
@@ -129,7 +129,7 @@
 // 				logger.log({
 // 					error: err,
 // 					stats,
-// 					label: `BlueRain Server: ${name}`,
+// 					label: `@bluerain/cli/server: ${name}`,
 // 					level: 'error',
 // 					message: 'Failed to start, please check the console for more information.',
 // 					notify: true,
