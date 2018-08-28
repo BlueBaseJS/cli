@@ -20,7 +20,7 @@ export class CustomCommand extends Command {
 		Utils.logger.log({
 			label: '@bluerain/cli/web',
 			level: 'info',
-			message: '🏗 Building project...',
+			message: '🏗 Building BlueRain web project...',
 		});
 
 		// Absolute path of build dir

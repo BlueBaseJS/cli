@@ -1,10 +1,10 @@
 /* tslint:disable:quotemark object-literal-sort-keys */
 import { NextFunction, Request, Response } from 'express';
 import { ServerConfigsBundle } from '../server';
+import { Utils } from '@blueeast/bluerain-cli-core';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import uuid from 'uuid';
-import { Utils } from '@blueeast/bluerain-cli-core/lib';
 
 export default (configs: ServerConfigsBundle) => {
 

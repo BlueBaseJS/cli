@@ -1,2 +1,2 @@
-// import server from './server';
-// server();
+import server from './server';
+export { server };

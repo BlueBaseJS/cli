@@ -21,8 +21,6 @@ export class HotClientServer {
 				writeToDisk: true,
 			},
 
-			// hotClient: false,
-
 			// add: (app, _middleware, options) => {
 			// 	// Be sure to pass the options argument from the arguments
 			// 	app.use(webpackServeWaitpage(options, { theme: 'material' }));
@@ -35,7 +33,7 @@ export class HotClientServer {
 			on: {
 				'build-started': () => {
 					Utils.logger.log({
-						label: 'BlueRain Client',
+						label: '@bluerain/cli/client',
 						level: 'info',
 						message: 'Build Started',
 					});
@@ -43,7 +41,7 @@ export class HotClientServer {
 
 				'build-finished': () => {
 					Utils.logger.log({
-						label: 'BlueRain Client',
+						label: '@bluerain/cli/client',
 						level: 'info',
 						message: 'Running with latest changes.',
 						notify: true,
@@ -52,7 +50,7 @@ export class HotClientServer {
 
 				'compiler-error': () => {
 					Utils.logger.log({
-						label: 'BlueRain Client',
+						label: '@bluerain/cli/client',
 						level: 'error',
 						message: 'Build failed, please check the console for more information.',
 						notify: true,
@@ -71,13 +69,13 @@ export class HotClientServer {
 		});
 	}
 
-	public dispose() {
+	public async dispose() {
 		if (this.app) {
 			this.app.stop();
 		}
 
 		if (this.listenerManager) {
-			this.listenerManager.dispose();
+			await this.listenerManager.dispose();
 		}
 	}
 }

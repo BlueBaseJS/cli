@@ -1,17 +1,16 @@
 import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { HotClientServer } from '../../dev/HotClientServer';
-// import { HotNodeServer } from '../../dev/HotNodeServer';
-// import { webpackCompileDev } from '../../scripts/webpackCompileDev';
 import fs from 'fs';
-// import fromRoot from '../../scripts/fromRoot';
 import getConfigFiles from '../../configFiles';
 import path from 'path';
 import rimraf from 'rimraf';
-import server from '../../server/server';
 import shell from 'shelljs';
 import webpack from 'webpack';
+import HotDevelopment from '../../scripts/hotDevelopment';
+
+// import { webpackCompileDev } from '../../scripts/webpackCompileDev';
+// import fromRoot from '../../scripts/fromRoot';
 
 export class CustomCommand extends Command {
 
@@ -25,10 +24,9 @@ export class CustomCommand extends Command {
 		Utils.logger.log({
 			label: '@bluerain/cli/web',
 			level: 'info',
-			message: '🏗 Building project...',
+			message: '🌏 Starting BlueRain on web...',
 		});
 
-		debugger;
 		// Absolute path of build dir
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
@@ -74,32 +72,9 @@ export class CustomCommand extends Command {
 			// mode: 'development',
 		};
 
-		// ///////////////////////////
-		// ///// Generate app.js /////
-		// ///////////////////////////
-
-		// // Remove (.ts|.js) extension
-		// const bluerainJsPathNoExt = bluerainJsPath.replace(/\.[^/.]+$/, '');
-
-		// // Where do we save this file?
-		// const appEntryPath = path.join(buildDir, 'AppEntry.js');
-
-		// // Inject bluerain.js path in template
-		// let data = fs.readFileSync(fromRoot('./templates/AppEntry.js')).toString();
-		// data = data.replace('BLUERAIN_JS_PATH', path.relative(buildDir, bluerainJsPathNoExt));
-
-		// // Save file
-		// fs.writeFileSync(appEntryPath, data);
-
-		////////////////////////
-		///// Build Client /////
-		////////////////////////
-
-		Utils.logger.log({
-			label: '@bluerain/cli/web',
-			level: 'info',
-			message: `🎛 Compiling Webpack Client bundle`
-		});
+		//////////////////////////
+		///// Client Configs /////
+		//////////////////////////
 
 		const webpackClientConfigs = await fileManager.Hooks.run(
 			`web.client-webpack-config`,
@@ -115,14 +90,9 @@ export class CustomCommand extends Command {
 
 		const clientCompiler = webpack(webpackClientConfigs);
 
-		// const clientStats = await webpackCompileDev(webpackClientConfigs);
-
-		// tslint:disable-next-line:no-console
-		// console.log(clientStats);
-
-		////////////////////////
-		///// Build Server /////
-		////////////////////////
+		//////////////////////////
+		///// Server Configs /////
+		//////////////////////////
 
 		Utils.logger.log({
 			label: '@bluerain/cli/web',
@@ -144,71 +114,31 @@ export class CustomCommand extends Command {
 
 		const serverCompiler = webpack(webpackServerConfigs);
 
+		/////////////////
+		///// Build /////
+		/////////////////
 
-
-
-
-		server({
-			assetsDirPath,
-			client: clientConfigs,
-			server: serverConfigs,
-		});
-
-
-
-
-
-
-
-
-
-		// const serverStats = await webpackCompiler(compiler);
-
-		// // tslint:disable-next-line:no-console
-		// console.log(serverStats.toString({ colors: true }));
-
-		// const cpath = compiler.options.output && compiler.options.output.path;
-		// const centry = compiler.options.entry || {};
-
-		// const compiledEntryFile = Utils.fromProjectRoot(
-		// 	`${cpath}/${Object.keys(centry)[0]}`
-		// );
-
-		// // const server = await import(compiledEntryFile);
-		// spawn('node', [compiledEntryFile, '--color']);
-
-
-
-
-
-
-
-
-		const hotClient = new HotClientServer({
-			...baseWebpackBuildOptions,
-			clientCompiler,
-			clientConfigs: webpackClientConfigs,
-			serverCompiler,
-			serverConfigs: webpackServerConfigs,
-		});
-
-		// const hotNode = new HotNodeServer({
-		// 	...baseWebpackBuildOptions,
-		// 	clientCompiler,
-		// 	clientConfigs: webpackClientConfigs,
-		// 	serverCompiler,
-		// 	serverConfigs: webpackServerConfigs,
-		// });
-
-		hotClient.start();
-		// hotNode.start();
-
-
-		// Finish
 		Utils.logger.log({
 			label: '@bluerain/cli/web',
 			level: 'info',
-			message: '✅ Done!',
+			message: `👨‍💻 Compiling Webpack Client bundle`
 		});
+
+		HotDevelopment({
+			...baseWebpackBuildOptions,
+			clientCompiler,
+			clientConfigs,
+			serverCompiler,
+			serverConfigs,
+			webpackClientConfigs,
+			webpackServerConfigs,
+		});
+
+		// // Finish
+		// Utils.logger.log({
+		// 	label: '@bluerain/cli/web',
+		// 	level: 'info',
+		// 	message: '✅ Done!',
+		// });
 	}
 }

@@ -55,7 +55,7 @@
 
 // 		compiler.plugin('compile', () => {
 // 			logger.log({
-// 				label: 'BlueRain Client',
+// 				label: '@bluerain/cli/client',
 // 				level: 'info',
 // 				message: 'Building new bundle...',
 // 			});
@@ -64,14 +64,14 @@
 // 		compiler.plugin('done', (stats: any) => {
 // 			if (stats.hasErrors()) {
 // 				logger.log({
-// 					label: 'BlueRain Client',
+// 					label: '@bluerain/cli/client',
 // 					level: 'error',
 // 					message: 'Build failed, please check the console for more information.',
 // 					notify: true,
 // 				});
 // 			} else {
 // 				logger.log({
-// 					label: 'BlueRain Client',
+// 					label: '@bluerain/cli/client',
 // 					level: 'info',
 // 					message: 'Running with latest changes.',
 // 					notify: true,
