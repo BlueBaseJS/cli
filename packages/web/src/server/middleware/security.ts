@@ -4,6 +4,7 @@ import { ServerConfigsBundle } from '../server';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import uuid from 'uuid';
+import { Utils } from '@blueeast/bluerain-cli-core/lib';
 
 export default (configs: ServerConfigsBundle) => {
 
@@ -26,7 +27,7 @@ export default (configs: ServerConfigsBundle) => {
 			objectSrc: ["'self'"],
 			mediaSrc: ["'self'"],
 			manifestSrc: ["'self'"],
-			scriptSrc: [
+			scriptSrc: Utils.removeNil([
 
 				// Allow scripts hosted from our application.
 				"'self'",
@@ -43,7 +44,10 @@ export default (configs: ServerConfigsBundle) => {
 				// recognise that we have also provided a nonce configuration and
 				// use the stricter rule.
 				"'unsafe-inline'",
-			],
+
+				// "'unsafe-eval'"
+				...Utils.ifElse(() => !Utils.isProduction())(["'unsafe-eval'"], [])
+			]),
 			styleSrc: [
 				"'self'",
 				// Webpack generates JS that loads our CSS, so this is needed:

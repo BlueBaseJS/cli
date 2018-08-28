@@ -21,7 +21,7 @@ export class HotClientServer {
 				writeToDisk: true,
 			},
 
-			hotClient: false,
+			// hotClient: false,
 
 			// add: (app, _middleware, options) => {
 			// 	// Be sure to pass the options argument from the arguments
