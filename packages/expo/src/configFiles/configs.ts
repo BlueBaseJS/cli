@@ -15,7 +15,7 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 		manifest: {
 			description: 'This project is really great.',
 			entryPoint: path.join(paths.buildDir, 'AppEntry.js'),
-			icon: path.join(paths.configDir, './assets/icon.png'),
+			icon: path.join(paths.assetsDir, './icon.png'),
 			ios: {
 				supportsTablet: true
 			},
@@ -34,7 +34,7 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 			slug: 'bluerain-project-expo',
 			splash: {
 				backgroundColor: '#ffffff',
-				image: path.join(paths.configDir, './assets/splash.png'),
+				image: path.join(paths.assetsDir, './splash.png'),
 				resizeMode: 'contain',
 			},
 			version: '1.0.0',

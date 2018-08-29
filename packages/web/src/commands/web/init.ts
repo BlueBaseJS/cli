@@ -4,8 +4,11 @@ import { Command } from '@oclif/command';
 import fromRoot from '../../scripts/fromRoot';
 import fs from 'fs';
 
-// const requiredDependencies: string[] = [];
-// const requiredDevDependencies: string[] = [];
+const requiredDependencies: string[] = [
+	'react-dom@^16.4.2'
+];
+const requiredDevDependencies: string[] = [
+];
 
 export default class CustomCommand extends Command {
 	static description = 'Initializes a directory with an example project.';
@@ -67,28 +70,28 @@ export default class CustomCommand extends Command {
 		// Update package.json
 		fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
 
-		// // Install dependencies
-		// const depsToInstall: string[] = [];
-		// const devDepsToInstall: string[] = [];
+		// Install dependencies
+		const depsToInstall: string[] = [];
+		const devDepsToInstall: string[] = [];
 
-		// requiredDependencies.forEach(dep => {
-		// 	if (!pkgJson.dependencies[dep]) {
-		// 		depsToInstall.push(dep);
-		// 	}
-		// });
+		requiredDependencies.forEach(dep => {
+			if (!pkgJson.dependencies[dep]) {
+				depsToInstall.push(dep);
+			}
+		});
 
-		// requiredDevDependencies.forEach(dep => {
-		// 	if (!pkgJson.dependencies[dep]) {
-		// 		devDepsToInstall.push(dep);
-		// 	}
-		// });
+		requiredDevDependencies.forEach(dep => {
+			if (!pkgJson.dependencies[dep]) {
+				devDepsToInstall.push(dep);
+			}
+		});
 
-		// if (depsToInstall.length > 0) {
-		// 	Utils.install({ deps: depsToInstall, dev: false });
-		// }
+		if (depsToInstall.length > 0) {
+			Utils.install({ deps: depsToInstall, dev: false });
+		}
 
-		// // We force install, because we need to install expo, and react-native
-		// Utils.install({ deps: devDepsToInstall, dev: true });
+		// We force install, because we need to install expo, and react-native
+		Utils.install({ deps: devDepsToInstall, dev: true });
 
 		// Finish
 		Utils.logger.log({

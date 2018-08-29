@@ -8,10 +8,12 @@ import shell from 'shelljs';
  * @param src
  * @param dest
  */
-export const copyAll = async (src: string, dest: string) => {
+export const copyAll = async (src: string, dest: string, force: boolean = false) => {
 
 	// If dest folder already exists, ask for overwrite confirmation
-	if (fs.existsSync(dest)) {
+	if (fs.existsSync(dest) && !force) {
+
+
 
 		// Prompt
 		const answers: any = await inquirer.prompt([

@@ -128,6 +128,8 @@ const BaseConfig: WebpackBuilderMiddleware =
 				// modules: [useOwn(), 'node_modules'],
 
 				alias: {
+					'@blueeast/bluerain-os': Utils.fromProjectRoot('node_modules/@blueeast/bluerain-os'),
+
 					// BlueRain boot options file, AKA bluerain.js
 					BLUERAIN_BOOT_OPTIONS: builder.bluerainJsPath,
 				},

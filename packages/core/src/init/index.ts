@@ -1,3 +1,8 @@
+/**
+ * @deprecated
+ * TODO: Remove file
+ */
+
 import { Utils } from '..';
 import fs from 'fs';
 import shell from 'shelljs';

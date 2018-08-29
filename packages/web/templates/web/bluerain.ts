@@ -13,7 +13,7 @@ const bootOptions: BootOptions = {
 
 		wallpaper: {
 			backgroundColor: 'white',
-			source: require('./assets/wallpaper.jpg'),
+			source: require('./assets/wallpaper.png'),
 			resizeMode: 'cover',
 		},
 	}

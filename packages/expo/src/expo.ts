@@ -1,6 +1,7 @@
 import { flags } from '@oclif/command';
 
 export interface ExpoFlags {
+	assetsDir: string;
 	buildDir: string;
 	configDir: string;
 }
@@ -19,6 +20,15 @@ export const ExpoFlagDefs = {
 		default: './build/expo',
 		description: 'Path to build directory relative to the root directory',
 		env: 'BUILD_DIR',
+		hidden: false,
+		multiple: false,
+		required: false,
+	}),
+
+	assetsDir: flags.string({
+		default: './assets/expo',
+		description: 'Path to assets directory relative to the root directory',
+		env: 'ASSETS_DIR',
 		hidden: false,
 		multiple: false,
 		required: false,

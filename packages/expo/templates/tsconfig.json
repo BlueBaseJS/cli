@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "outDir": "dist",
+    "outDir": "build/expo",
     "rootDir": ".",
     "rootDirs": ["bluerain", "src"],
     "moduleResolution": "node",

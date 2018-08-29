@@ -11,4 +11,4 @@ export default (input: any) => {
 			name: 'My BlueRain App'
 		}
 	});
-}
+};

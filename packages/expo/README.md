@@ -39,14 +39,15 @@ USAGE
   $ bluerain expo:init
 
 OPTIONS
+  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
   --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
   --configDir=configDir  [default: ./bluerain/expo] Path to config directory relative to the root directory
 
 EXAMPLE
-  $ bluerain expo:start
+  $ bluerain expo:init
 ```
 
-_See code: [src/commands/expo/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/expo/init.ts)_
+_See code: [lib/commands/expo/init.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.7/lib/commands/expo/init.js)_
 
 ## `bluerain expo:start`
 
@@ -57,6 +58,7 @@ USAGE
   $ bluerain expo:start
 
 OPTIONS
+  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
   --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
   --configDir=configDir  [default: ./bluerain/expo] Path to config directory relative to the root directory
 
@@ -64,5 +66,5 @@ EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [src/commands/expo/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/expo/start.ts)_
+_See code: [lib/commands/expo/start.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.7/lib/commands/expo/start.js)_
 <!-- commandsstop -->
