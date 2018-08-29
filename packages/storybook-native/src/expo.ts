@@ -1,6 +1,7 @@
 import { flags } from '@oclif/command';
 
 export interface ExpoFlags {
+	assetsDir: string;
 	buildDir: string;
 	configDir: string;
 }
@@ -23,6 +24,16 @@ export const ExpoFlagDefs = {
 		multiple: false,
 		required: false,
 	}),
+
+	assetsDir: flags.string({
+		default: './assets/storybook-native',
+		description: 'Path to assets directory relative to the root directory',
+		env: 'ASSETS_DIR',
+		hidden: false,
+		multiple: false,
+		required: false,
+	}),
+
 
 };
 

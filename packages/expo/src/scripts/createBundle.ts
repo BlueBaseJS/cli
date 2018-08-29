@@ -33,7 +33,6 @@ export const createBundle = async (configDir: string, buildDir: string, assetsDi
 
 	// const originalConfigDir = configDir;
 	const tranpileConfigDir = path.join(buildDir, path.relative(Utils.fromProjectRoot(), configDir));
-	debugger;
 
 	/////////////////////////////
 	///// Setup FileManager /////

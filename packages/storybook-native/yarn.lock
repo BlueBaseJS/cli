@@ -96,9 +96,9 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@blueeast/bluerain-cli-core@^2.0.0-aplha.6":
-  version "2.0.0-aplha.6"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-aplha.6.tgz#f60db87a70e103002e107afd3d921031cb0c9ae8"
+"@blueeast/bluerain-cli-core@^2.0.0-beta.4":
+  version "2.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-beta.4.tgz#e0373db487f7240e6aa2a031b81d11477d9205d2"
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
@@ -114,11 +114,11 @@
     winston "^3.0.0"
     yarn-install "^1.0.0"
 
-"@blueeast/bluerain-cli-expo@^2.0.0-aplha.8":
-  version "2.0.0-aplha.8"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-expo/-/bluerain-cli-expo-2.0.0-aplha.8.tgz#4b7a9cfef222d7e82b031d1f3672f2c01b3ec217"
+"@blueeast/bluerain-cli-expo@^2.0.0-beta.1":
+  version "2.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-expo/-/bluerain-cli-expo-2.0.0-beta.7.tgz#aded649bb30f3ea9a77eae61299a5da91b86051d"
   dependencies:
-    "@blueeast/bluerain-cli-core" "^2.0.0-aplha.6"
+    "@blueeast/bluerain-cli-core" "^2.0.0-beta.4"
     "@oclif/command" "^1"
     "@oclif/config" "^1"
     expo-cli "^1.1.0-beta.5"
@@ -126,6 +126,7 @@
     semver "^5.5.1"
     shelljs "^0.8.2"
     tslib "^1"
+    typescript "^3.0.1"
 
 "@blueeast/bluerain-os@^3.13.8":
   version "3.14.0"
@@ -5483,6 +5484,10 @@ typedarray@^0.0.6:
 typescript@^2.5.3, typescript@^2.9:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
+
+typescript@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.0.1.tgz#43738f29585d3a87575520a4b93ab6026ef11fdb"
 
 ua-parser-js@^0.7.18:
   version "0.7.18"

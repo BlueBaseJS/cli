@@ -1,13 +1,11 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../../expo';
-import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
-import { checkReactNativeTransformer, getConfigFiles } from '@blueeast/bluerain-cli-expo';
 import { Command } from '@oclif/command';
+import { Utils } from '@blueeast/bluerain-cli-core';
+import { createBundle } from '@blueeast/bluerain-cli-expo';
 import { execSync } from 'child_process';
 import fromRoot from '../../../scripts/fromRoot';
 import fs from 'fs';
 import path from 'path';
-import rimraf from 'rimraf';
-import shell from 'shelljs';
 
 export default class CustomCommand extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
@@ -23,51 +21,22 @@ export default class CustomCommand extends Command {
 		const flags = parsed.flags as ExpoFlags;
 
 		Utils.logger.log({
-			label: '@bluerain/cli/storybook-native',
+			label: '@bluerain/cli/expo',
 			level: 'info',
-			message: '🏗 Building Expo project...',
+			message: '🏗 Building project...',
 		});
 
 		// Absolute path of build dir
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
-
-		///////////////////////////////////
-		///// Check Required Packages /////
-		///////////////////////////////////
-
-		await checkReactNativeTransformer();
+		const assetsDir = Utils.fromProjectRoot(flags.assetsDir);
 
 		/////////////////////////////
-		///// Setup FileManager /////
+		///// Transpile & Build /////
 		/////////////////////////////
 
-		// Set config files
-		const configFiles = getConfigFiles(flags.configDir);
-		const fileManager = new FileManager('storybook-native', configFiles);
-		await fileManager.setup();
-
-		///////////////////////////
-		///// Clear build dir /////
-		///////////////////////////
-
-		// Delete dir if already exists
-		if (fs.existsSync(buildDir)) {
-			rimraf.sync(buildDir);
-		}
-
-		// Create a new build dir
-		shell.mkdir('-p', buildDir);
-
-		/////////////////////////////
-		///// Generate app.json /////
-		/////////////////////////////
-
-		const configs = await fileManager.Hooks.run(`storybook-native.configs`, {}, { buildDir, configDir: flags.configDir });
-		const appJson = { expo: configs.manifest };
-		const appJsonPath = path.join(buildDir, 'app.json');
-
-		fs.writeFileSync(appJsonPath, JSON.stringify(appJson, null, 2));
+		// const transiplePath = path.join(buildDir, 'dist');
+		await createBundle(configDir, buildDir, assetsDir);
 
 		////////////////////////////////
 		///// Generate AppEntry.js /////
@@ -93,6 +62,7 @@ export default class CustomCommand extends Command {
 			message: '🚀 Launching Storybook Native',
 		});
 
+		const appJsonPath = path.join(buildDir, 'app.json');
 		execSync(
 			`${fromRoot('./node_modules/.bin/expo')} start --config ${Utils.fromProjectRoot(appJsonPath)}`,
 			{ env: process.env, stdio: 'inherit' }

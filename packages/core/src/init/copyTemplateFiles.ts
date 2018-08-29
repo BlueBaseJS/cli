@@ -16,6 +16,12 @@ export const copyTemplateFiles = async (assetsDir: string, configDir: string) =>
 	// Copy common asset files
 	await Utils.copyAll(Utils.fromCore('templates/assets'), Utils.fromProjectRoot(assetsDir, '..', 'common'));
 
+	// src folder
+	const srcPath = Utils.fromProjectRoot('src');
+	if (!fs.existsSync(srcPath)) {
+		await Utils.copyAll(Utils.fromCore('templates/src'), Utils.fromProjectRoot('src'));
+	}
+
 	// Copy tsconfig
 	const tsconfigPath = Utils.fromProjectRoot('tsconfig.json');
 	if (!fs.existsSync(tsconfigPath)) {
