@@ -23,15 +23,17 @@ export const installNotAvailable = (deps: string[] = [], dev: boolean = false) =
 	const depsToInstall: string[] = [];
 
 	// Remove those already installed
-	deps.forEach(dep => {
+	if (checkDeps) {
+		deps.forEach(dep => {
 
-		// For cases like react@^16.3.1
-		const name = dep.substring(0, dep.lastIndexOf('@'));
+			// For cases like react@^16.3.1
+			const name = dep.substring(0, dep.lastIndexOf('@'));
 
-		if (!checkDeps[dep] && !checkDeps[name]) {
-			depsToInstall.push(dep);
-		}
-	});
+			if (!checkDeps[dep] && !checkDeps[name]) {
+				depsToInstall.push(dep);
+			}
+		});
+	}
 
 	// Install!
 	if (depsToInstall.length > 0) {

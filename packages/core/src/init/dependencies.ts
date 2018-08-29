@@ -11,5 +11,6 @@ export const requiredDependencies = [
 export const requiredDevDependencies = [
 	'@blueeast/tslint-config-blueeast',
 	'@types/node',
+	'@types/react',
 	'typescript@^3.0.1',
 ];

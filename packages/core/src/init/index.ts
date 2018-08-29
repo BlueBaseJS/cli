@@ -13,7 +13,8 @@ const requiredDependencies = [
 ];
 
 const requiredDevDependencies = [
-	'@blueeast/tslint-config-blueeast'
+	'@blueeast/tslint-config-blueeast',
+	'@types/react',
 ];
 
 /**
@@ -46,17 +47,21 @@ export default async (configDir: string, _buildDir: string) => {
 	const depsToInstall: string[] = [];
 	const devDepsToInstall: string[] = [];
 
-	requiredDependencies.forEach(dep => {
-		if (!pkgJson.dependencies[dep]) {
-			depsToInstall.push(dep);
-		}
-	});
+	if (pkgJson.dependencies) {
+		requiredDependencies.forEach(dep => {
+			if (!pkgJson.dependencies[dep]) {
+				depsToInstall.push(dep);
+			}
+		});
+	}
 
-	requiredDevDependencies.forEach(dep => {
-		if (!pkgJson.dependencies[dep]) {
-			devDepsToInstall.push(dep);
-		}
-	});
+	if (pkgJson.devDependencies) {
+		requiredDevDependencies.forEach(dep => {
+			if (!pkgJson.devDependencies[dep]) {
+				devDepsToInstall.push(dep);
+			}
+		});
+	}
 
 	if (depsToInstall.length > 0) {
 		Utils.install({ deps: depsToInstall, dev: false });
