@@ -19,6 +19,10 @@ export const copyTemplateFiles = async (assetsDir: string, configDir: string) =>
 	const pkgJson = JSON.parse(pkgJsonBuffer.toString());
 
 	// Modify package.json
+	if (!pkgJson.scripts) {
+		pkgJson.scripts = {};
+	}
+
 	pkgJson.scripts['expo:start'] = 'bluerain expo:start';
 
 	// Update package.json

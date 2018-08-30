@@ -1,14 +1,9 @@
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Utils, init as coreInit } from '@blueeast/bluerain-cli-core';
+import { requiredDependencies, requiredDevDependencies } from '../../scripts/dependencies';
 import { Command } from '@oclif/command';
 import fromRoot from '../../scripts/fromRoot';
 import fs from 'fs';
-
-const requiredDependencies: string[] = [
-	'react-dom@^16.4.2'
-];
-const requiredDevDependencies: string[] = [
-];
 
 export default class CustomCommand extends Command {
 	static description = 'Initializes a directory with an example project.';
@@ -65,33 +60,18 @@ export default class CustomCommand extends Command {
 		const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath).toString());
 
 		// Modify package.json
+		if (!pkgJson.scripts) {
+			pkgJson.scripts = {};
+		}
+
 		pkgJson.scripts['web:start'] = 'bluerain web:start';
 
 		// Update package.json
 		fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
 
 		// Install dependencies
-		const depsToInstall: string[] = [];
-		const devDepsToInstall: string[] = [];
-
-		requiredDependencies.forEach(dep => {
-			if (!pkgJson.dependencies[dep]) {
-				depsToInstall.push(dep);
-			}
-		});
-
-		requiredDevDependencies.forEach(dep => {
-			if (!pkgJson.dependencies[dep]) {
-				devDepsToInstall.push(dep);
-			}
-		});
-
-		if (depsToInstall.length > 0) {
-			Utils.install({ deps: depsToInstall, dev: false });
-		}
-
-		// We force install, because we need to install expo, and react-native
-		Utils.install({ deps: devDepsToInstall, dev: true });
+		Utils.installNotAvailable(requiredDependencies, false);
+		Utils.installNotAvailable(requiredDevDependencies, true);
 
 		// Finish
 		Utils.logger.log({

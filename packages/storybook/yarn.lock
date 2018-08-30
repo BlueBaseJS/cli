@@ -96,9 +96,9 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@blueeast/bluerain-cli-core@^2.0.0-aplha.6":
-  version "2.0.0-aplha.6"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-aplha.6.tgz#f60db87a70e103002e107afd3d921031cb0c9ae8"
+"@blueeast/bluerain-cli-core@^2.0.0-beta.6":
+  version "2.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-beta.6.tgz#5c9265a721a386d78efa719ba576cf058d00ee81"
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
