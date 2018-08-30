@@ -1,7 +1,7 @@
 {
   "name": "@blueeast/bluerain-cli-expo",
   "description": "An Expo plugin for BlueRain CLI",
-  "version": "2.0.0-beta.10",
+  "version": "2.0.0-beta.11",
   "main": "./lib",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",

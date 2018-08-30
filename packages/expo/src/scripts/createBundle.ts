@@ -25,7 +25,7 @@ export const createBundle = async (configDir: string, buildDir: string, assetsDi
 	///// Transpile /////
 	/////////////////////
 
-	execSync(`${fromRoot('node_modules/.bin/tsc')}`);
+	execSync(`${fromRoot('node_modules/.bin/tsc')}`, { env: process.env, stdio: 'inherit' });
 	shell.cp('-rf', `${Utils.fromProjectRoot('dist')}/*`, buildDir);
 
 	shell.mkdir('-p', path.join(buildDir, 'assets'));
