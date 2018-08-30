@@ -14,17 +14,17 @@ export default class CustomCommand extends Command {
 
 	async run() {
 
-		const bluerainPath = Utils.fromProjectRoot('./node_modules/.bin/bluerain');
+		// const bluerainPath = Utils.fromProjectRoot('./node_modules/.bin/bluerain');
 
 		const p1 = spawn(
-			bluerainPath,
+			'bluerain',
 			['storybook-native:start:server'],
 			{ shell: true, env: process.env, stdio: 'inherit' }
 		)
 			.on('close', (_code: number) => {
 
 				spawn(
-					bluerainPath,
+					'bluerain',
 					['storybook-native:start:expo'],
 					{ shell: true, env: process.env, stdio: 'inherit' }
 				)
