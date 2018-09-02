@@ -53,13 +53,23 @@ export default class ExpoStart extends Command {
 		});
 
 		const appJsonPath = path.join(buildDir, 'app.json');
-		spawn(
+		const child = spawn(
 			fromRoot('./node_modules/.bin/expo'),
 			['start', '--config', Utils.fromProjectRoot(appJsonPath)],
 			{ shell: true, env: process.env, stdio: 'inherit' }
 		)
 			.on('close', (_code: number) => process.exit(0))
 			.on('error', (spawnError: Error) => Utils.logger.error(spawnError));
+
+		process.on('SIGINT', () => {
+			Utils.logger.log({
+				label: '@bluerain/cli/expo',
+				level: 'info',
+				message: '💀 Caught interrupt signal, exiting!',
+			});
+			child.kill();
+			process.exit();
+		});
 
 		return;
 	}

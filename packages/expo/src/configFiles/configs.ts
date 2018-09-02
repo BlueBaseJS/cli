@@ -21,13 +21,13 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 			},
 			name: 'BlueRain',
 			orientation: 'portrait',
-			packagerOpts: {
-				sourceExts: [
-					'ts',
-					'tsx'
-				],
-				transformer: path.join('node_modules', 'react-native-typescript-transformer', 'index.js')
-			},
+			// packagerOpts: {
+			// 	sourceExts: [
+			// 		'ts',
+			// 		'tsx'
+			// 	],
+			// 	transformer: path.join('node_modules', 'react-native-typescript-transformer', 'index.js')
+			// },
 			platforms: ['ios', 'android'],
 			privacy: 'public',
 			sdkVersion: getExpoSdk(),

@@ -34,19 +34,9 @@ export default class CustomCommand extends Command {
 			{ env: process.env, stdio: 'inherit' }
 		);
 
-		exec(
+		execSync(
 			`${Utils.fromProjectRoot('./node_modules/.bin/storybook')} start --config-dir ${Utils.fromProjectRoot(configDir, 'storybook')} -p 7007`,
-			{ env: process.env },
-			(err, stdout, stderr) => {
-				if (err) {
-					// node couldn't execute the command
-					return;
-				}
-
-				// the *entire* stdout and stderr (buffered)
-				this.log(`stdout: ${stdout}`);
-				this.log(`stderr: ${stderr}`);
-			}
+			{ env: process.env, stdio: 'inherit' }
 		);
 
 		return;

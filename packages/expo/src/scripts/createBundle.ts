@@ -33,8 +33,11 @@ export const createBundle = async ({ assetsDir, buildDir, configDir, name }: Cre
 	// This really does feel hacky and dirty, explore webpack
 	/////////////////////
 
-	execSync(`${fromRoot('node_modules/.bin/tsc')}`, { env: process.env, stdio: 'inherit' });
-	shell.cp('-rf', `${Utils.fromProjectRoot('dist')}/*`, buildDir);
+	shell.cp(`${fromRoot('./templates/build/tsconfig.json')}`, buildDir);
+	execSync(
+		`${fromRoot('node_modules/.bin/tsc')} -p ${path.join(buildDir, 'tsconfig.json')}`,
+		{ env: process.env, stdio: 'inherit' }
+	);
 
 	Utils.copyTemplateFiles(path.resolve(assetsDir, '..'), path.join(buildDir, 'assets'), { force: true });
 

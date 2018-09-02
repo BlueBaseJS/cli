@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "outDir": "build/expo",
-    "rootDir": ".",
-    "rootDirs": ["bluerain", "src"],
+    "outDir": ".",
+    "rootDir": "../../",
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
@@ -46,7 +45,7 @@
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "."
   },
-  "include": ["src/**/*", "bluerain/**/*"],
-  "exclude": ["node_modules", "dist", "build", "**/*.test.ts", "src/**/*.test.ts"],
+  "include": ["../../src/**/*", "../../bluerain/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "src/**/*.test.ts"],
   "compileOnSave": false
 }
