@@ -10,7 +10,7 @@ export const copyTemplateFiles = async (assetsDir: string, configDir: string) =>
 	await copyCoreTemplateFiles(assetsDir, configDir);
 
 	// Copy files
-	await Utils.copyAll(fromRoot('templates/expo'), Utils.fromProjectRoot(configDir));
+	await Utils.copyAll(fromRoot('templates/storybook-native'), Utils.fromProjectRoot(configDir));
 	await Utils.copyAll(fromRoot('templates/assets'), Utils.fromProjectRoot(assetsDir));
 
 	///// Read package.json
@@ -19,7 +19,7 @@ export const copyTemplateFiles = async (assetsDir: string, configDir: string) =>
 	const pkgJson = JSON.parse(pkgJsonBuffer.toString());
 
 	// Modify package.json
-	pkgJson.scripts['expo:start'] = 'bluerain expo:start';
+	pkgJson.scripts['storybook-native:start'] = 'bluerain storybook-native:start';
 
 	// Update package.json
 	fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));

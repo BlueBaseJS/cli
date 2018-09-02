@@ -35,7 +35,12 @@ export default class ExpoStart extends Command {
 		/////////////////////////////
 
 		// const transiplePath = path.join(buildDir, 'dist');
-		await createBundle(configDir, buildDir, assetsDir);
+		await createBundle({
+			assetsDir,
+			buildDir,
+			configDir,
+			name: 'expo',
+		});
 
 		///////////////////////
 		///// Launch expo /////

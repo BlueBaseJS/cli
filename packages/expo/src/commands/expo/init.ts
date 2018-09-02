@@ -1,7 +1,7 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../expo';
-import { Utils, init as coreInit } from '@blueeast/bluerain-cli-core';
 import { requiredDependencies, requiredDevDependencies } from '../../scripts/dependencies';
 import { Command } from '@oclif/command';
+import { Utils } from '@blueeast/bluerain-cli-core';
 import { copyTemplateFiles } from '../../scripts';
 
 export default class ExpoStart extends Command {
@@ -25,7 +25,7 @@ export default class ExpoStart extends Command {
 
 		// Absolute path of build dir
 		const configDir = Utils.fromProjectRoot(flags.configDir);
-		const buildDir = Utils.fromProjectRoot(flags.buildDir);
+		// const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const assetsDir = Utils.fromProjectRoot(flags.assetsDir);
 
 		// const paths = { assetsDir, buildDir, configDir };
@@ -40,10 +40,6 @@ export default class ExpoStart extends Command {
 			message: '📂 Creating Expo configuration directory...',
 		});
 
-		// core
-		// - copy common folder
-		// - copy tsconfig + tslint
-		await coreInit(configDir, buildDir);
 		await copyTemplateFiles(assetsDir, configDir);
 
 		////////////////////////////

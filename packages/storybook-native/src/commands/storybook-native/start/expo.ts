@@ -36,7 +36,12 @@ export default class CustomCommand extends Command {
 		/////////////////////////////
 
 		// const transiplePath = path.join(buildDir, 'dist');
-		await createBundle(configDir, buildDir, assetsDir);
+		await createBundle({
+			assetsDir,
+			buildDir,
+			configDir,
+			name: 'storybook-native',
+		});
 
 		////////////////////////////////
 		///// Generate AppEntry.js /////

@@ -7,7 +7,13 @@ import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
 
-export const createBundle = async (configDir: string, buildDir: string, assetsDir: string) => {
+export interface CreateBundleInterface {
+	assetsDir: string,
+	buildDir: string,
+	configDir: string,
+	name: string,
+}
+export const createBundle = async ({ assetsDir, buildDir, configDir, name }: CreateBundleInterface) => {
 
 	///////////////////////////
 	///// Clear build dir /////
@@ -24,13 +30,15 @@ export const createBundle = async (configDir: string, buildDir: string, assetsDi
 	/////////////////////
 	///// Transpile /////
 	/////////////////////
+	// This really does feel hacky and dirty, explore webpack
+	/////////////////////
 
 	execSync(`${fromRoot('node_modules/.bin/tsc')}`, { env: process.env, stdio: 'inherit' });
 	shell.cp('-rf', `${Utils.fromProjectRoot('dist')}/*`, buildDir);
 
-	shell.mkdir('-p', path.join(buildDir, 'assets'));
-	shell.cp('-rf', `${Utils.fromProjectRoot('assets')}/*`, path.join(buildDir, 'assets'));
+	Utils.copyTemplateFiles(path.resolve(assetsDir, '..'), path.join(buildDir, 'assets'), { force: true });
 
+	// Directory where we have our transpiled config code
 	// const originalConfigDir = configDir;
 	const tranpileConfigDir = path.join(buildDir, path.relative(Utils.fromProjectRoot(), configDir));
 
@@ -40,48 +48,38 @@ export const createBundle = async (configDir: string, buildDir: string, assetsDi
 
 	// Set config files
 	const configFiles = getConfigFiles(tranpileConfigDir);
-	const fileManager = new FileManager('expo', configFiles);
+	const fileManager = new FileManager(name, configFiles);
 	await fileManager.setup();
 
 	/////////////////////////////
 	///// Generate app.json /////
 	/////////////////////////////
 
-	Utils.logger.info(tranpileConfigDir);
-	const configs = await fileManager.Hooks.run(`expo.configs`, {}, { buildDir, configDir, assetsDir });
+	const configs = await fileManager.Hooks.run(`${name}.configs`, {}, { buildDir, configDir, assetsDir });
 	const appJson = { expo: configs.manifest };
-	const appJsonPath = path.join(buildDir, 'app.json');
-
-	fs.writeFileSync(appJsonPath, JSON.stringify(appJson, null, 2));
 
 	///////////////////////////
 	///// Generate app.js /////
 	///////////////////////////
 
 	// Path to bluerain.js file
-	// let blueeastJsPath = await fileManager.resolveFilePath('bluerain');
-	let blueeastJsPath = await fileManager.resolveWithFallback('bluerain');
+	let blueeastJsPath = await fileManager.resolveFilePath('bluerain');
 
 	// Remove (.ts|.js) extension
 	blueeastJsPath = blueeastJsPath.replace(/\.[^/.]+$/, '');
 
-	// Where do we save this file?
-	const appJsPath = path.join(buildDir, 'App.js');
+	///////////////////////
+	///// Write files /////
+	///////////////////////
 
-	// Inject bluerain.js path in template
-	let data = fs.readFileSync(fromRoot('./templates/App.js')).toString();
-	data = data.replace('BLUERAIN_JS_PATH', `./${path.relative(buildDir, blueeastJsPath)}`);
+	Utils.copyTemplateFiles(fromRoot('./templates/build'), buildDir, {
+		force: true,
+		prompt: false,
+		variables: {
+			'APP_JSON': JSON.stringify(appJson, null, 2),
+			'BLUERAIN_JS_PATH': `./${path.relative(buildDir, blueeastJsPath)}`,
+		},
+		writeFiles: ['App.js', 'app.json'],
+	});
 
-	// Save file
-	fs.writeFileSync(appJsPath, data);
-
-	////////////////////////////
-	///// Copy other files /////
-	////////////////////////////
-
-	// AppEntry.js
-	shell.cp('-u',
-		path.join(fromRoot('./templates/AppEntry.js')),
-		path.join(buildDir, 'AppEntry.js')
-	);
 };
