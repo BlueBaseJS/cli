@@ -1,6 +1,6 @@
 import { Constants } from 'expo';
 import { ExpoFlags } from './expo';
-import { getExpoSdk } from './scripts/getExpoSdk';
+import { getExpoSdk } from './scripts/expo/getExpoSdk';
 import path from 'path';
 import { Utils } from '@blueeast/bluerain-cli-core/lib';
 

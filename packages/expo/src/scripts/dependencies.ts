@@ -1,5 +1,5 @@
 import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDeps } from '@blueeast/bluerain-cli-core';
-import { getLatestExpoVersion } from './getLatestExpoVersion';
+import { getLatestExpoVersion } from './expo/getLatestExpoVersion';
 
 /**
  * List of dependencies required by this plugin

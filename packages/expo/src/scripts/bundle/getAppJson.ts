@@ -1,7 +1,7 @@
 import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
 import { execSync } from 'child_process';
 import { getDefaults, } from '@blueeast/bluerain-cli-core';
-import fromRoot from './fromRoot';
+import fromRoot from '../fromRoot';
 import path from 'path';
 // import shell from 'shelljs';
 import rimraf from 'rimraf';
@@ -52,7 +52,7 @@ export const getAppJson = async ({ assetsDir, buildDir, configDir, name }: Creat
 
 	const configFiles = [{
 		...defaults.configs,
-		defaultPath: path.join(__dirname, '../configs')
+		defaultPath: path.join(__dirname, '../../configs')
 	}];
 
 	const fileManager = new FileManager(name, configFiles);

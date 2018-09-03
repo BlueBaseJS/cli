@@ -1,5 +1,5 @@
 import { Utils } from '@blueeast/bluerain-cli-core';
-import fromRoot from './fromRoot';
+import fromRoot from '../fromRoot';
 import fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';

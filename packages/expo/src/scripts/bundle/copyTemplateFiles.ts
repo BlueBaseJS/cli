@@ -1,5 +1,5 @@
 import { Utils, copyTemplateFiles as copyCoreTemplateFiles } from '@blueeast/bluerain-cli-core';
-import fromRoot from './fromRoot';
+import fromRoot from '../fromRoot';
 
 /**
  * Copy template files to project directory.
