@@ -13,8 +13,10 @@
     "rimraf": "^2.6.2",
     "semver": "^5.5.1",
     "shelljs": "^0.8.2",
+    "ts-loader": "^4.5.0",
     "tslib": "^1",
-    "typescript": "^3.0.1"
+    "typescript": "^3.0.1",
+    "webpack": "^4.17.1"
   },
   "devDependencies": {
     "@blueeast/bluerain-os": "^3.13.8",
@@ -32,6 +34,7 @@
     "@types/rimraf": "^2.0.2",
     "@types/semver": "^5.5.0",
     "@types/shelljs": "^0.8.0",
+    "@types/webpack": "^4.4.11",
     "chai": "^4",
     "expo": "^26.1.1",
     "mocha": "^5",

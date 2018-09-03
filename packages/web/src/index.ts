@@ -1,7 +1,6 @@
 import * as WebpackTools from './webpack';
 
-export default {};
-
+export * from './types';
 export * from './server/components';
 export {
 	WebpackTools
