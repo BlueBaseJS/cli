@@ -10,8 +10,14 @@ import fs from 'fs';
 export const mergePackageJson = (pkg: object) => {
 
 	const pkgJsonPath = fromProjectRoot('package.json');
-	const pkgJsonBuffer = fs.readFileSync(pkgJsonPath);
-	const pkgJson = JSON.parse(pkgJsonBuffer.toString());
+
+	let pkgJson = {};
+
+	// Delete dir if already exists
+	if (fs.existsSync(pkgJsonPath)) {
+		const pkgJsonBuffer = fs.readFileSync(pkgJsonPath);
+		pkgJson = JSON.parse(pkgJsonBuffer.toString());
+	}
 
 	const newPkg = deepmerge(pkgJson, pkg);
 

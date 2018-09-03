@@ -43,7 +43,7 @@ export default class StartServer extends Command {
 				'-p',
 				'7007'
 			],
-			{ shell: true, env: process.env, stdio: 'inherit' }
+			{ shell: true, env: process.env, cwd: Utils.fromProjectRoot(), stdio: 'inherit' }
 		);
 	}
 }

@@ -16,8 +16,6 @@ export interface CreateBundleInterface {
 }
 export const createBundle = async ({ assetsDir, buildDir, configDir, name, templateVars }: CreateBundleInterface) => {
 
-	debugger;
-
 	///////////////////////////
 	///// Clear build dir /////
 	///////////////////////////

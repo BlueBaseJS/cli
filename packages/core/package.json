@@ -1,7 +1,7 @@
 {
   "name": "@blueeast/bluerain-cli-core",
   "description": "A plugin for BlueRain CLI",
-  "version": "2.0.0-beta.9",
+  "version": "2.0.0-beta.12",
   "author": "BlueEast Team <code@blueeast.com>",
   "main": "./lib",
   "sideEffects": false,
@@ -9,7 +9,6 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "app-root-dir": "^1.0.2",
     "deepmerge": "^2.1.1",
     "detect-installed": "^2.0.4",
     "dotenv": "^6.0.0",

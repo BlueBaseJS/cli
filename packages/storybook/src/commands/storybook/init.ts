@@ -70,8 +70,8 @@ export default class CustomCommand extends Command {
 		fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
 
 		// Install dependencies
-		Utils.installNotAvailable(requiredDependencies, false);
-		Utils.installNotAvailable(requiredDevDependencies, true);
+		Utils.installMissing(requiredDependencies, false);
+		Utils.installMissing(requiredDevDependencies, true);
 
 		// Finish
 		Utils.logger.log({
