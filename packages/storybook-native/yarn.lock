@@ -96,7 +96,7 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@blueeast/bluerain-cli-core@^2.0.0-beta.7", "@blueeast/bluerain-cli-core@^2.0.0-beta.9":
+"@blueeast/bluerain-cli-core@^2.0.0-beta.9":
   version "2.0.0-beta.9"
   resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-beta.9.tgz#b6bccac8dcde6b32e4517c283041cde9f6431316"
   dependencies:
@@ -116,9 +116,9 @@
     winston "^3.0.0"
     yarn-install "^1.0.0"
 
-"@blueeast/bluerain-cli-expo@^2.0.0-beta.17":
-  version "2.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-expo/-/bluerain-cli-expo-2.0.0-beta.17.tgz#0d6790aa7e3fc45517396698e531c8a1c93b01a7"
+"@blueeast/bluerain-cli-expo@^2.0.0-beta.18":
+  version "2.0.0-beta.18"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-expo/-/bluerain-cli-expo-2.0.0-beta.18.tgz#2da46ae20ed1887be446330337d2b81660c86cb7"
   dependencies:
     "@blueeast/bluerain-cli-core" "^2.0.0-beta.9"
     "@oclif/command" "^1"
