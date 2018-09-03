@@ -1,19 +1,22 @@
-import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
-import { execSync } from 'child_process';
-import { getConfigFiles } from '..';
+import { Utils } from '@blueeast/bluerain-cli-core';
 import fromRoot from './fromRoot';
 import fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
+import { getAppJson } from './getAppJson';
+import { getBlueRainPath } from './getBlueRainPath';
 
 export interface CreateBundleInterface {
 	assetsDir: string,
 	buildDir: string,
 	configDir: string,
 	name: string,
+	templateVars?: any
 }
-export const createBundle = async ({ assetsDir, buildDir, configDir, name }: CreateBundleInterface) => {
+export const createBundle = async ({ assetsDir, buildDir, configDir, name, templateVars }: CreateBundleInterface) => {
+
+	debugger;
 
 	///////////////////////////
 	///// Clear build dir /////
@@ -27,49 +30,41 @@ export const createBundle = async ({ assetsDir, buildDir, configDir, name }: Cre
 	// Create a new build dir
 	shell.mkdir('-p', buildDir);
 
-	/////////////////////
-	///// Transpile /////
-	/////////////////////
-	// This really does feel hacky and dirty, explore webpack
-	/////////////////////
+	// /////////////////////
+	// ///// Transpile /////
+	// /////////////////////
 
-	shell.cp(`${fromRoot('./templates/build/tsconfig.json')}`, buildDir);
-	execSync(
-		`${fromRoot('node_modules/.bin/tsc')} -p ${path.join(buildDir, 'tsconfig.json')}`,
-		{ env: process.env, stdio: 'inherit' }
-	);
+	// shell.cp(`${fromRoot('./templates/build/tsconfig.json')}`, buildDir);
+	// execSync(
+	// 	`${fromRoot('node_modules/.bin/tsc')} -p ${path.join(buildDir, 'tsconfig.json')}`,
+	// 	{ env: process.env, stdio: 'inherit' }
+	// );
 
-	Utils.copyTemplateFiles(path.resolve(assetsDir, '..'), path.join(buildDir, 'assets'), { force: true });
+	// Utils.copyTemplateFiles(path.resolve(assetsDir, '..'), path.join(buildDir, 'assets'), { force: true });
 
-	// Directory where we have our transpiled config code
-	// const originalConfigDir = configDir;
-	const tranpileConfigDir = path.join(buildDir, path.relative(Utils.fromProjectRoot(), configDir));
+	// // Directory where we have our transpiled config code
+	// // const originalConfigDir = configDir;
+	// const tranpileConfigDir = path.join(buildDir, path.relative(Utils.fromProjectRoot(), configDir));
 
-	/////////////////////////////
-	///// Setup FileManager /////
-	/////////////////////////////
 
-	// Set config files
-	const configFiles = getConfigFiles(tranpileConfigDir);
-	const fileManager = new FileManager(name, configFiles);
-	await fileManager.setup();
+	// /////////////////////////////
+	// ///// Generate app.json /////
+	// /////////////////////////////
+	
+	// const configFiles = getConfigFiles(tranpileConfigDir);
+	// const fileManager = new FileManager(name, configFiles);
+	// await fileManager.setup();
 
-	/////////////////////////////
-	///// Generate app.json /////
-	/////////////////////////////
+	// const configs = await fileManager.Hooks.run(`${name}.configs`, {}, { buildDir, configDir, assetsDir });
+	// const appJson = { expo: configs.manifest };
 
-	const configs = await fileManager.Hooks.run(`${name}.configs`, {}, { buildDir, configDir, assetsDir });
-	const appJson = { expo: configs.manifest };
+	const appJson = await getAppJson({ assetsDir, buildDir, configDir, name });
 
 	///////////////////////////
 	///// Generate app.js /////
 	///////////////////////////
 
-	// Path to bluerain.js file
-	let blueeastJsPath = await fileManager.resolveFilePath('bluerain');
-
-	// Remove (.ts|.js) extension
-	blueeastJsPath = blueeastJsPath.replace(/\.[^/.]+$/, '');
+	const bluerainJsPath = await getBlueRainPath({ configDir, name });
 
 	///////////////////////
 	///// Write files /////
@@ -80,7 +75,8 @@ export const createBundle = async ({ assetsDir, buildDir, configDir, name }: Cre
 		prompt: false,
 		variables: {
 			'APP_JSON': JSON.stringify(appJson, null, 2),
-			'BLUERAIN_JS_PATH': `./${path.relative(buildDir, blueeastJsPath)}`,
+			'BLUERAIN_JS_PATH': `./${path.relative(buildDir, bluerainJsPath)}`,
+			...templateVars
 		},
 		writeFiles: ['App.js', 'app.json'],
 	});

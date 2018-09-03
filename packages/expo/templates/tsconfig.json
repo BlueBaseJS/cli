@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "outDir": ".",
-    "rootDir": "../../",
+    "rootDir": "../../../",
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
@@ -45,7 +45,7 @@
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "."
   },
-  "include": ["../../src/**/*", "../../bluerain/**/*"],
+  "include": ["../../../src/**/*", "../../../bluerain/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.ts", "src/**/*.test.ts"],
   "compileOnSave": false
 }

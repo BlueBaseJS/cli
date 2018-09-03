@@ -1,9 +1,9 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../../expo';
-import { exec, execSync } from 'child_process';
+import { execSync, spawn } from 'child_process';
 import { Command } from '@oclif/command';
 import { Utils } from '@blueeast/bluerain-cli-core';
 
-export default class CustomCommand extends Command {
+export default class StartServer extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
 
 	static examples = [
@@ -13,7 +13,7 @@ export default class CustomCommand extends Command {
 	static flags = ExpoFlagDefs;
 
 	async run() {
-		const parsed = this.parse(CustomCommand);
+		const parsed = this.parse(StartServer);
 		const flags = parsed.flags as ExpoFlags;
 
 		// Absolute path of build dir
@@ -34,11 +34,16 @@ export default class CustomCommand extends Command {
 			{ env: process.env, stdio: 'inherit' }
 		);
 
-		execSync(
-			`${Utils.fromProjectRoot('./node_modules/.bin/storybook')} start --config-dir ${Utils.fromProjectRoot(configDir, 'storybook')} -p 7007`,
-			{ env: process.env, stdio: 'inherit' }
+		return spawn(
+			Utils.fromProjectRoot('./node_modules/.bin/storybook'),
+			[
+				'start',
+				'--config-dir',
+				Utils.fromProjectRoot(configDir, 'storybook'),
+				'-p',
+				'7007'
+			],
+			{ shell: true, env: process.env, stdio: 'inherit' }
 		);
-
-		return;
 	}
 }

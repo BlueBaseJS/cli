@@ -96,29 +96,31 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@blueeast/bluerain-cli-core@^2.0.0-beta.4":
-  version "2.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-beta.4.tgz#e0373db487f7240e6aa2a031b81d11477d9205d2"
+"@blueeast/bluerain-cli-core@^2.0.0-beta.7", "@blueeast/bluerain-cli-core@^2.0.0-beta.9":
+  version "2.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-beta.9.tgz#b6bccac8dcde6b32e4517c283041cde9f6431316"
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
     app-root-dir "^1.0.2"
+    deepmerge "^2.1.1"
     detect-installed "^2.0.4"
     dotenv "^6.0.0"
     file-regex "^2.1.1"
     inquirer "^6.2.0"
     lodash.isnil "^4.0.0"
+    lodash.template "^4.4.0"
     node-notifier "^5.2.1"
     shelljs "^0.8.2"
     tslib "^1"
     winston "^3.0.0"
     yarn-install "^1.0.0"
 
-"@blueeast/bluerain-cli-expo@^2.0.0-beta.1":
-  version "2.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-expo/-/bluerain-cli-expo-2.0.0-beta.7.tgz#aded649bb30f3ea9a77eae61299a5da91b86051d"
+"@blueeast/bluerain-cli-expo@^2.0.0-beta.17":
+  version "2.0.0-beta.17"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-expo/-/bluerain-cli-expo-2.0.0-beta.17.tgz#0d6790aa7e3fc45517396698e531c8a1c93b01a7"
   dependencies:
-    "@blueeast/bluerain-cli-core" "^2.0.0-beta.4"
+    "@blueeast/bluerain-cli-core" "^2.0.0-beta.9"
     "@oclif/command" "^1"
     "@oclif/config" "^1"
     expo-cli "^1.1.0-beta.5"
@@ -1944,7 +1946,7 @@ deepmerge@^1.3.0:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.5.2.tgz#10499d868844cdad4fee0842df8c7f6f0c95a753"
 
-deepmerge@^2.0.1:
+deepmerge@^2.0.1, deepmerge@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.1.1.tgz#e862b4e45ea0555072bf51e7fd0d9845170ae768"
 
