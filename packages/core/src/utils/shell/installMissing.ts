@@ -1,7 +1,6 @@
 import { fromProjectRoot } from '../paths';
 import { install } from './install';
 import fs from 'fs';
-import logger from '../logger';
 
 /**
  * Takes a list of dependencies and installs only those that are
@@ -10,14 +9,21 @@ import logger from '../logger';
  * @param dep An array of dependencies to check and install
  * @param dev Is this a dev dependency?
  */
-export const installNotAvailable = (deps: string[] = [], dev: boolean = false) => {
+export const installMissing = (deps: string[] = [], dev: boolean = false) => {
 
 	// Read package.json
 	const pkgJsonPath = fromProjectRoot('package.json');
-	const pkgJsonBuffer = fs.readFileSync(pkgJsonPath);
-	const pkgJson = JSON.parse(pkgJsonBuffer.toString());
 
-	const checkDeps = (dev === true) ? pkgJson.devDependencies : pkgJson.dependencies;
+	let pkgJson: { [key: string]: any } = {};
+
+	// Delete dir if already exists
+	if (fs.existsSync(pkgJsonPath)) {
+		const pkgJsonBuffer = fs.readFileSync(pkgJsonPath);
+		pkgJson = JSON.parse(pkgJsonBuffer.toString());
+	}
+
+	pkgJson = { dependencies: {}, devDependencies: {}, ...pkgJson };
+	const checkDeps: { [key: string]: string } = (dev === true) ? pkgJson.devDependencies : pkgJson.dependencies;
 
 	// This will have the final list to install
 	const depsToInstall: string[] = [];
@@ -37,7 +43,6 @@ export const installNotAvailable = (deps: string[] = [], dev: boolean = false) =
 
 	// Install!
 	if (depsToInstall.length > 0) {
-		logger.info(`Installing missing ${dev === true ? 'dev' : ''} dependencies`, depsToInstall);
 		install({ deps: depsToInstall, dev });
 	}
 };

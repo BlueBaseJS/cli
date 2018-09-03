@@ -1,21 +1,8 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../expo';
+import { requiredDependencies, requiredDevDependencies } from '../../scripts/dependencies';
 import { Command } from '@oclif/command';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import { copyTemplateFiles } from '../../scripts/copyTemplateFiles';
-
-const requiredDependencies = [
-	'deepmerge',
-];
-
-const requiredDevDependencies = [
-	'@blueeast/bluerain-storybook-addon',
-	'@storybook/addon-actions',
-	'@storybook/addon-links',
-	'@storybook/react-native',
-	'@types/deepmerge',
-	'react-native-storybook-loader',
-	'react-native-typescript-transformer',
-];
 
 export default class CustomCommand extends Command {
 	static description = 'Initializes a directory with an example project.';
@@ -53,10 +40,6 @@ export default class CustomCommand extends Command {
 			message: '📂 Creating Expo configuration directory...',
 		});
 
-		// core
-		// - copy common folder
-		// - copy tsconfig + tslint
-		// await coreInit(configDir, buildDir);
 		await copyTemplateFiles(assetsDir, configDir);
 
 		////////////////////////////
@@ -70,8 +53,8 @@ export default class CustomCommand extends Command {
 		});
 
 		// Install dependencies
-		Utils.installNotAvailable(requiredDependencies, false);
-		Utils.installNotAvailable(requiredDevDependencies, true);
+		Utils.installMissing(requiredDependencies, false);
+		Utils.installMissing(requiredDevDependencies, true);
 
 		// Finish
 		Utils.logger.log({

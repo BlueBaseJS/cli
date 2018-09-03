@@ -96,13 +96,12 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@blueeast/bluerain-cli-core@^2.0.0-beta.9":
-  version "2.0.0-beta.9"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-beta.9.tgz#b6bccac8dcde6b32e4517c283041cde9f6431316"
+"@blueeast/bluerain-cli-core@^2.0.0-beta.12":
+  version "2.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-beta.12.tgz#711c59662d2e9774c8840dfff3db28a49e608522"
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
-    app-root-dir "^1.0.2"
     deepmerge "^2.1.1"
     detect-installed "^2.0.4"
     dotenv "^6.0.0"
@@ -116,11 +115,11 @@
     winston "^3.0.0"
     yarn-install "^1.0.0"
 
-"@blueeast/bluerain-cli-expo@^2.0.0-beta.18":
-  version "2.0.0-beta.18"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-expo/-/bluerain-cli-expo-2.0.0-beta.18.tgz#2da46ae20ed1887be446330337d2b81660c86cb7"
+"@blueeast/bluerain-cli-expo@^2.0.0-beta.21":
+  version "2.0.0-beta.21"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-expo/-/bluerain-cli-expo-2.0.0-beta.21.tgz#39470e71062463afa3ad7cacac251f90f3f59e2f"
   dependencies:
-    "@blueeast/bluerain-cli-core" "^2.0.0-beta.9"
+    "@blueeast/bluerain-cli-core" "^2.0.0-beta.12"
     "@oclif/command" "^1"
     "@oclif/config" "^1"
     expo-cli "^1.1.0-beta.5"
@@ -443,6 +442,10 @@
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.4.tgz#5ca073b330d90b4066d6ce18f60d57f2084ce8ca"
 
+"@types/deepmerge@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/deepmerge/-/deepmerge-2.1.0.tgz#22f175e5cb55874fe818caa6fd50a1d98fc3d748"
+
 "@types/events@*":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
@@ -474,7 +477,13 @@
     "@types/rx" "*"
     "@types/through" "*"
 
-"@types/lodash@^4.14.116":
+"@types/lodash.template@^4.4.4":
+  version "4.4.4"
+  resolved "https://registry.yarnpkg.com/@types/lodash.template/-/lodash.template-4.4.4.tgz#75fddd12297fb12683f9be42e05c646c359a1ff7"
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*", "@types/lodash@^4.14.116":
   version "4.14.116"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.116.tgz#5ccf215653e3e8c786a58390751033a9adca0eb9"
 
@@ -720,10 +729,6 @@ apollo-utilities@^1.0.0, apollo-utilities@^1.0.1:
   resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.19.tgz#f2d253bb8aa1395b62ded2f7749884233b5838e2"
   dependencies:
     fast-json-stable-stringify "^2.0.0"
-
-app-root-dir@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/app-root-dir/-/app-root-dir-1.0.2.tgz#38187ec2dea7577fff033ffcb12172692ff6e118"
 
 append-transform@^0.4.0:
   version "0.4.0"

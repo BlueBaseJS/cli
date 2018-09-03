@@ -1,19 +1,15 @@
 {
-  "devDependencies": {
-    "@blueeast/bluerain-storybook-addon": "^1.1.0",
-    "@storybook/addon-actions": "^3.4.10",
-    "@storybook/addon-links": "^3.4.10",
-    "@storybook/react-native": "^3.4.10",
-    "react-native-storybook-loader": "^1.8.0"
-  },
   "config": {
     "react-native-storybook-loader": {
       "searchDir": [
         "src",
-        "CONFIG_DIR_PATH"
+        "<%= CONFIG_DIR_PATH %>"
       ],
       "pattern": "**/*.stories.tsx",
-      "outputFile": "CONFIG_DIR_PATH/storybook/storyLoader.js"
+      "outputFile": "<%= CONFIG_DIR_PATH %>/storybook/storyLoader.js"
     }
+  },
+  "scripts": {
+    "storybook-native:start": "bluerain storybook-native:start"
   }
 }

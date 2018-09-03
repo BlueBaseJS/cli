@@ -66,7 +66,7 @@ export default class StartExpo extends Command {
 		return spawn(
 			fromRoot('./node_modules/.bin/expo'),
 			['start', '--config', Utils.fromProjectRoot(appJsonPath)],
-			{ shell: true, env: process.env, stdio: 'inherit' }
+			{ shell: true, env: process.env, cwd: Utils.fromProjectRoot(), stdio: 'inherit' }
 		);
 
 		return;
