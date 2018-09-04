@@ -28,33 +28,9 @@ export const createBundle = async ({ assetsDir, buildDir, configDir, name, templ
 	// Create a new build dir
 	shell.mkdir('-p', buildDir);
 
-	// /////////////////////
-	// ///// Transpile /////
-	// /////////////////////
-
-	// shell.cp(`${fromRoot('./templates/build/tsconfig.json')}`, buildDir);
-	// execSync(
-	// 	`${fromRoot('node_modules/.bin/tsc')} -p ${path.join(buildDir, 'tsconfig.json')}`,
-	// 	{ env: process.env, stdio: 'inherit' }
-	// );
-
-	// Utils.copyTemplateFiles(path.resolve(assetsDir, '..'), path.join(buildDir, 'assets'), { force: true });
-
-	// // Directory where we have our transpiled config code
-	// // const originalConfigDir = configDir;
-	// const tranpileConfigDir = path.join(buildDir, path.relative(Utils.fromProjectRoot(), configDir));
-
-
 	// /////////////////////////////
 	// ///// Generate app.json /////
 	// /////////////////////////////
-	
-	// const configFiles = getConfigFiles(tranpileConfigDir);
-	// const fileManager = new FileManager(name, configFiles);
-	// await fileManager.setup();
-
-	// const configs = await fileManager.Hooks.run(`${name}.configs`, {}, { buildDir, configDir, assetsDir });
-	// const appJson = { expo: configs.manifest };
 
 	const appJson = await getAppJson({ assetsDir, buildDir, configDir, name });
 
@@ -68,7 +44,7 @@ export const createBundle = async ({ assetsDir, buildDir, configDir, name, templ
 	///// Write files /////
 	///////////////////////
 
-	Utils.copyTemplateFiles(fromRoot('./templates/build'), buildDir, {
+	await Utils.copyTemplateFiles(fromRoot('./templates/build'), buildDir, {
 		force: true,
 		prompt: false,
 		variables: {

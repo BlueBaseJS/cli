@@ -1,9 +1,8 @@
-import { ExpoFlagDefs, ExpoFlags } from '../../cmd';
-import { Utils, init as coreInit } from '@blueeast/bluerain-cli-core';
+import { FlagDefs, Flags } from '../../cmd';
 import { requiredDependencies, requiredDevDependencies } from '../../scripts/dependencies';
 import { Command } from '@oclif/command';
-import fromRoot from '../../scripts/fromRoot';
-import fs from 'fs';
+import { Utils } from '@blueeast/bluerain-cli-core';
+import { copyTemplateFiles } from '../../scripts/copyTemplateFiles';
 
 export default class CustomCommand extends Command {
 	static description = 'Initializes a directory with an example project.';
@@ -12,11 +11,11 @@ export default class CustomCommand extends Command {
 		`$ bluerain storybook:init`,
 	];
 
-	static flags = ExpoFlagDefs;
+	static flags = FlagDefs;
 
 	async run() {
 		const parsed = this.parse(CustomCommand);
-		const flags = parsed.flags as ExpoFlags;
+		const flags = parsed.flags as Flags;
 
 		Utils.logger.log({
 			label: '@bluerain/cli/storybook',
@@ -26,12 +25,8 @@ export default class CustomCommand extends Command {
 
 		// Absolute path of build dir
 		const configDir = Utils.fromProjectRoot(flags.configDir);
-		const buildDir = Utils.fromProjectRoot(flags.buildDir);
-
-		// core
-		// - copy common folder
-		// - copy tsconfig + tslint
-		await coreInit(configDir, buildDir);
+		// const buildDir = Utils.fromProjectRoot(flags.buildDir);
+		const assetsDir = Utils.fromProjectRoot(flags.assetsDir);
 
 		///////////////////////////////
 		///// Copy Template Files /////
@@ -43,7 +38,7 @@ export default class CustomCommand extends Command {
 			message: '📂 Creating Storybook configuration directory...',
 		});
 
-		await Utils.copyAll(fromRoot('templates/storybook'), Utils.fromProjectRoot(configDir));
+		await copyTemplateFiles(assetsDir, configDir);
 
 		////////////////////////////
 		///// Add dependencies /////
@@ -54,20 +49,6 @@ export default class CustomCommand extends Command {
 			level: 'info',
 			message: '📦 Installing dependencies...',
 		});
-
-		///// Read package.json
-		const pkgJsonPath = Utils.fromProjectRoot('package.json');
-		const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath).toString());
-
-		// Modify package.json
-		if (!pkgJson.scripts) {
-			pkgJson.scripts = {};
-		}
-
-		pkgJson.scripts['storybook:start'] = 'bluerain storybook:start';
-
-		// Update package.json
-		fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
 
 		// Install dependencies
 		Utils.installMissing(requiredDependencies, false);

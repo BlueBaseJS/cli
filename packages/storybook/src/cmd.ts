@@ -1,11 +1,12 @@
 import { flags } from '@oclif/command';
 
-export interface ExpoFlags {
+export interface Flags {
 	buildDir: string;
 	configDir: string;
+	assetsDir: string;
 }
 
-export const ExpoFlagDefs = {
+export const FlagDefs = {
 	configDir: flags.string({
 		default: './bluerain/storybook',
 		description: 'Path to config directory relative to the root directory',
@@ -24,16 +25,12 @@ export const ExpoFlagDefs = {
 		required: false,
 	}),
 
+	assetsDir: flags.string({
+		default: './assets/storybook',
+		description: 'Path to assets directory relative to the root directory',
+		env: 'ASSETS_DIR',
+		hidden: false,
+		multiple: false,
+		required: false,
+	}),
 };
-
-// export default class Expo extends Command {
-// 	static description = 'Brings BlueRain projects to expo platform';
-
-// 	static examples = [
-// 		`$ bluerain expo start`,
-// 	];
-
-// 	async run() {
-// 		// const { args, flags } = this.parse(Expo);
-// 	}
-// }
