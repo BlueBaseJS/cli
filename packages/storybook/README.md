@@ -39,6 +39,7 @@ USAGE
   $ bluerain storybook:init
 
 OPTIONS
+  --assetsDir=assetsDir  [default: ./assets/storybook] Path to assets directory relative to the root directory
   --buildDir=buildDir    [default: ./build/storybook] Path to build directory relative to the root directory
   --configDir=configDir  [default: ./bluerain/storybook] Path to config directory relative to the root directory
 
@@ -46,7 +47,7 @@ EXAMPLE
   $ bluerain storybook:init
 ```
 
-_See code: [src/commands/storybook/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/storybook/init.ts)_
+_See code: [src/commands/storybook/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.3/src/commands/storybook/init.ts)_
 
 ## `bluerain storybook:start`
 
@@ -57,6 +58,7 @@ USAGE
   $ bluerain storybook:start
 
 OPTIONS
+  --assetsDir=assetsDir  [default: ./assets/storybook] Path to assets directory relative to the root directory
   --buildDir=buildDir    [default: ./build/storybook] Path to build directory relative to the root directory
   --configDir=configDir  [default: ./bluerain/storybook] Path to config directory relative to the root directory
 
@@ -64,5 +66,5 @@ EXAMPLE
   $ bluerain storybook:start
 ```
 
-_See code: [src/commands/storybook/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.1/src/commands/storybook/start.ts)_
+_See code: [src/commands/storybook/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.3/src/commands/storybook/start.ts)_
 <!-- commandsstop -->
