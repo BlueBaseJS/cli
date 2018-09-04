@@ -100,18 +100,19 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@blueeast/bluerain-cli-core@^2.0.0-beta.6":
-  version "2.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-beta.6.tgz#5c9265a721a386d78efa719ba576cf058d00ee81"
+"@blueeast/bluerain-cli-core@^2.0.0-beta.12":
+  version "2.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@blueeast/bluerain-cli-core/-/bluerain-cli-core-2.0.0-beta.12.tgz#711c59662d2e9774c8840dfff3db28a49e608522"
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
-    app-root-dir "^1.0.2"
+    deepmerge "^2.1.1"
     detect-installed "^2.0.4"
     dotenv "^6.0.0"
     file-regex "^2.1.1"
     inquirer "^6.2.0"
     lodash.isnil "^4.0.0"
+    lodash.template "^4.4.0"
     node-notifier "^5.2.1"
     shelljs "^0.8.2"
     tslib "^1"
@@ -1055,10 +1056,6 @@ anymatch@^2.0.0:
   dependencies:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
-
-app-root-dir@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/app-root-dir/-/app-root-dir-1.0.2.tgz#38187ec2dea7577fff033ffcb12172692ff6e118"
 
 app-root-path@^2.0.1:
   version "2.1.0"

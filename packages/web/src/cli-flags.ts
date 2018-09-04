@@ -3,6 +3,7 @@ import { flags } from '@oclif/command';
 export interface Flags {
 	buildDir: string;
 	configDir: string;
+	assetsDir: string;
 }
 
 export const FlagDefs = {
@@ -19,6 +20,15 @@ export const FlagDefs = {
 		default: './build/web',
 		description: 'Path to build directory relative to the root directory',
 		env: 'BUILD_DIR',
+		hidden: false,
+		multiple: false,
+		required: false,
+	}),
+
+	assetsDir: flags.string({
+		default: './assets/web',
+		description: 'Path to assets directory relative to the root directory',
+		env: 'ASSETS_DIR',
 		hidden: false,
 		multiple: false,
 		required: false,

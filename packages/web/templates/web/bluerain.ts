@@ -1,6 +1,6 @@
-import deepmerge from 'deepmerge';
 import { BootOptions } from '@blueeast/bluerain-os';
 import commonBootOptions from '../common/bluerain';
+import deepmerge from 'deepmerge';
 
 /**
  * Add your platform specific configs here. 
@@ -13,8 +13,8 @@ const bootOptions: BootOptions = {
 
 		wallpaper: {
 			backgroundColor: 'white',
-			source: require('./assets/wallpaper.png'),
 			resizeMode: 'cover',
+			source: require('<%= ASSET_DIR_PATH %>/wallpaper.png'),
 		},
 	}
 };
