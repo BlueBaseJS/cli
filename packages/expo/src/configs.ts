@@ -1,5 +1,5 @@
 import { Constants } from 'expo';
-import { ExpoFlags } from './expo';
+import { ExpoFlags } from './flags';
 import { getExpoSdk } from './scripts/expo/getExpoSdk';
 import path from 'path';
 import { Utils } from '@blueeast/bluerain-cli-core/lib';
@@ -18,7 +18,11 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 			entryPoint: path.relative(Utils.fromProjectRoot(), path.join(paths.buildDir, 'AppEntry.js')),
 			icon: path.relative(Utils.fromProjectRoot(), path.join(paths.assetsDir, './icon.png')),
 			ios: {
-				supportsTablet: true
+				supportsTablet: true,
+				bundleIdentifier: 'com.bluerain.app'
+			},
+			android: {
+				package: 'com.bluerain.app'
 			},
 			name: 'BlueRain',
 			orientation: 'portrait',
