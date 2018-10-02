@@ -4,7 +4,6 @@ export interface ExpoFlags {
 	assetsDir: string;
 	buildDir: string;
 	configDir: string;
-	expoBuildPlatform: string;
 }
 
 export const ExpoFlagDefs = {
@@ -34,10 +33,6 @@ export const ExpoFlagDefs = {
 		multiple: false,
 		required: false,
 	}),
-
-	expoBuildPlatform: flags.string({
-		options: ['android', 'ios']
-	})
 
 };
 
