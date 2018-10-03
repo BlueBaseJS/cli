@@ -48,7 +48,7 @@
 			"*": ["typings/*"]
 		}
   },
-  "include": ["src/**/*", "../../typings/@blueeast/lib/lib.d.ts", "../../typings/@blueeast/bluerain-cli-core.d.ts", "../../typings/"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "lib", "**/*.test.ts", "src/**/*.test.ts"],
   "compileOnSave": false
 }
