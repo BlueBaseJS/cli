@@ -27,8 +27,48 @@ $ bluerain plugins:install @blueeast/bluerain-cli-expo
 ```
 # Commands
 <!-- commands -->
+* [`bluerain expo:build:android`](#bluerain-expobuildandroid)
+* [`bluerain expo:build:ios`](#bluerain-expobuildios)
 * [`bluerain expo:init`](#bluerain-expoinit)
 * [`bluerain expo:start`](#bluerain-expostart)
+
+## `bluerain expo:build:android`
+
+creates a build for android.
+
+```
+USAGE
+  $ bluerain expo:build:android
+
+OPTIONS
+  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/expo] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluerain expo:build:android
+```
+
+_See code: [lib/commands/expo/build/android.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.22/lib/commands/expo/build/android.js)_
+
+## `bluerain expo:build:ios`
+
+creates a build for ios.
+
+```
+USAGE
+  $ bluerain expo:build:ios
+
+OPTIONS
+  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluerain/expo] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluerain expo:build:ios
+```
+
+_See code: [lib/commands/expo/build/ios.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.22/lib/commands/expo/build/ios.js)_
 
 ## `bluerain expo:init`
 
@@ -47,7 +87,7 @@ EXAMPLE
   $ bluerain expo:init
 ```
 
-_See code: [lib/commands/expo/init.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.21/lib/commands/expo/init.js)_
+_See code: [lib/commands/expo/init.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.22/lib/commands/expo/init.js)_
 
 ## `bluerain expo:start`
 
@@ -66,5 +106,5 @@ EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [lib/commands/expo/start.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.21/lib/commands/expo/start.js)_
+_See code: [lib/commands/expo/start.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.22/lib/commands/expo/start.js)_
 <!-- commandsstop -->
