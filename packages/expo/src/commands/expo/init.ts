@@ -1,4 +1,4 @@
-import { ExpoFlagDefs, ExpoFlags } from '../../expo';
+import { ExpoFlagDefs, ExpoFlags } from '../../flags';
 import { requiredDependencies, requiredDevDependencies } from '../../scripts/dependencies';
 import { Command } from '@oclif/command';
 import { Utils } from '@blueeast/bluerain-cli-core';

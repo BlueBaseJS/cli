@@ -11,10 +11,13 @@ export interface CreateBundleInterface {
 	assetsDir: string,
 	buildDir: string,
 	configDir: string,
+	appJsPath: string,
 	name: string,
 	templateVars?: any
 }
-export const createBundle = async ({ assetsDir, buildDir, configDir, name, templateVars }: CreateBundleInterface) => {
+export const createBundle = async ({
+	assetsDir, buildDir, configDir, appJsPath, name, templateVars
+}: CreateBundleInterface) => {
 
 	///////////////////////////
 	///// Clear build dir /////
@@ -40,6 +43,12 @@ export const createBundle = async ({ assetsDir, buildDir, configDir, name, templ
 
 	const bluerainJsPath = await getBlueRainPath({ configDir, name });
 
+	// Checks if Custom App.js exists in configDir
+	let appJsLocation = 'App';
+	if (fs.existsSync(appJsPath + '.js')) {
+		appJsLocation = path.join(path.relative(appJsPath, bluerainJsPath), name, appJsLocation);
+	}
+
 	///////////////////////
 	///// Write files /////
 	///////////////////////
@@ -50,9 +59,10 @@ export const createBundle = async ({ assetsDir, buildDir, configDir, name, templ
 		variables: {
 			'APP_JSON': JSON.stringify(appJson, null, 2),
 			'BLUERAIN_JS_PATH': `./${path.relative(buildDir, bluerainJsPath)}`,
+			'APP_JS_PATH': `./${appJsLocation}`,
 			...templateVars
 		},
-		writeFiles: ['App.js', 'app.json'],
+		writeFiles: ['App.js', 'app.json', 'AppEntry.js'],
 	});
 
 };
