@@ -1,4 +1,4 @@
-import { ExpoFlagDefs, ExpoFlags } from '../../../expo';
+import { ExpoFlagDefs, ExpoFlags } from '../../../flags';
 import { Command } from '@oclif/command';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import { createBundle } from '@blueeast/bluerain-cli-expo';
@@ -29,6 +29,7 @@ export default class StartExpo extends Command {
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
 		const assetsDir = Utils.fromProjectRoot(flags.assetsDir);
+		const appJsPath = Utils.fromProjectRoot(flags.appJsPath);
 
 		/////////////////////////////
 		///// Transpile & Build /////
@@ -36,6 +37,7 @@ export default class StartExpo extends Command {
 
 		// const transiplePath = path.join(buildDir, 'dist');
 		await createBundle({
+			appJsPath,
 			assetsDir,
 			buildDir,
 			configDir,

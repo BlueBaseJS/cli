@@ -4,6 +4,7 @@ export interface ExpoFlags {
 	assetsDir: string;
 	buildDir: string;
 	configDir: string;
+	appJsPath: string;
 }
 
 export const ExpoFlagDefs = {
@@ -34,6 +35,14 @@ export const ExpoFlagDefs = {
 		required: false,
 	}),
 
+	appJsPath: flags.string({
+		default: './bluerain/storybook-native/App',
+		description: 'Path to App.js file relative to the root directory',
+		env: 'APP_JS_PATH',
+		hidden: false,
+		multiple: false,
+		required: false,
+	}),
 
 };
 

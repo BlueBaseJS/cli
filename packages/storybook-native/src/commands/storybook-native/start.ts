@@ -1,6 +1,6 @@
 import { ChildProcess } from 'child_process';
 import { Command } from '@oclif/command';
-import { ExpoFlagDefs } from '../../expo';
+import { ExpoFlagDefs } from '../../flags';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import StartExpo from './start/expo';
 import StartServer from './start/server';
