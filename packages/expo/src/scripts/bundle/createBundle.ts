@@ -46,7 +46,7 @@ export const createBundle = async ({
 	// Checks if Custom App.js exists in configDir
 	let appJsLocation = 'App';
 	if (fs.existsSync(appJsPath + '.js')) {
-		appJsLocation = path.join(path.relative(appJsPath, bluerainJsPath), name, appJsLocation);
+		appJsLocation = path.relative(buildDir, appJsPath);
 	}
 
 	///////////////////////
