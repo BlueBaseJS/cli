@@ -32,6 +32,7 @@ export default class ExpoBuild extends Command {
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
 		const assetsDir = Utils.fromProjectRoot(flags.assetsDir);
+		const appJsPath = Utils.fromProjectRoot(flags.appJsPath);
 		const appJsonPath = path.join(buildDir, 'app.json');
 		// console.log('buildDir ',buildDir);
 		// console.log('appJsonPath ',appJsonPath);
@@ -45,6 +46,7 @@ export default class ExpoBuild extends Command {
 			assetsDir,
 			buildDir,
 			configDir,
+			appJsPath,
 			name: 'expo',
 		});
 

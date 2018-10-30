@@ -29,6 +29,7 @@ export default class ExpoStart extends Command {
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
 		const assetsDir = Utils.fromProjectRoot(flags.assetsDir);
+		const appJsPath = Utils.fromProjectRoot(flags.appJsPath);
 
 		/////////////////////////////
 		///// Transpile & Build /////
@@ -39,6 +40,7 @@ export default class ExpoStart extends Command {
 			assetsDir,
 			buildDir,
 			configDir,
+			appJsPath,
 			name: 'expo',
 		});
 

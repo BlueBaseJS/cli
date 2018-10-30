@@ -4,6 +4,7 @@ export interface ExpoFlags {
 	assetsDir: string;
 	buildDir: string;
 	configDir: string;
+	appJsPath: string;
 }
 
 export const ExpoFlagDefs = {
@@ -29,6 +30,15 @@ export const ExpoFlagDefs = {
 		default: './assets/expo',
 		description: 'Path to assets directory relative to the root directory',
 		env: 'ASSETS_DIR',
+		hidden: false,
+		multiple: false,
+		required: false,
+	}),
+
+	appJsPath: flags.string({
+		default: './bluerain/expo/App',
+		description: 'Path to App.js file relative to the root directory',
+		env: 'APP_JS_PATH',
 		hidden: false,
 		multiple: false,
 		required: false,
