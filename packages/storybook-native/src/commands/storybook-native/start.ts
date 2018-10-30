@@ -34,7 +34,7 @@ export default class CustomCommand extends Command {
 					startExpo.then(p => {
 						expoProcess = p;
 						expoProcess.on('error', err);
-					}).catch(err);
+					});
 
 				}).on('error', err);
 

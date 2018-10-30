@@ -4,6 +4,7 @@ import { Utils } from '@blueeast/bluerain-cli-core';
 import { createBundle } from '@blueeast/bluerain-cli-expo';
 import { spawn } from 'child_process';
 import fromRoot from '../../../scripts/fromRoot';
+import fs from 'fs';
 import path from 'path';
 
 export default class StartExpo extends Command {
@@ -44,11 +45,18 @@ export default class StartExpo extends Command {
 			name: 'storybook-native',
 		});
 
+		let STORYBOOK_APP_PATH = path.relative(buildDir, path.join(configDir, 'storybook/'));
+
+		// change STORYBOOK_APP_PATH to defined path is App.js exists in that path
+		if (fs.existsSync(appJsPath + '.js')) {
+			STORYBOOK_APP_PATH = path.relative(buildDir, appJsPath);
+		}
+
 		Utils.copyTemplateFiles(fromRoot('./templates/build'), buildDir, {
 			force: true,
 			prompt: false,
 			variables: {
-				'STORYBOOK_APP_PATH': path.relative(buildDir, path.join(configDir, 'storybook/'))
+				STORYBOOK_APP_PATH
 			},
 			writeFiles: ['AppEntry.js'],
 		});
