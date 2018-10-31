@@ -1,9 +1,10 @@
-import { ExpoFlagDefs, ExpoFlags } from '../../../expo';
+import { ExpoFlagDefs, ExpoFlags } from '../../../flags';
 import { Command } from '@oclif/command';
 import { Utils } from '@blueeast/bluerain-cli-core';
 import { createBundle } from '@blueeast/bluerain-cli-expo';
 import { spawn } from 'child_process';
 import fromRoot from '../../../scripts/fromRoot';
+import fs from 'fs';
 import path from 'path';
 
 export default class StartExpo extends Command {
@@ -29,6 +30,7 @@ export default class StartExpo extends Command {
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
 		const assetsDir = Utils.fromProjectRoot(flags.assetsDir);
+		const appJsPath = Utils.fromProjectRoot(flags.appJsPath);
 
 		/////////////////////////////
 		///// Transpile & Build /////
@@ -36,17 +38,25 @@ export default class StartExpo extends Command {
 
 		// const transiplePath = path.join(buildDir, 'dist');
 		await createBundle({
+			appJsPath,
 			assetsDir,
 			buildDir,
 			configDir,
 			name: 'storybook-native',
 		});
 
+		let STORYBOOK_APP_PATH = path.relative(buildDir, path.join(configDir, 'storybook/'));
+
+		// change STORYBOOK_APP_PATH to defined path is App.js exists in that path
+		if (fs.existsSync(appJsPath + '.js')) {
+			STORYBOOK_APP_PATH = path.relative(buildDir, appJsPath);
+		}
+
 		Utils.copyTemplateFiles(fromRoot('./templates/build'), buildDir, {
 			force: true,
 			prompt: false,
 			variables: {
-				'STORYBOOK_APP_PATH': path.relative(buildDir, path.join(configDir, 'storybook/'))
+				STORYBOOK_APP_PATH
 			},
 			writeFiles: ['AppEntry.js'],
 		});
