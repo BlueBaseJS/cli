@@ -50,7 +50,7 @@ EXAMPLE
   $ bluerain expo:build:android
 ```
 
-_See code: [lib/commands/expo/build/android.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.23/lib/commands/expo/build/android.js)_
+_See code: [lib/commands/expo/build/android.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.24/lib/commands/expo/build/android.js)_
 
 ## `bluerain expo:build:ios`
 
@@ -70,7 +70,7 @@ EXAMPLE
   $ bluerain expo:build:ios
 ```
 
-_See code: [lib/commands/expo/build/ios.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.23/lib/commands/expo/build/ios.js)_
+_See code: [lib/commands/expo/build/ios.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.24/lib/commands/expo/build/ios.js)_
 
 ## `bluerain expo:init`
 
@@ -90,7 +90,7 @@ EXAMPLE
   $ bluerain expo:init
 ```
 
-_See code: [lib/commands/expo/init.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.23/lib/commands/expo/init.js)_
+_See code: [lib/commands/expo/init.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.24/lib/commands/expo/init.js)_
 
 ## `bluerain expo:start`
 
@@ -110,5 +110,5 @@ EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [lib/commands/expo/start.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.23/lib/commands/expo/start.js)_
+_See code: [lib/commands/expo/start.js](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.24/lib/commands/expo/start.js)_
 <!-- commandsstop -->

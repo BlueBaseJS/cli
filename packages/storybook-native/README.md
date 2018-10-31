@@ -41,6 +41,7 @@ USAGE
   $ bluerain storybook-native:init
 
 OPTIONS
+  --appJsPath=appJsPath  [default: ./bluerain/storybook-native/App] Path to App.js file relative to the root directory
   --assetsDir=assetsDir  [default: ./assets/storybook-native] Path to assets directory relative to the root directory
   --buildDir=buildDir    [default: ./build/storybook-native] Path to build directory relative to the root directory
   --configDir=configDir  [default: ./bluerain/storybook-native] Path to config directory relative to the root directory
@@ -49,7 +50,7 @@ EXAMPLE
   $ bluerain storybook-native:start
 ```
 
-_See code: [src/commands/storybook-native/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.15/src/commands/storybook-native/init.ts)_
+_See code: [src/commands/storybook-native/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.16/src/commands/storybook-native/init.ts)_
 
 ## `bluerain storybook-native:start`
 
@@ -60,6 +61,7 @@ USAGE
   $ bluerain storybook-native:start
 
 OPTIONS
+  --appJsPath=appJsPath  [default: ./bluerain/storybook-native/App] Path to App.js file relative to the root directory
   --assetsDir=assetsDir  [default: ./assets/storybook-native] Path to assets directory relative to the root directory
   --buildDir=buildDir    [default: ./build/storybook-native] Path to build directory relative to the root directory
   --configDir=configDir  [default: ./bluerain/storybook-native] Path to config directory relative to the root directory
@@ -68,7 +70,7 @@ EXAMPLE
   $ bluerain storybook-native:start
 ```
 
-_See code: [src/commands/storybook-native/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.15/src/commands/storybook-native/start.ts)_
+_See code: [src/commands/storybook-native/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.16/src/commands/storybook-native/start.ts)_
 
 ## `bluerain storybook-native:start:expo`
 
@@ -79,6 +81,7 @@ USAGE
   $ bluerain storybook-native:start:expo
 
 OPTIONS
+  --appJsPath=appJsPath  [default: ./bluerain/storybook-native/App] Path to App.js file relative to the root directory
   --assetsDir=assetsDir  [default: ./assets/storybook-native] Path to assets directory relative to the root directory
   --buildDir=buildDir    [default: ./build/storybook-native] Path to build directory relative to the root directory
   --configDir=configDir  [default: ./bluerain/storybook-native] Path to config directory relative to the root directory
@@ -87,7 +90,7 @@ EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [src/commands/storybook-native/start/expo.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.15/src/commands/storybook-native/start/expo.ts)_
+_See code: [src/commands/storybook-native/start/expo.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.16/src/commands/storybook-native/start/expo.ts)_
 
 ## `bluerain storybook-native:start:server`
 
@@ -98,6 +101,7 @@ USAGE
   $ bluerain storybook-native:start:server
 
 OPTIONS
+  --appJsPath=appJsPath  [default: ./bluerain/storybook-native/App] Path to App.js file relative to the root directory
   --assetsDir=assetsDir  [default: ./assets/storybook-native] Path to assets directory relative to the root directory
   --buildDir=buildDir    [default: ./build/storybook-native] Path to build directory relative to the root directory
   --configDir=configDir  [default: ./bluerain/storybook-native] Path to config directory relative to the root directory
@@ -106,5 +110,5 @@ EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [src/commands/storybook-native/start/server.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.15/src/commands/storybook-native/start/server.ts)_
+_See code: [src/commands/storybook-native/start/server.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.16/src/commands/storybook-native/start/server.ts)_
 <!-- commandsstop -->
