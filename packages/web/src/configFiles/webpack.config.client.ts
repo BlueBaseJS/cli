@@ -20,6 +20,9 @@ export default
 			// Patch React Native
 			.use(WebpackTools.ReactNative())
 
+			// Use Custom App.js feature
+			.use(WebpackTools.CustomApp())
+
 			// Add Jarvis Dashboard
 			.use(WebpackTools.Jarvis())
 
