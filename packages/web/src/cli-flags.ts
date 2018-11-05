@@ -4,6 +4,7 @@ export interface Flags {
 	buildDir: string;
 	configDir: string;
 	assetsDir: string;
+	appJsPath: string;
 }
 
 export const FlagDefs = {
@@ -29,6 +30,15 @@ export const FlagDefs = {
 		default: './assets/web',
 		description: 'Path to assets directory relative to the root directory',
 		env: 'ASSETS_DIR',
+		hidden: false,
+		multiple: false,
+		required: false,
+	}),
+
+	appJsPath: flags.string({
+		default: './bluerain/web/App',
+		description: 'Path to App.js file relative to the root directory',
+		env: 'APP_JS_PATH',
 		hidden: false,
 		multiple: false,
 		required: false,

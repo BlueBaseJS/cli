@@ -3,6 +3,7 @@ import BaseConfig from './BaseConfig';
 import CleanBuildDir from './CleanBuildDir';
 import ClientHTML from './ClientHTML';
 import CopyAssets from './CopyAssets';
+import CustomApp from './CustomApp';
 import HotModuleReplacement from './HotModuleReplacement';
 import Jarvis from './Jarvis';
 import LoaderCss from './LoaderCss';
@@ -18,6 +19,7 @@ export {
 	CleanBuildDir,
 	ClientHTML,
 	CopyAssets,
+	CustomApp,
 	HotModuleReplacement,
 	Jarvis,
 	LoaderCss,

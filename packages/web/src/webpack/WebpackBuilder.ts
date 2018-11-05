@@ -11,6 +11,7 @@ export default class WebpackBuilder implements BuilderOptions {
 	/** Path of the boot options file (boot.js) */
 	public bluerainJsPath: string;
 
+	public appJsPath: string;
 	public assetsDirPath: string;
 	public buildDirPath: string;
 	public configDirPath: string;
@@ -71,7 +72,7 @@ export default class WebpackBuilder implements BuilderOptions {
 
 	constructor(buildOptions: BuilderOptions, private webpackConfig: WebpackConfig = {}) {
 
-		const { assetsDirPath, buildDirPath, configDirPath, configs, bluerainJsPath } = buildOptions;
+		const { appJsPath, assetsDirPath, buildDirPath, configDirPath, configs, bluerainJsPath } = buildOptions;
 
 		if (!configs) {
 			throw Error(`No bundle configuration given to WebpackBuilder.`);
@@ -84,6 +85,7 @@ export default class WebpackBuilder implements BuilderOptions {
 		const ifElse = Utils.ifElse;
 
 		// Init
+		this.appJsPath = appJsPath;
 		this.assetsDirPath = assetsDirPath;
 		this.bluerainJsPath = bluerainJsPath;
 		this.buildDirPath = buildDirPath;
