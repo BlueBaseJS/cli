@@ -1,6 +1,6 @@
 import { HotDevelopmentOptions } from '.';
 import { Utils } from '@blueeast/bluerain-cli-core';
-import ListenerManager from './listenerManager';
+import ListenerManager from './ListenerManager';
 import serve from 'webpack-serve';
 
 export class HotClientServer {
