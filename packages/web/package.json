@@ -1,6 +1,6 @@
 {
   "name": "@blueeast/bluerain-cli-web",
-  "version": "2.0.0-beta.6",
+  "version": "2.0.0-beta.7",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
   "main": "lib/index.js",
