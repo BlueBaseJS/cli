@@ -30,6 +30,7 @@ export class CustomCommand extends Command {
 		// Absolute path of build dir
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
+		const appJsPath = Utils.fromProjectRoot(flags.appJsPath);
 
 		/////////////////////////////
 		///// Setup FileManager /////
@@ -65,6 +66,7 @@ export class CustomCommand extends Command {
 		const assetsDirPath = path.join(configDir, 'assets');
 
 		const baseWebpackBuildOptions = {
+			appJsPath,
 			assetsDirPath,
 			bluerainJsPath,
 			buildDirPath: buildDir,

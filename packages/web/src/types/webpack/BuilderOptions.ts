@@ -18,6 +18,9 @@ export type BuilderOptions = {
 	/** Path of the bluerain.js file */
 	bluerainJsPath: string;
 
+	/** Path of the App.js file */
+	appJsPath: string;
+
 	/** Platform configs */
 	configs: BuilderConfigsProp;
 };

@@ -1,23 +1,21 @@
 import { Configuration as WebpackConfig } from 'webpack';
-import { Utils } from '@blueeast/bluerain-cli-core';
 import { WebpackBuilderMiddleware } from '../../types';
+import WebpackBuilder from '../WebpackBuilder';
 import fs from 'fs';
 import merge from 'webpack-merge';
-import path from 'path';
+// import path from 'path';
 
 /**
  * Patch React Native imports
  * @param config
  * @param builder
  */
-const CustomApp: WebpackBuilderMiddleware = () => (config: WebpackConfig): WebpackConfig => {
-	// let CUSTOM_APP_JS = undefined as any;
-	const locaiton = 'bluerain/web/App';
-	if ((fs.existsSync(Utils.fromProjectRoot(`${locaiton}.js`)) ||
-		fs.existsSync(Utils.fromProjectRoot(`${locaiton}.jsx`)) ||
-		fs.existsSync(Utils.fromProjectRoot(`${locaiton}.ts`)) ||
-		fs.existsSync(Utils.fromProjectRoot(`${locaiton}.tsx`)))) {
-		const CUSTOM_APP_JS = path.resolve(Utils.fromProjectRoot(locaiton));
+const CustomApp: WebpackBuilderMiddleware = () => (config: WebpackConfig, builder: WebpackBuilder): WebpackConfig => {
+	const CUSTOM_APP_JS = builder.appJsPath;
+	if (fs.existsSync(`${CUSTOM_APP_JS}.js`) ||
+		fs.existsSync(`${CUSTOM_APP_JS}.jsx`) ||
+		fs.existsSync(`${CUSTOM_APP_JS}.ts`) ||
+		fs.existsSync(`${CUSTOM_APP_JS}.tsx`)) {
 		return merge(config, {
 			resolve: {
 				alias: {
