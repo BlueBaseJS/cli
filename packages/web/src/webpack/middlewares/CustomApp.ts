@@ -3,7 +3,7 @@ import { WebpackBuilderMiddleware } from '../../types';
 import WebpackBuilder from '../WebpackBuilder';
 import fs from 'fs';
 import merge from 'webpack-merge';
-// import path from 'path';
+import path from 'path';
 
 /**
  * Patch React Native imports
@@ -27,7 +27,7 @@ const CustomApp: WebpackBuilderMiddleware = () => (config: WebpackConfig, builde
 		return merge(config, {
 			resolve: {
 				alias: {
-					CUSTOM_APP_JS: './App'
+					CUSTOM_APP_JS: path.join(__dirname, '../../client/App')
 				},
 			},
 		});
