@@ -24,7 +24,7 @@ $ npm install -g @blueeast/bluerain-cli-web
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@blueeast/bluerain-cli-web/2.0.0-beta.7 linux-x64 node-v8.9.4
+@blueeast/bluerain-cli-web/2.0.0-beta.8 linux-x64 node-v8.9.4
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -56,7 +56,7 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/web.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.7/src/commands/web.ts)_
+_See code: [src/commands/web.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.8/src/commands/web.ts)_
 
 ## `oclif-example web:build`
 
@@ -71,7 +71,7 @@ OPTIONS
   --configDir=configDir  [default: ./bluerain/web] Path to config directory relative to the root directory
 ```
 
-_See code: [src/commands/web/build.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.7/src/commands/web/build.ts)_
+_See code: [src/commands/web/build.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.8/src/commands/web/build.ts)_
 
 ## `oclif-example web:init`
 
@@ -91,7 +91,7 @@ EXAMPLE
   $ bluerain web:init
 ```
 
-_See code: [src/commands/web/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.7/src/commands/web/init.ts)_
+_See code: [src/commands/web/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.8/src/commands/web/init.ts)_
 
 ## `oclif-example web:start`
 
@@ -106,5 +106,5 @@ OPTIONS
   --configDir=configDir  [default: ./bluerain/web] Path to config directory relative to the root directory
 ```
 
-_See code: [src/commands/web/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.7/src/commands/web/start.ts)_
+_See code: [src/commands/web/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.8/src/commands/web/start.ts)_
 <!-- commandsstop -->
