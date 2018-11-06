@@ -16,7 +16,6 @@ const CustomApp: WebpackBuilderMiddleware = () => (config: WebpackConfig, builde
 		fs.existsSync(`${CUSTOM_APP_JS}.jsx`) ||
 		fs.existsSync(`${CUSTOM_APP_JS}.ts`) ||
 		fs.existsSync(`${CUSTOM_APP_JS}.tsx`)) {
-		console.log('=================== ', CUSTOM_APP_JS);
 		return merge(config, {
 			resolve: {
 				alias: {
@@ -25,7 +24,6 @@ const CustomApp: WebpackBuilderMiddleware = () => (config: WebpackConfig, builde
 			},
 		});
 	} else {
-		console.log('=================== ', path.join(__dirname, '../../client/App'));
 		return merge(config, {
 			resolve: {
 				alias: {
