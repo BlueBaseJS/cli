@@ -1,8 +1,5 @@
 import 'normalize.css';
-
-// import App from './App';
-// tslint:disable-next-line:no-var-requires
-const App = require('CUSTOM_APP_JS');
+import App from 'CUSTOM_APP_JS';
 // tslint:disable-next-line:no-var-requires
 const { AppRegistry } = require('react-native');
 
