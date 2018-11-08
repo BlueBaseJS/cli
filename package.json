@@ -3,10 +3,7 @@
 	"version": "0.0.0",
 	"description": "CLI tool to make life with BlueRain easier!",
 	"main": "index.js",
-	"repository": {
-		"type": "git",
-		"url": "git@github.com:BlueBaseJS/cli.git"
-	},
+	"repository": "https://github.com/BlueBaseJS/cli.git",
 	"author": "BlueEast Team <code@blueeast.com>",
 	"license": "MIT",
 	"keywords": [
