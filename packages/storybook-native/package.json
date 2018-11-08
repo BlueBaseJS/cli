@@ -1,7 +1,7 @@
 {
-  "name": "@blueeast/bluerain-cli-storybook-native",
+  "name": "@bluebase/cli-storybook-native",
   "description": "An BlueRain CLI plugin to integrate Storybook for React Native",
-  "version": "2.0.0-beta.16",
+  "version": "2.0.0",
   "main": "./lib",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
@@ -66,12 +66,12 @@
   "license": "MIT",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "bluerain",
+    "bin": "bluebase",
     "devPlugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "BlueEastCode/bluerain-cli",
+  "repository": "BlueBaseJS/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",

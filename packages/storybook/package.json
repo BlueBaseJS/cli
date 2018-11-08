@@ -1,10 +1,10 @@
 {
-  "name": "@blueeast/bluerain-cli-storybook",
+  "name": "@bluebase/cli-storybook",
   "description": "An BlueRain CLI plugin to integrate Storybook",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0",
   "main": "./lib",
   "author": "BlueEast Team <code@blueeast.com>",
-  "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
+  "bugs": "https://github.com/BlueBaseJS/cli/issues",
   "dependencies": {
     "@blueeast/bluerain-cli-core": "^2.0.0-beta.12",
     "@oclif/command": "^1",
@@ -54,19 +54,19 @@
     "/oclif.manifest.json",
     "/yarn.lock"
   ],
-  "homepage": "https://github.com/BlueEastCode/bluerain-cli",
+  "homepage": "https://github.com/BlueBaseJS/cli",
   "keywords": [
     "oclif-plugin"
   ],
   "license": "MIT",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "bluerain",
+    "bin": "bluebase",
     "devPlugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "BlueEastCode/bluerain-cli",
+  "repository": "BlueBaseJS/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",

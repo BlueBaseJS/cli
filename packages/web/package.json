@@ -1,6 +1,6 @@
 {
-  "name": "@blueeast/bluerain-cli-web",
-  "version": "2.0.0-beta.8",
+  "name": "@bluebase/cli-web",
+  "version": "2.0.0",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
   "main": "lib/index.js",
@@ -151,12 +151,12 @@
   "license": "MIT",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "oclif-example",
+    "bin": "bluebase",
     "devPlugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "BlueEastCode/bluerain-cli",
+  "repository": "BlueBaseJS/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",

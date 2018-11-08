@@ -1,11 +1,11 @@
 {
-	"name": "@blueeast/bluerain-cli-monorepo",
+	"name": "@bluebase/cli-monorepo",
 	"version": "0.0.0",
 	"description": "CLI tool to make life with BlueRain easier!",
 	"main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:BlueEastCode/bluerain-cli.git"
+		"url": "git@github.com:BlueBaseJS/cli.git"
 	},
 	"author": "BlueEast Team <code@blueeast.com>",
 	"license": "MIT",
@@ -18,7 +18,7 @@
 		"release",
 		"version",
 		"lerna",
-		"bluerain"
+		"bluebase"
 	],
 	"scripts": {
 		"wizard": "lerna-wizard",
