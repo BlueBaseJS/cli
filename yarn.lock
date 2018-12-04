@@ -3171,9 +3171,10 @@ lerna-semantic-release-utils@^4.0.0:
     shelljs "^0.7.0"
     winston "^2.2.0"
 
-lerna-semantic-release@^9.0.1:
+lerna-semantic-release@^9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/lerna-semantic-release/-/lerna-semantic-release-9.1.0.tgz#bc92ddd386f7992a4e57751c70fa982bd5c2c50b"
+  integrity sha1-vJLd04b3mSpOV3UccPqYK9XCxQs=
   dependencies:
     lerna-semantic-release-io "^7.0.0"
     lerna-semantic-release-perform "^4.0.15"

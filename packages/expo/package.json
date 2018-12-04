@@ -53,7 +53,7 @@
     "/oclif.manifest.json",
     "/yarn.lock"
   ],
-  "homepage": "https://github.com/BlueEastCode/bluerain-cli",
+  "homepage": "https://github.com/BlueBaseJS/cli",
   "keywords": [
     "oclif-plugin"
   ],
