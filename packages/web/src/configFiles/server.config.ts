@@ -34,7 +34,7 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 			connectSrc: [],
 			defaultSrc: [],
 			fontSrc: [],
-			imgSrc: [],
+			imgSrc: ['https://s3-us-west-2.amazonaws.com/'],
 			mediaSrc: [],
 			// manifestSrc: [],
 			objectSrc: [],
