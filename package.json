@@ -24,8 +24,7 @@
 		"postinstall": "yarn bootstrap",
 		"bootstrap": "lerna bootstrap",
 		"clean": "lerna clean",
-		"commitmsg": "validate-commit-msg",
-		"test": "lerna run test"
+		"commitmsg": "validate-commit-msg"
 	},
 	"config": {
 		"commitizen": {
