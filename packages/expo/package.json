@@ -14,7 +14,7 @@
     "semver": "^5.5.1",
     "shelljs": "^0.8.2",
     "tslib": "^1",
-    "typescript": "^3.0.1"
+    "typescript": "^3.2.1"
   },
   "devDependencies": {
     "@blueeast/bluerain-os": "^3.13.8",

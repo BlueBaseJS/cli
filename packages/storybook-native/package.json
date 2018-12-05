@@ -17,7 +17,7 @@
     "semver": "^5.5.1",
     "shelljs": "^0.8.2",
     "tslib": "^1",
-    "typescript": "^3.0.1"
+    "typescript": "^3.2.1"
   },
   "devDependencies": {
     "@blueeast/bluerain-os": "^3.13.8",
@@ -27,7 +27,6 @@
     "@oclif/test": "^1",
     "@oclif/tslint": "^1",
     "@types/chai": "^4",
-    "@types/deepmerge": "^2.1.0",
     "@types/expo": "^27.0.8",
     "@types/inquirer": "^0.0.43",
     "@types/lodash.template": "^4.4.4",
