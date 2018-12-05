@@ -24,7 +24,8 @@
 		"postinstall": "yarn bootstrap",
 		"bootstrap": "lerna bootstrap",
 		"clean": "lerna clean",
-		"commitmsg": "validate-commit-msg"
+		"commitmsg": "validate-commit-msg",
+		"lint": "tslint -t codeFrame 'packages/*/src/**/*.{ts,tsx}'"
 	},
 	"config": {
 		"commitizen": {
@@ -44,10 +45,14 @@
 		"lerna": "^2.9.0",
 		"lerna-semantic-release": "^9.1.0",
 		"lerna-wizard": "^1.0.9",
-		"prettier": "^1.10.2"
+		"prettier": "^1.10.2",
+		"tslint": "^5.11.0"
 	},
 	"release": {
 		"branch": "master",
 		"debug": true
+	},
+	"dependencies": {
+		"typescript": "^3.2.1"
 	}
 }
