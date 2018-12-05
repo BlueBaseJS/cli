@@ -1,6 +1,5 @@
-import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
+import { FileManager, Utils, getDefaults } from '@blueeast/bluerain-cli-core';
 import { execSync } from 'child_process';
-import { getDefaults, } from '@blueeast/bluerain-cli-core';
 import fromRoot from '../fromRoot';
 import path from 'path';
 // import shell from 'shelljs';
@@ -21,8 +20,8 @@ export const getAppJson = async ({ assetsDir, buildDir, configDir, name }: Creat
 		force: true,
 		prompt: false,
 		variables: {
-			'ROOT_DIR_PATH': path.relative(distDir, Utils.fromProjectRoot()),
 			'CONFIG_DIR_PATH': path.relative(distDir, configDir),
+			'ROOT_DIR_PATH': path.relative(distDir, Utils.fromProjectRoot()),
 		},
 		writeFiles: ['tsconfig.json'],
 	});

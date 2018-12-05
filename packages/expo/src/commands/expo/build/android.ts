@@ -43,10 +43,10 @@ export default class ExpoBuild extends Command {
 
 		// const transiplePath = path.join(buildDir, 'dist');
 		await createBundle({
+			appJsPath,
 			assetsDir,
 			buildDir,
 			configDir,
-			appJsPath,
 			name: 'expo',
 		});
 

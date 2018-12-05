@@ -1,5 +1,4 @@
-import { FileManager } from '@blueeast/bluerain-cli-core';
-import { getDefaults, } from '@blueeast/bluerain-cli-core';
+import { FileManager, getDefaults } from '@blueeast/bluerain-cli-core';
 
 export interface CreateBundleInterface {
 	configDir: string,

@@ -18,7 +18,7 @@ export default (configs: ServerConfigsBundle) => {
 			connectSrc: ['*'], // ["'self'", 'ws:'],
 			defaultSrc: [`'self'`],
 			imgSrc: [
-				"'self'",
+				"'self'", 'data:'
 				// If you use Base64 encoded images (i.e. inlined images), then you will
 				// need the following:
 				// 'data:',

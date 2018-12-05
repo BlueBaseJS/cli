@@ -1,12 +1,12 @@
 {
-  "name": "@blueeast/bluerain-cli-essentials",
+  "name": "@bluebase/cli-essentials",
   "description": "This package has all the essential exports for use with BlueRain CLI projects.",
   "author": "BlueEast Team <code@blueeast.com>",
-  "version": "4.0.0-beta.2",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "module": "dist/index.js",
-  "repository": "https://github.com/BlueEastCode/-cli",
+  "version": "4.0.0",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "module": "lib/index.js",
+  "repository": "BlueBaseJS/cli",
   "license": "MIT",
   "keywords": [],
   "scripts": {
@@ -83,7 +83,7 @@
     "ts-node": "^7.0.0",
     "tslint": "^5.10.0",
     "typedoc": "^0.12.0",
-    "typescript": "3.0.1"
+    "typescript": "^3.2.1"
   },
   "peerDependencies": {
     "react": "^16.*"

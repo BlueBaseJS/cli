@@ -1,11 +1,11 @@
 {
-  "name": "@blueeast/bluerain-cli-core",
+  "name": "@bluebase/cli-core",
   "description": "A plugin for BlueRain CLI",
-  "version": "2.0.0-beta.12",
+  "version": "2.0.0",
   "author": "BlueEast Team <code@blueeast.com>",
   "main": "./lib",
   "sideEffects": false,
-  "bugs": "https://github.com/BlueEastCode/bluerain-cli/issues",
+  "bugs": "https://github.com/BlueBaseJS/cli/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -47,7 +47,7 @@
     "nyc": "^12",
     "ts-node": "^6",
     "tslint": "^5",
-    "typescript": "^2.9"
+    "typescript": "^3.2.1"
   },
   "peerDependencies": {
     "react": "^16.*"
@@ -62,19 +62,19 @@
     "/oclif.manifest.json",
     "/yarn.lock"
   ],
-  "homepage": "https://github.com/BlueEastCode/bluerain-cli",
+  "homepage": "https://github.com/BlueBaseJS/cli",
   "keywords": [
     "oclif-plugin"
   ],
   "license": "MIT",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "oclif-example",
+    "bin": "bluebase",
     "devPlugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "BlueEastCode/bluerain-cli",
+  "repository": "BlueBaseJS/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",

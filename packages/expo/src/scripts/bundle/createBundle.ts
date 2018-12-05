@@ -58,8 +58,8 @@ export const createBundle = async ({
 		prompt: false,
 		variables: {
 			'APP_JSON': JSON.stringify(appJson, null, 2),
-			'BLUERAIN_JS_PATH': `./${path.relative(buildDir, bluerainJsPath)}`,
 			'APP_JS_PATH': `./${appJsLocation}`,
+			'BLUERAIN_JS_PATH': `./${path.relative(buildDir, bluerainJsPath)}`,
 			...templateVars
 		},
 		writeFiles: ['App.js', 'app.json', 'AppEntry.js'],

@@ -2,6 +2,7 @@ import { Constants } from 'expo';
 import { ExpoFlags } from './flags';
 import { getExpoSdk } from './scripts/expo/getExpoSdk';
 import path from 'path';
+// tslint:disable-next-line
 import { Utils } from '@blueeast/bluerain-cli-core/lib';
 
 export interface ExpoConfigs {
@@ -14,15 +15,15 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 		...input,
 
 		manifest: {
+			android: {
+				package: 'com.bluerain.app'
+			},
 			description: 'This project is really great.',
 			entryPoint: path.relative(Utils.fromProjectRoot(), path.join(paths.buildDir, 'AppEntry.js')),
 			icon: path.relative(Utils.fromProjectRoot(), path.join(paths.assetsDir, './icon.png')),
 			ios: {
+				bundleIdentifier: 'com.bluerain.app',
 				supportsTablet: true,
-				bundleIdentifier: 'com.bluerain.app'
-			},
-			android: {
-				package: 'com.bluerain.app'
 			},
 			name: 'BlueRain',
 			orientation: 'portrait',

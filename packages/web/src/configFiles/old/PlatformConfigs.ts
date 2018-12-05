@@ -54,15 +54,19 @@
 // 	 * - "webworker" Compile as WebWorker.
 // 	 * - "node" Compile for usage in a node.js-like environment (use require to load chunks).
 // 	 * - "async-node" Compile for usage in a node.js-like environment (use fs and vm to load chunks async).
-// 	 * - "node-webkit" Compile for usage in webkit, uses jsonp chunk loading but also supports builtin node.js modules plus require(“nw.gui”) (experimental)
-// 	 * - "atom" Compile for usage in electron (formerly known as atom-shell), supports require for modules necessary to run Electron.
-// 	 * - "electron-renderer" Compile for Electron for renderer process, providing a target using JsonpTemplatePlugin, FunctionModulePlugin for browser
+// 	 * - "node-webkit" Compile for usage in webkit, uses jsonp chunk loading
+// 	 * but also supports builtin node.js modules plus require(“nw.gui”) (experimental)
+// 	 * - "atom" Compile for usage in electron (formerly known as atom-shell),
+// 	 *  supports require for modules necessary to run Electron.
+// 	 * - "electron-renderer" Compile for Electron for renderer process, providing a
+// 	 *  target using JsonpTemplatePlugin, FunctionModulePlugin for browser
 // 	 *   environments and NodeTargetPlugin and ExternalsPlugin for CommonJS and Electron built-in modules.
 // 	 * - "electron-main" Compile for Electron for main process.
 // 	 * - "atom" Alias for electron-main.
 // 	 * - "electron" Alias for electron-main.
 // 	 */
-// 	target?: 'web' | 'webworker' | 'node' | 'async-node' | 'node-webkit' | 'atom' | 'electron' | 'electron-renderer' | 'electron-main';
+// 	target?: 'web' | 'webworker' | 'node' | 'async-node' |
+// 	'node-webkit' | 'atom' | 'electron' | 'electron-renderer' | 'electron-main';
 
 // 	/** The host on which the server should run. */
 // 	host: string,
@@ -115,7 +119,7 @@
 // 	 */
 // 	cspExtensions: IHelmetContentSecurityPolicyDirectives,
 
-//   /** Where does our build output live? */
+// 	/** Where does our build output live? */
 // 	buildOutputPath: string,
 
 // 	/*
@@ -124,7 +128,7 @@
 // 	 */
 // 	includeSourceMapsForOptimisedClientBundle: boolean,
 
-//   /** These extensions are tried when resolving src files for our bundles.. */
+// 	/** These extensions are tried when resolving src files for our bundles.. */
 // 	bundleSrcTypes: string[],
 
 // 	/*
@@ -164,7 +168,7 @@
 // 		 */
 // 		includePublicAssets: string[],
 
-//     /** Offline page file name. */
+// 		/** Offline page file name. */
 // 		offlinePageFileName: string,
 // 	},
 
