@@ -62,8 +62,7 @@ typings/
 MacOS
 .DS_Store
 
-# BlueRain
-bluerain-os
-
 # Expo
 .expo
+
+.cache

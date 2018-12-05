@@ -1,0 +1,13 @@
+{
+  "lerna": "2.9.0",
+  "command": {
+    "create": {
+      "license": "MIT"
+    }
+  },
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "version": "1.0.0"
+}
