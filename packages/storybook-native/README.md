@@ -27,18 +27,18 @@ $ bluerain plugins:install @blueeast/bluerain-cli-storybook-native
 ```
 # Commands
 <!-- commands -->
-* [`bluerain storybook-native:init`](#bluerain-storybook-nativeinit)
-* [`bluerain storybook-native:start`](#bluerain-storybook-nativestart)
-* [`bluerain storybook-native:start:expo`](#bluerain-storybook-nativestartexpo)
-* [`bluerain storybook-native:start:server`](#bluerain-storybook-nativestartserver)
+* [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
+* [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
+* [`bluebase storybook-native:start:expo`](#bluebase-storybook-nativestartexpo)
+* [`bluebase storybook-native:start:server`](#bluebase-storybook-nativestartserver)
 
-## `bluerain storybook-native:init`
+## `bluebase storybook-native:init`
 
 Initializes a directory with an example project.
 
 ```
 USAGE
-  $ bluerain storybook-native:init
+  $ bluebase storybook-native:init
 
 OPTIONS
   --appJsPath=appJsPath  [default: ./bluerain/storybook-native/App] Path to App.js file relative to the root directory
@@ -50,15 +50,15 @@ EXAMPLE
   $ bluerain storybook-native:start
 ```
 
-_See code: [src/commands/storybook-native/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.16/src/commands/storybook-native/init.ts)_
+_See code: [lib/commands/storybook-native/init.js](https://github.com/BlueBaseJS/cli/blob/v2.0.0/lib/commands/storybook-native/init.js)_
 
-## `bluerain storybook-native:start`
+## `bluebase storybook-native:start`
 
 Starts or restarts a local server for your app and gives you a URL to it.
 
 ```
 USAGE
-  $ bluerain storybook-native:start
+  $ bluebase storybook-native:start
 
 OPTIONS
   --appJsPath=appJsPath  [default: ./bluerain/storybook-native/App] Path to App.js file relative to the root directory
@@ -70,15 +70,15 @@ EXAMPLE
   $ bluerain storybook-native:start
 ```
 
-_See code: [src/commands/storybook-native/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.16/src/commands/storybook-native/start.ts)_
+_See code: [lib/commands/storybook-native/start.js](https://github.com/BlueBaseJS/cli/blob/v2.0.0/lib/commands/storybook-native/start.js)_
 
-## `bluerain storybook-native:start:expo`
+## `bluebase storybook-native:start:expo`
 
 Starts or restarts a local server for your app and gives you a URL to it.
 
 ```
 USAGE
-  $ bluerain storybook-native:start:expo
+  $ bluebase storybook-native:start:expo
 
 OPTIONS
   --appJsPath=appJsPath  [default: ./bluerain/storybook-native/App] Path to App.js file relative to the root directory
@@ -90,15 +90,15 @@ EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [src/commands/storybook-native/start/expo.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.16/src/commands/storybook-native/start/expo.ts)_
+_See code: [lib/commands/storybook-native/start/expo.js](https://github.com/BlueBaseJS/cli/blob/v2.0.0/lib/commands/storybook-native/start/expo.js)_
 
-## `bluerain storybook-native:start:server`
+## `bluebase storybook-native:start:server`
 
 Starts or restarts a local server for your app and gives you a URL to it.
 
 ```
 USAGE
-  $ bluerain storybook-native:start:server
+  $ bluebase storybook-native:start:server
 
 OPTIONS
   --appJsPath=appJsPath  [default: ./bluerain/storybook-native/App] Path to App.js file relative to the root directory
@@ -110,5 +110,5 @@ EXAMPLE
   $ bluerain expo:start
 ```
 
-_See code: [src/commands/storybook-native/start/server.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.16/src/commands/storybook-native/start/server.ts)_
+_See code: [lib/commands/storybook-native/start/server.js](https://github.com/BlueBaseJS/cli/blob/v2.0.0/lib/commands/storybook-native/start/server.js)_
 <!-- commandsstop -->

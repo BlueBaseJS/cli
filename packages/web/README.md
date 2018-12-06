@@ -20,31 +20,30 @@
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g @blueeast/bluerain-cli-web
-$ oclif-example COMMAND
+$ npm install -g @bluebase/cli-web
+$ bluebase COMMAND
 running command...
-$ oclif-example (-v|--version|version)
-@blueeast/bluerain-cli-web/2.0.0-beta.8 linux-x64 node-v8.9.4
-$ oclif-example --help [COMMAND]
+$ bluebase (-v|--version|version)
+@bluebase/cli-web/2.0.0 linux-x64 node-v10.13.0
+$ bluebase --help [COMMAND]
 USAGE
-  $ oclif-example COMMAND
+  $ bluebase COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example web [FILE]`](#oclif-example-web-file)
-* [`oclif-example web:build`](#oclif-example-webbuild)
-* [`oclif-example web:init`](#oclif-example-webinit)
-* [`oclif-example web:start`](#oclif-example-webstart)
+* [`bluebase web [FILE]`](#bluebase-web-file)
+* [`bluebase web:build`](#bluebase-webbuild)
+* [`bluebase web:init`](#bluebase-webinit)
 
-## `oclif-example web [FILE]`
+## `bluebase web [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ oclif-example web [FILE]
+  $ bluebase web [FILE]
 
 OPTIONS
   -f, --force
@@ -53,16 +52,16 @@ OPTIONS
 
 EXAMPLE
   $ oclif-example hello
-  hello world from ./src/hello.ts!
+  		hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/web.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.8/src/commands/web.ts)_
+_See code: [src/commands/web.ts](https://github.com/BlueBaseJS/cli/blob/v2.0.0/src/commands/web.ts)_
 
-## `oclif-example web:build`
+## `bluebase web:build`
 
 ```
 USAGE
-  $ oclif-example web:build
+  $ bluebase web:build
 
 OPTIONS
   --appJsPath=appJsPath  [default: ./bluerain/web/App] Path to App.js file relative to the root directory
@@ -71,15 +70,15 @@ OPTIONS
   --configDir=configDir  [default: ./bluerain/web] Path to config directory relative to the root directory
 ```
 
-_See code: [src/commands/web/build.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.8/src/commands/web/build.ts)_
+_See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v2.0.0/src/commands/web/build.ts)_
 
-## `oclif-example web:init`
+## `bluebase web:init`
 
 Initializes a directory with an example project.
 
 ```
 USAGE
-  $ oclif-example web:init
+  $ bluebase web:init
 
 OPTIONS
   --appJsPath=appJsPath  [default: ./bluerain/web/App] Path to App.js file relative to the root directory
@@ -91,20 +90,5 @@ EXAMPLE
   $ bluerain web:init
 ```
 
-_See code: [src/commands/web/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.8/src/commands/web/init.ts)_
-
-## `oclif-example web:start`
-
-```
-USAGE
-  $ oclif-example web:start
-
-OPTIONS
-  --appJsPath=appJsPath  [default: ./bluerain/web/App] Path to App.js file relative to the root directory
-  --assetsDir=assetsDir  [default: ./assets/web] Path to assets directory relative to the root directory
-  --buildDir=buildDir    [default: ./build/web] Path to build directory relative to the root directory
-  --configDir=configDir  [default: ./bluerain/web] Path to config directory relative to the root directory
-```
-
-_See code: [src/commands/web/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.8/src/commands/web/start.ts)_
+_See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v2.0.0/src/commands/web/init.ts)_
 <!-- commandsstop -->

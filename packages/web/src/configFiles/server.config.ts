@@ -38,8 +38,8 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 			mediaSrc: [],
 			// manifestSrc: [],
 			objectSrc: [],
-			scriptSrc: [],
-			styleSrc: [],
+			scriptSrc: ['https://maps.googleapis.com/maps/api/'],
+			styleSrc: ['https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/'],
 		},
 
 		serviceWorker: {
