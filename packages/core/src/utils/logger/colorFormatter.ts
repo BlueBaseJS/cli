@@ -33,9 +33,9 @@ try {
 function selectColor(namespace: string) {
 	let hash = 0, i;
 
-	// tslint:disable-next-line:forin
+	// tslint:disable-next-line
 	for (i in (namespace as any)) {
-		// tslint:disable-next-line:radix
+		// tslint:disable-next-line
 		hash = ((hash << 5) - hash) + namespace.charCodeAt(parseInt(i));
 		hash |= 0; // Convert to 32bit integer
 	}
@@ -45,13 +45,14 @@ function selectColor(namespace: string) {
 
 function addColor(name: string) {
 	const c = selectColor(name);
-	const colorCode = '\u001b[3' + (c < 8 ? c : '8;5;' + c);
+	const check = c < 8 ? c : '8;5;' + c;
+	const colorCode = '\u001b[3' + check;
 	return `${colorCode};1m${name}\u001b[0m`;
 }
 
 // Ignore log messages if they have { private: true }
 export const addColorToLabel = format((info: any) => {
-	return (!info.label) ? info : {
+	return !info.label ? info : {
 		...info,
 		label: addColor(info.label)
 	};
