@@ -14,7 +14,7 @@ before_install:
   - chmod +x .travis/before_install.sh
 after_success:
   - .travis/after_success.sh
-  - test $TRAVIS_BRANCH = "master" && yarn sementic-release
+  - test $TRAVIS_BRANCH = "master" && yarn semantic-release
 script: yarn lint
 git:
   depth: 1

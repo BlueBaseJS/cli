@@ -20,7 +20,7 @@
 	"scripts": {
 		"wizard": "lerna-wizard",
 		"commit": "git-cz",
-		"semantic-release": "lerna-semantic-release pre && lerna-semantic-release post && lerna-semantic-release perform",
+		"semantic-release": "lerna-semantic-release pre && lerna-semantic-release perform && lerna-semantic-release post",
 		"postinstall": "yarn bootstrap",
 		"bootstrap": "lerna bootstrap",
 		"clean": "lerna clean",
