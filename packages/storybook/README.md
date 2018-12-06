@@ -27,16 +27,16 @@ $ bluerain plugins:install @blueeast/bluerain-cli-storybook
 ```
 # Commands
 <!-- commands -->
-* [`bluerain storybook:init`](#bluerain-storybookinit)
-* [`bluerain storybook:start`](#bluerain-storybookstart)
+* [`bluebase storybook:init`](#bluebase-storybookinit)
+* [`bluebase storybook:start`](#bluebase-storybookstart)
 
-## `bluerain storybook:init`
+## `bluebase storybook:init`
 
 Initializes a directory with an example project.
 
 ```
 USAGE
-  $ bluerain storybook:init
+  $ bluebase storybook:init
 
 OPTIONS
   --assetsDir=assetsDir  [default: ./assets/storybook] Path to assets directory relative to the root directory
@@ -47,15 +47,15 @@ EXAMPLE
   $ bluerain storybook:init
 ```
 
-_See code: [src/commands/storybook/init.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.3/src/commands/storybook/init.ts)_
+_See code: [lib/commands/storybook/init.js](https://github.com/BlueBaseJS/cli/blob/v2.0.0/lib/commands/storybook/init.js)_
 
-## `bluerain storybook:start`
+## `bluebase storybook:start`
 
 Starts or restarts a local server for your app and gives you a URL to it.
 
 ```
 USAGE
-  $ bluerain storybook:start
+  $ bluebase storybook:start
 
 OPTIONS
   --assetsDir=assetsDir  [default: ./assets/storybook] Path to assets directory relative to the root directory
@@ -66,5 +66,5 @@ EXAMPLE
   $ bluerain storybook:start
 ```
 
-_See code: [src/commands/storybook/start.ts](https://github.com/BlueEastCode/bluerain-cli/blob/v2.0.0-beta.3/src/commands/storybook/start.ts)_
+_See code: [lib/commands/storybook/start.js](https://github.com/BlueBaseJS/cli/blob/v2.0.0/lib/commands/storybook/start.js)_
 <!-- commandsstop -->

@@ -20,33 +20,33 @@ CLI tool to make life with BlueRain easier!
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g @blueeast/bluerain-cli
-$ bluerain COMMAND
+$ npm install -g @bluebase/cli
+$ bluebase COMMAND
 running command...
-$ bluerain (-v|--version|version)
-@blueeast/bluerain-cli/4.0.0-beta.1 darwin-x64 node-v10.8.0
-$ bluerain --help [COMMAND]
+$ bluebase (-v|--version|version)
+@bluebase/cli/2.0.0 linux-x64 node-v10.13.0
+$ bluebase --help [COMMAND]
 USAGE
-  $ bluerain COMMAND
+  $ bluebase COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`bluerain help [COMMAND]`](#bluerain-help-command)
-* [`bluerain plugins`](#bluerain-plugins)
-* [`bluerain plugins:install PLUGIN...`](#bluerain-pluginsinstall-plugin)
-* [`bluerain plugins:link PLUGIN`](#bluerain-pluginslink-plugin)
-* [`bluerain plugins:uninstall PLUGIN...`](#bluerain-pluginsuninstall-plugin)
-* [`bluerain plugins:update`](#bluerain-pluginsupdate)
+* [`bluebase help [COMMAND]`](#bluebase-help-command)
+* [`bluebase plugins`](#bluebase-plugins)
+* [`bluebase plugins:install PLUGIN...`](#bluebase-pluginsinstall-plugin)
+* [`bluebase plugins:link PLUGIN`](#bluebase-pluginslink-plugin)
+* [`bluebase plugins:uninstall PLUGIN...`](#bluebase-pluginsuninstall-plugin)
+* [`bluebase plugins:update`](#bluebase-pluginsupdate)
 
-## `bluerain help [COMMAND]`
+## `bluebase help [COMMAND]`
 
-display help for bluerain
+display help for bluebase
 
 ```
 USAGE
-  $ bluerain help [COMMAND]
+  $ bluebase help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for
@@ -55,32 +55,32 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.0.5/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.4/src/commands/help.ts)_
 
-## `bluerain plugins`
+## `bluebase plugins`
 
 list installed plugins
 
 ```
 USAGE
-  $ bluerain plugins
+  $ bluebase plugins
 
 OPTIONS
   --core  show core plugins
 
 EXAMPLE
-  $ bluerain plugins
+  $ bluebase plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.5.4/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.3/src/commands/plugins/index.ts)_
 
-## `bluerain plugins:install PLUGIN...`
+## `bluebase plugins:install PLUGIN...`
 
 installs a plugin into the CLI
 
 ```
 USAGE
-  $ bluerain plugins:install PLUGIN...
+  $ bluebase plugins:install PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to install
@@ -99,23 +99,23 @@ DESCRIPTION
   the CLI without the need to patch and update the whole CLI.
 
 ALIASES
-  $ bluerain plugins:add
+  $ bluebase plugins:add
 
 EXAMPLES
-  $ bluerain plugins:install myplugin 
-  $ bluerain plugins:install https://github.com/someuser/someplugin
-  $ bluerain plugins:install someuser/someplugin
+  $ bluebase plugins:install myplugin 
+  $ bluebase plugins:install https://github.com/someuser/someplugin
+  $ bluebase plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.5.4/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.3/src/commands/plugins/install.ts)_
 
-## `bluerain plugins:link PLUGIN`
+## `bluebase plugins:link PLUGIN`
 
 links a plugin into the CLI for development
 
 ```
 USAGE
-  $ bluerain plugins:link PLUGIN
+  $ bluebase plugins:link PLUGIN
 
 ARGUMENTS
   PATH  [default: .] path to plugin
@@ -131,18 +131,18 @@ DESCRIPTION
   command will override the user-installed or core plugin implementation. This is useful for development work.
 
 EXAMPLE
-  $ bluerain plugins:link myplugin
+  $ bluebase plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.5.4/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.3/src/commands/plugins/link.ts)_
 
-## `bluerain plugins:uninstall PLUGIN...`
+## `bluebase plugins:uninstall PLUGIN...`
 
 removes a plugin from the CLI
 
 ```
 USAGE
-  $ bluerain plugins:uninstall PLUGIN...
+  $ bluebase plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -152,24 +152,24 @@ OPTIONS
   -v, --verbose
 
 ALIASES
-  $ bluerain plugins:unlink
-  $ bluerain plugins:remove
+  $ bluebase plugins:unlink
+  $ bluebase plugins:remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.5.4/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.3/src/commands/plugins/uninstall.ts)_
 
-## `bluerain plugins:update`
+## `bluebase plugins:update`
 
 update installed plugins
 
 ```
 USAGE
-  $ bluerain plugins:update
+  $ bluebase plugins:update
 
 OPTIONS
   -h, --help     show CLI help
   -v, --verbose
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.5.4/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.3/src/commands/plugins/update.ts)_
 <!-- commandsstop -->
