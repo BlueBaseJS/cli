@@ -25,7 +25,7 @@
 		"bootstrap": "lerna bootstrap",
 		"clean": "lerna clean",
 		"commitmsg": "validate-commit-msg",
-		"lint": "tslint -t codeFrame 'packages/*/src/**/*.{ts,tsx}'"
+		"lint": "lerna exec yarn lint"
 	},
 	"config": {
 		"commitizen": {
@@ -45,8 +45,7 @@
 		"lerna": "^2.9.0",
 		"lerna-semantic-release": "^9.1.0",
 		"lerna-wizard": "^1.0.9",
-		"prettier": "^1.10.2",
-		"tslint": "^5.11.0"
+		"prettier": "^1.10.2"
 	},
 	"release": {
 		"branch": "master",
