@@ -24,7 +24,7 @@ $ npm install -g @bluebase/cli-web
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-web/3.0.0 linux-x64 node-v10.13.0
+@bluebase/cli-web/2.0.0 linux-x64 node-v10.13.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -55,7 +55,7 @@ EXAMPLE
   		hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/web.ts](https://github.com/BlueBaseJS/cli/blob/v3.0.0/src/commands/web.ts)_
+_See code: [src/commands/web.ts](https://github.com/BlueBaseJS/cli/blob/v2.0.0/src/commands/web.ts)_
 
 ## `bluebase web:build`
 
@@ -70,7 +70,7 @@ OPTIONS
   --configDir=configDir  [default: ./bluerain/web] Path to config directory relative to the root directory
 ```
 
-_See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v3.0.0/src/commands/web/build.ts)_
+_See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v2.0.0/src/commands/web/build.ts)_
 
 ## `bluebase web:init`
 
@@ -90,5 +90,5 @@ EXAMPLE
   $ bluerain web:init
 ```
 
-_See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v3.0.0/src/commands/web/init.ts)_
+_See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v2.0.0/src/commands/web/init.ts)_
 <!-- commandsstop -->
