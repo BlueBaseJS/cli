@@ -5,6 +5,8 @@ import { expoVersions } from './expoVersions';
  */
 export const getLatestExpoVersion = () => {
 	const versions = [...expoVersions];
-	versions.sort((a, b) => (b.id - a.id));
+	versions.sort((a, b) => {
+		return b.id - a.id;
+	});
 	return versions[0];
 };

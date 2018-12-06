@@ -217,7 +217,7 @@ export class FileManager extends Registry<ConfigFileInfo> {
 	public exists = async (slug: string): Promise<boolean> => {
 		try {
 			const result = await this.resolveFilePath(slug);
-			return (result) ? true : false;
+			return result ? true : false;
 		} catch (error) {
 			return false;
 		}
@@ -239,7 +239,7 @@ export class FileManager extends Registry<ConfigFileInfo> {
 		const Package = await import(Utils.fromProjectRoot('package.json'));
 
 		// Load dependencies
-		const dependencies = (isDev)
+		const dependencies = isDev
 			? { ...Package.devDependencies, ...Package.dependencies }
 			: Package.dependencies;
 

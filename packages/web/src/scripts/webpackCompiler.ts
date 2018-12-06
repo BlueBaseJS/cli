@@ -9,7 +9,7 @@ export const webpackCompiler = async (compiler: webpack.Compiler): Promise<webpa
 	return new Promise((resolve, _reject) => {
 
 		compiler.run((err, stats) => {
-			if (err) { throw (err); }
+			if (err) { throw err; }
 
 			resolve(stats);
 		});

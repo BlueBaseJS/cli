@@ -8,7 +8,7 @@ export class HotNodeServer {
 	public clientCompiling: 'NOT-STARTED' | 'COMPILING' | 'DONE' = 'NOT-STARTED';
 
 	private server?: Server | null;
-
+	// tslint:disable-next-line
 	constructor(public configs: HotDevelopmentOptions) {}
 
 	public start = () => {
