@@ -19,9 +19,7 @@ function KeyedComponent({ children }: { children: React.ReactNode }) {
 }
 
 function stylesheetTag(stylesheetFilePath: string) {
-	return (
-    <link href={stylesheetFilePath} media="screen, projection" rel="stylesheet" type="text/css" />
-	);
+	return <link href={stylesheetFilePath} media="screen, projection" rel="stylesheet" type="text/css" />;
 }
 
 function scriptTag(jsFilePath: string) {
@@ -49,9 +47,9 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 
 	const helmet = Helmet.rewind();
 
-// // Creates an inline script definition that is protected by the nonce.
-// 	const inlineScript = (body: any) =>
-// 	<script nonce={nonce} type="text/javascript" dangerouslySetInnerHTML={{ __html: body }} />;
+	// // Creates an inline script definition that is protected by the nonce.
+	// 	const inlineScript = (body: any) =>
+	// 	<script nonce={nonce} type="text/javascript" dangerouslySetInnerHTML={{ __html: body }} />;
 
 	const headerElements = removeNil([
 		...ifElse(helmet)(() => helmet.meta.toComponent(), []),
@@ -66,37 +64,35 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 	// const devVendorDLL = configs.client.devVendorDLL;
 
 	const bodyElements = removeNil([
-	// When we are in development mode our development server will
-	// generate a vendor DLL in order to dramatically reduce our
-	// compilation times.  Therefore we need to inject the path to the
-	// vendor dll bundle below.
-	// 	ifElse(
-	// 		process.env.BUILD_FLAG_IS_DEV === 'true' && devVendorDLL && devVendorDLL.enabled,
-	// )(() =>
-	// 	scriptTag(
-	// 		`${configs.client.publicPath}/${devVendorDLL && devVendorDLL.name}.js?t=${Date.now()}`,
-	// 	),
-	// ),
+		// When we are in development mode our development server will
+		// generate a vendor DLL in order to dramatically reduce our
+		// compilation times.  Therefore we need to inject the path to the
+		// vendor dll bundle below.
+		// 	ifElse(
+		// 		process.env.BUILD_FLAG_IS_DEV === 'true' && devVendorDLL && devVendorDLL.enabled,
+		// )(() =>
+		// 	scriptTag(
+		// 		`${configs.client.publicPath}/${devVendorDLL && devVendorDLL.name}.js?t=${Date.now()}`,
+		// 	),
+		// ),
 		ifElse(clientEntryAssets && clientEntryAssets.js)(() => scriptTag(clientEntryAssets.js)),
 		...ifElse(helmet)(() => helmet.script.toComponent(), []),
 	]);
 
-	return (
-	<HTML
+	return <HTML
 		htmlAttributes={ifElse(helmet)(() => helmet.htmlAttributes.toComponent(), null)}
-		headerElements={headerElements.map((x, idx) =>
-			(<KeyedComponent key={idx}>
+		headerElements={headerElements.map((x, idx) => {
+			return <KeyedComponent key={idx}>
 				{x}
-			</KeyedComponent>),
-		)}
-		bodyElements={bodyElements.map((x, idx) =>
-			(<KeyedComponent key={idx}>
+			</KeyedComponent>;
+		})}
+		bodyElements={bodyElements.map((x, idx) => {
+			return <KeyedComponent key={idx}>
 				{x}
-			</KeyedComponent>),
-		)}
+			</KeyedComponent>;
+		})}
 		appBodyString={reactAppString || renderToStaticMarkup(<SplashScreen />)}
-	/>
-	);
+	/>;
 };
 
 export default getServerHTML;

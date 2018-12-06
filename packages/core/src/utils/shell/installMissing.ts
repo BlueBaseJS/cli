@@ -23,7 +23,7 @@ export const installMissing = (deps: string[] = [], dev: boolean = false) => {
 	}
 
 	pkgJson = { dependencies: {}, devDependencies: {}, ...pkgJson };
-	const checkDeps: { [key: string]: string } = (dev === true) ? pkgJson.devDependencies : pkgJson.dependencies;
+	const checkDeps: { [key: string]: string } = dev === true ? pkgJson.devDependencies : pkgJson.dependencies;
 
 	// This will have the final list to install
 	const depsToInstall: string[] = [];

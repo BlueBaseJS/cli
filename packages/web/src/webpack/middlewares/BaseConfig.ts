@@ -25,21 +25,21 @@ const BaseConfig: WebpackBuilderMiddleware =
 	(options?: WebpackBuilderMiddlewareOpts) =>
 		(config: WebpackConfig, builder: WebpackBuilder): WebpackConfig => {
 
-			const resolve = (!builder.configs.extensions) ? {} :
+			const resolve = !builder.configs.extensions ? {} :
 				{ extensions: builder.configs.extensions.map((ext: string) => `.${ext}`) };
 
-			const env = (options && options.env) ? options.env : {};
+			const env = options && options.env ? options.env : {};
 
 			return merge(config, {
 
 				// Mode
 				mode: builder.configs.mode,
 
-				target: builder.configs.target || (builder.isClient
+				target: builder.configs.target || builder.isClient
 					? // Only our client bundle will target the web as a runtime.
 					'web'
 					: // Any other bundle must be targetting node as a runtime.
-					'node'),
+					'node',
 
 				// Ensure that webpack polyfills the following node features for use
 				// within any bundles that are targetting node as a runtime. This will be
@@ -263,31 +263,33 @@ const BaseConfig: WebpackBuilderMiddleware =
 							// This is bound to our server/client bundles as we only expect to be
 							// serving the client bundle as a Single Page Application through the
 							// server.
-							ifElse(builder.isClient || builder.isServer)(() => ({
-								loader: useOwn('file-loader'),
-								exclude: [/\.ts$/, /\.js$/, /\.html$/, /\.json$/],
-								query: {
+							ifElse(builder.isClient || builder.isServer)(() => {
+								return {
+									loader: useOwn('file-loader'),
+									exclude: [/\.ts$/, /\.js$/, /\.html$/, /\.json$/],
+									query: {
 
-									// What is the web path that the client bundle will be served from?
-									// The same value has to be used for both the client and the
-									// server bundles in order to ensure that SSR paths match the
-									// paths used on the client.
-									publicPath:
-										// builder.isDev
-										// ? // When running in dev mode the client bundle runs on a
-										// // seperate port so we need to put an absolute path here.
-										// // tslint:disable-next-line:max-line-length
-										// tslint:disable-next-line:max-line-length
-										// `http://${builder.configs.host}:${builder.configs.clientDevServerPort}${builder.configs.bundles.client.webPath}`
-										// : // Otherwise we just use the configured web path for the client.
-										builder.configs.publicPath,
+										// What is the web path that the client bundle will be served from?
+										// The same value has to be used for both the client and the
+										// server bundles in order to ensure that SSR paths match the
+										// paths used on the client.
+										publicPath:
+											// builder.isDev
+											// ? // When running in dev mode the client bundle runs on a
+											// // seperate port so we need to put an absolute path here.
+											// // tslint:disable-next-line:max-line-length
+											// tslint:disable-next-line:max-line-length
+											// `http://${builder.configs.host}:${builder.configs.clientDevServerPort}${builder.configs.bundles.client.webPath}`
+											// : // Otherwise we just use the configured web path for the client.
+											builder.configs.publicPath,
 
-									// We only emit files when building a web bundle, for the server
-									// bundle we only care about the file loader being able to create
-									// the correct asset URLs.
-									emitFile: builder.isClient,
-								},
-							})),
+										// We only emit files when building a web bundle, for the server
+										// bundle we only care about the file loader being able to create
+										// the correct asset URLs.
+										emitFile: builder.isClient,
+									},
+								};
+							}),
 
 							// Do not add any loader after file loader (fallback loader)
 							// Make sure to add the new loader(s) before the "file" loader.

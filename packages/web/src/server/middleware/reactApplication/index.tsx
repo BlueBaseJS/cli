@@ -8,6 +8,6 @@ import withoutSSR from './withoutSSR';
  */
 export default (configs: ServerConfigsBundle) =>
 	(req: Request, res: Response) =>
-	(configs.server.disableSSR)
-		? withoutSSR(req, res, configs)
-		: withSSR(req, res, configs);
+		configs.server.disableSSR
+			? withoutSSR(req, res, configs)
+			: withSSR(req, res, configs);

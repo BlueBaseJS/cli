@@ -10,7 +10,7 @@ const isSSR = process.env.BUILD_FLAG_IS_SSR === 'true';
 let bootConfig = require('BLUERAIN_BOOT_OPTIONS');
 
 // ES Module
-bootConfig = (bootConfig.default ? bootConfig.default : bootConfig);
+bootConfig = bootConfig.default ? bootConfig.default : bootConfig;
 
 if (isDev && isClient) {
 	bootConfig.plugins = bootConfig.plugins || [];
