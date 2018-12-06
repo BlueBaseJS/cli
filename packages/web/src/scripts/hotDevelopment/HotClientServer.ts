@@ -8,6 +8,7 @@ export class HotClientServer {
 	private app?: serve.InitializedKoa;
 	private listenerManager?: ListenerManager;
 
+	// tslint:disable-next-line
 	constructor(public configs: HotDevelopmentOptions) {}
 
 	public async start() {

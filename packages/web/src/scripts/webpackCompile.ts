@@ -11,7 +11,7 @@ export const webpackCompile = async (configs: webpack.Configuration): Promise<we
 		const compiler = webpack(configs);
 
 		compiler.run((err, stats) => {
-			if (err) { throw (err); }
+			if (err) { throw err; }
 
 			resolve(stats);
 		});

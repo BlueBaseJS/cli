@@ -147,12 +147,14 @@ const LoaderCss: WebpackBuilderMiddleware = () => (config: WebpackConfig, builde
 				// an ExtractTextPlugin instance.
 				// Note: The ExtractTextPlugin needs to be registered within the
 				// plugins section too.
-				builder.ifProdClient(() => ({
-					loaders: [
-						MiniCssExtractPlugin.loader,
-						useOwn('css-loader')
-					]
-				})),
+				builder.ifProdClient(() => {
+					return {
+						loaders: [
+							MiniCssExtractPlugin.loader,
+							useOwn('css-loader')
+						]
+					};
+				}),
 
 				// When targetting the server we use the "/locals" version of the
 				// css loader, as we don't need any css files for the server.

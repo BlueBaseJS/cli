@@ -79,7 +79,8 @@ export default class WebpackBuilder implements BuilderOptions {
 		}
 
 		this.configs = { ...configs };
-		this.configs.mode = configs.mode || (Utils.isProduction() ? 'production' : 'development');
+		const isProd = Utils.isProduction() ? 'production' : 'development';
+		this.configs.mode = configs.mode || isProd;
 		this.configs.target = configs.target || 'web';
 
 		const ifElse = Utils.ifElse;
