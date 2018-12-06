@@ -2,7 +2,7 @@
   "name": "@bluebase/cli-essentials",
   "description": "This package has all the essential exports for use with BlueRain CLI projects.",
   "author": "BlueEast Team <code@blueeast.com>",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "module": "lib/index.js",
