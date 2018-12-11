@@ -7,6 +7,7 @@ import getConfigFiles from '../../configFiles';
 import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
+import deepmerge = require('deepmerge');
 
 export class CustomCommand extends Command {
 
@@ -27,6 +28,8 @@ export class CustomCommand extends Command {
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
 		const appJsPath = Utils.fromProjectRoot(flags.appJsPath);
+		const customWebPackClientConfigPath = Utils.fromProjectRoot(flags.webpackClientConfigPath);
+		const customWebPackServerConfigPath = Utils.fromProjectRoot(flags.webpackServerConfigPath);
 
 		/////////////////////////////
 		///// Setup FileManager /////
@@ -53,8 +56,18 @@ export class CustomCommand extends Command {
 		///// Generate Configs /////
 		////////////////////////////
 
-		const clientConfigs = await fileManager.Hooks.run(`web.client-config`, {}, { buildDir, configDir });
-		const serverConfigs = await fileManager.Hooks.run(`web.server-config`, {}, { buildDir, configDir });
+		let clientConfigs = await fileManager.Hooks.run(`web.client-config`, {}, { buildDir, configDir });
+		let serverConfigs = await fileManager.Hooks.run(`web.server-config`, {}, { buildDir, configDir });
+
+		if (fs.existsSync(customWebPackClientConfigPath)) {
+			const configs = require(customWebPackClientConfigPath);
+			clientConfigs = deepmerge(configs, clientConfigs);
+		}
+
+		if (fs.existsSync(customWebPackServerConfigPath)) {
+			const configs = require(customWebPackServerConfigPath);
+			serverConfigs = deepmerge(configs, serverConfigs);
+		}
 
 		// Path to bluerain.js file
 		const bluerainJsPath = await fileManager.resolveFilePath('bluerain');
