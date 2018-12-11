@@ -34,12 +34,12 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 			connectSrc: [],
 			defaultSrc: [],
 			fontSrc: [],
-			imgSrc: ['https://s3-us-west-2.amazonaws.com/'],
+			imgSrc: [],
 			mediaSrc: [],
 			// manifestSrc: [],
 			objectSrc: [],
-			scriptSrc: ['https://maps.googleapis.com/maps/api/'],
-			styleSrc: ['https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/'],
+			scriptSrc: [],
+			styleSrc: [],
 		},
 
 		serviceWorker: {
