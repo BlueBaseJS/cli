@@ -5,6 +5,8 @@ export interface Flags {
 	configDir: string;
 	assetsDir: string;
 	appJsPath: string;
+	webpackClientConfigPath: string;
+	webpackServerConfigPath: string;
 }
 
 export const FlagDefs = {
@@ -44,4 +46,21 @@ export const FlagDefs = {
 		required: false,
 	}),
 
+	webpackClientConfigPath: flags.string({
+		default: './bluerain/web/client-webpack-config.ts',
+		description: 'Path to webpackClientConfigPath file relative to the root directory',
+		env: 'WEBPACK_CLIENT_CONFIG_PATH',
+		hidden: false,
+		multiple: false,
+		required: false,
+	}),
+
+	webpackServerConfigPath: flags.string({
+		default: './bluerain/web/server-webpack-config.ts',
+		description: 'Path to webpackServerConfigPath file relative to the root directory',
+		env: 'WEBPACK_SERVER_CONFIG_PATH',
+		hidden: false,
+		multiple: false,
+		required: false,
+	}),
 };
