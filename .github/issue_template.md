@@ -1,7 +1,7 @@
 <!--
 Please fill the informations requested OR use one of the following url:
-  - Bug report: https://github.com/BlueEastCode/bluerain-cli/issues/new?template=bug-report.md
-  - Feature request: https://github.com/BlueEastCode/bluerain-cli/issues/new?template=feature-request.md
+  - Bug report: https://github.com/BlueBaseJS/cli/issues/new?template=bug-report.md
+  - Feature request: https://github.com/BlueBaseJS/cli/issues/new?template=feature-request.md
 -->
 
 <!--------------------- FOR BUG REPORT ONLY --------------------->
@@ -18,7 +18,7 @@ Please fill the informations requested OR use one of the following url:
 
 ## Environment
 
-- **bluerain-os** version: 
+- **bluebase** version: 
 - **bluerain-cli** version: 
 
 - CI environment: <!-- CI service name -->

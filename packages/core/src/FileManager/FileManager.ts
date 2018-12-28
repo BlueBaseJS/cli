@@ -1,7 +1,7 @@
 import { Command } from '@oclif/config';
 import { ConfigFileInfo } from './ConfigFileInfo';
-import { HookRegistry } from './bluerain-4/HookRegistry';
-import { Registry } from './bluerain-4/Registry';
+import { HookRegistry } from './bluebase-4/HookRegistry';
+import { Registry } from './bluebase-4/Registry';
 import { Utils } from '..';
 import { isFunction } from 'util';
 import findFiles from 'file-regex';
@@ -30,11 +30,11 @@ export class FileManager extends Registry<ConfigFileInfo> {
 	public Hooks = new HookRegistry(this as any);
 
 	/**
-	 * The file pattern to used to find BlueRain Engine repos in
+	 * The file pattern to used to find BlueBase Engine repos in
 	 * package.json.
 	 */
-	// private engineRepoPrefix: string = 'bluerain-cli-engine-';
-	private pluginRepoPrefix: string = '^bluerain-(platform|plugin|app)-.+$';
+	// private engineRepoPrefix: string = 'bluebase-cli-engine-';
+	private pluginRepoPrefix: string = '^bluebase-(platform|plugin|app)-.+$';
 
 	constructor(private slug: string, private configFiles?: ConfigFileInfo[]) {
 		super({ Logger: logger });
@@ -125,18 +125,18 @@ export class FileManager extends Registry<ConfigFileInfo> {
 
 		// Plugins
 		if (file.findInPlugins === true) {
-			const plugins = await this.listBlueRainPlugins();
+			const plugins = await this.listBlueBasePlugins();
 
 			// Find all plugins that have this file
 			for (const plugin of plugins) {
-				const dir = Utils.fromProjectRoot(`node_modules/${plugin}/bluerain`);
+				const dir = Utils.fromProjectRoot(`node_modules/${plugin}/bluebase`);
 				const files = await this.find(dir, file.name);
 				files.map(f => paths.push(path.resolve(f.dir, f.file)));
 			}
 		}
 
-		// BlueRain Dir
-		if (file.findInBlueRain === true) {
+		// BlueBase Dir
+		if (file.findInBlueBase === true) {
 			try {
 				const brFilePath = await this.resolveFilePath(file.slug);
 				paths.push(brFilePath);
@@ -225,12 +225,12 @@ export class FileManager extends Registry<ConfigFileInfo> {
 
 
 	/**
-	 * Get a list of all installed bluerain app, plugins or platforms.
+	 * Get a list of all installed bluebase app, plugins or platforms.
 	 * Does so by looking in the project's package.json.
 	 * If NODE_ENV === 'production', looks only in dependencies,
 	 * otherwise filters devDependencies as well.
 	 */
-	private listBlueRainPlugins = async (): Promise<string[]> => {
+	private listBlueBasePlugins = async (): Promise<string[]> => {
 
 		// We can't gauranttee availability of platform configs here
 		const isDev = !Utils.isProduction();

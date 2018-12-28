@@ -1,12 +1,12 @@
 // This file contain all the apps, plugins and configuration which are required
-// for booting bluerain-os. see https://blueeast.gitbooks.io/bluerain-os/
+// for booting bluebase. see https://blueeast.gitbooks.io/bluebase/
 export default {
 	apps:[],
 	platform: [
-		require('@blueeast/bluerain-platform-react-native')
+		require('@blueeast/bluebase-platform-react-native')
 	],
 	plugins:[
-		require('@blueeast/bluerain-plugin-react-router'),
-		require('@blueeast/bluerain-plugin-redux'),
+		require('@blueeast/bluebase-plugin-react-router'),
+		require('@blueeast/bluebase-plugin-redux'),
 	],
 };

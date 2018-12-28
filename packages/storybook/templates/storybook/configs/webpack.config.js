@@ -1,4 +1,4 @@
-const { storybookWebpackConfigs } = require('@blueeast/bluerain-cli-essentials');
+const { storybookWebpackConfigs } = require('@bluebase/cli-essentials');
 
 module.exports = (baseConfig, env, config) => {
 

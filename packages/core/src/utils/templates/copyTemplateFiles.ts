@@ -43,7 +43,7 @@ export const copyTemplateFiles = async (src: string, dest: string, opts?: Templa
 
 		const filePath = path.join(dest, file);
 
-		// Inject bluerain.js path in template
+		// Inject bluebase.js path in template
 		const fileContent = fs.readFileSync(filePath).toString();
 
 		// Template

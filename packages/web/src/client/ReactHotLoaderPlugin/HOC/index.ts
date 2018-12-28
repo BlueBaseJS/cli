@@ -1,4 +1,4 @@
-import { Plugin } from '@blueeast/bluerain-os';
+import { Plugin } from '@bluebase/core';
 import { hot } from 'react-hot-loader';
 
 export default class ReactHotLoaderPlugin extends Plugin {

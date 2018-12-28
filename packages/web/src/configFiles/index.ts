@@ -1,4 +1,4 @@
-import { ConfigFileInfo, getDefaults, } from '@blueeast/bluerain-cli-core';
+import { ConfigFileInfo, getDefaults, } from '@bluebase/cli-core';
 // import fromRoot from '../scripts/fromRoot';
 import path from 'path';
 
@@ -40,6 +40,6 @@ export default (configDir: string): ConfigFileInfo[] => {
 		// 	...defaults.assetsDir,
 		// 	defaultPath: fromRoot('templates/web/assets'),
 		// },
-		defaults.bluerain,
+		defaults.bluebase,
 	];
 };

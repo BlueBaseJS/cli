@@ -1,10 +1,10 @@
-import { BlueRain, BlueRainConsumer } from '@blueeast/bluerain-os';
+import { BlueBase, BlueBaseConsumer } from '@bluebase/core';
 import React from 'react';
-import storiesOf from '@blueeast/bluerain-storybook-addon';
+import storiesOf from '@bluebase/storybook-addon';
 
-storiesOf('BlueRain', module)
+storiesOf('BlueBase', module)
 	.add('DummyComponent', () => (
-		<BlueRainConsumer>
-			{(BR: BlueRain) => <BR.Components.DummyComponent />}
-		</BlueRainConsumer>
+		<BlueBaseConsumer>
+			{(BR: BlueBase) => <BR.Components.DummyComponent />}
+		</BlueBaseConsumer>
 	));

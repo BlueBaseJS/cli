@@ -1,6 +1,6 @@
 // tslint:disable:object-literal-sort-keys
 import { ServerConfigs } from '../types';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import deepmerge from 'deepmerge';
 import fromRoot from '../scripts/fromRoot';
 import path from 'path';

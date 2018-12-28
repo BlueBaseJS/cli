@@ -8,7 +8,7 @@ export interface Flags {
 
 export const FlagDefs = {
 	configDir: flags.string({
-		default: './bluerain/storybook',
+		default: './bluebase/storybook',
 		description: 'Path to config directory relative to the root directory',
 		env: 'CONFIG_DIR',
 		hidden: false,

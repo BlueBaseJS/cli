@@ -7,7 +7,7 @@
   "typings": "lib/index.d.ts",
   "module": "lib/index.js",
   "dependencies": {
-    "@blueeast/bluerain-cli-core": "^2.0.0-beta.12",
+    "@bluebase/cli-core": "^2.0.0-beta.12",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@types/html-webpack-plugin": "^3.2.0",
@@ -61,7 +61,7 @@
     "write-json-webpack-plugin": "^1.0.2"
   },
   "devDependencies": {
-    "@blueeast/bluerain-os": "^3.13.7",
+    "@bluebase/core": "^3.13.7",
     "@blueeast/bluerain-platform-react-native": "^1.1.3",
     "@blueeast/bluerain-plugin-react-router": "^1.1.5",
     "@blueeast/bluerain-plugin-redux": "^0.6.6",
@@ -125,7 +125,7 @@
     "typescript": "^3.2.1"
   },
   "peerDependencies": {
-    "@blueeast/bluerain-os": "^3.*",
+    "@bluebase/core": "^3.*",
     "react": "^16.*",
     "react-dom": "^16.*"
   },

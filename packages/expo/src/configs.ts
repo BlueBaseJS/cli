@@ -3,7 +3,7 @@ import { ExpoFlags } from './flags';
 import { getExpoSdk } from './scripts/expo/getExpoSdk';
 import path from 'path';
 // tslint:disable-next-line
-import { Utils } from '@blueeast/bluerain-cli-core/lib';
+import { Utils } from '@bluebase/cli-core/lib';
 
 export interface ExpoConfigs {
 	manifest: Partial<Constants.Manifest>
@@ -16,16 +16,16 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 
 		manifest: {
 			android: {
-				package: 'com.bluerain.app'
+				package: 'com.bluebase.app'
 			},
 			description: 'This project is really great.',
 			entryPoint: path.relative(Utils.fromProjectRoot(), path.join(paths.buildDir, 'AppEntry.js')),
 			icon: path.relative(Utils.fromProjectRoot(), path.join(paths.assetsDir, './icon.png')),
 			ios: {
-				bundleIdentifier: 'com.bluerain.app',
+				bundleIdentifier: 'com.bluebase.app',
 				supportsTablet: true,
 			},
-			name: 'BlueRain',
+			name: 'BlueBase',
 			orientation: 'portrait',
 			packagerOpts: {
 				sourceExts: [
@@ -37,7 +37,7 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 			platforms: ['ios', 'android'],
 			privacy: 'public',
 			sdkVersion: getExpoSdk(),
-			slug: 'bluerain-project-expo',
+			slug: 'bluebase-project-expo',
 			splash: {
 				backgroundColor: '#ffffff',
 				image: path.relative(Utils.fromProjectRoot(), path.join(paths.assetsDir, './splash.png')),

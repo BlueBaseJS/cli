@@ -1,24 +1,24 @@
-import { FileManager, getDefaults } from '@blueeast/bluerain-cli-core';
+import { FileManager, getDefaults } from '@bluebase/cli-core';
 
 export interface CreateBundleInterface {
 	configDir: string,
 	name: string,
 }
 
-export const getBlueRainPath = async ({ configDir, name }: CreateBundleInterface) => {
+export const getBlueBasePath = async ({ configDir, name }: CreateBundleInterface) => {
 
 	const defaults = getDefaults(configDir);
 
-	const configFiles = [defaults.bluerain];
+	const configFiles = [defaults.bluebase];
 
 	const fileManager = new FileManager(name, configFiles);
 	await fileManager.setup();
 
-	// Path to bluerain.js file
-	let bluerainJsPath = await fileManager.resolveFilePath('bluerain');
+	// Path to bluebase.js file
+	let bluebaseJsPath = await fileManager.resolveFilePath('bluebase');
 
 	// Remove (.ts|.js) extension
-	bluerainJsPath = bluerainJsPath.replace(/\.[^/.]+$/, '');
+	bluebaseJsPath = bluebaseJsPath.replace(/\.[^/.]+$/, '');
 
-	return bluerainJsPath;
+	return bluebaseJsPath;
 };

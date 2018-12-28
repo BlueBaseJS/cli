@@ -6,11 +6,11 @@ import CenterView from './CenterView';
 
 // Custom
 import { loadStories } from './storyLoader';
-import { BlueRainDecorator } from '@blueeast/bluerain-storybook-addon';
-import BRConfigs from '../bluerain';
+import { BlueBaseDecorator } from '@bluebase/storybook-addon';
+import BRConfigs from '../bluebase';
 
-// BlueRain
-addDecorator(BlueRainDecorator(BRConfigs));
+// BlueBase
+addDecorator(BlueBaseDecorator(BRConfigs));
 
 // CenterView
 const CenterViewDecorator = (storyFn) => (<CenterView>{storyFn()}</CenterView>);
@@ -34,5 +34,5 @@ class StorybookUIHMRRoot extends Component {
   }
 }
 
-AppRegistry.registerComponent('BlueRain', () => StorybookUIHMRRoot);
+AppRegistry.registerComponent('BlueBase', () => StorybookUIHMRRoot);
 export default StorybookUIHMRRoot;

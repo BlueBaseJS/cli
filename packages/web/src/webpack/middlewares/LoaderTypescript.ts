@@ -1,6 +1,6 @@
 // tslint:disable:object-literal-sort-keys
 import { Configuration as WebpackConfig } from 'webpack';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { WebpackBuilderMiddleware } from '../../types';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import WebpackBuilder from '../WebpackBuilder';

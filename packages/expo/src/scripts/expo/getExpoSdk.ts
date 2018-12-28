@@ -1,4 +1,4 @@
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { expoVersions } from './expoVersions';
 import fs from 'fs';
 import semver from 'semver';

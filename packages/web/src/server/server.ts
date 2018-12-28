@@ -1,6 +1,6 @@
 import { ClientConfigs, ServerConfigs } from '../types';
 import { Server } from 'http';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import clientBundle from './middleware/clientBundle';
 import compression from 'compression';
 import errorHandlers from './middleware/errorHandlers';
@@ -61,7 +61,7 @@ const server = (configs: ServerConfigsBundle): Server => {
 	// The React application middleware.
 	app.get('*', (request, response) => {
 		logger.log({
-			label: '@bluerain/cli/server',
+			label: '@bluebase/cli/server',
 			level: 'info',
 			message: `Received for "${request.url}"`,
 		});
@@ -74,7 +74,7 @@ const server = (configs: ServerConfigsBundle): Server => {
 	// Create an http listener for our express app.
 	const listener = app.listen(configs.server.port, () => {
 		logger.log({
-			label: '@bluerain/cli/server',
+			label: '@bluebase/cli/server',
 			level: 'info',
 			// tslint:disable-next-line:object-literal-sort-keys
 			message: `✓

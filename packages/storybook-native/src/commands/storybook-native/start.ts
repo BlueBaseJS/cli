@@ -1,7 +1,7 @@
 import { ChildProcess } from 'child_process';
 import { Command } from '@oclif/command';
 import { ExpoFlagDefs } from '../../flags';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import StartExpo from './start/expo';
 import StartServer from './start/server';
 
@@ -9,14 +9,14 @@ export default class CustomCommand extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
 
 	static examples = [
-		`$ bluerain storybook-native:start`,
+		`$ bluebase storybook-native:start`,
 	];
 
 	static flags = ExpoFlagDefs;
 
 	async run() {
 
-		// const bluerainPath = Utils.fromProjectRoot('./node_modules/.bin/bluerain');
+		// const bluebasePath = Utils.fromProjectRoot('./node_modules/.bin/bluebase');
 
 		const startServer = StartServer.run(this.argv);
 		const startExpo = StartExpo.run(this.argv);
@@ -44,7 +44,7 @@ export default class CustomCommand extends Command {
 
 		process.on('SIGINT', () => {
 			Utils.logger.log({
-				label: '@bluerain/cli/expo',
+				label: '@bluebase/cli/expo',
 				level: 'info',
 				message: '💀 Caught interrupt signal, exiting!',
 			});

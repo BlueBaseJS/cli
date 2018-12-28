@@ -6,7 +6,7 @@ export interface BuilderConfigsProp extends BundleDefinition {
 
 export type BuilderOptions = {
 
-	/** Path of the directory that has configuration files (including bluerain.js) */
+	/** Path of the directory that has configuration files (including bluebase.js) */
 	configDirPath: string,
 
 	/** Path of the directory that the output be generated in */
@@ -15,8 +15,8 @@ export type BuilderOptions = {
 	/** Path of the direcotry that has all the public assets */
 	assetsDirPath: string,
 
-	/** Path of the bluerain.js file */
-	bluerainJsPath: string;
+	/** Path of the bluebase.js file */
+	bluebaseJsPath: string;
 
 	/** Path of the App.js file */
 	appJsPath: string;

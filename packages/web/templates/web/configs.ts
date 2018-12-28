@@ -8,7 +8,7 @@ export default (input: any) => {
 
 		// app.json is generated from manifest
 		manifest: {
-			name: 'My BlueRain App'
+			name: 'My BlueBase App'
 		}
 	});
 };

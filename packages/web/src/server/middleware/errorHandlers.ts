@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 
 const logger = Utils.logger;
 
@@ -27,7 +27,7 @@ const errorHandlersMiddleware = [
 		if (err) {
 			logger.log({
 				error: err,
-				label: '@bluerain/cli/server',
+				label: '@bluebase/cli/server',
 				level: 'error',
 				message: 'An unexpected error occurred',
 			});

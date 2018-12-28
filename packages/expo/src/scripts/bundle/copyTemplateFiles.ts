@@ -1,4 +1,4 @@
-import { Utils, copyTemplateFiles as copyCoreTemplateFiles } from '@blueeast/bluerain-cli-core';
+import { Utils, copyTemplateFiles as copyCoreTemplateFiles } from '@bluebase/cli-core';
 import fromRoot from '../fromRoot';
 
 /**
@@ -15,7 +15,7 @@ export const copyTemplateFiles = async (assetsDir: string, configDir: string) =>
 	///// Read package.json
 	Utils.mergePackageJson({
 		scripts: {
-			'expo:start': 'bluerain expo:start'
+			'expo:start': 'bluebase expo:start'
 		}
 	});
 };

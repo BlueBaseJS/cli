@@ -1,4 +1,4 @@
-import { BlueRain, Plugin } from '@blueeast/bluerain-os';
+import { BlueBase, Plugin } from '@bluebase/core';
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 // import ReactHotLoader from './ReactHotLoader';
@@ -14,7 +14,7 @@ export default class ReactHotLoaderPlugin extends Plugin {
 	static pluginName = 'ReactHotLoaderPlugin';
 	static slug = 'react-hot-loader';
 
-	static initialize(_config: any, BR: BlueRain) {
+	static initialize(_config: any, BR: BlueBase) {
 		BR.Components.addHocs('SystemApp', AppContainerHoc);
 
 		// The following is needed so that we can support hot reloading our application.

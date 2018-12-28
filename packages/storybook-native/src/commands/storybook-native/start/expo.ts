@@ -1,7 +1,7 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../../flags';
 import { Command } from '@oclif/command';
-import { Utils } from '@blueeast/bluerain-cli-core';
-import { createBundle } from '@blueeast/bluerain-cli-expo';
+import { Utils } from '@bluebase/cli-core';
+import { createBundle } from '@blueeast/bluebase-cli-expo';
 import { spawn } from 'child_process';
 import fromRoot from '../../../scripts/fromRoot';
 import fs from 'fs';
@@ -11,7 +11,7 @@ export default class StartExpo extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
 
 	static examples = [
-		`$ bluerain expo:start`,
+		`$ bluebase expo:start`,
 	];
 
 	static flags = ExpoFlagDefs;
@@ -21,7 +21,7 @@ export default class StartExpo extends Command {
 		const flags = parsed.flags as ExpoFlags;
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluebase/cli/expo',
 			level: 'info',
 			message: '🏗 Building project...',
 		});
@@ -66,7 +66,7 @@ export default class StartExpo extends Command {
 		///////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/storybook-native',
+			label: '@bluebase/cli/storybook-native',
 			level: 'info',
 			message: '🚀 Launching Storybook Native',
 		});

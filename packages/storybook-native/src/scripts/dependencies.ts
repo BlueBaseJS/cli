@@ -1,4 +1,4 @@
-import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDeps } from '@blueeast/bluerain-cli-expo';
+import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDeps } from '@bluebase/cli-expo';
 
 /**
  * List of dependencies required by this plugin
@@ -12,7 +12,7 @@ export const requiredDependencies = [
  */
 export const requiredDevDependencies = [
 	...coreDevDeps,
-	'@blueeast/bluerain-storybook-addon',
+	'@bluebase/storybook-addon',
 	'@storybook/addon-actions',
 	'@storybook/addon-links',
 	'@storybook/react-native',

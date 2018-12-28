@@ -1,4 +1,4 @@
-import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDeps } from '@blueeast/bluerain-cli-core';
+import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDeps } from '@bluebase/cli-core';
 import { getLatestExpoVersion } from './expo/getLatestExpoVersion';
 
 /**

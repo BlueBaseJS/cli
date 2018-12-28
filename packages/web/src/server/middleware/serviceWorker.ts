@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { ServerConfigsBundle } from '../server';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 
 // Middleware to serve our service worker.
 const serviceWorkerMiddleware =

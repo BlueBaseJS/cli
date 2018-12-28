@@ -11,7 +11,7 @@ export interface Flags {
 
 export const FlagDefs = {
 	configDir: flags.string({
-		default: './bluerain/web',
+		default: './bluebase/web',
 		description: 'Path to config directory relative to the root directory',
 		env: 'CONFIG_DIR',
 		hidden: false,
@@ -38,7 +38,7 @@ export const FlagDefs = {
 	}),
 
 	appJsPath: flags.string({
-		default: './bluerain/web/App',
+		default: './bluebase/web/App',
 		description: 'Path to App.js file relative to the root directory',
 		env: 'APP_JS_PATH',
 		hidden: false,
@@ -47,7 +47,7 @@ export const FlagDefs = {
 	}),
 
 	webpackClientConfigPath: flags.string({
-		default: './bluerain/web/client-webpack-config.ts',
+		default: './bluebase/web/client-webpack-config.ts',
 		description: 'Path to webpackClientConfigPath file relative to the root directory',
 		env: 'WEBPACK_CLIENT_CONFIG_PATH',
 		hidden: false,
@@ -56,7 +56,7 @@ export const FlagDefs = {
 	}),
 
 	webpackServerConfigPath: flags.string({
-		default: './bluerain/web/server-webpack-config.ts',
+		default: './bluebase/web/server-webpack-config.ts',
 		description: 'Path to webpackServerConfigPath file relative to the root directory',
 		env: 'WEBPACK_SERVER_CONFIG_PATH',
 		hidden: false,

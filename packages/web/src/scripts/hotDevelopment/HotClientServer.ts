@@ -1,5 +1,5 @@
 import { HotDevelopmentOptions } from '.';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import ListenerManager from './ListenerManager';
 import serve from 'webpack-serve';
 
@@ -38,7 +38,7 @@ export class HotClientServer {
 			on: {
 				'build-started': () => {
 					Utils.logger.log({
-						label: '@bluerain/cli/client',
+						label: '@bluebase/cli/client',
 						level: 'info',
 						message: 'Build Started',
 					});
@@ -46,7 +46,7 @@ export class HotClientServer {
 
 				'build-finished': () => {
 					Utils.logger.log({
-						label: '@bluerain/cli/client',
+						label: '@bluebase/cli/client',
 						level: 'info',
 						message: 'Running with latest changes.',
 						notify: true,
@@ -55,7 +55,7 @@ export class HotClientServer {
 
 				'compiler-error': () => {
 					Utils.logger.log({
-						label: '@bluerain/cli/client',
+						label: '@bluebase/cli/client',
 						level: 'error',
 						message: 'Build failed, please check the console for more information.',
 						notify: true,

@@ -5,7 +5,7 @@ import shell from 'shelljs';
 /**
  * Global initializer.
  *
- * - Create a bluerain/common folder
+ * - Create a bluebase/common folder
  * - Add tsconfig and tslint files
  */
 export const copyTemplateFiles = async (assetsDir: string, configDir: string) => {

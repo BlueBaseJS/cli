@@ -1,6 +1,6 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../../flags';
 import { Command } from '@oclif/command';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { spawn } from 'child_process';
 import { createBundle } from '../../../scripts';
 import fromRoot from '../../../scripts/fromRoot';
@@ -10,7 +10,7 @@ export default class ExpoBuild extends Command {
 	static description = 'creates a build for android.';
 
 	static examples = [
-		`$ bluerain expo:build:android`,
+		`$ bluebase expo:build:android`,
 	];
 
 	static flags = ExpoFlagDefs;
@@ -23,7 +23,7 @@ export default class ExpoBuild extends Command {
 
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluebase/cli/expo',
 			level: 'info',
 			message: '🏗 Building android project...',
 		});
@@ -64,7 +64,7 @@ export default class ExpoBuild extends Command {
 		// Utils.fr
 		process.on('SIGINT', () => {
 			Utils.logger.log({
-				label: '@bluerain/cli/expo',
+				label: '@bluebase/cli/expo',
 				level: 'info',
 				message: '💀 Caught interrupt signal, exiting!',
 			});

@@ -1,6 +1,6 @@
 import deepmerge from 'deepmerge';
-import { BootOptions } from '@blueeast/bluerain-os';
-import commonBootOptions from '../common/bluerain';
+import { BootOptions } from '@bluebase/core';
+import commonBootOptions from '../common/bluebase';
 
 // TODO: Only for evaluation, remove this
 import DummyPlugin from './sample';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BR from '@blueeast/bluerain-os';
+import BR from '@bluebase/core';
 import ReactHotLoaderPlugin from './ReactHotLoaderPlugin/HOC';
 
 const isDev = process.env.BUILD_FLAG_IS_DEV === 'true';

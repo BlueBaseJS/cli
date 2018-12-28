@@ -1,4 +1,4 @@
-import { FileManager, Utils, getDefaults } from '@blueeast/bluerain-cli-core';
+import { FileManager, Utils, getDefaults } from '@bluebase/cli-core';
 import { execSync } from 'child_process';
 import fromRoot from '../fromRoot';
 import path from 'path';

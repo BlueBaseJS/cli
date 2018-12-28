@@ -1,6 +1,6 @@
 // import * as webpack from 'webpack';
 import { Configuration as WebpackConfig } from 'webpack';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { WebpackBuilderMiddleware } from '../../../types';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackBuilder from '../../WebpackBuilder';

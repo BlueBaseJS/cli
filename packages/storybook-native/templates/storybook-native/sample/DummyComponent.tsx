@@ -1,10 +1,10 @@
-import { BlueRain, BlueRainConsumer } from '@blueeast/bluerain-os';
+import { BlueBase, BlueBaseConsumer } from '@bluebase/core';
 import React from 'react';
 
 const DummyComponent = () => (
-	<BlueRainConsumer>
-		{(BR: BlueRain) => (<BR.Components.Text>I'm a dummy! 🤪 😎 👍 💯</BR.Components.Text>)}
-	</BlueRainConsumer>
+	<BlueBaseConsumer>
+		{(BR: BlueBase) => (<BR.Components.Text>I'm a dummy! 🤪 😎 👍 💯</BR.Components.Text>)}
+	</BlueBaseConsumer>
 );
 
 export default DummyComponent;

@@ -1,6 +1,6 @@
 {
   "name": "@bluebase/cli-essentials",
-  "description": "This package has all the essential exports for use with BlueRain CLI projects.",
+  "description": "This package has all the essential exports for use with BlueBase CLI projects.",
   "author": "BlueEast Team <code@blueeast.com>",
   "version": "1.0.0",
   "main": "lib/index.js",

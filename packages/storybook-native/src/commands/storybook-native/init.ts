@@ -1,14 +1,14 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../flags';
 import { requiredDependencies, requiredDevDependencies } from '../../scripts/dependencies';
 import { Command } from '@oclif/command';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { copyTemplateFiles } from '../../scripts/copyTemplateFiles';
 
 export default class CustomCommand extends Command {
 	static description = 'Initializes a directory with an example project.';
 
 	static examples = [
-		`$ bluerain storybook-native:start`,
+		`$ bluebase storybook-native:start`,
 	];
 
 	static flags = ExpoFlagDefs;
@@ -18,9 +18,9 @@ export default class CustomCommand extends Command {
 		const flags = parsed.flags as ExpoFlags;
 
 		Utils.logger.log({
-			label: '@bluerain/cli/storybook-native',
+			label: '@bluebase/cli/storybook-native',
 			level: 'info',
-			message: '🛠 Initializing a new BlueRain + Storybook Native project...',
+			message: '🛠 Initializing a new BlueBase + Storybook Native project...',
 		});
 
 		// Absolute path of build dir
@@ -35,7 +35,7 @@ export default class CustomCommand extends Command {
 		///////////////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluebase/cli/expo',
 			level: 'info',
 			message: '📂 Creating Expo configuration directory...',
 		});
@@ -47,7 +47,7 @@ export default class CustomCommand extends Command {
 		////////////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluebase/cli/expo',
 			level: 'info',
 			message: '📦 Installing dependencies...',
 		});
@@ -58,9 +58,9 @@ export default class CustomCommand extends Command {
 
 		// Finish
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluebase/cli/expo',
 			level: 'info',
-			message: '✅ Done! BlueRain + Expo project initialized.',
+			message: '✅ Done! BlueBase + Expo project initialized.',
 		});
 
 		return;

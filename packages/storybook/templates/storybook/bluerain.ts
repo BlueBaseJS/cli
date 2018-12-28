@@ -1,5 +1,5 @@
-import { BootOptions } from '@blueeast/bluerain-os';
-import commonBootOptions from '../common/bluerain';
+import { BootOptions } from '@bluebase/core';
+import commonBootOptions from '../common/bluebase';
 import deepmerge from 'deepmerge';
 
 // TODO: Only for evaluation, remove this
