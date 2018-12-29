@@ -3,7 +3,7 @@ import { ExpoFlags } from './flags';
 import { getExpoSdk } from './scripts/expo/getExpoSdk';
 import path from 'path';
 // tslint:disable-next-line
-import { Utils } from '@bluebase/cli-core/lib';
+import { Utils } from '@bluebase/cli-core';
 
 export interface ExpoConfigs {
 	manifest: Partial<Constants.Manifest>

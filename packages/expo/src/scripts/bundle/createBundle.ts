@@ -1,11 +1,11 @@
 import { Utils } from '@bluebase/cli-core';
 import fromRoot from '../fromRoot';
 import fs from 'fs';
+import { getAppJson } from './getAppJson';
+import { getBlueBasePath } from './getBlueBasePath';
 import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
-import { getAppJson } from './getAppJson';
-import { getBlueBasePath } from './getBlueBasePath';
 
 export interface CreateBundleInterface {
 	assetsDir: string,

@@ -19,5 +19,6 @@ export const requiredDevDependencies = [
 	'@storybook/addon-links',
 	'@storybook/react',
 	'@types/deepmerge',
-	'babel-core@^6.26.3'
+	// 'babel-core@^6.26.3',
+	'babel-loader@^8.0.4',
 ];

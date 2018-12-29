@@ -1,8 +1,8 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../../flags';
 import { Command } from '@oclif/command';
 import { Utils } from '@bluebase/cli-core';
-import { spawn } from 'child_process';
 import { createBundle } from '../../../scripts';
+import { spawn } from 'child_process';
 import fromRoot from '../../../scripts/fromRoot';
 import path from 'path';
 
