@@ -19,7 +19,7 @@
     "@bluebase/cli-core": "^0.0.2",
     "@blueeast/bluerain-os": "^3.13.8",
     "@blueeast/tslint-config-blueeast": "^0.5.6",
-    "@oclif/dev-cli": "^1",
+    "@oclif/dev-cli": "^1.21.0",
     "@oclif/plugin-help": "^2",
     "@oclif/test": "^1",
     "@oclif/tslint": "^1",
