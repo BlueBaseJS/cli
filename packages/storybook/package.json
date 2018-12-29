@@ -8,7 +8,7 @@
   "dependencies": {
     "@blueeast/bluerain-cli-core": "^2.0.0-beta.12",
     "@oclif/command": "^1",
-    "@oclif/config": "^1",
+    "@oclif/config": "^1.10.4",
     "rimraf": "^2.6.2",
     "semver": "^5.5.1",
     "shelljs": "^0.8.2",

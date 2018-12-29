@@ -147,7 +147,7 @@
           }
         },
         "debug": {
-          "version": "4.1.0",
+          "version": "4.1.1",
           "dev": true,
           "requires": {
             "ms": "^2.1.1"
@@ -188,6 +188,21 @@
         "tslib": "^1",
         "winston": "^3.0.0",
         "yarn-install": "^1.0.0"
+      },
+      "dependencies": {
+        "@oclif/config": {
+          "version": "1.9.0",
+          "requires": {
+            "debug": "^4.1.0",
+            "tslib": "^1.9.3"
+          }
+        },
+        "debug": {
+          "version": "4.1.1",
+          "requires": {
+            "ms": "^2.1.1"
+          }
+        }
       }
     },
     "@blueeast/bluerain-os": {
@@ -325,7 +340,7 @@
       },
       "dependencies": {
         "debug": {
-          "version": "4.1.0",
+          "version": "4.1.1",
           "requires": {
             "ms": "^2.1.1"
           }
@@ -333,14 +348,14 @@
       }
     },
     "@oclif/config": {
-      "version": "1.9.0",
+      "version": "1.10.4",
       "requires": {
         "debug": "^4.1.0",
         "tslib": "^1.9.3"
       },
       "dependencies": {
         "debug": {
-          "version": "4.1.0",
+          "version": "4.1.1",
           "requires": {
             "ms": "^2.1.1"
           }
@@ -392,7 +407,7 @@
           }
         },
         "debug": {
-          "version": "4.1.0",
+          "version": "4.1.1",
           "dev": true,
           "requires": {
             "ms": "^2.1.1"
