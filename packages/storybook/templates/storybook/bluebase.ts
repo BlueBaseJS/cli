@@ -10,20 +10,20 @@ import DummyPlugin from './sample';
  * We keep all the universal (cross platform) configs in 
  * the common folder, and extend them here.
  */
-const bootOptions: BootOptions = {
+const bootOptions: Partial<BootOptions> = {
 
 	plugins: [
 		// TODO: Only for evaluation, remove this
 		DummyPlugin
 	],
-	config: {
+	// config: {
 
-		wallpaper: {
-			backgroundColor: 'white',
-			resizeMode: 'cover',
-			source: require('<%= ASSET_DIR_PATH %>/wallpaper.jpg'),
-		},
-	}
+	// 	wallpaper: {
+	// 		backgroundColor: 'white',
+	// 		resizeMode: 'cover',
+	// 		source: require('<%= ASSET_DIR_PATH %>/wallpaper.jpg'),
+	// 	},
+	// }
 };
 
 export default deepmerge(commonBootOptions, bootOptions);

@@ -70,7 +70,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "BlueBaseJS/cli",
+  "repository": "https://github.com/BlueBaseJS/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",

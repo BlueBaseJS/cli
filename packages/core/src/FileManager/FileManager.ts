@@ -1,10 +1,10 @@
 import { Command } from '@oclif/config';
 import { ConfigFileInfo } from './ConfigFileInfo';
-import { HookRegistry } from './bluebase-4/HookRegistry';
-import { Registry } from './bluebase-4/Registry';
+import { HookRegistry } from './bluebase/HookRegistry';
+import { Registry } from './bluebase/Registry';
 import { Utils } from '..';
-import { isFunction } from 'util';
 import findFiles from 'file-regex';
+import { isFunction } from 'util';
 import path from 'path';
 
 export interface BRCommand extends Command {

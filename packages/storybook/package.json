@@ -1,45 +1,45 @@
 {
   "name": "@bluebase/cli-storybook",
-  "description": "A BlueBaseJS CLI plugin to integrate Storybook",
-  "version": "1.0.0",
+  "description": "A BlueBase CLI plugin to integrate Storybook",
+  "version": "0.0.1",
   "main": "./lib",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueBaseJS/cli/issues",
   "dependencies": {
-    "@bluebase/cli-core": "^2.0.0-beta.12",
-    "@oclif/command": "^1",
-    "@oclif/config": "^1",
+    "@bluebase/cli-core": "^0.0.1",
+    "@oclif/command": "^1.5.8",
+    "@oclif/config": "^1.10.4",
     "rimraf": "^2.6.2",
     "semver": "^5.5.1",
     "shelljs": "^0.8.2",
     "tslib": "^1",
-    "typescript": "^3.2.1"
+    "typescript": "^3.2.2"
   },
   "devDependencies": {
-    "@bluebase/core": "^3.13.8",
-    "@blueeast/tslint-config-blueeast": "^0.5.6",
-    "@oclif/dev-cli": "^1",
+    "@bluebase/core": "^4.0.0-aplha.4",
+    "@blueeast/tslint-config-blueeast": "^0.7.0",
+    "@oclif/dev-cli": "^1.21.0",
     "@oclif/plugin-help": "^2",
     "@oclif/test": "^1",
-    "@oclif/tslint": "^1",
+    "@oclif/tslint": "^3.1.1",
     "@types/chai": "^4",
-    "@types/expo": "^27.0.8",
+    "@types/expo": "^31.0.5",
     "@types/inquirer": "^0.0.43",
     "@types/mocha": "^5",
-    "@types/node": "^10.7.0",
-    "@types/react": "^16.4.10",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.18",
     "@types/rimraf": "^2.0.2",
     "@types/semver": "^5.5.0",
-    "@types/shelljs": "^0.8.0",
+    "@types/shelljs": "^0.8.1",
     "chai": "^4",
     "mocha": "^5",
     "npm-run-all": "^4.1.3",
-    "nyc": "^12",
-    "ts-node": "^6",
-		"tslint": "^5.11.0"
+    "nyc": "^13.1.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0"
   },
   "peerDependencies": {
-    "@bluebase/core": "^3.*",
+    "@bluebase/core": "^4.*",
     "react": "^16.*"
   },
   "engines": {
@@ -64,7 +64,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "BlueBaseJS/cli",
+  "repository": "https://github.com/BlueBaseJS/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",

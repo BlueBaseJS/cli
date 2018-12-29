@@ -1,10 +1,11 @@
 import DummyComponent from './DummyComponent';
 
-export default class TestPlugin {
+export default {
 
-	static pluginName = 'DummyPlugin';
+	key: 'dummy-plugin',
+	name: 'DummyPlugin',
 
-	static components = {
+	components: {
 		DummyComponent,
-	};
-}
+	}
+};
