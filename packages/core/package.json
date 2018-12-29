@@ -1,7 +1,7 @@
 {
   "name": "@bluebase/cli-core",
   "description": "A plugin for BlueBase CLI",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "BlueEast Team <code@blueeast.com>",
   "main": "./lib",
   "sideEffects": false,
