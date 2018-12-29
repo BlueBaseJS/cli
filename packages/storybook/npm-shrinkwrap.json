@@ -119,40 +119,6 @@
         "yarn-install": "^1.0.0"
       },
       "dependencies": {
-        "@oclif/command": {
-          "version": "1.5.8",
-          "dev": true,
-          "requires": {
-            "@oclif/errors": "^1.2.2",
-            "@oclif/parser": "^3.7.2",
-            "debug": "^4.1.0",
-            "semver": "^5.6.0"
-          }
-        },
-        "@oclif/config": {
-          "version": "1.10.4",
-          "dev": true,
-          "requires": {
-            "debug": "^4.1.0",
-            "tslib": "^1.9.3"
-          }
-        },
-        "@oclif/parser": {
-          "version": "3.7.2",
-          "dev": true,
-          "requires": {
-            "@oclif/linewrap": "^1.0.0",
-            "chalk": "^2.4.1",
-            "tslib": "^1.9.3"
-          }
-        },
-        "debug": {
-          "version": "4.1.1",
-          "dev": true,
-          "requires": {
-            "ms": "^2.1.1"
-          }
-        },
         "deepmerge": {
           "version": "3.0.0",
           "dev": true
@@ -190,10 +156,27 @@
         "yarn-install": "^1.0.0"
       },
       "dependencies": {
+        "@oclif/command": {
+          "version": "1.5.6",
+          "requires": {
+            "@oclif/errors": "^1.2.2",
+            "@oclif/parser": "^3.7.0",
+            "debug": "^4.1.0",
+            "semver": "^5.6.0"
+          }
+        },
         "@oclif/config": {
           "version": "1.9.0",
           "requires": {
             "debug": "^4.1.0",
+            "tslib": "^1.9.3"
+          }
+        },
+        "@oclif/parser": {
+          "version": "3.7.0",
+          "requires": {
+            "@oclif/linewrap": "^1.0.0",
+            "chalk": "^2.4.1",
             "tslib": "^1.9.3"
           }
         },
@@ -331,10 +314,10 @@
       "dev": true
     },
     "@oclif/command": {
-      "version": "1.5.6",
+      "version": "1.5.8",
       "requires": {
         "@oclif/errors": "^1.2.2",
-        "@oclif/parser": "^3.7.0",
+        "@oclif/parser": "^3.7.2",
         "debug": "^4.1.0",
         "semver": "^5.6.0"
       },
@@ -379,33 +362,6 @@
         "tslib": "^1.9.3"
       },
       "dependencies": {
-        "@oclif/command": {
-          "version": "1.5.8",
-          "dev": true,
-          "requires": {
-            "@oclif/errors": "^1.2.2",
-            "@oclif/parser": "^3.7.2",
-            "debug": "^4.1.0",
-            "semver": "^5.6.0"
-          }
-        },
-        "@oclif/config": {
-          "version": "1.10.4",
-          "dev": true,
-          "requires": {
-            "debug": "^4.1.0",
-            "tslib": "^1.9.3"
-          }
-        },
-        "@oclif/parser": {
-          "version": "3.7.2",
-          "dev": true,
-          "requires": {
-            "@oclif/linewrap": "^1.0.0",
-            "chalk": "^2.4.1",
-            "tslib": "^1.9.3"
-          }
-        },
         "debug": {
           "version": "4.1.1",
           "dev": true,
@@ -440,7 +396,7 @@
       "version": "1.0.0"
     },
     "@oclif/parser": {
-      "version": "3.7.0",
+      "version": "3.7.2",
       "requires": {
         "@oclif/linewrap": "^1.0.0",
         "chalk": "^2.4.1",
@@ -461,9 +417,35 @@
         "wrap-ansi": "^4.0.0"
       },
       "dependencies": {
+        "@oclif/command": {
+          "version": "1.5.6",
+          "dev": true,
+          "requires": {
+            "@oclif/errors": "^1.2.2",
+            "@oclif/parser": "^3.7.0",
+            "debug": "^4.1.0",
+            "semver": "^5.6.0"
+          }
+        },
+        "@oclif/parser": {
+          "version": "3.7.0",
+          "dev": true,
+          "requires": {
+            "@oclif/linewrap": "^1.0.0",
+            "chalk": "^2.4.1",
+            "tslib": "^1.9.3"
+          }
+        },
         "ansi-regex": {
           "version": "4.0.0",
           "dev": true
+        },
+        "debug": {
+          "version": "4.1.1",
+          "dev": true,
+          "requires": {
+            "ms": "^2.1.1"
+          }
         },
         "strip-ansi": {
           "version": "5.0.0",
