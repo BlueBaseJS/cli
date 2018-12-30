@@ -1,5 +1,4 @@
 import { ConfigFileInfo, getDefaults } from '@bluebase/cli-core';
-// import fromRoot from '../scripts/fromRoot';
 import path from 'path';
 
 const fromHere = (file: string) => {
@@ -13,27 +12,27 @@ export default (configDir: string): ConfigFileInfo[] => {
 	return [
 		{
 			...defaults.configs,
-			defaultPath: fromHere('client.config'),
-			name: '^client.config.(js|ts)$',
-			slug: 'client-config',
+			defaultPath: fromHere('main.config'),
+			name: '^main.config.(js|ts)$',
+			slug: 'main-config',
 		},
 		{
 			...defaults.configs,
-			defaultPath: fromHere('server.config'),
-			name: '^server.config.(js|ts)$',
-			slug: 'server-config',
+			defaultPath: fromHere('renderer.config'),
+			name: '^renderer.config.(js|ts)$',
+			slug: 'renderer-config',
 		},
 		{
 			...defaults.webpack,
-			defaultPath: fromHere('./webpack.config.client'),
-			name: '^webpack.config.client.(js|ts)$',
-			slug: 'client-webpack-config',
+			defaultPath: fromHere('./webpack.config.main'),
+			name: '^webpack.config.main.(js|ts)$',
+			slug: 'main-webpack-config',
 		},
 		{
 			...defaults.webpack,
-			defaultPath: fromHere('./webpack.config.server'),
-			name: '^webpack.config.server.(js|ts)$',
-			slug: 'server-webpack-config',
+			defaultPath: fromHere('./webpack.config.renderer'),
+			name: '^webpack.config.renderer.(js|ts)$',
+			slug: 'renderer-webpack-config',
 		},
 		// {
 

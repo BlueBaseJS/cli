@@ -24,7 +24,7 @@ $ npm install -g @bluebase/cli-storybook
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-storybook/0.0.3 darwin-x64 node-v11.4.0
+@bluebase/cli-storybook/0.0.4 darwin-x64 node-v11.4.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -53,7 +53,7 @@ EXAMPLE
   $ bluebase storybook:init
 ```
 
-_See code: [lib/commands/storybook/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.3/lib/commands/storybook/init.js)_
+_See code: [lib/commands/storybook/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.4/lib/commands/storybook/init.js)_
 
 ## `bluebase storybook:start`
 
@@ -72,5 +72,5 @@ EXAMPLE
   $ bluebase storybook:start
 ```
 
-_See code: [lib/commands/storybook/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.3/lib/commands/storybook/start.js)_
+_See code: [lib/commands/storybook/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.4/lib/commands/storybook/start.js)_
 <!-- commandsstop -->
