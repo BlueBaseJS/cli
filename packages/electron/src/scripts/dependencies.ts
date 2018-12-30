@@ -6,7 +6,7 @@ import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDep
 export const requiredDependencies = [
 	...coreDeps,
 	'deepmerge',
-	'react-dom@^16.4.2'
+	'react-dom'
 ];
 
 /**
@@ -15,4 +15,5 @@ export const requiredDependencies = [
 export const requiredDevDependencies = [
 	...coreDevDeps,
 	'@types/deepmerge',
+	'react-hot-loader'
 ];

@@ -60,9 +60,9 @@ export default (input: RendererConfigs, args: HookArgs): RendererConfigs => {
 
 		// publicPath: '/',
 
-		includeSourceMapsForOptimisedBundle: false,
+		// includeSourceMapsForOptimisedBundle: false,
 
-		nodeExternalsFileTypeWhitelist: [],
+		// nodeExternalsFileTypeWhitelist: [],
 			// devVendorDLL: {
 
 			// 	enabled: true,

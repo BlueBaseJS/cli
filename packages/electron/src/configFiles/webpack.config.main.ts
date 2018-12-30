@@ -21,7 +21,7 @@ export default
 
 				mode: buildOptions.configs.mode,
 
-				entry: fromHere('../../app/main_process.js'),
+				entry: fromHere('../app/main_process.js'),
 
 				output: {
 					filename: 'main.js',

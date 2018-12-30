@@ -1,7 +1,7 @@
 declare var module: any;
 
-import { getComponent } from '@bluebase/core';
 import React from 'react';
+import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 
 const DummyComponent = getComponent('DummyComponent');

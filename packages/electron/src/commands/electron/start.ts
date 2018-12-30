@@ -106,20 +106,20 @@ export class CustomCommand extends Command {
 		Utils.logger.log({
 			label: '@bluebase/cli/electron',
 			level: 'info',
-			message: `🎛 Compiling Webpack Server bundle`
+			message: `🎛 Compiling Webpack Renderer bundle`
 		});
 
-		// const rendererWebpackConfigs = await fileManager.Hooks.run(
-		// 	`electron.renderer-webpack-config`,
-		// 	{},
-		// 	{
+		const rendererWebpackConfigs = await fileManager.Hooks.run(
+			`electron.renderer-webpack-config`,
+			{},
+			{
 
-		// 		...baseWebpackBuildOptions,
+				...baseWebpackBuildOptions,
 
-		// 		configs: { ...rendererConfigs, mode: 'development' },
-		// 		mainConfigs,
-		// 		rendererConfigs,
-		// 	});
+				configs: { ...rendererConfigs, mode: 'development' },
+				mainConfigs,
+				rendererConfigs,
+			});
 
 		// const rendererCompiler = webpack(rendererWebpackConfigs);
 
@@ -130,7 +130,7 @@ export class CustomCommand extends Command {
 		Utils.logger.log({
 			label: '@bluebase/cli/electron',
 			level: 'info',
-			message: `👨‍💻 Compiling Webpack Client bundle`
+			message: `👨‍💻 Compiling Webpack Main bundle`
 		});
 
 		mainCompiler.run((err, _stats) => {
@@ -140,12 +140,14 @@ export class CustomCommand extends Command {
 			Utils.logger.info('Building renderer process...');
 
 			serve({}, {
-				config: rendererConfigs,
+				config: rendererWebpackConfigs,
 				// content: Utils.fromProjectRoot('./build/electron'),
 				devMiddleware: {
 					publicPath: '/',
 					writeToDisk: true,
 				},
+
+				hotClient: false,
 
 				add: (app, _middleware, options) => {
 					// Be sure to pass the options argument from the arguments
@@ -165,7 +167,7 @@ export class CustomCommand extends Command {
 							{ shell: true, env: process.env, stdio: 'inherit' }
 						)
 							.on('close', (_code: number) => process.exit(0))
-							.on('error', (spawnError: Error) => console.error(spawnError));
+							.on('error', (spawnError: Error) => Utils.logger.error(spawnError));
 					},
 				}
 			}).then((_result: any) => {

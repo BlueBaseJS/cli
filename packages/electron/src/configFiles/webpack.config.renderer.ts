@@ -23,7 +23,7 @@ export default
 
 				mode: buildOptions.configs.mode,
 
-				entry: fromHere('../../app/renderer_process.js'),
+				entry: fromHere('../app/renderer_process.js'),
 
 				output: {
 					filename: 'client.js',
