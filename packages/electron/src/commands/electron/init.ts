@@ -8,7 +8,7 @@ export default class CustomCommand extends Command {
 	static description = 'Initializes a directory with an example project.';
 
 	static examples = [
-		`$ bluebase web:init`,
+		`$ bluebase electron:init`,
 	];
 
 	static flags = FlagDefs;
@@ -18,7 +18,7 @@ export default class CustomCommand extends Command {
 		const flags = parsed.flags as Flags;
 
 		Utils.logger.log({
-			label: '@bluebase/cli/web',
+			label: '@bluebase/cli/electron',
 			level: 'info',
 			message: '🛠 Initializing a new BlueBase Web project...',
 		});
@@ -33,9 +33,9 @@ export default class CustomCommand extends Command {
 		///////////////////////////////
 
 		Utils.logger.log({
-			label: '@bluebase/cli/web',
+			label: '@bluebase/cli/electron',
 			level: 'info',
-			message: '📂 Creating web configuration directory...',
+			message: '📂 Creating electron configuration directory...',
 		});
 
 		await copyTemplateFiles(assetsDir, configDir);
@@ -45,7 +45,7 @@ export default class CustomCommand extends Command {
 		////////////////////////////
 
 		Utils.logger.log({
-			label: '@bluebase/cli/web',
+			label: '@bluebase/cli/electron',
 			level: 'info',
 			message: '📦 Installing dependencies...',
 		});
@@ -56,9 +56,9 @@ export default class CustomCommand extends Command {
 
 		// Finish
 		Utils.logger.log({
-			label: '@bluebase/cli/web',
+			label: '@bluebase/cli/electron',
 			level: 'info',
-			message: '✅ Done! BlueBase Web project initialized.',
+			message: '✅ Done! BlueBase Electron project initialized.',
 		});
 
 		return;
