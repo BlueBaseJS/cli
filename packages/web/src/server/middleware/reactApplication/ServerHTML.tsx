@@ -5,7 +5,7 @@
 
 import React, { Children } from 'react';
 import { ServerConfigsBundle } from '../../server';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup } from 'react-dom/server';
 import HTML from '../../components/HTML';

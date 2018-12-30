@@ -1,73 +1,97 @@
-import { ChildProcess } from 'child_process';
+import { ExpoFlagDefs, ExpoFlags } from '../../flags';
 import { Command } from '@oclif/command';
-import { ExpoFlagDefs } from '../../flags';
-import { Utils } from '@blueeast/bluerain-cli-core';
-import StartExpo from './start/expo';
-import StartServer from './start/server';
+import { Utils } from '@bluebase/cli-core';
+import { createBundle } from '@bluebase/cli-expo';
+import { spawn } from 'child_process';
+import fromRoot from '../../scripts/fromRoot';
+import fs from 'fs';
+import path from 'path';
 
-export default class CustomCommand extends Command {
+export default class StartCommand extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
 
 	static examples = [
-		`$ bluerain storybook-native:start`,
+		`$ bluebase storybook-native:start`,
 	];
 
 	static flags = ExpoFlagDefs;
 
 	async run() {
 
-		// const bluerainPath = Utils.fromProjectRoot('./node_modules/.bin/bluerain');
+		const parsed = this.parse(StartCommand);
+		const flags = parsed.flags as ExpoFlags;
 
-		const startServer = StartServer.run(this.argv);
-		const startExpo = StartExpo.run(this.argv);
+		Utils.logger.log({
+			label: '@bluebase/cli/storybook-native',
+			level: 'info',
+			message: '🏗 Building project...',
+		});
 
-		let serverProcess: ChildProcess;
-		let expoProcess: ChildProcess;
+		// Absolute path of build dir
+		const buildDir = Utils.fromProjectRoot(flags.buildDir);
+		const configDir = Utils.fromProjectRoot(flags.configDir);
+		const assetsDir = Utils.fromProjectRoot(flags.assetsDir);
+		const appJsPath = Utils.fromProjectRoot(flags.appJsPath);
 
-		try {
+		/////////////////////////////
+		///// Transpile & Build /////
+		/////////////////////////////
 
-			serverProcess = await startServer;
+		// const transiplePath = path.join(buildDir, 'dist');
+		await createBundle({
+			appJsPath,
+			assetsDir,
+			buildDir,
+			configDir,
+			name: 'storybook-native',
+		});
 
-			serverProcess
-				.on('close', (_code: number) => {
+		let STORYBOOK_APP_PATH = path.relative(buildDir, path.join(configDir, 'storybook/'));
 
-					startExpo.then(p => {
-						expoProcess = p;
-						expoProcess.on('error', err);
-					});
-
-				}).on('error', err);
-
-		} catch (error) {
-			err(error);
+		// change STORYBOOK_APP_PATH to defined path is App.js exists in that path
+		if (fs.existsSync(appJsPath + '.js')) {
+			STORYBOOK_APP_PATH = path.relative(buildDir, appJsPath);
 		}
+
+		Utils.copyTemplateFiles(fromRoot('./templates/build'), buildDir, {
+			force: true,
+			prompt: false,
+			variables: {
+				STORYBOOK_APP_PATH
+			},
+			writeFiles: ['AppEntry.js'],
+		});
+
+		///////////////////////
+		///// Launch expo /////
+		///////////////////////
+
+		Utils.logger.log({
+			label: '@bluebase/cli/storybook-native',
+			level: 'info',
+			message: '🚀 Launching Storybook Native',
+		});
+
+		const appJsonPath = path.join(buildDir, 'app.json');
+
+		const expoProcess = await spawn(
+			fromRoot('./node_modules/.bin/expo'),
+			['start', '--config', Utils.fromProjectRoot(appJsonPath)],
+			{ shell: true, env: process.env, cwd: Utils.fromProjectRoot(), stdio: 'inherit' }
+		);
 
 		process.on('SIGINT', () => {
 			Utils.logger.log({
-				label: '@bluerain/cli/expo',
+				label: '@bluebase/cli/storybook-native',
 				level: 'info',
 				message: '💀 Caught interrupt signal, exiting!',
 			});
-			killAll();
-		});
-
-		function killAll() {
-
-			if (serverProcess && serverProcess.kill) {
-				serverProcess.kill();
-			}
 
 			if (expoProcess && expoProcess.kill) {
 				expoProcess.kill();
 			}
 			process.exit();
-		}
+		});
 
-		function err(e: Error) {
-			Utils.logger.error(e);
-			killAll();
-		}
-
-		return;
 	}
 }

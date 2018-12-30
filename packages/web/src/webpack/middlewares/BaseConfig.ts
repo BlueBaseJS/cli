@@ -1,6 +1,6 @@
 // tslint:disable:object-literal-sort-keys
 import { Configuration as WebpackConfig, EnvironmentPlugin, NoEmitOnErrorsPlugin } from 'webpack';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { WebpackBuilderMiddleware } from '../../types';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import WebpackBuilder from '../WebpackBuilder';
@@ -17,7 +17,7 @@ export interface WebpackBuilderMiddlewareOpts {
 	env?: { [key: string]: string };
 }
 /**
- * Base (default) webpack configs for bluerain projects
+ * Base (default) webpack configs for bluebase projects
  * @param config
  * @param builder
  */
@@ -128,10 +128,10 @@ const BaseConfig: WebpackBuilderMiddleware =
 					// modules: [useOwn(), 'node_modules'],
 
 					alias: {
-						'@blueeast/bluerain-os': Utils.fromProjectRoot('node_modules/@blueeast/bluerain-os'),
+						'@bluebase/core': Utils.fromProjectRoot('node_modules/@bluebase/core'),
 
-						// BlueRain boot options file, AKA bluerain.js
-						BLUERAIN_BOOT_OPTIONS: builder.bluerainJsPath,
+						// BlueBase boot options file, AKA bluebase.js
+						BLUERAIN_BOOT_OPTIONS: builder.bluebaseJsPath,
 					},
 				},
 

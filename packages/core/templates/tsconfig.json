@@ -3,7 +3,7 @@
     "target": "es6",
     "outDir": "dist",
     "rootDir": ".",
-    "rootDirs": ["bluerain", "src"],
+    "rootDirs": ["bluebase", "src"],
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
@@ -46,7 +46,7 @@
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "."
   },
-  "include": ["src/**/*", "bluerain/**/*"],
+  "include": ["src/**/*", "bluebase/**/*"],
   "exclude": ["node_modules", "dist", "build", "**/*.test.ts", "src/**/*.test.ts"],
   "compileOnSave": false
 }

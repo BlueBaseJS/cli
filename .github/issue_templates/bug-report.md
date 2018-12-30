@@ -10,7 +10,7 @@
 
 ## Environment
 
-- **bluerain-os** version: 
+- **bluebase** version: 
 - **bluerain-cli** version: 
 
 - CI environment: <!-- CI service name -->

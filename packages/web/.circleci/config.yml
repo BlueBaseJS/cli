@@ -36,7 +36,7 @@ jobs:
 
 workflows:
   version: 2
-  "@blueeast/bluerain-cli-web":
+  "@bluebase/cli-web":
     jobs:
       - node-latest
       - node-8

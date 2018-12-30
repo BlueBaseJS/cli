@@ -1,4 +1,4 @@
-import { Utils, copyTemplateFiles as copyCoreTemplateFiles } from '@blueeast/bluerain-cli-core';
+import { Utils, copyTemplateFiles as copyCoreTemplateFiles } from '@bluebase/cli-core';
 import fromRoot from './fromRoot';
 import path from 'path';
 
@@ -18,13 +18,13 @@ export const copyTemplateFiles = async (assetsDir: string, configDir: string) =>
 		variables: {
 			'ASSET_DIR_PATH': `./${path.relative(configDir, assetsDir)}`,
 		},
-		writeFiles: ['bluerain.ts'],
+		writeFiles: ['bluebase.ts'],
 	});
 
 	///// Read package.json
 	Utils.mergePackageJson({
 		scripts: {
-			'storybook:start': 'bluerain storybook:start'
+			'storybook:start': 'bluebase storybook:start'
 		}
 	});
 };

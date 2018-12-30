@@ -1,10 +1,12 @@
 import DummyComponent from './DummyComponent';
+import { createPlugin } from '@bluebase/core';
 
-export default class TestPlugin {
+export default createPlugin({
 
-	static pluginName = 'DummyPlugin';
+	key: 'dummy-plugin',
+	name: 'DummyPlugin',
 
-	static components = {
+	components: {
 		DummyComponent,
-	};
-}
+	}
+});

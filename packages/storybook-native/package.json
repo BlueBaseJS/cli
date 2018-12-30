@@ -1,13 +1,13 @@
 {
   "name": "@bluebase/cli-storybook-native",
   "description": "An BLueBaseJS CLI plugin to integrate Storybook for React Native",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "main": "./lib",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueBaseJS/cli/issues",
   "dependencies": {
-    "@blueeast/bluerain-cli-core": "^2.0.0-beta.12",
-    "@blueeast/bluerain-cli-expo": "^2.0.0-beta.21",
+    "@bluebase/cli-core": "^0.0.9",
+    "@bluebase/cli-expo": "^0.0.5",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "deepmerge": "^2.1.1",
@@ -20,7 +20,7 @@
     "typescript": "^3.2.1"
   },
   "devDependencies": {
-    "@blueeast/bluerain-os": "^3.13.8",
+    "@bluebase/core": "^4.0.0-aplha.5",
     "@blueeast/tslint-config-blueeast": "^0.5.6",
     "@oclif/dev-cli": "^1",
     "@oclif/plugin-help": "^2",
@@ -45,7 +45,7 @@
 		"tslint": "^5.11.0"
   },
   "peerDependencies": {
-    "@blueeast/bluerain-os": "^3.*",
+    "@bluebase/core": "^4.*",
     "react": "^16.*"
   },
   "engines": {
@@ -70,7 +70,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "BlueBaseJS/cli",
+  "repository": "https://github.com/BlueBaseJS/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",

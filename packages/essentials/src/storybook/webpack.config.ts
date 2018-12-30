@@ -1,5 +1,5 @@
 // tslint:disable-next-line
-const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
+// const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 
 export default (_baseConfig: any, _env: any, config: any) => {
 
@@ -8,7 +8,7 @@ export default (_baseConfig: any, _env: any, config: any) => {
 		test: /\.(ts|tsx)$/,
 	});
 
-	config.plugins.push(new TSDocgenPlugin()); // optional
+	// config.plugins.push(new TSDocgenPlugin()); // optional
 	config.resolve.extensions.push('.ts', '.tsx');
 
 	config.resolve.extensions.push('.ts', '.tsx');

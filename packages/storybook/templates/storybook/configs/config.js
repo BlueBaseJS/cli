@@ -1,10 +1,10 @@
 import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
-import { BlueRainDecorator } from '@blueeast/bluerain-storybook-addon';
+import { BlueBaseDecorator } from '@bluebase/storybook-addon';
 
-// Add BlueRain
-const BRConfigs = require('../bluerain');
-addDecorator(BlueRainDecorator(BRConfigs));
+// Add BlueBase
+const BRConfigs = require('../bluebase');
+addDecorator(BlueBaseDecorator(BRConfigs));
 
 // automatically import all files ending in *.stories.tsx
 const req = require.context('../../../src', true, /.stories.tsx$/);

@@ -1,6 +1,6 @@
 // tslint:disable:object-literal-sort-keys
 import { ClientConfigs } from '../types';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import deepmerge from 'deepmerge';
 import path from 'path';
 
@@ -27,8 +27,8 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 		devDashboardPort: EnvVars.number('CLIENT_DEV_DASHBOARD_PORT', 7332),
 
 		htmlPage: {
-			titleTemplate: 'BlueRain - %s',
-			defaultTitle: 'BlueRain',
+			titleTemplate: 'BlueBase - %s',
+			defaultTitle: 'BlueBase',
 			description:
 				'A starter kit giving you the minimum requirements for a production ready universal react application.',
 		},

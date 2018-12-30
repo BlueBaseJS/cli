@@ -1,8 +1,8 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../../flags';
 import { Command } from '@oclif/command';
-import { Utils } from '@blueeast/bluerain-cli-core';
-import { spawn } from 'child_process';
+import { Utils } from '@bluebase/cli-core';
 import { createBundle } from '../../../scripts';
+import { spawn } from 'child_process';
 import fromRoot from '../../../scripts/fromRoot';
 import path from 'path';
 
@@ -10,7 +10,7 @@ export default class ExpoBuild extends Command {
 	static description = 'creates a build for ios.';
 
 	static examples = [
-		`$ bluerain expo:build:ios`,
+		`$ bluebase expo:build:ios`,
 	];
 
 	static flags = ExpoFlagDefs;
@@ -23,7 +23,7 @@ export default class ExpoBuild extends Command {
 
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluebase/cli/expo',
 			level: 'info',
 			message: '🏗 Building ios project...',
 		});
@@ -64,7 +64,7 @@ export default class ExpoBuild extends Command {
 		// Utils.fr
 		process.on('SIGINT', () => {
 			Utils.logger.log({
-				label: '@bluerain/cli/expo',
+				label: '@bluebase/cli/expo',
 				level: 'info',
 				message: '💀 Caught interrupt signal, exiting!',
 			});

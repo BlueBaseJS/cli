@@ -20,7 +20,7 @@ const requiredDevDependencies = [
 /**
  * Global initializer.
  *
- * - Create a bluerain/common folder
+ * - Create a bluebase/common folder
  * - Add tsconfig and tslint files
  */
 export default async (configDir: string, _buildDir: string) => {

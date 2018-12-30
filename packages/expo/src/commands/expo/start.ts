@@ -1,6 +1,6 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../flags';
 import { Command } from '@oclif/command';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { createBundle } from '../../scripts';
 import { spawn } from 'child_process';
 import fromRoot from '../../scripts/fromRoot';
@@ -10,7 +10,7 @@ export default class ExpoStart extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
 
 	static examples = [
-		`$ bluerain expo:start`,
+		`$ bluebase expo:start`,
 	];
 
 	static flags = ExpoFlagDefs;
@@ -20,7 +20,7 @@ export default class ExpoStart extends Command {
 		const flags = parsed.flags as ExpoFlags;
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluebase/cli/expo',
 			level: 'info',
 			message: '🏗 Building project...',
 		});
@@ -49,7 +49,7 @@ export default class ExpoStart extends Command {
 		///////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/expo',
+			label: '@bluebase/cli/expo',
 			level: 'info',
 			message: '🚀 Launching Expo',
 		});
@@ -65,7 +65,7 @@ export default class ExpoStart extends Command {
 
 		process.on('SIGINT', () => {
 			Utils.logger.log({
-				label: '@bluerain/cli/expo',
+				label: '@bluebase/cli/expo',
 				level: 'info',
 				message: '💀 Caught interrupt signal, exiting!',
 			});

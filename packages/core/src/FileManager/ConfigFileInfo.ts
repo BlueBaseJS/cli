@@ -14,10 +14,10 @@ export type ConfigFileInfo = {
 	/** Path of the default file */
 	defaultPath: string;
 
-	/** Find and include from "bluerain" directory of project */
-	findInBlueRain: boolean;
+	/** Find and include from "bluebase" directory of project */
+	findInBlueBase: boolean;
 
-	/** Find and include files from bluerain plugins (apps and platforms) */
+	/** Find and include files from bluebase plugins (apps and platforms) */
 	findInPlugins: boolean;
 
 	/** Is this a directory. Set true, otherwise false of files. */
