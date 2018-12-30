@@ -12,4 +12,4 @@ export default (input: any) => {
 			slug: 'bluebase-storybook-native',
 		}
 	});
-}
+};
