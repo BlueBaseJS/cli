@@ -13,8 +13,8 @@ export const requiredDependencies = [
 export const requiredDevDependencies = [
 	...coreDevDeps,
 	'@bluebase/storybook-addon',
-	'@storybook/addon-actions',
-	'@storybook/addon-links',
+	// '@storybook/addon-ondevice-knobs',
+	// '@storybook/addon-ondevice-notes',
 	'@storybook/react-native',
 	'react-native-storybook-loader',
 ];
