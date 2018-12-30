@@ -24,7 +24,7 @@ $ npm install -g @bluebase/cli-electron
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@bluebase/cli-electron/0.0.3 darwin-x64 node-v11.4.0
+@bluebase/cli-electron/0.0.4 darwin-x64 node-v11.4.0
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -53,7 +53,7 @@ EXAMPLE
   $ bluebase electron:init
 ```
 
-_See code: [src/commands/electron/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.3/src/commands/electron/init.ts)_
+_See code: [src/commands/electron/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.4/src/commands/electron/init.ts)_
 
 ## `oclif-example electron:start`
 
@@ -67,5 +67,5 @@ OPTIONS
   --configDir=configDir  [default: ./bluebase/electron] Path to config directory relative to the root directory
 ```
 
-_See code: [src/commands/electron/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.3/src/commands/electron/start.ts)_
+_See code: [src/commands/electron/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.4/src/commands/electron/start.ts)_
 <!-- commandsstop -->

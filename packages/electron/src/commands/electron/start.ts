@@ -103,12 +103,6 @@ export class CustomCommand extends Command {
 		///// Renderer Configs /////
 		////////////////////////////
 
-		Utils.logger.log({
-			label: '@bluebase/cli/electron',
-			level: 'info',
-			message: `🎛 Compiling Webpack Renderer bundle`
-		});
-
 		const rendererWebpackConfigs = await fileManager.Hooks.run(
 			`electron.renderer-webpack-config`,
 			{},
@@ -130,14 +124,17 @@ export class CustomCommand extends Command {
 		Utils.logger.log({
 			label: '@bluebase/cli/electron',
 			level: 'info',
-			message: `👨‍💻 Compiling Webpack Main bundle`
+			message: `👨‍💻 Compiling Electron's Main bundle`
 		});
 
 		mainCompiler.run((err, _stats) => {
 			if (err) { throw err; }
-			// tslint:disable-next-line:no-console
-			// console.log(stats.toString({ colors: true }));
-			Utils.logger.info('Building renderer process...');
+
+			Utils.logger.log({
+				label: '@bluebase/cli/electron',
+				level: 'info',
+				message: `👨‍💻 Compiling Electron's Renderer bundle`
+			});
 
 			serve({}, {
 				config: rendererWebpackConfigs,
@@ -146,8 +143,6 @@ export class CustomCommand extends Command {
 					publicPath: '/',
 					writeToDisk: true,
 				},
-
-				hotClient: false,
 
 				add: (app, _middleware, options) => {
 					// Be sure to pass the options argument from the arguments
@@ -160,7 +155,14 @@ export class CustomCommand extends Command {
 
 				on: {
 					'build-started': () => {
-						Utils.logger.info('Electronnnnnn...');
+
+						// Finish
+						Utils.logger.log({
+							label: '@bluebase/cli/electron',
+							level: 'info',
+							message: '✅ Done!',
+						});
+
 						spawn(
 							fromRoot('./node_modules/.bin/electron'),
 							['./build/electron/main.js'],
@@ -171,7 +173,11 @@ export class CustomCommand extends Command {
 					},
 				}
 			}).then((_result: any) => {
-				Utils.logger.info('Serve...');
+				Utils.logger.log({
+					label: '@bluebase/cli/electron',
+					level: 'info',
+					message: '🚀 Launching!',
+				});
 			});
 		});
 	}

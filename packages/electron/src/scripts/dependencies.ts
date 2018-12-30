@@ -15,5 +15,6 @@ export const requiredDependencies = [
 export const requiredDevDependencies = [
 	...coreDevDeps,
 	'@types/deepmerge',
-	'react-hot-loader'
+	'react-hot-loader',
+	'webpack-hot-client',
 ];

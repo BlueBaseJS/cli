@@ -5,7 +5,7 @@ import { WebpackTools } from '@bluebase/cli-web';
 import path from 'path';
 
 const fromRoot = (pathSegment: string) => path.resolve(__dirname, `../../../${pathSegment}`);
-const fromHere = (pathSegment: string) => path.resolve(__dirname, `${pathSegment}`);
+// const fromHere = (pathSegment: string) => path.resolve(__dirname, `${pathSegment}`);
 
 export default
 	async (webpackConfigInput: webpack.Configuration = {}, buildOptions: WebpackHookArguments): Promise<any> => {
@@ -19,9 +19,9 @@ export default
 			// Manually set target to electron
 			.merge({
 
-				mode: buildOptions.configs.mode,
+				// mode: buildOptions.configs.mode,
 
-				entry: fromHere('../app/main_process.js'),
+				// entry: fromHere('../app/main_process.js'),
 
 				output: {
 					filename: 'main.js',
@@ -30,26 +30,14 @@ export default
 				},
 
 				target: 'electron-main',
-
-				// module: {
-
-				// 	// Use strict export presence so that a missing export becomes a compile error.
-				// 	strictExportPresence: true,
-
-				// 	// noParse: [/aws\-sdk/],
-
-				// 	rules: [{
-				// 		oneOf: []
-				// 	}]
-				// }
 			})
 
 			.use(WebpackTools.NodeExternals({
 				modulesDir: fromRoot('./node_modules'),
 			}))
 
-			// // Hot Module Replacement
-			// .use(WebpackTools.HotModuleReplacement)
+			// Hot Module Replacement
+			.use(WebpackTools.HotModuleReplacement())
 
 			// // Source Maps
 			// .use(WebpackTools.SourceMaps)
@@ -77,5 +65,7 @@ export default
 			// Build
 			.build();
 
+			console.log(webpackConfigInput);
+			// console.log(configs);
 		return configs;
 	};

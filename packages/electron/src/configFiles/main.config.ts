@@ -18,20 +18,14 @@ export interface HookArgs {
 export default (input: MainConfigs, args: HookArgs): MainConfigs => {
 	const configs: MainConfigs = {
 
-		target: 'web',
 		mode: Utils.isProduction() ? 'production' : 'development',
+		target: 'electron-main',
 
-		devServerHost: EnvVars.string('HOST', '0.0.0.0'),
-		devServerPort: EnvVars.number('PORT', 1337),
+		host: EnvVars.string('HOST', '0.0.0.0'),
+		port: EnvVars.number('PORT', 9090),
+
 		devDashboardEnable: EnvVars.bool('CLIENT_DEV_DASHBOARD_ENABLE', true),
 		devDashboardPort: EnvVars.number('CLIENT_DEV_DASHBOARD_PORT', 7332),
-
-		htmlPage: {
-			titleTemplate: 'BlueBase - %s',
-			defaultTitle: 'BlueBase',
-			description:
-				'A starter kit giving you the minimum requirements for a production ready universal react application.',
-		},
 
 		// TODO:
 		// extensions: [
@@ -44,7 +38,7 @@ export default (input: MainConfigs, args: HookArgs): MainConfigs => {
 
 		bundleAssetsFileName: 'assets.json',
 
-		srcEntryFile: fromHere('../client/index'),
+		srcEntryFile: fromHere('../app/main_process'),
 
 		includePaths: [
 			args.configDir,
@@ -56,9 +50,10 @@ export default (input: MainConfigs, args: HookArgs): MainConfigs => {
 			// fromRoot('./src/config'),
 		],
 
-		outputPath: path.join(args.buildDir, 'client'),
 
-		publicPath: '/',
+		outputPath: path.join(args.buildDir, 'main'),
+
+		publicPath: 'build/',
 
 		includeSourceMapsForOptimisedBundle: false,
 

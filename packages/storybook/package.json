@@ -1,12 +1,12 @@
 {
   "name": "@bluebase/cli-storybook",
   "description": "A BlueBaseJS CLI plugin to integrate Storybook",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./lib",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueBaseJS/cli/issues",
   "dependencies": {
-    "@bluebase/cli-core": "^0.0.6",
+    "@bluebase/cli-core": "^0.0.9",
     "@oclif/command": "^1.5.8",
     "@oclif/config": "^1.10.4",
     "rimraf": "^2.6.2",

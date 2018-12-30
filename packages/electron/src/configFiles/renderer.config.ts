@@ -18,7 +18,7 @@ export interface HookArgs {
 export default (input: RendererConfigs, args: HookArgs): RendererConfigs => {
 	const configs: RendererConfigs = {
 
-		target: 'web',
+		target: 'electron-renderer',
 		mode: Utils.isProduction() ? 'production' : 'development',
 
 		// devServerHost: EnvVars.string('HOST', '0.0.0.0'),
@@ -44,7 +44,7 @@ export default (input: RendererConfigs, args: HookArgs): RendererConfigs => {
 
 		// bundleAssetsFileName: 'assets.json',
 
-		srcEntryFile: fromHere('../client/index'),
+		srcEntryFile: fromHere('../app/renderer_process'),
 
 		includePaths: [
 			args.configDir,
@@ -56,13 +56,13 @@ export default (input: RendererConfigs, args: HookArgs): RendererConfigs => {
 			// fromRoot('./src/config'),
 		],
 
-		outputPath: path.join(args.buildDir, 'client'),
+		outputPath: path.join(args.buildDir, 'renderer'),
 
 		// publicPath: '/',
 
 		// includeSourceMapsForOptimisedBundle: false,
 
-		// nodeExternalsFileTypeWhitelist: [],
+		nodeExternalsFileTypeWhitelist: [],
 			// devVendorDLL: {
 
 			// 	enabled: true,

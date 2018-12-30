@@ -2,10 +2,10 @@ import { BundleDefinition } from '@bluebase/cli-web';
 
 export interface MainConfigs extends BundleDefinition {
 	/** The host on which the server should run. */
-	devServerHost: string,
+	host: string,
 
 	/** The port on which the server should run. */
-	devServerPort: number,
+	port: number,
 
 	/** The port on which to serve webpack dashboard on. */
 	devDashboardPort: number,
@@ -21,17 +21,6 @@ export interface MainConfigs extends BundleDefinition {
    * containing details of all output files for a bundle?
 	 */
 	bundleAssetsFileName: string,
-
-	/*
-	 * Basic configuration for the HTML page that hosts our application.
-   * We make use of react-helmet to consume the values below.
-   * @see https://github.com/nfl/react-helmet
-	 */
-	htmlPage: {
-		titleTemplate: string,
-		defaultTitle: string,
-		description: string,
-	},
 
 	/*
 	 * Configuration settings for the development vendor DLL.  This will be created
