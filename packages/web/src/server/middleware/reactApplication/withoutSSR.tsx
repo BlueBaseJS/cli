@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { ServerConfigsBundle } from '../../server';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup } from 'react-dom/server';
 import React from 'react';
@@ -22,7 +22,7 @@ export default (request: Request, response: Response, configs: ServerConfigsBund
 
 	if (process.env.BUILD_FLAG_IS_DEV === 'true') {
 		logger.log({
-			label: `@bluerain/cli/server`,
+			label: `@bluebase/cli/server`,
 			level: 'info',
 			message: `Handling react route without SSR: ${request.url}`,
 		});

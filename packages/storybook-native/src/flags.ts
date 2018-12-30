@@ -9,7 +9,7 @@ export interface ExpoFlags {
 
 export const ExpoFlagDefs = {
 	configDir: flags.string({
-		default: './bluerain/storybook-native',
+		default: './bluebase/storybook-native',
 		description: 'Path to config directory relative to the root directory',
 		env: 'CONFIG_DIR',
 		hidden: false,
@@ -36,7 +36,7 @@ export const ExpoFlagDefs = {
 	}),
 
 	appJsPath: flags.string({
-		default: './bluerain/storybook-native/App',
+		default: './bluebase/storybook-native/App',
 		description: 'Path to App.js file relative to the root directory',
 		env: 'APP_JS_PATH',
 		hidden: false,
@@ -47,10 +47,10 @@ export const ExpoFlagDefs = {
 };
 
 // export default class Expo extends Command {
-// 	static description = 'Brings BlueRain projects to expo platform';
+// 	static description = 'Brings BlueBase projects to expo platform';
 
 // 	static examples = [
-// 		`$ bluerain expo start`,
+// 		`$ bluebase expo start`,
 // 	];
 
 // 	async run() {

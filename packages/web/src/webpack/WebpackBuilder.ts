@@ -1,7 +1,7 @@
 // tslint:disable:max-line-length
 import { BuilderConfigsProp, BuilderOptions, WebpackBuilderMiddlewareFn } from '../types';
 import { Configuration as WebpackConfig } from 'webpack';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import merge from 'webpack-merge';
 
 export type ifCondition = (then: any, or?: any) => any;
@@ -9,7 +9,7 @@ export type ifCondition = (then: any, or?: any) => any;
 export default class WebpackBuilder implements BuilderOptions {
 
 	/** Path of the boot options file (boot.js) */
-	public bluerainJsPath: string;
+	public bluebaseJsPath: string;
 
 	public appJsPath: string;
 	public assetsDirPath: string;
@@ -72,7 +72,7 @@ export default class WebpackBuilder implements BuilderOptions {
 
 	constructor(buildOptions: BuilderOptions, private webpackConfig: WebpackConfig = {}) {
 
-		const { appJsPath, assetsDirPath, buildDirPath, configDirPath, configs, bluerainJsPath } = buildOptions;
+		const { appJsPath, assetsDirPath, buildDirPath, configDirPath, configs, bluebaseJsPath } = buildOptions;
 
 		if (!configs) {
 			throw Error(`No bundle configuration given to WebpackBuilder.`);
@@ -88,7 +88,7 @@ export default class WebpackBuilder implements BuilderOptions {
 		// Init
 		this.appJsPath = appJsPath;
 		this.assetsDirPath = assetsDirPath;
-		this.bluerainJsPath = bluerainJsPath;
+		this.bluebaseJsPath = bluebaseJsPath;
 		this.buildDirPath = buildDirPath;
 		this.configs = configs;
 		this.configDirPath = configDirPath;

@@ -26,14 +26,14 @@ const HTML = (props: HTMLProperties) => {
 				<Helmet>
 					<html lang="en" />
 					<meta charSet="utf-8" />
-					<meta name="application-name" content="BlueRain" />
-					<meta name="description" content="BlueRain" />
+					<meta name="application-name" content="BlueBase" />
+					<meta name="description" content="BlueBase" />
 					<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<meta name="msapplication-TileColor" content="#2b2b2b" />
 					<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png" />
 					<meta name="theme-color" content="#2b2b2b" />
-					<title>BlueRain</title>
+					<title>BlueBase</title>
 					{/*
 						A great reference for favicons:
 						https://github.com/audreyr/favicon-cheat-sheet

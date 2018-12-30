@@ -8,8 +8,8 @@ export default (input: any) => {
 
 		// app.json is generated from manifest
 		manifest: {
-			name: 'BlueRain Storybook Native',
-			slug: 'bluerain-storybook-native',
+			name: 'BlueBase Storybook Native',
+			slug: 'bluebase-storybook-native',
 		}
 	});
-}
+};

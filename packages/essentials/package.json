@@ -1,12 +1,12 @@
 {
   "name": "@bluebase/cli-essentials",
-  "description": "This package has all the essential exports for use with BlueRain CLI projects.",
+  "description": "This package has all the essential exports for use with BlueBase CLI projects.",
   "author": "BlueEast Team <code@blueeast.com>",
-  "version": "1.0.0",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "module": "lib/index.js",
-  "repository": "BlueBaseJS/cli",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "repository": "https://github.com/BlueBaseJS/cli",
   "license": "MIT",
   "keywords": [],
   "scripts": {
@@ -56,34 +56,34 @@
     "node": ">=8.9"
   },
   "dependencies": {
-    "awesome-typescript-loader": "^4.0.0",
-    "react-art": "^16.4.2",
+    "awesome-typescript-loader": "^5.2.1",
+    "react-art": "^16.7.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "react-native-web": "^0.9.0",
-    "webpack": "^4.17.1"
+    "react-native-web": "^0.9.10",
+    "webpack": "^4.28.2"
   },
   "devDependencies": {
-    "@blueeast/tslint-config-blueeast": "^0.5.6",
+    "@blueeast/tslint-config-blueeast": "^0.7.0",
     "@types/jest": "^23.1.6",
-    "@types/node": "^10.5.2",
-    "@types/react": "^16.4.7",
-    "@types/webpack": "^4.4.11",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.18",
+    "@types/webpack": "^4.4.22",
     "codecov": "^3.0.2",
-    "commitizen": "^2.10.1",
+    "commitizen": "^3.0.5",
     "cz-conventional-changelog": "^2.1.0",
-    "gh-pages": "^1.2.0",
+    "gh-pages": "^2.0.1",
     "jest": "^23.4.1",
     "npm-run-all": "^4.1.3",
-    "opn-cli": "^3.1.0",
+    "opn-cli": "^4.0.0",
     "prettier": "^1.13.4",
-    "react": "^16.4.2",
+    "react": "^16.7.0",
     "standard-version": "^4.4.0",
     "trash-cli": "^1.4.0",
     "ts-jest": "^23.0.0",
     "ts-node": "^7.0.0",
-		"tslint": "^5.11.0",
-    "typedoc": "^0.12.0",
-    "typescript": "^3.2.1"
+    "tslint": "^5.12.0",
+    "typedoc": "^0.13.0",
+    "typescript": "^3.2.2"
   },
   "peerDependencies": {
     "react": "^16.*"

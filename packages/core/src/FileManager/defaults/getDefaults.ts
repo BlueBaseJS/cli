@@ -12,7 +12,7 @@ export const getDefaults = (configDir: string) => {
 		// babel: {
 		// defaultPath: fromHere('emptyHook'),
 		// dir: configDir,
-		// 	findInBlueRain: true,
+		// 	findInBlueBase: true,
 		// 	findInPlugins: true,
 		// 	isDir: false,
 		// 	isHook: true,
@@ -20,23 +20,23 @@ export const getDefaults = (configDir: string) => {
 		// 	slug: 'babel',
 		// },
 
-		/** BlueRain bluerain options */
-		bluerain: {
-			defaultPath: fromCore('templates/common/bluerain'),
+		/** BlueBase bluebase options */
+		bluebase: {
+			defaultPath: fromCore('templates/common/bluebase'),
 			dir: configDir,
-			findInBlueRain: true,
+			findInBlueBase: true,
 			findInPlugins: false,
 			isDir: false,
 			isHook: false,
-			name: '^bluerain.(js|ts)$',
-			slug: 'bluerain',
+			name: '^bluebase.(js|ts)$',
+			slug: 'bluebase',
 		},
 
 		/** Plaform specific configs */
 		configs: {
 			defaultPath: fromHere('emptyHook'),
 			dir: configDir,
-			findInBlueRain: true,
+			findInBlueBase: true,
 			findInPlugins: true,
 			isDir: false,
 			isHook: true,
@@ -48,7 +48,7 @@ export const getDefaults = (configDir: string) => {
 		assetsDir: {
 			defaultPath: fromHere('assets'),
 			dir: configDir,
-			findInBlueRain: true,
+			findInBlueBase: true,
 			findInPlugins: false,
 			isDir: true,
 			isHook: false,
@@ -60,7 +60,7 @@ export const getDefaults = (configDir: string) => {
 		// tsconfig: {
 		// defaultPath: fromHere('tsconfig'),
 		// dir: configDir
-		// 	findInBlueRain: true,
+		// 	findInBlueBase: true,
 		// 	findInPlugins: true,
 		// 	isDir: false,
 		// 	isHook: true,
@@ -72,7 +72,7 @@ export const getDefaults = (configDir: string) => {
 		webpack: {
 			defaultPath: fromHere('emptyHook'),
 			dir: configDir,
-			findInBlueRain: true,
+			findInBlueBase: true,
 			findInPlugins: true,
 			isDir: false,
 			isHook: true,

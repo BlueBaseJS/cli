@@ -1,6 +1,6 @@
 // // tslint:disable:object-literal-sort-keys
 
-// import { Utils } from '@blueeast/bluerain-cli-core';
+// import { Utils } from '@bluebase/cli-core';
 // import path from 'path';
 // import { PlatformConfigs } from './PlatformConfigs';
 
@@ -27,8 +27,8 @@
 // 	disableSSR: true,
 // 	browserCacheMaxAge: '365d',
 // 	htmlPage: {
-// 		titleTemplate: 'BlueRain - %s',
-// 		defaultTitle: 'BlueRain',
+// 		titleTemplate: 'BlueBase - %s',
+// 		defaultTitle: 'BlueBase',
 // 		description:
 // 			'A starter kit giving you the minimum requirements for a production ready universal react application.',
 // 	},
@@ -81,7 +81,7 @@
 // 		client: {
 // 			srcEntryFile: fromHere('../../client/index'),
 // 			srcPaths: [
-// 				Utils.fromProjectRoot('./bluerain/boot'),
+// 				Utils.fromProjectRoot('./bluebase/boot'),
 // 				Utils.fromProjectRoot('./src'),
 // 				// fromHere('../../client'),
 // 				// The service worker offline page generation needs access to the
@@ -107,7 +107,7 @@
 // 		server: {
 // 			// srcEntryFile: fromHere('../../server/index'),
 // 			// srcPaths: [
-// 			// 	Utils.fromProjectRoot('./bluerain'),
+// 			// 	Utils.fromProjectRoot('./bluebase'),
 // 			// 	// fromHere('../../server'),
 // 			// 	// fromHere('../../client/App'),
 // 			// ],

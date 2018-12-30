@@ -10,6 +10,6 @@
     }
   },
   "scripts": {
-    "storybook-native:start": "bluerain storybook-native:start"
+    "storybook-native:start": "bluebase storybook-native:start"
   }
 }

@@ -3,7 +3,7 @@
  */
 
 import { ServerConfigsBundle } from '../../server';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import fs from 'fs';
 
 let resultCache: any;

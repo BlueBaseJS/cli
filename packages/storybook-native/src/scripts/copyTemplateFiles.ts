@@ -1,4 +1,4 @@
-import { Utils, copyTemplateFiles as copyCoreTemplateFiles } from '@blueeast/bluerain-cli-core';
+import { Utils, copyTemplateFiles as copyCoreTemplateFiles } from '@bluebase/cli-core';
 import deepmerge from 'deepmerge';
 import fromRoot from './fromRoot';
 import fs from 'fs';

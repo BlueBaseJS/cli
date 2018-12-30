@@ -21,7 +21,7 @@ export const copyAll = async (src: string, dest: string, prompt: boolean = true,
 					message: `A directory already exists at ${dest}. Do you want to overwrite?`,
 					name: 'overwrite',
 					type: 'confirm',
-					// prefix: '@bluerain/cli/expo'
+					// prefix: '@bluebase/cli/expo'
 				}
 			]);
 

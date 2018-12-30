@@ -36,7 +36,7 @@ jobs:
 
 workflows:
   version: 2
-  "@blueeast/bluerain-cli-electron":
+  "@bluebase/cli-electron":
     jobs:
       - node-latest
       - node-8

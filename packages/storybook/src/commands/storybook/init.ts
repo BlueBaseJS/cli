@@ -1,14 +1,14 @@
 import { FlagDefs, Flags } from '../../cmd';
 import { requiredDependencies, requiredDevDependencies } from '../../scripts/dependencies';
 import { Command } from '@oclif/command';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { copyTemplateFiles } from '../../scripts/copyTemplateFiles';
 
 export default class CustomCommand extends Command {
 	static description = 'Initializes a directory with an example project.';
 
 	static examples = [
-		`$ bluerain storybook:init`,
+		`$ bluebase storybook:init`,
 	];
 
 	static flags = FlagDefs;
@@ -18,9 +18,9 @@ export default class CustomCommand extends Command {
 		const flags = parsed.flags as Flags;
 
 		Utils.logger.log({
-			label: '@bluerain/cli/storybook',
+			label: '@bluebase/cli/storybook',
 			level: 'info',
-			message: '🛠 Initializing a new BlueRain + Storybook project...',
+			message: '🛠 Initializing a new BlueBase + Storybook project...',
 		});
 
 		// Absolute path of build dir
@@ -33,7 +33,7 @@ export default class CustomCommand extends Command {
 		///////////////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/storybook',
+			label: '@bluebase/cli/storybook',
 			level: 'info',
 			message: '📂 Creating Storybook configuration directory...',
 		});
@@ -45,7 +45,7 @@ export default class CustomCommand extends Command {
 		////////////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/storybook',
+			label: '@bluebase/cli/storybook',
 			level: 'info',
 			message: '📦 Installing dependencies...',
 		});
@@ -56,9 +56,9 @@ export default class CustomCommand extends Command {
 
 		// Finish
 		Utils.logger.log({
-			label: '@bluerain/cli/storybook',
+			label: '@bluebase/cli/storybook',
 			level: 'info',
-			message: '✅ Done! BlueRain Storybook project initialized.',
+			message: '✅ Done! BlueBase Storybook project initialized.',
 		});
 
 		return;

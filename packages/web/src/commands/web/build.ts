@@ -1,4 +1,4 @@
-import { FileManager, Utils } from '@blueeast/bluerain-cli-core';
+import { FileManager, Utils } from '@bluebase/cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
 import { webpackCompile } from '../../scripts/webpackCompile';
@@ -19,9 +19,9 @@ export class CustomCommand extends Command {
 		const flags = parsed.flags as Flags;
 
 		Utils.logger.log({
-			label: '@bluerain/cli/web',
+			label: '@bluebase/cli/web',
 			level: 'info',
-			message: '🏗 Building BlueRain web project...',
+			message: '🏗 Building BlueBase web project...',
 		});
 
 		// Absolute path of build dir
@@ -69,15 +69,15 @@ export class CustomCommand extends Command {
 			serverConfigs = deepmerge(configs, serverConfigs);
 		}
 
-		// Path to bluerain.js file
-		const bluerainJsPath = await fileManager.resolveFilePath('bluerain');
+		// Path to bluebase.js file
+		const bluebaseJsPath = await fileManager.resolveFilePath('bluebase');
 		// const assetsDirPath = await fileManager.resolveFilePath('assets-dir');
 		const assetsDirPath = path.join(configDir, 'assets');
 
 		const baseWebpackBuildOptions = {
 			appJsPath,
 			assetsDirPath,
-			bluerainJsPath,
+			bluebaseJsPath,
 			buildDirPath: buildDir,
 			configDirPath: configDir,
 			mode: 'production',
@@ -88,7 +88,7 @@ export class CustomCommand extends Command {
 		////////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/web',
+			label: '@bluebase/cli/web',
 			level: 'info',
 			message: `🎛 Compiling Webpack Client bundle`
 		});
@@ -115,7 +115,7 @@ export class CustomCommand extends Command {
 		////////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/web',
+			label: '@bluebase/cli/web',
 			level: 'info',
 			message: `🎛 Compiling Webpack Server bundle`
 		});
@@ -139,7 +139,7 @@ export class CustomCommand extends Command {
 
 		// Finish
 		Utils.logger.log({
-			label: '@bluerain/cli/web',
+			label: '@bluebase/cli/web',
 			level: 'info',
 			message: '✅ Done!',
 		});

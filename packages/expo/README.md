@@ -1,5 +1,120 @@
-# Documentation
+@bluebase/cli-expo
+===============================
 
-Open the link below to explore.
+An Web plugin for BlueRain CLI
 
-https://blueeast.gitbook.io/bluerain/cli/expo
+[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
+[![Version](https://img.shields.io/npm/v/@bluebase/cli-expo.svg)](https://npmjs.org/package/@bluebase/cli-expo)
+
+[![CircleCI](https://circleci.com/gh/BlueBaseJS/cli/tree/master.svg?style=shield)](https://circleci.com/gh/BlueBaseJS/cli/tree/master)
+
+[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/BlueBaseJS/cli?branch=master&svg=true)](https://ci.appveyor.com/project/BlueBaseJS/cli/branch/master)
+[![Codecov](https://codecov.io/gh/BlueBaseJS/cli/branch/master/graph/badge.svg)](https://codecov.io/gh/BlueBaseJS/cli)
+[![Downloads/week](https://img.shields.io/npm/dw/@bluebase/cli-expo.svg)](https://npmjs.org/package/@bluebase/cli-expo)
+[![License](https://img.shields.io/npm/l/@bluebase/cli-expo.svg)](https://github.com/BlueBaseJS/cli/blob/master/package.json)
+
+<!-- toc -->
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
+# Usage
+<!-- usage -->
+```sh-session
+$ npm install -g @bluebase/cli-expo
+$ bluebase COMMAND
+running command...
+$ bluebase (-v|--version|version)
+@bluebase/cli-expo/0.0.5 darwin-x64 node-v11.4.0
+$ bluebase --help [COMMAND]
+USAGE
+  $ bluebase COMMAND
+...
+```
+<!-- usagestop -->
+# Commands
+<!-- commands -->
+* [`bluebase expo:build:android`](#bluebase-expobuildandroid)
+* [`bluebase expo:build:ios`](#bluebase-expobuildios)
+* [`bluebase expo:init`](#bluebase-expoinit)
+* [`bluebase expo:start`](#bluebase-expostart)
+
+## `bluebase expo:build:android`
+
+creates a build for android.
+
+```
+USAGE
+  $ bluebase expo:build:android
+
+OPTIONS
+  --appJsPath=appJsPath  [default: ./bluebase/expo/App] Path to App.js file relative to the root directory
+  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluebase/expo] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluebase expo:build:android
+```
+
+_See code: [lib/commands/expo/build/android.js](https://github.com/BlueBaseJS/cli/blob/v0.0.5/lib/commands/expo/build/android.js)_
+
+## `bluebase expo:build:ios`
+
+creates a build for ios.
+
+```
+USAGE
+  $ bluebase expo:build:ios
+
+OPTIONS
+  --appJsPath=appJsPath  [default: ./bluebase/expo/App] Path to App.js file relative to the root directory
+  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluebase/expo] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluebase expo:build:ios
+```
+
+_See code: [lib/commands/expo/build/ios.js](https://github.com/BlueBaseJS/cli/blob/v0.0.5/lib/commands/expo/build/ios.js)_
+
+## `bluebase expo:init`
+
+Initializes a directory with an example project.
+
+```
+USAGE
+  $ bluebase expo:init
+
+OPTIONS
+  --appJsPath=appJsPath  [default: ./bluebase/expo/App] Path to App.js file relative to the root directory
+  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluebase/expo] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluebase expo:init
+```
+
+_See code: [lib/commands/expo/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.5/lib/commands/expo/init.js)_
+
+## `bluebase expo:start`
+
+Starts or restarts a local server for your app and gives you a URL to it.
+
+```
+USAGE
+  $ bluebase expo:start
+
+OPTIONS
+  --appJsPath=appJsPath  [default: ./bluebase/expo/App] Path to App.js file relative to the root directory
+  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluebase/expo] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluebase expo:start
+```
+
+_See code: [lib/commands/expo/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.5/lib/commands/expo/start.js)_
+<!-- commandsstop -->

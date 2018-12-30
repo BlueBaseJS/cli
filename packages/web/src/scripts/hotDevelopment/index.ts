@@ -1,12 +1,12 @@
 import { HotClientServer } from './HotClientServer';
 import { HotNodeServer } from './HotNodeServer';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import chokidar from 'chokidar';
 import webpack from 'webpack';
 
 export interface HotDevelopmentOptions {
 	assetsDirPath: string;
-	bluerainJsPath: string;
+	bluebaseJsPath: string;
 	buildDirPath: string;
 	configDirPath: string;
 
@@ -32,14 +32,14 @@ export default async (opts: HotDevelopmentOptions) => {
 
 	// Any changes to our webpack bundleConfigs should restart the development devServer.
 	const watcher = chokidar.watch([
-		Utils.fromProjectRoot('bluerain'),
+		Utils.fromProjectRoot('bluebase'),
 		// Utils.fromProjectRoot('src'),
 	]);
 
 	watcher.on('ready', () => {
 		watcher.on('change', async () => {
 			Utils.logger.log({
-				label: '@bluerain/cli/web',
+				label: '@bluebase/cli/web',
 				level: 'warn',
 				message: 'Project build configuration has changed. Restarting the development devServer...',
 			});
@@ -48,7 +48,7 @@ export default async (opts: HotDevelopmentOptions) => {
 			await hotServer.dispose();
 
 			Object.keys(require.cache).forEach((modulePath) => {
-				if (modulePath.indexOf('bluerain') !== -1) {
+				if (modulePath.indexOf('bluebase') !== -1) {
 					delete require.cache[modulePath];
 				}
 			});

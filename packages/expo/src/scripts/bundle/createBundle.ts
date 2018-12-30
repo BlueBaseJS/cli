@@ -1,11 +1,11 @@
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import fromRoot from '../fromRoot';
 import fs from 'fs';
+import { getAppJson } from './getAppJson';
+import { getBlueBasePath } from './getBlueBasePath';
 import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
-import { getAppJson } from './getAppJson';
-import { getBlueRainPath } from './getBlueRainPath';
 
 export interface CreateBundleInterface {
 	assetsDir: string,
@@ -41,7 +41,7 @@ export const createBundle = async ({
 	///// Generate app.js /////
 	///////////////////////////
 
-	const bluerainJsPath = await getBlueRainPath({ configDir, name });
+	const bluebaseJsPath = await getBlueBasePath({ configDir, name });
 
 	// Checks if Custom App.js exists in configDir
 	let appJsLocation = 'App';
@@ -59,7 +59,7 @@ export const createBundle = async ({
 		variables: {
 			'APP_JSON': JSON.stringify(appJson, null, 2),
 			'APP_JS_PATH': `./${appJsLocation}`,
-			'BLUERAIN_JS_PATH': `./${path.relative(buildDir, bluerainJsPath)}`,
+			'BLUERAIN_JS_PATH': `./${path.relative(buildDir, bluebaseJsPath)}`,
 			...templateVars
 		},
 		writeFiles: ['App.js', 'app.json', 'AppEntry.js'],

@@ -1,4 +1,4 @@
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 
 const logger = Utils.logger;
 
@@ -42,14 +42,14 @@ class ListenerManager {
 				this.killAllConnections();
 
 				logger.log({
-					label: `BlueRain CLI: Engine Web`,
+					label: `BlueBase CLI: Engine Web`,
 					level: 'info',
 					message: 'Destroyed all existing connections.',
 				});
 
 				this.listener.close(() => {
 					logger.log({
-						label: `BlueRain CLI: Engine Web`,
+						label: `BlueBase CLI: Engine Web`,
 						level: 'info',
 						message: 'Closed listener.',
 					});

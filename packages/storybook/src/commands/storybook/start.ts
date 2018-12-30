@@ -1,13 +1,13 @@
 import { FlagDefs, Flags } from '../../cmd';
 import { Command } from '@oclif/command';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { spawn } from 'child_process';
 
 export default class CustomCommand extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
 
 	static examples = [
-		`$ bluerain storybook:start`,
+		`$ bluebase storybook:start`,
 	];
 
 	static flags = FlagDefs;
@@ -24,7 +24,7 @@ export default class CustomCommand extends Command {
 		/////////////////////////
 
 		Utils.logger.log({
-			label: '@bluerain/cli/storybook',
+			label: '@bluebase/cli/storybook',
 			level: 'info',
 			message: '🚀 Launching Storybook Server',
 		});
@@ -39,7 +39,7 @@ export default class CustomCommand extends Command {
 
 		process.on('SIGINT', () => {
 			Utils.logger.log({
-				label: '@bluerain/cli/expo',
+				label: '@bluebase/cli/expo',
 				level: 'info',
 				message: '💀 Caught interrupt signal, exiting!',
 			});

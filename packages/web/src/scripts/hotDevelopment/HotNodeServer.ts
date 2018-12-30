@@ -1,6 +1,6 @@
 import { HotDevelopmentOptions } from '.';
 import { Server } from 'http';
-import { Utils } from '@blueeast/bluerain-cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { server } from '../../server';
 
 export class HotNodeServer {
@@ -35,7 +35,7 @@ export class HotNodeServer {
 			this.server.close();
 			this.server = null;
 			Utils.logger.log({
-				label: `@bluerain/cli/server`,
+				label: `@bluebase/cli/server`,
 				level: 'info',
 				message: 'Restarting server...',
 			});
@@ -49,7 +49,7 @@ export class HotNodeServer {
 
 		newServer.on('listening', () => {
 			Utils.logger.log({
-				label: `@bluerain/cli/server`,
+				label: `@bluebase/cli/server`,
 				level: 'info',
 				message: 'Server running with latest changes.',
 				notify: true,
@@ -59,7 +59,7 @@ export class HotNodeServer {
 		newServer.on('error', (err: Error) => {
 			Utils.logger.log({
 				err,
-				label: `@bluerain/cli/server`,
+				label: `@bluebase/cli/server`,
 				level: 'error',
 				message: 'Error in server execution, check the console for more info.',
 			});

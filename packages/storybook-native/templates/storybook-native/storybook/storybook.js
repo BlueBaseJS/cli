@@ -1,16 +1,16 @@
-/* eslint-disable global-require */
-import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
+import React from 'react';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import CenterView from './CenterView';
 
+import './rn-addons';
+
 // Custom
 import { loadStories } from './storyLoader';
-import { BlueRainDecorator } from '@blueeast/bluerain-storybook-addon';
-import BRConfigs from '../bluerain';
+import { BlueBaseDecorator } from '@bluebase/storybook-addon';
+import BRConfigs from '../bluebase';
 
-// BlueRain
-addDecorator(BlueRainDecorator(BRConfigs));
+// BlueBase
+addDecorator(BlueBaseDecorator(BRConfigs));
 
 // CenterView
 const CenterViewDecorator = (storyFn) => (<CenterView>{storyFn()}</CenterView>);
@@ -21,18 +21,8 @@ configure(() => {
   loadStories();
 }, module);
 
-// This assumes that storybook is running on the same host as your RN packager,
-// to set manually use, e.g. host: 'localhost' option
-const StorybookUIRoot = getStorybookUI({ port: 7007, onDeviceUI: true });
+// Refer to https://github.com/storybooks/storybook/tree/master/app/react-native#start-command-parameters
+// To find allowed options for getStorybookUI
+const StorybookUIRoot = getStorybookUI({});
 
-// react-native hot module loader must take in a Class - https://github.com/facebook/react-native/issues/10991
-// https://github.com/storybooks/storybook/issues/2081
-// eslint-disable-next-line react/prefer-stateless-function
-class StorybookUIHMRRoot extends Component {
-  render() {
-    return <StorybookUIRoot />;
-  }
-}
-
-AppRegistry.registerComponent('BlueRain', () => StorybookUIHMRRoot);
-export default StorybookUIHMRRoot;
+export default StorybookUIRoot;

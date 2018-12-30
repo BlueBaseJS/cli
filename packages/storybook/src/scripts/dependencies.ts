@@ -1,4 +1,4 @@
-import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDeps } from '@blueeast/bluerain-cli-core';
+import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDeps } from '@bluebase/cli-core';
 
 /**
  * List of dependencies required by this plugin
@@ -13,11 +13,12 @@ export const requiredDependencies = [
  */
 export const requiredDevDependencies = [
 	...coreDevDeps,
-	'@blueeast/bluerain-cli-essentials',
-	'@blueeast/bluerain-storybook-addon',
+	'@bluebase/cli-essentials',
+	'@bluebase/storybook-addon',
 	'@storybook/addon-actions',
 	'@storybook/addon-links',
 	'@storybook/react',
 	'@types/deepmerge',
-	'babel-core@^6.26.3'
+	// 'babel-core@^6.26.3',
+	'babel-loader@^8.0.4',
 ];
