@@ -20,6 +20,6 @@ export const requiredDevDependencies = [
 
 const expoVersion = getLatestExpoVersion();
 
-requiredDependencies.push(`expo@^${expoVersion.expo}`);
+requiredDependencies.push(`expo@${expoVersion.expo}`);
 requiredDependencies.push(`react@^${expoVersion.react}`);
 requiredDependencies.push(expoVersion.reactNative);
