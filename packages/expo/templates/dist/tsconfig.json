@@ -41,7 +41,6 @@
     "skipLibCheck": true,
     
     "lib": ["es2017", "dom"],
-    "types": ["node"],
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "."
   },
