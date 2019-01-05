@@ -1,12 +1,2 @@
 {
-  "gitflow4code.features": [
-    {
-      "name": "feature/new-release",
-      "base": "develop"
-    },
-    {
-      "name": "feature/expo-fixes",
-      "base": "develop"
-    }
-  ]
 }
