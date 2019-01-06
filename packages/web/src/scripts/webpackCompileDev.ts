@@ -1,43 +1,49 @@
 import serve from 'webpack-serve';
 import webpack from 'webpack';
+import { Utils } from '@bluebase/cli-core';
 
 /**
  * compiles a webpack config.
  * @param configs
  */
-export const webpackCompileDev = async (configs: webpack.Configuration) => {
+export const webpackCompileDev = async (configs: webpack.Configuration, label: string) => {
 
 	return serve({}, {
 		config: configs,
-		// content: Utils.fromProjectRoot('./build/electron'),
+
 		devMiddleware: {
 			publicPath: '/',
 			writeToDisk: true,
-
 		},
 
-		hotClient: false,
+		on: {
+			'build-started': () => {
+				Utils.logger.log({
+					label,
+					level: 'info',
+					message: 'Build Started',
+				});
+			},
 
-		// add: (app, _middleware, options) => {
-		// 	// Be sure to pass the options argument from the arguments
-		// 	app.use(webpackServeWaitpage(options, { theme: 'material' }));
+			'build-finished': () => {
+				Utils.logger.log({
+					label,
+					level: 'info',
+					message: 'Running with latest changes.',
+					notify: true,
+				});
+			},
 
-		// 	// Make sure the usage of webpack-serve-waitpage will be before the following commands if exists
-		// 	// middleware.webpack();
-		// 	// middleware.content();
-		// },
+			'compiler-error': () => {
+				Utils.logger.log({
+					label,
+					level: 'error',
+					message: 'Build failed, please check the console for more information.',
+					notify: true,
+				});
+			},
+		}
 
-		// on: {
-		// 	'build-started': () => {
-		// 		Utils.logger.info('Electronnnnnn...');
-		// 		spawn(
-		// 			fromRoot('./node_modules/.bin/electron'),
-		// 			['./build/electron/main.js'],
-		// 			{ shell: true, env: process.env, stdio: 'inherit' }
-		// 		)
-		// 			.on('close', (_code: number) => process.exit(0))
-		// 			.on('error', (spawnError: Error) => console.error(spawnError));
-		// 	}
-		// }
+
 	});
 };

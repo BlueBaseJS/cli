@@ -15,9 +15,9 @@ export class StartStaticCommand extends Command {
 		Utils.logger.log({
 			label: '@bluebase/cli/web-static',
 			level: 'info',
-			message: '🌏 Starting BlueBase Development Server...',
+			message: '🏗 Building BlueBase web project...',
 		});
 
-		run(flags, { development: true, label: '@bluebase/cli/web-static' });
+		run(flags, { development: false, label: '@bluebase/cli/web-static' });
 	}
 }
