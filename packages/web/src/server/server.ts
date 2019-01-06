@@ -86,6 +86,7 @@ const server = (configs: ServerConfigsBundle): Server => {
 			with
 
 			Service Workers: ${serviceWorkerConfigs.enabled}
+			Server Side Rendering: ${!configs.server.disableSSR}
 
 			Server is now listening on Port ${configs.server.port}
 			You can access it in the browser at http://${configs.server.host}:${configs.server.port}

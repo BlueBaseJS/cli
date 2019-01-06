@@ -29,11 +29,15 @@ export class CustomCommand extends Command {
 		});
 
 		// Absolute path of build dir
+		let appJsPath = Utils.fromProjectRoot(flags.appJsPath);
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
-		const appJsPath = Utils.fromProjectRoot(flags.appJsPath);
 		const customWebPackClientConfigPath = Utils.fromProjectRoot(flags.webpackClientConfigPath);
 		const customWebPackServerConfigPath = Utils.fromProjectRoot(flags.webpackServerConfigPath);
+
+		if (!fs.existsSync(appJsPath)) {
+			appJsPath = path.resolve(__dirname, '../../client/App.js');
+		}
 
 		/////////////////////////////
 		///// Setup FileManager /////
@@ -62,7 +66,6 @@ export class CustomCommand extends Command {
 
 		let clientConfigs = await fileManager.Hooks.run(`web.client-config`, {}, { buildDir, configDir });
 		let serverConfigs = await fileManager.Hooks.run(`web.server-config`, {}, { buildDir, configDir });
-
 
 		if (fs.existsSync(customWebPackClientConfigPath)) {
 			const configs = require(customWebPackClientConfigPath);

@@ -20,9 +20,6 @@ export default
 			// Patch React Native
 			.use(WebpackTools.ReactNative())
 
-			// Use Custom App.js feature
-			.use(WebpackTools.CustomApp())
-
 			// Add Jarvis Dashboard
 			.use(WebpackTools.Jarvis())
 
@@ -32,7 +29,7 @@ export default
 			// // Generate configs.json
 			// .use(WebpackTools.ConfigsJson())
 
-			// .use(WebpackTools.ClientHTML())
+			.use(WebpackTools.ClientHTML())
 
 			///// Loaders
 

@@ -1,4 +1,3 @@
-// tslint:disable:no-var-requires no-submodule-imports
 /**
  * We use the offline-plugin to generate a service worker.  See the webpack
  * config for more details.

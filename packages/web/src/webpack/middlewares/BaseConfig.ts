@@ -132,6 +132,9 @@ const BaseConfig: WebpackBuilderMiddleware =
 
 						// BlueBase boot options file, AKA bluebase.js
 						BLUERAIN_BOOT_OPTIONS: builder.bluebaseJsPath,
+
+						// Custom App.js
+						APP_JS_PATH: builder.appJsPath,
 					},
 				},
 

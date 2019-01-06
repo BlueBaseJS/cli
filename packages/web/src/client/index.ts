@@ -1,7 +1,6 @@
 import 'normalize.css';
-import App from 'CUSTOM_APP_JS';
-// tslint:disable-next-line:no-var-requires
-const { AppRegistry } = require('react-native');
+import App from 'APP_JS_PATH';
+import { AppRegistry } from 'react-native';
 
 // register the app
 AppRegistry.registerComponent('App', () => App);
