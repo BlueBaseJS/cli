@@ -1,5 +1,5 @@
 import path from 'path';
 
-export default (...segments: string[]) => {
+export const useOwn = (...segments: string[]) => {
 	return path.resolve(__dirname, '..', '..', 'node_modules', ...segments);
 };

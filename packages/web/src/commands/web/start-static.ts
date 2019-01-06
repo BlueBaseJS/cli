@@ -1,14 +1,14 @@
-import { FileManager, Utils } from '@bluebase/cli-core';
+import { Utils } from '@bluebase/cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
+import defaultClientConfigs from '../../configFiles/client.config';
+import defaultClientWebpackConfigs from '../../configFiles/webpack.config.client';
 import fs from 'fs';
-import getConfigFiles from '../../configFiles';
 import path from 'path';
 import rimraf from 'rimraf';
 import serve from 'webpack-serve';
 import shell from 'shelljs';
-
-const webpackServeWaitpage = require('webpack-serve-waitpage');
+import { findFile } from '../../scripts';
 
 export class CustomCommand extends Command {
 
@@ -25,25 +25,77 @@ export class CustomCommand extends Command {
 			message: '🌏 Starting BlueBase Development Server...',
 		});
 
+		/////////////////////////
+		///// Resolve Paths /////
+		/////////////////////////
+
 		// Absolute path of build dir
+		const assetsDirPath = Utils.fromProjectRoot(flags.assetsDir);
 		const buildDir = Utils.fromProjectRoot(flags.buildDir);
 		const configDir = Utils.fromProjectRoot(flags.configDir);
-		let appJsPath = Utils.fromProjectRoot(flags.appJsPath);
-		// const customWebPackClientConfigPath = Utils.fromProjectRoot(flags.webpackClientConfigPath);
-		// const customWebPackServerConfigPath = Utils.fromProjectRoot(flags.webpackServerConfigPath);
+		
+		// App.js
+		const appJsPath = findFile(
+			Utils.fromProjectRoot(flags.appJsPath),
+			path.resolve(__dirname, '../../client/App.js')
+		);
 
-		if (!fs.existsSync(appJsPath)) {
-			appJsPath = path.resolve(__dirname, '../../client/App.js');
+		// bluebase.js
+		const bluebaseJsPath = findFile(
+			Utils.fromProjectRoot(flags.configDir, 'bluebase'),
+			Utils.fromCore('templates/common/bluebase.js')
+		);
+
+		////////////////////////////
+		///// Generate Configs /////
+		////////////////////////////
+
+		// Get default webpack configs
+		let clientConfigs = defaultClientConfigs({} as any, { buildDir, configDir });
+
+		// See if there is a custom webpack config file in the project
+		const clientConfigPath = Utils.fromProjectRoot(flags.configDir, 'config.client.js');
+
+		// If there is infact a file, then use it
+		if (fs.existsSync(clientConfigPath)) {
+
+			// Import the file
+			let customClientWebpackConfigs = require(clientConfigPath);
+	
+			// Use these configs
+			clientConfigs = customClientWebpackConfigs(clientConfigs, { buildDir, configDir });
 		}
 
-		/////////////////////////////
-		///// Setup FileManager /////
-		/////////////////////////////
+		// ///////////////////////////
+		// ///// Webpack Configs /////
+		// ///////////////////////////
 
-		// Set config files
-		const configFiles = getConfigFiles(flags.configDir);
-		const fileManager = new FileManager('web', configFiles);
-		await fileManager.setup();
+		const baseWebpackBuildOptions = {
+			appJsPath,
+			assetsDirPath,
+			bluebaseJsPath,
+			buildDirPath: buildDir,
+			configDirPath: configDir,
+			configs: { ...clientConfigs, mode: 'development' as any },
+		};
+
+		// Get default webpack configs
+		let clientWebpackConfigs = defaultClientWebpackConfigs({}, baseWebpackBuildOptions);
+
+		// See if there is a custom webpack config file in the project
+		const webpackClientConfigPath = Utils.fromProjectRoot(flags.configDir, 'webpack.config.client.js');
+
+		// If there is infact a file, then use it
+		if (fs.existsSync(webpackClientConfigPath)) {
+
+			// Import the file
+			let customClientWebpackConfigs = require(webpackClientConfigPath);
+	
+			// Use these configs
+			clientWebpackConfigs = customClientWebpackConfigs(clientWebpackConfigs, baseWebpackBuildOptions);
+		}
+		
+		// const mainCompiler = webpack(mainWebpackConfigs);
 
 		///////////////////////////
 		///// Clear build dir /////
@@ -56,41 +108,6 @@ export class CustomCommand extends Command {
 
 		// Create a new build dir
 		shell.mkdir('-p', buildDir);
-
-		////////////////////////////
-		///// Generate Configs /////
-		////////////////////////////
-
-		let clientConfigs = await fileManager.Hooks.run(`web.client-config`, {}, { buildDir, configDir });
-
-		// Path to bluebase.js file
-		const bluebaseJsPath = await fileManager.resolveFilePath('bluebase');
-		// const assetsDirPath = await fileManager.resolveFilePath('assets-dir');
-		const assetsDirPath = path.join(configDir, 'assets');
-
-		const baseWebpackBuildOptions = {
-			appJsPath,
-			assetsDirPath,
-			bluebaseJsPath,
-			buildDirPath: buildDir,
-			configDirPath: configDir,
-		};
-
-		// ///////////////////////////
-		// ///// Webpack Configs /////
-		// ///////////////////////////
-
-		const clientWebpackConfigs = await fileManager.Hooks.run(
-			`web.client-webpack-config`,
-			{},
-			{
-
-				...baseWebpackBuildOptions,
-				clientConfigs,
-				configs: { ...clientConfigs, mode: 'development' },
-			});
-
-		// const mainCompiler = webpack(mainWebpackConfigs);
 
 		/////////////////
 		///// Build /////
@@ -110,27 +127,6 @@ export class CustomCommand extends Command {
 				writeToDisk: true,
 			},
 
-			add: (app, _middleware, options) => {
-				// Be sure to pass the options argument from the arguments
-				app.use(webpackServeWaitpage(options, { theme: 'material' }));
-
-				// Make sure the usage of webpack-serve-waitpage will be before the following commands if exists
-				// middleware.webpack();
-				// middleware.content();
-			},
-
-			on: {
-				'build-finished': () => {
-
-					// Finish
-					Utils.logger.log({
-						label: '@bluebase/cli/web-static',
-						level: 'info',
-						message: '✅ Done!',
-					});
-
-				},
-			}
 		});
 	}
 }

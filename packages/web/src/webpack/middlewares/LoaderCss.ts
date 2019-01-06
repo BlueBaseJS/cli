@@ -5,7 +5,7 @@ import { WebpackBuilderMiddleware } from '../../types';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import WebpackBuilder from '../WebpackBuilder';
 import merge from 'webpack-merge';
-import useOwn from '../../scripts/useOwn';
+import { useOwn } from '../../scripts';
 
 // tslint:disable-next-line:no-var-requires
 const HappyPack = require('happypack');

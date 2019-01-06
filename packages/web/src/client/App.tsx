@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { BlueBaseApp } from '@bluebase/core';
-// import ReactHotLoaderPlugin from './ReactHotLoaderPlugin/HOC';
 
 // tslint:disable-next-line:no-var-requires
 let bootOptions = require('BLUERAIN_BOOT_OPTIONS');
