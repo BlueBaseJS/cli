@@ -24,7 +24,7 @@ $ npm install -g @bluebase/cli-web
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-web/0.0.4 darwin-x64 node-v11.4.0
+@bluebase/cli-web/0.0.5 darwin-x64 node-v11.4.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -34,6 +34,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`bluebase web:build`](#bluebase-webbuild)
+* [`bluebase web:build-static`](#bluebase-webbuild-static)
 * [`bluebase web:init`](#bluebase-webinit)
 * [`bluebase web:start`](#bluebase-webstart)
 * [`bluebase web:start-static`](#bluebase-webstart-static)
@@ -64,7 +65,35 @@ OPTIONS
                                                      webpackServerConfigPath file relative to the root directory
 ```
 
-_See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.4/src/commands/web/build.ts)_
+_See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.5/src/commands/web/build.ts)_
+
+## `bluebase web:build-static`
+
+```
+USAGE
+  $ bluebase web:build-static
+
+OPTIONS
+  --appJsPath=appJsPath                              [default: ./bluebase/web/App] Path to App.js file relative to the
+                                                     root directory
+
+  --assetsDir=assetsDir                              [default: ./assets/web] Path to assets directory relative to the
+                                                     root directory
+
+  --buildDir=buildDir                                [default: ./build/web] Path to build directory relative to the root
+                                                     directory
+
+  --configDir=configDir                              [default: ./bluebase/web] Path to config directory relative to the
+                                                     root directory
+
+  --webpackClientConfigPath=webpackClientConfigPath  [default: ./bluebase/web/client-webpack-config.ts] Path to
+                                                     webpackClientConfigPath file relative to the root directory
+
+  --webpackServerConfigPath=webpackServerConfigPath  [default: ./bluebase/web/server-webpack-config.ts] Path to
+                                                     webpackServerConfigPath file relative to the root directory
+```
+
+_See code: [src/commands/web/build-static.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.5/src/commands/web/build-static.ts)_
 
 ## `bluebase web:init`
 
@@ -97,7 +126,7 @@ EXAMPLE
   $ bluebase web:init
 ```
 
-_See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.4/src/commands/web/init.ts)_
+_See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.5/src/commands/web/init.ts)_
 
 ## `bluebase web:start`
 
@@ -125,7 +154,7 @@ OPTIONS
                                                      webpackServerConfigPath file relative to the root directory
 ```
 
-_See code: [src/commands/web/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.4/src/commands/web/start.ts)_
+_See code: [src/commands/web/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.5/src/commands/web/start.ts)_
 
 ## `bluebase web:start-static`
 
@@ -153,5 +182,5 @@ OPTIONS
                                                      webpackServerConfigPath file relative to the root directory
 ```
 
-_See code: [src/commands/web/start-static.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.4/src/commands/web/start-static.ts)_
+_See code: [src/commands/web/start-static.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.5/src/commands/web/start-static.ts)_
 <!-- commandsstop -->

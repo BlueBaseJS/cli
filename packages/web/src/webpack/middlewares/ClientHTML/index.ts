@@ -21,7 +21,7 @@ const ClientHTML: WebpackBuilderMiddleware = () => (config: WebpackConfig, build
 		plugins: removeNil([
 
 			// We need this plugin to enable hot reloading of our client.
-			builder.ifDevClient(
+			builder.ifClient(
 				() => new HtmlWebpackPlugin({
 					filename: 'index.html',
 					inject: true,
