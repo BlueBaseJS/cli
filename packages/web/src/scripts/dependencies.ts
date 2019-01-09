@@ -14,5 +14,6 @@ export const requiredDependencies = [
  */
 export const requiredDevDependencies = [
 	...coreDevDeps,
+	'babel-preset-bluebase',
 	'@types/deepmerge',
 ];

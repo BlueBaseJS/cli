@@ -44,8 +44,8 @@ export default
 			// TS Loader
 			.use(WebpackTools.LoaderTypescript())
 
-			// JS Loader
-			.use(WebpackTools.LoaderJavascript())
+			// // JS Loader
+			// .use(WebpackTools.LoaderJavascript())
 
 			// Finally, merge user input overrides
 			.merge(webpackConfigInput)

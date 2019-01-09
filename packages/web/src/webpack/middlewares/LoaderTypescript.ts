@@ -35,19 +35,22 @@ const LoaderTypescript: WebpackBuilderMiddleware =
 						{
 							loader: useOwn('babel-loader'),
 							options: {
+								cacheDirectory: true,
 								babelrc: false,
-								plugins: [useOwn('react-hot-loader/babel')],
+								presets: [
+									'babel-preset-bluebase',
+								]
 							},
 						},
-						{
-							loader: useOwn('ts-loader'),
-							options: {
-								transpileOnly: true,
+						// {
+						// 	loader: useOwn('ts-loader'),
+						// 	options: {
+						// 		transpileOnly: true,
 
-								// IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
-								happyPackMode: true,
-							}
-						}
+						// 		// IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
+						// 		happyPackMode: true,
+						// 	}
+						// }
 					],
 				}),
 
@@ -86,7 +89,7 @@ const LoaderTypescript: WebpackBuilderMiddleware =
 
 		// Typescript
 		{
-			test: /\.tsx?$/,
+			test: /\.(j|t)sx?$/,
 			exclude: /node_modules/,
 			include: removeNil([
 				...builder.configs.includePaths,

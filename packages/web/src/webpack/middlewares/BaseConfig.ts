@@ -35,11 +35,11 @@ const BaseConfig: WebpackBuilderMiddleware =
 				// Mode
 				mode: builder.configs.mode,
 
-				target: builder.configs.target || builder.isClient
+				target: builder.configs.target || (builder.isClient
 					? // Only our client bundle will target the web as a runtime.
 					'web'
 					: // Any other bundle must be targetting node as a runtime.
-					'node',
+					'node'),
 
 				// Ensure that webpack polyfills the following node features for use
 				// within any bundles that are targetting node as a runtime. This will be
