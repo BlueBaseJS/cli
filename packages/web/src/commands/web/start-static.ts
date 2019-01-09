@@ -1,7 +1,7 @@
 import { Utils } from '@bluebase/cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { run } from '../../helpers';
+import { buildConfigsBundle, createCleanDir, webpackCompileDev } from '../../helpers';
 
 export class StartStaticCommand extends Command {
 
@@ -9,15 +9,43 @@ export class StartStaticCommand extends Command {
 
 	async run() {
 
+		const label = '@bluebase/cli/web-static';
+		const development = true;
+
 		const parsed = this.parse(StartStaticCommand);
 		const flags = parsed.flags as Flags;
 
 		Utils.logger.log({
-			label: '@bluebase/cli/web-static',
+			label,
 			level: 'info',
 			message: '🌏 Starting BlueBase Development Server...',
 		});
 
-		run(flags, { development: true, label: '@bluebase/cli/web-static' });
+		///////////////////////////
+		///// Extract Configs /////
+		///////////////////////////
+
+		const {
+			buildDir,
+			clientWebpackConfigs,
+		} = buildConfigsBundle(flags, { development });
+
+		///////////////////////////
+		///// Clear build dir /////
+		///////////////////////////
+
+		createCleanDir(buildDir);
+
+		/////////////////
+		///// Build /////
+		/////////////////
+
+		Utils.logger.log({
+			label,
+			level: 'info',
+			message: `👨‍💻 Compiling BlueBase's client bundle`
+		});
+
+		webpackCompileDev(clientWebpackConfigs, label);
 	}
 }

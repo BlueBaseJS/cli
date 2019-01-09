@@ -4,21 +4,25 @@ import defaultClientConfigs from '../configFiles/client.config';
 import defaultClientWebpackConfigs from '../configFiles/webpack.config.client';
 import fs from 'fs';
 import path from 'path';
-import rimraf from 'rimraf';
-import shell from 'shelljs';
-import { findFile, webpackCompileDev } from '../helpers';
-import { webpackCompile } from './webpackCompile';
+import { findFile } from '.';
 
-export interface RunOptions {
+export interface ConfigsBundleOptions {
   development: boolean, 
-  label: string,
 }
 
-export function run(flags: Flags, options: Partial<RunOptions>) {
+/**
+ * Returns everything required by the run script.
+ * 
+ * i.e. resolves all paths and configs
+ *
+ * @param flags
+ * @param options
+ */
+
+export function buildConfigsBundle(flags: Flags, options: Partial<ConfigsBundleOptions>) {
 
   const {
     development = true,
-    label = '@bluebase/cli/web',
   } = options;
 
   /////////////////////////
@@ -95,31 +99,17 @@ export function run(flags: Flags, options: Partial<RunOptions>) {
   
   // const mainCompiler = webpack(mainWebpackConfigs);
 
-  ///////////////////////////
-  ///// Clear build dir /////
-  ///////////////////////////
+  //////////////////
+  ///// Return /////
+  //////////////////
 
-  // Delete dir if already exists
-  if (fs.existsSync(buildDir)) {
-    rimraf.sync(buildDir);
-  }
-
-  // Create a new build dir
-  shell.mkdir('-p', buildDir);
-
-  /////////////////
-  ///// Build /////
-  /////////////////
-
-  Utils.logger.log({
-    label,
-    level: 'info',
-    message: `👨‍💻 Compiling BlueBase's client bundle`
-  });
-
-  if (development === true) {
-    webpackCompileDev(clientWebpackConfigs, label);
-  } else {
-    webpackCompile(clientWebpackConfigs);
+  return {
+    assetsDirPath,
+    buildDir,
+    configDir,
+    appJsPath,
+    bluebaseJsPath,
+    clientConfigs,
+    clientWebpackConfigs,
   }
 }
