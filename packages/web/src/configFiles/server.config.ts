@@ -2,7 +2,7 @@
 import { ServerConfigs } from '../types';
 import { Utils } from '@bluebase/cli-core';
 import deepmerge from 'deepmerge';
-import { fromRoot } from '../scripts';
+import { fromRoot } from '../helpers';
 import path from 'path';
 
 const EnvVars = Utils.EnvVars;

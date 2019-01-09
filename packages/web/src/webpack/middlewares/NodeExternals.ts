@@ -2,7 +2,7 @@ import { Configuration as WebpackConfig } from 'webpack';
 import { Utils } from '@bluebase/cli-core';
 import { WebpackBuilderMiddleware } from '../../types';
 import WebpackBuilder from '../WebpackBuilder';
-import { fromRoot } from '../../scripts';
+import { fromRoot } from '../../helpers';
 // import fs from 'fs';
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';

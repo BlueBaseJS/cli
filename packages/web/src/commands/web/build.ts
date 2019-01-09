@@ -1,7 +1,7 @@
 import { FileManager, Utils } from '@bluebase/cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { webpackCompile } from '../../scripts/webpackCompile';
+import { webpackCompile } from '../../helpers/webpackCompile';
 import fs from 'fs';
 import getConfigFiles from '../../configFiles';
 import path from 'path';

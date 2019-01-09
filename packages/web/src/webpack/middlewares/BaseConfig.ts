@@ -5,7 +5,7 @@ import { WebpackBuilderMiddleware } from '../../types';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import WebpackBuilder from '../WebpackBuilder';
 import merge from 'webpack-merge';
-import { useOwn } from '../../scripts';
+import { useOwn } from '../../helpers';
 
 // tslint:disable-next-line:no-var-requires
 const WebpackStylish = require('webpack-stylish');

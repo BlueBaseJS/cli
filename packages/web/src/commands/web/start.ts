@@ -1,7 +1,7 @@
 import { FileManager, Utils } from '@bluebase/cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import HotDevelopment from '../../scripts/hotDevelopment';
+import HotDevelopment from '../../helpers/hotDevelopment';
 import fs from 'fs';
 import getConfigFiles from '../../configFiles';
 import path from 'path';
@@ -10,8 +10,8 @@ import shell from 'shelljs';
 import webpack from 'webpack';
 import deepmerge = require('deepmerge');
 
-// import { webpackCompileDev } from '../../scripts/webpackCompileDev';
-// import fromRoot from '../../scripts/fromRoot';
+// import { webpackCompileDev } from '../../helpers/webpackCompileDev';
+// import fromRoot from '../../helpers/fromRoot';
 
 export class CustomCommand extends Command {
 

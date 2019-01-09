@@ -5,7 +5,7 @@ import { WebpackBuilderMiddleware } from '../../types';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import WebpackBuilder from '../WebpackBuilder';
 import merge from 'webpack-merge';
-import { useOwn } from '../../scripts';
+import { useOwn } from '../../helpers';
 
 // tslint:disable-next-line:no-var-requires
 const HappyPack = require('happypack');

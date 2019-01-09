@@ -1,7 +1,7 @@
 import { Utils } from '@bluebase/cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { run } from '../../scripts';
+import { run } from '../../helpers';
 
 export class StartStaticCommand extends Command {
 
