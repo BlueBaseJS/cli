@@ -7,7 +7,7 @@ import getConfigFiles from '../../configFiles';
 import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
-import deepmerge = require('deepmerge');
+import deepmerge from 'deepmerge';
 
 export class CustomCommand extends Command {
 

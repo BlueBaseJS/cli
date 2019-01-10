@@ -8,10 +8,7 @@ import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
 import webpack from 'webpack';
-import deepmerge = require('deepmerge');
-
-// import { webpackCompileDev } from '../../helpers/webpackCompileDev';
-// import fromRoot from '../../helpers/fromRoot';
+import deepmerge from 'deepmerge';
 
 export class CustomCommand extends Command {
 

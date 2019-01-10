@@ -10,6 +10,9 @@ export interface ConfigsBundleOptions {
   development: boolean, 
 }
 
+// Babel register
+require("@babel/register")({ extensions: ['.js', '.jsx', '.ts', '.tsx'] });
+
 /**
  * Returns everything required by the run script.
  * 
