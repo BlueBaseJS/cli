@@ -2,7 +2,6 @@ import { Utils } from '@bluebase/cli-core';
 import { Flags } from '../cli-flags';
 import defaultClientConfigs from '../configFiles/client.config';
 import defaultClientWebpackConfigs from '../configFiles/webpack.config.client';
-import fs from 'fs';
 import path from 'path';
 import { findFile } from '.';
 
@@ -10,8 +9,11 @@ export interface ConfigsBundleOptions {
   development: boolean, 
 }
 
-// Babel register
-require("@babel/register")({ extensions: ['.js', '.jsx', '.ts', '.tsx'] });
+// Transpile files on the fly
+require("@babel/register")({
+  extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  presets: ['babel-preset-bluebase'],
+});
 
 /**
  * Returns everything required by the run script.
@@ -46,7 +48,7 @@ export function buildConfigsBundle(flags: Flags, options: Partial<ConfigsBundleO
   // bluebase.js
   const bluebaseJsPath = findFile(
     Utils.fromProjectRoot(flags.configDir, 'bluebase'),
-    Utils.fromCore('templates/common/bluebase.js')
+    Utils.fromCore('templates/common/bluebase.ts')
   );
 
   ////////////////////////////
@@ -57,17 +59,17 @@ export function buildConfigsBundle(flags: Flags, options: Partial<ConfigsBundleO
   let clientConfigs = defaultClientConfigs({} as any, { buildDir, configDir });
 
   // See if there is a custom webpack config file in the project
-  const clientConfigPath = Utils.fromProjectRoot(flags.configDir, 'config.client.js');
+  const clientConfigPath = findFile(
+    Utils.fromProjectRoot(flags.configDir, 'config.client'),
+    Utils.fromCore('templates/common/config.client.ts')
+  );
 
-  // If there is infact a file, then use it
-  if (fs.existsSync(clientConfigPath)) {
+  // Import the file
+  let customClientConfigs = require(clientConfigPath);
+  customClientConfigs = customClientConfigs.default || customClientConfigs;
 
-    // Import the file
-    let customClientWebpackConfigs = require(clientConfigPath);
-
-    // Use these configs
-    clientConfigs = customClientWebpackConfigs(clientConfigs, { buildDir, configDir });
-  }
+  // Use these configs
+  clientConfigs = customClientConfigs(clientConfigs, { buildDir, configDir });
 
   // ///////////////////////////
   // ///// Webpack Configs /////
@@ -88,17 +90,17 @@ export function buildConfigsBundle(flags: Flags, options: Partial<ConfigsBundleO
   let clientWebpackConfigs = defaultClientWebpackConfigs({}, baseWebpackBuildOptions);
 
   // See if there is a custom webpack config file in the project
-  const webpackClientConfigPath = Utils.fromProjectRoot(flags.configDir, 'webpack.config.client.js');
+  const webpackClientConfigPath = findFile(
+    Utils.fromProjectRoot(flags.configDir, 'webpack.config.client'),
+    Utils.fromCore('templates/common/webpack.config.client.ts')
+  );
 
-  // If there is infact a file, then use it
-  if (fs.existsSync(webpackClientConfigPath)) {
+  // Import the file
+  let customClientWebpackConfigs = require(webpackClientConfigPath);
+  customClientWebpackConfigs = customClientWebpackConfigs.default || customClientWebpackConfigs;
 
-    // Import the file
-    let customClientWebpackConfigs = require(webpackClientConfigPath);
-
-    // Use these configs
-    clientWebpackConfigs = customClientWebpackConfigs(clientWebpackConfigs, baseWebpackBuildOptions);
-  }
+  // Use these configs
+  clientWebpackConfigs = customClientWebpackConfigs(clientWebpackConfigs, baseWebpackBuildOptions);
   
   // const mainCompiler = webpack(mainWebpackConfigs);
 
