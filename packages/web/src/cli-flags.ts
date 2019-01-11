@@ -6,7 +6,7 @@ export interface Flags {
 	assetsDir: string;
 	appJsPath: string;
 	webpackClientConfigPath: string;
-	webpackServerConfigPath: string;
+	static: boolean;
 }
 
 export const FlagDefs = {
@@ -55,12 +55,12 @@ export const FlagDefs = {
 		required: false,
 	}),
 
-	webpackServerConfigPath: flags.string({
-		default: './bluebase/web/server-webpack-config.ts',
-		description: 'Path to webpackServerConfigPath file relative to the root directory',
-		env: 'WEBPACK_SERVER_CONFIG_PATH',
+	static: flags.boolean({
+		default: false,
+		description: 'Create a static project.',
+		env: 'STATIC',
 		hidden: false,
-		multiple: false,
 		required: false,
 	}),
+
 };

@@ -24,10 +24,10 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 		mode: Utils.isProduction() ? 'production' : 'development',
 
 		host: EnvVars.string('HOST', '0.0.0.0'),
-		port: EnvVars.number('PORT', 1337),
+		port: EnvVars.number('PORT', 2337),
 
 		welcomeMessage: EnvVars.string('WELCOME_MSG', 'Hello world!'),
-		disableSSR: true,
+		disableSSR: false,
 		browserCacheMaxAge: '365d',
 		cspExtensions: {
 			childSrc: [],
