@@ -1,14 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
-import { ServerConfigsBundle } from '../server';
-import { Utils } from '@bluebase/cli-core';
+import { ConfigsBundle1 } from '../../helpers/buildConfigsBundle.1';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths/fromProjectRoot';
 
 // Middleware to serve our service worker.
 const serviceWorkerMiddleware =
-	(configs: ServerConfigsBundle)  =>
+	(configs: ConfigsBundle1)  =>
 	(_req: Request, res: Response, _next: NextFunction) => {
 		res.sendFile(
-			Utils.fromProjectRoot(
-				`./${configs.client.outputPath}/${configs.server.serviceWorker.fileName}`
+			fromProjectRoot(
+				`./${configs.clientConfigs.outputPath}/${configs.serverConfigs.serviceWorker.fileName}`
 			),
 		);
 	};

@@ -10,6 +10,7 @@ import LoaderTypescript from './LoaderTypescript';
 import NodeExternals from './NodeExternals';
 import ReactNative from './ReactNative';
 import SourceMaps from './SourceMaps';
+import WriteJson from './WriteJson';
 
 export {
 	AssetsJson,
@@ -24,4 +25,5 @@ export {
 	NodeExternals,
 	ReactNative,
 	SourceMaps,
+	WriteJson,
 };

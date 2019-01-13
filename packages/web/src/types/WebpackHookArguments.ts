@@ -4,5 +4,5 @@ import { BuilderOptions } from './webpack';
 export interface WebpackHookArguments extends BuilderOptions {
 	clientConfigs?: ClientConfigs,
 	serverConfigs?: ServerConfigs,
-	static?: boolean,
+	static: boolean,
 }

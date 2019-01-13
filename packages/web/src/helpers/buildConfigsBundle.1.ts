@@ -2,15 +2,12 @@ import { Utils } from '@bluebase/cli-core';
 import { Flags } from '../cli-flags';
 import defaultClientConfigs from '../configFiles/client.config';
 import defaultServerConfigs from '../configFiles/server.config';
-import defaultClientWebpackConfigs from '../configFiles/webpack.config.client';
-import defaultServerWebpackConfigs from '../configFiles/webpack.config.server';
 import path from 'path';
 import { findFile } from '.';
 import { ClientConfigs, ServerConfigs } from '../types';
-import { Configuration as WebpackConfiguration } from 'webpack';
 // import { useOwn } from './useOwn';
 
-export interface ConfigsBundleOptions {
+export interface ConfigsBundleOptions1 {
   development: boolean, 
 }
 
@@ -37,7 +34,7 @@ require("@babel/register")({
 });
 
 
-export interface ConfigsBundle {
+export interface ConfigsBundle1 {
   assetsDirPath: string,
   buildDir: string,
   configDir: string,
@@ -46,8 +43,6 @@ export interface ConfigsBundle {
   bluebaseJsPath: string,
   clientConfigs: ClientConfigs,
   serverConfigs: ServerConfigs,
-  clientWebpackConfigs: WebpackConfiguration,
-  serverWebpackConfigs: WebpackConfiguration,
 };
 
 /**
@@ -59,11 +54,7 @@ export interface ConfigsBundle {
  * @param options
  */
 
-export function buildConfigsBundle(flags: Flags, options: Partial<ConfigsBundleOptions>): ConfigsBundle {
-
-  const {
-    development = true,
-  } = options;
+export function buildConfigsBundle1(flags: Flags, _options: Partial<ConfigsBundleOptions1>): ConfigsBundle1 {
 
   /////////////////////////
   ///// Resolve Paths /////
@@ -134,70 +125,6 @@ export function buildConfigsBundle(flags: Flags, options: Partial<ConfigsBundleO
   // Use these configs
   serverConfigs = customServerConfigs(serverConfigs, { buildDir, configDir });
 
-  // //////////////////////////////////
-  // ///// Client Webpack Configs /////
-  // //////////////////////////////////
-
-  const baseClientWebpackOptions = {
-    appJsPath,
-    assetsDirPath,
-    bluebaseJsPath,
-    buildDirPath: buildDir,
-    configDirPath: configDir,
-    static: flags.static,
-    configs: {
-      ...clientConfigs,
-      mode: development ? 'development' : 'production' as any },
-  };
-
-  // Get default webpack configs
-  let clientWebpackConfigs = defaultClientWebpackConfigs({}, baseClientWebpackOptions);
-
-  // See if there is a custom webpack config file in the project
-  const webpackClientConfigPath = findFile(
-    Utils.fromProjectRoot(flags.configDir, 'webpack.config.client'),
-    './emptyFn.js'
-  );
-
-  // Import the file
-  let customClientWebpackConfigs = require(webpackClientConfigPath);
-  customClientWebpackConfigs = customClientWebpackConfigs.default || customClientWebpackConfigs;
-  
-  // Use these configs
-  clientWebpackConfigs = customClientWebpackConfigs(clientWebpackConfigs, baseClientWebpackOptions);
-
-  // //////////////////////////////////
-  // ///// Server Webpack Configs /////
-  // //////////////////////////////////
-
-  const baseServerWebpackOptions = {
-    appJsPath,
-    assetsDirPath,
-    bluebaseJsPath,
-    buildDirPath: buildDir,
-    configDirPath: configDir,
-    static: flags.static,
-    configs: {
-      ...serverConfigs,
-      mode: development ? 'development' : 'production' as any },
-  };
-
-  // Get default webpack configs
-  let serverWebpackConfigs = defaultServerWebpackConfigs({}, baseServerWebpackOptions);
-
-  // See if there is a custom webpack config file in the project
-  const webpackServerConfigPath = findFile(
-    Utils.fromProjectRoot(flags.configDir, 'webpack.config.client'),
-    './emptyFn.js'
-  );
-
-  // Import the file
-  let customServerWebpackConfigs = require(webpackServerConfigPath);
-  customServerWebpackConfigs = customServerWebpackConfigs.default || customServerWebpackConfigs;
-  
-  // Use these configs
-  serverWebpackConfigs = customServerWebpackConfigs(serverWebpackConfigs, baseServerWebpackOptions);
-
   //////////////////
   ///// Return /////
   //////////////////
@@ -211,7 +138,5 @@ export function buildConfigsBundle(flags: Flags, options: Partial<ConfigsBundleO
     bluebaseJsPath,
     clientConfigs,
     serverConfigs,
-    clientWebpackConfigs,
-    serverWebpackConfigs,
   }
 }

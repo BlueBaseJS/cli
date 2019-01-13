@@ -1,14 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
-import { ServerConfigsBundle } from '../server';
-import { Utils } from '@bluebase/cli-core';
+import { ConfigsBundle1 } from '../../helpers/buildConfigsBundle.1';
 import { readFile } from 'fs';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
 
 /**
  * Middleware to intercept calls to our offline page to ensure that
  * inline scripts get a nonce value attached to them.
  */
 const offlinePageMiddleware =
-	(configs: ServerConfigsBundle)  =>
+	(configs: ConfigsBundle1)  =>
 	(_req: Request, res: Response, _next: NextFunction) => {
 		// We should have had a nonce provided to us.  See the server/index.js for
 		// more information on what this is.
@@ -19,8 +19,8 @@ const offlinePageMiddleware =
 
 		readFile(
 			// Path to the offline page.
-			Utils.fromProjectRoot(
-				`./${configs.client.outputPath}/${configs.server.serviceWorker.offlinePageFileName}`
+			fromProjectRoot(
+				`./${configs.clientConfigs.outputPath}/${configs.serverConfigs.serviceWorker.offlinePageFileName}`
 			),
 			// Charset for read
 			'utf-8',

@@ -2,8 +2,8 @@
  * This file resolves the entry assets available from our client bundle.
  */
 
-import { ServerConfigsBundle } from '../../server';
-import { Utils } from '@bluebase/cli-core';
+import { ConfigsBundle1 } from '../../../helpers/buildConfigsBundle.1';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
 import fs from 'fs';
 
 let resultCache: any;
@@ -21,7 +21,7 @@ let resultCache: any;
  *     to the render logic.  Having this method allows us to easily fetch
  *     the respective assets simply by using a chunk name. :)
  */
-export default (configs: ServerConfigsBundle) => () => {
+export default (configs: ConfigsBundle1) => () => {
   // Return the assets json cache if it exists.
   // In development mode we always read the assets json file from disk to avoid
   // any cases where an older version gets cached.
@@ -30,7 +30,7 @@ export default (configs: ServerConfigsBundle) => () => {
 	}
 
 	// tslint:disable-next-line:max-line-length
-	const assetsFilePath = Utils.fromProjectRoot(`${configs.client.outputPath}/${configs.client.bundleAssetsFileName}`);
+	const assetsFilePath = fromProjectRoot(`${configs.clientConfigs.outputPath}/${configs.clientConfigs.bundleAssetsFileName}`);
 
 	if (!fs.existsSync(assetsFilePath)) {
 		throw new Error(

@@ -1,12 +1,13 @@
 /* tslint:disable:quotemark object-literal-sort-keys */
 import { NextFunction, Request, Response } from 'express';
-import { ServerConfigsBundle } from '../server';
-import { Utils } from '@bluebase/cli-core';
+import { ifElse, isProduction } from '@bluebase/cli-core/lib/utils/logic';
+import { removeNil } from '@bluebase/cli-core/lib/utils/arrays';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import uuid from 'uuid';
+import { ConfigsBundle1 } from '../../helpers/buildConfigsBundle.1';
 
-export default (configs: ServerConfigsBundle) => {
+export default (configs: ConfigsBundle1) => {
 
 	// const cspConfig: IHelmetContentSecurityPolicyConfiguration = {
 	const cspConfig: any = {
@@ -27,7 +28,7 @@ export default (configs: ServerConfigsBundle) => {
 			objectSrc: ["'self'"],
 			mediaSrc: ["'self'"],
 			manifestSrc: ["'self'"],
-			scriptSrc: Utils.removeNil([
+			scriptSrc: removeNil([
 
 				// Allow scripts hosted from our application.
 				"'self'",
@@ -46,7 +47,7 @@ export default (configs: ServerConfigsBundle) => {
 				"'unsafe-inline'",
 
 				// "'unsafe-eval'"
-				...Utils.ifElse(() => !Utils.isProduction())(["'unsafe-eval'"], [])
+				...ifElse(() => !isProduction())(["'unsafe-eval'"], [])
 			]),
 			styleSrc: [
 				"'self'",
@@ -58,7 +59,7 @@ export default (configs: ServerConfigsBundle) => {
 	};
 
 	// Add any additional CSP from the static config.
-	const cspExtensions: any = configs.server.cspExtensions;
+	const cspExtensions: any = configs.serverConfigs.cspExtensions;
 	Object.keys(cspExtensions).forEach((key) => {
 		// tslint:disable-next-line:prefer-conditional-expression
 		if (cspConfig.directives[key]) {
@@ -72,7 +73,7 @@ export default (configs: ServerConfigsBundle) => {
 		// When in development mode we need to add our secondary express server that
 		// is used to host our client bundle to our csp config.
 		Object.keys(cspConfig.directives).forEach((directive) => {
-			cspConfig.directives[directive].push(`${configs.server.host}:${configs.client.devServerPort}`);
+			cspConfig.directives[directive].push(`${configs.serverConfigs.host}:${configs.clientConfigs.devServerPort}`);
 		});
 	}
 

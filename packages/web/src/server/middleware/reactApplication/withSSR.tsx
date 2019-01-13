@@ -1,15 +1,30 @@
 import { Request, Response } from 'express';
 // tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
-import { ServerConfigsBundle } from '../../server';
-// import App from '../../../client/App';
+import { ConfigsBundle1 } from '../../../helpers/buildConfigsBundle.1';
 import React from 'react';
 import getServerHTML from './ServerHTML';
+// import App from 'APP_JS';
 
 // tslint:disable-next-line:no-var-requires
 const { AppRegistry } = require('react-native-web');
 
-export default (_request: Request, response: Response, configs: ServerConfigsBundle) => {
+
+// // Transpile files on the fly
+// require("@babel/register")({
+//   extensions: ['.js', '.jsx', '.ts', '.tsx'],
+//   presets: ['babel-preset-bluebase'],
+//   plugins: [
+//     ["module-resolver", {
+//       // "root": ["./src"],
+//       "alias": {
+//         "react-native": () => useOwn('react-native-web')
+//       }
+//     }]
+//   ]
+// });
+
+export default (_request: Request, response: Response, configs: ConfigsBundle1) => {
 
 	const ServerHTML = getServerHTML(configs);
 
@@ -19,13 +34,6 @@ export default (_request: Request, response: Response, configs: ServerConfigsBun
 		throw new Error('A "nonce" value has not been attached to the response');
 	}
 	const nonce = response.locals.nonce;
-
-	// TODO: Remove dirty hack, added temporarily because of bad plugins!
-	if (typeof window === 'undefined') {
-		(global as any).window = {
-			createElement: () => null,
-		};
-	}
 
 	// register the app
 	AppRegistry.registerComponent('App', () => null);

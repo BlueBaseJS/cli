@@ -2,7 +2,7 @@
 import { ServerConfigs } from '../types';
 import { Utils } from '@bluebase/cli-core';
 import deepmerge from 'deepmerge';
-import { fromRoot } from '../helpers';
+// import { fromRoot } from '../helpers';
 import path from 'path';
 
 const EnvVars = Utils.EnvVars;
@@ -70,13 +70,18 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 		includePaths: [
 			args.configDir,
 			Utils.fromProjectRoot('./src'),
-			fromRoot('node_modules')
+			// fromRoot('node_modules')
 			// fromHere('../../server'),
 			// fromHere('../../client/App'),
 		],
 		outputPath: path.join(args.buildDir, 'server'),
 
-		nodeExternalsFileTypeWhitelist: [],
+		nodeExternalsFileTypeWhitelist: [
+			/\.(eot|woff|woff2|ttf|otf)$/,
+			/\.(svg|png|jpg|jpeg|gif|ico)$/,
+			/\.(mp4|mp3|ogg|swf|webp)$/,
+			/\.(css|scss|sass|sss|less)$/,
+		],
 	};
 
 	return deepmerge(input, configs);

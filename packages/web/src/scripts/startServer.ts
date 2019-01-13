@@ -1,42 +1,38 @@
-import { server } from '../server';
-import { Utils } from '@bluebase/cli-core';
-import { ConfigsBundle } from '../helpers';
+// import { server } from '../server';
+// import { Utils } from '@bluebase/cli-core';
+// import { ConfigsBundle } from '../helpers';
 
-let serverObj: any;
+// let serverObj: any;
 
-export function startServer(configs: ConfigsBundle, label: string) {
+// export function startServer(_configs: ConfigsBundle, label: string) {
 
-  if (serverObj) {
-    serverObj.close();
-    serverObj = null;
-    Utils.logger.log({
-      label,
-      level: 'info',
-      message: 'Restarting server...',
-    });
-  }
+//   if (serverObj) {
+//     serverObj.close();
+//     serverObj = null;
+//     Utils.logger.log({
+//       label,
+//       level: 'info',
+//       message: 'Restarting server...',
+//     });
+//   }
 
-  serverObj = server({
-    assetsDirPath: configs.assetsDirPath,
-    client: configs.clientConfigs,
-    server: configs.serverConfigs,
-  });
+//   // serverObj = server(configs);
 
-  serverObj.on('listening', () => {
-    Utils.logger.log({
-      label,
-      level: 'info',
-      message: 'Server running with latest changes.',
-      notify: true,
-    });
-  });
+//   serverObj.on('listening', () => {
+//     Utils.logger.log({
+//       label,
+//       level: 'info',
+//       message: 'Server running with latest changes.',
+//       notify: true,
+//     });
+//   });
 
-  serverObj.on('error', (err: Error) => {
-    Utils.logger.log({
-      err,
-      label,
-      level: 'error',
-      message: 'Error in server execution, check the console for more info.',
-    });
-  });
-}
+//   serverObj.on('error', (err: Error) => {
+//     Utils.logger.log({
+//       err,
+//       label,
+//       level: 'error',
+//       message: 'Error in server execution, check the console for more info.',
+//     });
+//   });
+// }

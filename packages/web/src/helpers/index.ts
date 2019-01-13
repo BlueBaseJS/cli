@@ -1,3 +1,4 @@
+export * from './buildConfigsBundle.1';
 export * from './buildConfigsBundle';
 export * from './copyTemplateFiles';
 export * from './createCleanDir';

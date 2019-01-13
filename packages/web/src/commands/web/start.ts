@@ -1,8 +1,9 @@
 import { Utils } from '@bluebase/cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { buildConfigsBundle, createCleanDir, webpackCompileDev } from '../../helpers';
-import { startServer } from '../../scripts/startServer';
+import { buildConfigsBundle, createCleanDir, webpackCompileDev, webpackCompile } from '../../helpers';
+// import { startServer } from '../../scripts/startServer';
+import { spawn } from 'child_process';
 
 export class StartCommand extends Command {
 
@@ -44,6 +45,9 @@ export class StartCommand extends Command {
 			message: `👨‍💻 Compiling BlueBase's client bundle`
 		});
 
+		await webpackCompile(configs.serverWebpackConfigs);
+
+		return;
 		webpackCompileDev({
 			config: configs.clientWebpackConfigs,
 			host: configs.clientConfigs.devServerHost,
@@ -53,7 +57,16 @@ export class StartCommand extends Command {
 				'build-finished': () => {
 
 					if (flags.static === false) {
-						startServer(configs, '@bluebase/cli/web-server');
+						// startServer(configs, '@bluebase/cli/web-server');
+
+						spawn(
+							'node',
+							[Utils.fromProjectRoot(configs.buildDir, 'server/index.js')],
+							{ shell: true, env: process.env, stdio: 'inherit' }
+						)
+							.on('close', (_code: number) => process.exit(0))
+							.on('error', (spawnError: Error) => Utils.logger.error(spawnError));
+							
 					}
 				}
 			}
