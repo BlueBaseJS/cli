@@ -1,3 +1,4 @@
+// TODO: delete this file. imports from this file makes webpack crazy
 export * from './buildConfigsBundle.1';
 export * from './buildConfigsBundle';
 export * from './copyTemplateFiles';

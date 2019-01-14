@@ -1,5 +1,5 @@
 import { Utils } from '@bluebase/cli-core';
-import { Flags } from '../cli-flags';
+import { Flags } from '../types';
 import defaultClientConfigs from '../configFiles/client.config';
 import defaultServerConfigs from '../configFiles/server.config';
 import path from 'path';

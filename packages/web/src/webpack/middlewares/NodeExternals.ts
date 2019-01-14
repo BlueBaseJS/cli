@@ -58,8 +58,8 @@ const NodeExternals: WebpackBuilderMiddleware =
 							...getDependenciesRecursive('helmet'),
 							...getDependenciesRecursive('hpp'),
 
-							...getDependenciesRecursive('assets-webpack-plugin'),
-							...getDependenciesRecursive('webpack'),
+							// ...getDependenciesRecursive('assets-webpack-plugin'),
+							// ...getDependenciesRecursive('webpack'),
 							// ...getDependenciesRecursive('webpack-merge'),
 							// ...getDependenciesRecursive('uglifyjs-webpack-plugin')
 						])

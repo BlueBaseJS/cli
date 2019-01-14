@@ -1,7 +1,7 @@
 import * as WebpackTools from '../webpack';
 import * as webpack from 'webpack';
 import { WebpackHookArguments } from '../types/WebpackHookArguments';
-import { Flags } from '../cli-flags';
+import { Flags } from '../types';
 
 export default
 	(webpackConfigInput: webpack.Configuration = {}, buildOptions: WebpackHookArguments): webpack.Configuration => {
@@ -60,13 +60,14 @@ export default
 			// // JS Loader
 			// .use(WebpackTools.LoaderJavascript())
 
-      // .merge({
-      //   resolve: {
-      //     alias: {
-      //       'APP_JS': buildOptions.appJsPath
-      //     }
-      //   }
-      // })
+      .merge({
+        resolve: {
+          alias: {
+            'CLIENT_CONFIG': buildOptions.clientConfigPath,
+            'SERVER_CONFIG': buildOptions.serverConfigPath,
+          }
+        }
+      })
 
       // Finally, merge user input overrides
       .merge(webpackConfigInput)

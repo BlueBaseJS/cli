@@ -8,7 +8,7 @@ import express from 'express';
 import reactApplication from './middleware/reactApplication';
 // import security from './middleware/security';
 // import serviceWorker from './middleware/serviceWorker';
-import { Flags } from '../cli-flags';
+import { Flags } from '../types';
 import { buildConfigsBundle1 } from '../helpers/buildConfigsBundle.1';
 
 const server = (flags: Flags): Server => {

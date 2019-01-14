@@ -1,7 +1,10 @@
 import { Utils } from '@bluebase/cli-core';
-import { FlagDefs, Flags } from '../../cli-flags';
+import { FlagDefs } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { buildConfigsBundle, createCleanDir, webpackCompile } from '../../helpers';
+import { createCleanDir, webpackCompile } from '../../helpers';
+import { Flags } from '../../types';
+import { getPathsBundle } from '../../helpers/getPathsBundle';
+import { resolveConfigsBundle } from '../../helpers/resolveConfigsBundle';
 
 
 export class StartStaticCommand extends Command {
@@ -26,10 +29,11 @@ export class StartStaticCommand extends Command {
 		///// Extract Configs /////
 		///////////////////////////
 
+		const paths = getPathsBundle(flags);
 		const {
 			buildDir,
 			clientWebpackConfigs,
-		} = buildConfigsBundle(flags, { development });
+		} = resolveConfigsBundle(paths, { development });
 
 		///////////////////////////
 		///// Clear build dir /////

@@ -1,14 +1,5 @@
 import { flags } from '@oclif/command';
 
-export interface Flags {
-	buildDir: string;
-	configDir: string;
-	assetsDir: string;
-	appJsPath: string;
-	webpackClientConfigPath: string;
-	static: boolean;
-}
-
 export const FlagDefs = {
 	configDir: flags.string({
 		default: './bluebase/web',

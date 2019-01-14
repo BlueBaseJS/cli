@@ -1,9 +1,12 @@
 import { Utils } from '@bluebase/cli-core';
-import { FlagDefs, Flags } from '../../cli-flags';
+import { FlagDefs } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { buildConfigsBundle, createCleanDir, webpackCompileDev, webpackCompile } from '../../helpers';
+import { createCleanDir, webpackCompileDev, webpackCompile } from '../../helpers';
 // import { startServer } from '../../scripts/startServer';
 import { spawn } from 'child_process';
+import { Flags } from '../../types';
+import { getPathsBundle } from '../../helpers/getPathsBundle';
+import { resolveConfigsBundle } from '../../helpers/resolveConfigsBundle';
 
 export class StartCommand extends Command {
 
@@ -27,7 +30,8 @@ export class StartCommand extends Command {
 		///// Extract Configs /////
 		///////////////////////////
 
-		const configs = buildConfigsBundle(flags, { development });
+		const paths = getPathsBundle(flags);
+		const configs = resolveConfigsBundle(paths, { development });
 
 		///////////////////////////
 		///// Clear build dir /////

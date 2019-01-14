@@ -16,34 +16,12 @@ export interface ConfigsBundleOptions {
 
 // Transpile files on the fly
 require("@babel/register")({
-  // ignore: [],
-  // compact: false,
   extensions: ['.js', '.jsx', '.ts', '.tsx'],
   presets: ['babel-preset-bluebase'],
-  // plugins: [
-  //   useOwn('@babel/plugin-transform-runtime'),
-  //   useOwn('babel-plugin-react-native-web'),
-  //   // [useOwn('babel-plugin-module-resolver'), {
-  //   //   // "root": ["./src"],
-  //   //   extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  //   //   "alias": {
-  //   //     "react-native": () => {
-  //   //       Utils.logger.info('what>>');
-  //   //       return 'react-native-web';
-  //   //     }
-  //   //   }
-  //   // }]
-  // ]
 });
 
 
-export interface ConfigsBundle {
-  assetsDirPath: string,
-  buildDir: string,
-  configDir: string,
-  appJsPath: string,
-  // appJs: any,
-  bluebaseJsPath: string,
+export interface ConfigsBundle extends PathsBundle {
   clientConfigs: ClientConfigs,
   serverConfigs: ServerConfigs,
   clientWebpackConfigs: WebpackConfiguration,
@@ -59,7 +37,7 @@ export interface ConfigsBundle {
  * @param options
  */
 
-export function buildConfigsBundle(flags: PathsBundle, options: Partial<ConfigsBundleOptions>): ConfigsBundle {
+export function resolveConfigsBundle(flags: PathsBundle, options: Partial<ConfigsBundleOptions>): ConfigsBundle {
 
   const {
     development = true,
@@ -207,12 +185,7 @@ export function buildConfigsBundle(flags: PathsBundle, options: Partial<ConfigsB
   //////////////////
 
   return {
-    // appJs,
-    assetsDirPath,
-    buildDir,
-    configDir,
-    appJsPath,
-    bluebaseJsPath,
+    ...flags,
     clientConfigs,
     serverConfigs,
     clientWebpackConfigs,

@@ -1,11 +1,10 @@
 // tslint:disable:object-literal-sort-keys
 import { ServerConfigs } from '../types';
-import { Utils } from '@bluebase/cli-core';
+import { isProduction } from '@bluebase/cli-core/lib/utils/logic';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
 import deepmerge from 'deepmerge';
 // import { fromRoot } from '../helpers';
 import path from 'path';
-
-const EnvVars = Utils.EnvVars;
 
 export const fromHere = (file: string) => {
 	return path.resolve(__dirname, file);
@@ -21,12 +20,12 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 	const configs: ServerConfigs = {
 
 		target: 'node',
-		mode: Utils.isProduction() ? 'production' : 'development',
+		mode: isProduction() ? 'production' : 'development',
 
-		host: EnvVars.string('HOST', '0.0.0.0'),
-		port: EnvVars.number('PORT', 2337),
+		host: '0.0.0.0',
+		port: 2337,
 
-		welcomeMessage: EnvVars.string('WELCOME_MSG', 'Hello world!'),
+		welcomeMessage: 'Hello world!',
 		disableSSR: false,
 		browserCacheMaxAge: '365d',
 		cspExtensions: {
@@ -69,7 +68,7 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 		srcEntryFile: fromHere('../server/index'),
 		includePaths: [
 			args.configDir,
-			Utils.fromProjectRoot('./src'),
+			fromProjectRoot('./src'),
 			// fromRoot('node_modules')
 			// fromHere('../../server'),
 			// fromHere('../../client/App'),

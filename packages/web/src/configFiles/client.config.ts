@@ -1,10 +1,10 @@
 // tslint:disable:object-literal-sort-keys
 import { ClientConfigs } from '../types';
-import { Utils } from '@bluebase/cli-core';
+import { isProduction } from '@bluebase/cli-core/lib/utils/logic';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
 import deepmerge from 'deepmerge';
 import path from 'path';
 
-const EnvVars = Utils.EnvVars;
 
 export const fromHere = (file: string) => {
 	return path.resolve(__dirname, file);
@@ -19,12 +19,12 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 	const configs: ClientConfigs = {
 
 		target: 'web',
-		mode: Utils.isProduction() ? 'production' : 'development',
+		mode: isProduction() ? 'production' : 'development',
 
-		devServerHost: EnvVars.string('HOST', '0.0.0.0'),
-		devServerPort: EnvVars.number('PORT', 1337),
-		devDashboardEnable: EnvVars.bool('CLIENT_DEV_DASHBOARD_ENABLE', true),
-		devDashboardPort: EnvVars.number('CLIENT_DEV_DASHBOARD_PORT', 7332),
+		devServerHost: '0.0.0.0',
+		devServerPort: 1337,
+		devDashboardEnable: true,
+		devDashboardPort: 7332,
 
 		htmlPage: {
 			titleTemplate: 'BlueBase - %s',
@@ -48,7 +48,7 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 
 		includePaths: [
 			args.configDir,
-			Utils.fromProjectRoot('./src'),
+			fromProjectRoot('./src'),
 			// fromHere('../../client'),
 			// The service worker offline page generation needs access to the
 			// config folder.  Don't worry we have guards within the config files
