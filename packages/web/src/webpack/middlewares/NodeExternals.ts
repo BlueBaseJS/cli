@@ -50,6 +50,7 @@ const NodeExternals: WebpackBuilderMiddleware =
 							// // of these repo may not be available in project modules
 							// // So, we're not excluding them.
 							// We also want @bluebase/cli-core, and it's dependencies
+							...getDependenciesRecursive('@bluebase/core'),
 							...getDependenciesRecursive('@bluebase/cli-core'),
 							...getDependenciesRecursive('express'),
 							...getDependenciesRecursive('react-helmet'),

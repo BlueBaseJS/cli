@@ -39,7 +39,8 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 
 	// Resolve the assets (js/css) for the client bundle's entry chunk.
 	const clientEntryAssets = getClientBundleEntryAssets(configs)();
-
+	
+	console.log('in here', clientEntryAssets)
 	const { reactAppString, styleElement } = props;
 
 	const helmet = Helmet.rewind();

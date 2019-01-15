@@ -77,7 +77,7 @@ export function resolveConfigsBundle(flags: PathsBundle, options: Partial<Config
   ///////////////////////////////////
 
   // Get default webpack configs
-  let clientConfigs = defaultClientConfigs({} as any, { buildDir, configDir });
+  let clientConfigs = defaultClientConfigs({} as any, flags);
 
   // See if there is a custom webpack config file in the project
   const clientConfigPath = findFile(
@@ -90,14 +90,14 @@ export function resolveConfigsBundle(flags: PathsBundle, options: Partial<Config
   customClientConfigs = customClientConfigs.default || customClientConfigs;
 
   // Use these configs
-  clientConfigs = customClientConfigs(clientConfigs, { buildDir, configDir });
+  clientConfigs = customClientConfigs(clientConfigs, flags);
 
   ///////////////////////////////////
   ///// Generate Server Configs /////
   ///////////////////////////////////
 
   // Get default webpack configs
-  let serverConfigs = defaultServerConfigs({} as any, { buildDir, configDir });
+  let serverConfigs = defaultServerConfigs({} as any, flags);
 
   // See if there is a custom webpack config file in the project
   const serverConfigPath = findFile(

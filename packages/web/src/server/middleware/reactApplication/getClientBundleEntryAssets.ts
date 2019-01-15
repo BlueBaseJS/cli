@@ -22,15 +22,18 @@ let resultCache: any;
  *     the respective assets simply by using a chunk name. :)
  */
 export default (configs: ConfigsBundle1) => () => {
-  // Return the assets json cache if it exists.
+	
+	// Return the assets json cache if it exists.
   // In development mode we always read the assets json file from disk to avoid
   // any cases where an older version gets cached.
 	if (process.env.BUILD_FLAG_IS_DEV === 'false' && resultCache) {
 		return resultCache;
 	}
+	console.log('wow1', `${configs.clientConfigs.outputPath}/${configs.clientConfigs.bundleAssetsFileName}`)
 
 	// tslint:disable-next-line:max-line-length
 	const assetsFilePath = fromProjectRoot(`${configs.clientConfigs.outputPath}/${configs.clientConfigs.bundleAssetsFileName}`);
+	console.log('wow2')
 
 	if (!fs.existsSync(assetsFilePath)) {
 		throw new Error(
@@ -40,10 +43,13 @@ export default (configs: ConfigsBundle1) => () => {
 	}
 
 	const readAssetsJSONFile = () => JSON.parse(fs.readFileSync(assetsFilePath, 'utf8'));
+	console.log('wow3')
 	const assetsJSONCache = readAssetsJSONFile();
+	console.log('wow4')
 	if (typeof assetsJSONCache.index === 'undefined') {
 		throw new Error('No asset data found for expected "index" entry chunk of client bundle.');
 	}
+	console.log('wow5')
 	resultCache = assetsJSONCache.index;
 	return resultCache;
 };

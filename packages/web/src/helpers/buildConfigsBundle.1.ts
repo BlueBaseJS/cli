@@ -110,7 +110,7 @@ export function buildConfigsBundle1(flags: Flags, _options: Partial<ConfigsBundl
   ///////////////////////////////////
 
   // Get default webpack configs
-  let serverConfigs = defaultServerConfigs({} as any, { buildDir, configDir });
+  let serverConfigs = defaultServerConfigs({} as any, flags as any);
 
   // See if there is a custom webpack config file in the project
   const serverConfigPath = findFile(

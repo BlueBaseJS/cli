@@ -29,14 +29,16 @@ const LoaderTypescript: WebpackBuilderMiddleware =
 				new HappyPack({
 					id: 'happypack-typescript',
 					verbose: false,
-				// tslint:disable-next-line:object-literal-sort-keys
 					threads: 4,
 					loaders: [
 						{
 							loader: useOwn('babel-loader'),
+							// exclude: [],
+							// include: [builder.appJsPath, 'node_modules'],
 							options: {
 								cacheDirectory: true,
 								babelrc: false,
+								// ignore: [],
 								presets: [
 									'babel-preset-bluebase',
 								]

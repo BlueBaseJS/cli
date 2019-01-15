@@ -1,52 +1,39 @@
 import { Request, Response } from 'express';
-// tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import { ConfigsBundle1 } from '../../../helpers/buildConfigsBundle.1';
 import React from 'react';
 import getServerHTML from './ServerHTML';
-// import App from 'APP_JS';
+import { AppRegistry } from 'react-native';
+import App from 'APP_JS';
 
 // tslint:disable-next-line:no-var-requires
-const { AppRegistry } = require('react-native-web');
-
-
-// // Transpile files on the fly
-// require("@babel/register")({
-//   extensions: ['.js', '.jsx', '.ts', '.tsx'],
-//   presets: ['babel-preset-bluebase'],
-//   plugins: [
-//     ["module-resolver", {
-//       // "root": ["./src"],
-//       "alias": {
-//         "react-native": () => useOwn('react-native-web')
-//       }
-//     }]
-//   ]
-// });
+// const { AppRegistry } = require('react-native-web');
 
 export default (_request: Request, response: Response, configs: ConfigsBundle1) => {
 
 	const ServerHTML = getServerHTML(configs);
-
+	
 	// Ensure a nonce has been provided to us.
 	// See the server/middleware/security.js for more info.
 	if (typeof response.locals.nonce !== 'string') {
 		throw new Error('A "nonce" value has not been attached to the response');
 	}
 	const nonce = response.locals.nonce;
-
+	
 	// register the app
-	AppRegistry.registerComponent('App', () => null);
-
+	AppRegistry.registerComponent('App', () => App);
+	
 	// prerender the app
 	const { element, getStyleElement } = AppRegistry.getApplication('App');
-
+	
 	// first the element
 	const appString = renderToString(element);
-
+	
+	console.log('heellooo 1');
 	// then the styles (optionally include a nonce if your CSP policy requires it)
 	const StyleElement = getStyleElement({ nonce });
-
+	
+	console.log('heellooo 2');
 	// Generate the html response.
 	const html = renderToStaticMarkup(
 		<ServerHTML
@@ -63,6 +50,7 @@ export default (_request: Request, response: Response, configs: ConfigsBundle1) 
 	// 		response.end();
 	// 		return;
 	// 	}
+	console.log('heellooo', html);
 
 	response
 		.status(

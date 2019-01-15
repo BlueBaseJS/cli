@@ -49,9 +49,9 @@ export class StartCommand extends Command {
 			message: `👨‍💻 Compiling BlueBase's client bundle`
 		});
 
-		await webpackCompile(configs.serverWebpackConfigs);
+		// await webpackCompile(configs.serverWebpackConfigs);
 
-		return;
+		// return;
 		webpackCompileDev({
 			config: configs.clientWebpackConfigs,
 			host: configs.clientConfigs.devServerHost,
@@ -63,13 +63,16 @@ export class StartCommand extends Command {
 					if (flags.static === false) {
 						// startServer(configs, '@bluebase/cli/web-server');
 
-						spawn(
-							'node',
-							[Utils.fromProjectRoot(configs.buildDir, 'server/index.js')],
-							{ shell: true, env: process.env, stdio: 'inherit' }
-						)
-							.on('close', (_code: number) => process.exit(0))
-							.on('error', (spawnError: Error) => Utils.logger.error(spawnError));
+						webpackCompile(configs.serverWebpackConfigs).then(() => {
+							spawn(
+								'node',
+								[Utils.fromProjectRoot(configs.buildDir, 'server/index.js')],
+								{ shell: true, env: process.env, stdio: 'inherit' }
+							)
+								.on('close', (_code: number) => process.exit(0))
+								.on('error', (spawnError: Error) => Utils.logger.error(spawnError));
+
+						});
 							
 					}
 				}
