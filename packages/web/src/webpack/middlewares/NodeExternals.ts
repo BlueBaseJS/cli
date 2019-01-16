@@ -5,6 +5,7 @@ import WebpackBuilder from '../WebpackBuilder';
 import { fromRoot } from '../../helpers/fromRoot';
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils';
  
 const removeNil = Utils.removeNil;
 
@@ -60,6 +61,7 @@ const NodeExternals: WebpackBuilderMiddleware =
 							// We want to add project's dependencies too
 							// because they may need the react-native alias
 							...getDependenciesRecursive('@bluebase/core'),
+							...getDependenciesRecursive(fromProjectRoot(), ['expo', 'react-native']),
 						])
 							// And any items that have been whitelisted in the config need
 							// to be included in the bundling process too.
@@ -74,9 +76,7 @@ const NodeExternals: WebpackBuilderMiddleware =
 		});
 	};
 
-
-
-function getDependenciesRecursive(_package: string) {
+function getDependenciesRecursive(_package: string, skip: string[] = []) {
 	
 	const list: string[] = [];
 
@@ -91,6 +91,11 @@ function getDependenciesRecursive(_package: string) {
 	
 		// This package is already processed, skip!
 		if (list.indexOf(name) !== -1) {
+			return;
+		}
+	
+		// The package is in skip list
+		if (skip.indexOf(name) !== -1) {
 			return;
 		}
 	
