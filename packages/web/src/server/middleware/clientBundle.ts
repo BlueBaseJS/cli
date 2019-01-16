@@ -3,7 +3,7 @@ import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
 import { ConfigsBundle } from '../types';
 
 /**
- * Middleware to server our client bundle.
+ * Middleware to serve our client bundle.
  */
 export default (configs: ConfigsBundle) => express.static(
 	fromProjectRoot(configs.clientConfigs.outputPath),
