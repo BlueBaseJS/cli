@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { ConfigsBundle1 } from '../../../helpers/buildConfigsBundle.1';
+import { ConfigsBundle } from '../../types';
 import { renderToStaticMarkup } from 'react-dom/server';
 import React from 'react';
 import getServerHTML from './ServerHTML';
 import logger from '@bluebase/cli-core/lib/utils/logger';
 
-export default (request: Request, response: Response, configs: ConfigsBundle1) => {
+export default (request: Request, response: Response, configs: ConfigsBundle) => {
 
 	const ServerHTML = getServerHTML(configs);
 

@@ -1,15 +1,15 @@
 import { Request, Response } from 'express';
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
-import { ConfigsBundle1 } from '../../../helpers/buildConfigsBundle.1';
 import React from 'react';
 import getServerHTML from './ServerHTML';
 import { AppRegistry } from 'react-native';
 import App from 'APP_JS';
+import { ConfigsBundle } from '../../types';
 
 // tslint:disable-next-line:no-var-requires
 // const { AppRegistry } = require('react-native-web');
 
-export default (_request: Request, response: Response, configs: ConfigsBundle1) => {
+export default (_request: Request, response: Response, configs: ConfigsBundle) => {
 
 	const ServerHTML = getServerHTML(configs);
 	
@@ -29,11 +29,9 @@ export default (_request: Request, response: Response, configs: ConfigsBundle1) 
 	// first the element
 	const appString = renderToString(element);
 	
-	console.log('heellooo 1');
 	// then the styles (optionally include a nonce if your CSP policy requires it)
 	const StyleElement = getStyleElement({ nonce });
 	
-	console.log('heellooo 2');
 	// Generate the html response.
 	const html = renderToStaticMarkup(
 		<ServerHTML
@@ -50,7 +48,6 @@ export default (_request: Request, response: Response, configs: ConfigsBundle1) 
 	// 		response.end();
 	// 		return;
 	// 	}
-	console.log('heellooo', html);
 
 	response
 		.status(

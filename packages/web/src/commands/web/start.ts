@@ -1,12 +1,13 @@
 import { Utils } from '@bluebase/cli-core';
 import { FlagDefs } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { createCleanDir, webpackCompileDev, webpackCompile } from '../../helpers';
-// import { startServer } from '../../scripts/startServer';
 import { spawn } from 'child_process';
 import { Flags } from '../../types';
 import { getPathsBundle } from '../../helpers/getPathsBundle';
 import { resolveConfigsBundle } from '../../helpers/resolveConfigsBundle';
+import { webpackCompileDev } from '../../helpers/webpackCompileDev';
+import { webpackCompile } from '../../helpers/webpackCompile';
+import { createCleanDir } from '../../helpers/createCleanDir';
 
 export class StartCommand extends Command {
 
@@ -16,9 +17,6 @@ export class StartCommand extends Command {
 
 		const label = '@bluebase/cli/web';
 		const development = true;
-
-		const parsed = this.parse(StartCommand);
-		const flags = parsed.flags as Flags;
 
 		Utils.logger.log({
 			label,
@@ -30,6 +28,8 @@ export class StartCommand extends Command {
 		///// Extract Configs /////
 		///////////////////////////
 
+		const parsed = this.parse(StartCommand);
+		const flags = parsed.flags as Flags;
 		const paths = getPathsBundle(flags);
 		const configs = resolveConfigsBundle(paths, { development });
 
@@ -49,9 +49,6 @@ export class StartCommand extends Command {
 			message: `👨‍💻 Compiling BlueBase's client bundle`
 		});
 
-		// await webpackCompile(configs.serverWebpackConfigs);
-
-		// return;
 		webpackCompileDev({
 			config: configs.clientWebpackConfigs,
 			host: configs.clientConfigs.devServerHost,

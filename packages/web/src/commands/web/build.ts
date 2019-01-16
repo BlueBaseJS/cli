@@ -1,10 +1,11 @@
 import { Utils } from '@bluebase/cli-core';
 import { FlagDefs } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { createCleanDir, webpackCompile } from '../../helpers';
 import { Flags } from '../../types';
 import { getPathsBundle } from '../../helpers/getPathsBundle';
 import { resolveConfigsBundle } from '../../helpers/resolveConfigsBundle';
+import { createCleanDir } from '../../helpers/createCleanDir';
+import { webpackCompile } from '../../helpers/webpackCompile';
 
 
 export class StartStaticCommand extends Command {

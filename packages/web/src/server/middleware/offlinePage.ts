@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { ConfigsBundle1 } from '../../helpers/buildConfigsBundle.1';
+import { ConfigsBundle } from '../types';
 import { readFile } from 'fs';
 import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
 
@@ -8,7 +8,7 @@ import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
  * inline scripts get a nonce value attached to them.
  */
 const offlinePageMiddleware =
-	(configs: ConfigsBundle1)  =>
+	(configs: ConfigsBundle)  =>
 	(_req: Request, res: Response, _next: NextFunction) => {
 		// We should have had a nonce provided to us.  See the server/index.js for
 		// more information on what this is.

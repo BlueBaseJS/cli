@@ -5,9 +5,9 @@ import { removeNil } from '@bluebase/cli-core/lib/utils/arrays';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import uuid from 'uuid';
-import { ConfigsBundle1 } from '../../helpers/buildConfigsBundle.1';
+import { ConfigsBundle } from '../types';
 
-export default (configs: ConfigsBundle1) => {
+export default (configs: ConfigsBundle) => {
 
 	// const cspConfig: IHelmetContentSecurityPolicyConfiguration = {
 	const cspConfig: any = {

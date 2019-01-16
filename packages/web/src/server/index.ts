@@ -13,6 +13,7 @@ import reactApplication from './middleware/reactApplication';
 import security from './middleware/security';
 import compression from 'compression';
 import errorHandlers from './middleware/errorHandlers';
+// import { ConfigsBundle } from './types';
 
 ///////////////////////////
 ///// Load flags.json /////
@@ -27,7 +28,6 @@ if (!fs.existsSync(configsPath)) {
 }
 
 const flags: Flags = JSON.parse(fs.readFileSync(configsPath, 'utf8'));
-console.log(flags);
 
 ////////////////////////////////
 ///// Build Configs Bundle /////
@@ -45,7 +45,7 @@ serverConfigs = customServerConfigs(serverConfigs, flags);
 ///// Configs /////
 ///////////////////
 
-const configs = { ...getPathsBundle(flags), clientConfigs, serverConfigs };
+const configs: any = { ...getPathsBundle(flags), clientConfigs, serverConfigs };
 
 //////////////////
 ///// Server /////

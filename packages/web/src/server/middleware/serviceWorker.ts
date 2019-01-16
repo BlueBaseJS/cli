@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
-import { ConfigsBundle1 } from '../../helpers/buildConfigsBundle.1';
+import { ConfigsBundle } from '../types';
 import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths/fromProjectRoot';
 
 // Middleware to serve our service worker.
 const serviceWorkerMiddleware =
-	(configs: ConfigsBundle1)  =>
+	(configs: ConfigsBundle)  =>
 	(_req: Request, res: Response, _next: NextFunction) => {
 		res.sendFile(
 			fromProjectRoot(

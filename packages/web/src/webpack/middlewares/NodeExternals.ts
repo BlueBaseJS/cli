@@ -2,7 +2,7 @@ import { Configuration as WebpackConfig } from 'webpack';
 import { Utils } from '@bluebase/cli-core';
 import { WebpackBuilderMiddleware } from '../../types';
 import WebpackBuilder from '../WebpackBuilder';
-import { fromRoot } from '../../helpers';
+import { fromRoot } from '../../helpers/fromRoot';
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
  
@@ -46,11 +46,9 @@ const NodeExternals: WebpackBuilderMiddleware =
 							// our node target bundles.
 							'source-map-support/register',
 
-							// // Since the CLI maybe installed globally, the dependencies
-							// // of these repo may not be available in project modules
-							// // So, we're not excluding them.
-							// We also want @bluebase/cli-core, and it's dependencies
-							...getDependenciesRecursive('@bluebase/core'),
+							// Since the CLI maybe installed globally, the dependencies
+							// of these repo may not be available in project modules
+							// So, we're not excluding them.
 							...getDependenciesRecursive('@bluebase/cli-core'),
 							...getDependenciesRecursive('express'),
 							...getDependenciesRecursive('react-helmet'),
@@ -58,11 +56,10 @@ const NodeExternals: WebpackBuilderMiddleware =
 							...getDependenciesRecursive('react-art'),
 							...getDependenciesRecursive('helmet'),
 							...getDependenciesRecursive('hpp'),
-
-							// ...getDependenciesRecursive('assets-webpack-plugin'),
-							// ...getDependenciesRecursive('webpack'),
-							// ...getDependenciesRecursive('webpack-merge'),
-							// ...getDependenciesRecursive('uglifyjs-webpack-plugin')
+							
+							// We want to add project's dependencies too
+							// because they may need the react-native alias
+							...getDependenciesRecursive('@bluebase/core'),
 						])
 							// And any items that have been whitelisted in the config need
 							// to be included in the bundling process too.

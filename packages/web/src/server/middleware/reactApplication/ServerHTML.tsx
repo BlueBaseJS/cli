@@ -4,7 +4,7 @@
  */
 
 import React, { Children } from 'react';
-import { ConfigsBundle1 } from '../../../helpers/buildConfigsBundle.1';
+import { ConfigsBundle } from '../../types';
 import { ifElse } from '@bluebase/cli-core/lib/utils/logic';
 import { removeNil } from '@bluebase/cli-core/lib/utils/arrays';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -33,14 +33,13 @@ export interface ServerHTMLProperties {
 	styleElement?: any;
 }
 
-export type GetServerHTMLType = (configs: ConfigsBundle1) => React.StatelessComponent<ServerHTMLProperties>;
+export type GetServerHTMLType = (configs: ConfigsBundle) => React.StatelessComponent<ServerHTMLProperties>;
 
 const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 
 	// Resolve the assets (js/css) for the client bundle's entry chunk.
 	const clientEntryAssets = getClientBundleEntryAssets(configs)();
 	
-	console.log('in here', clientEntryAssets)
 	const { reactAppString, styleElement } = props;
 
 	const helmet = Helmet.rewind();

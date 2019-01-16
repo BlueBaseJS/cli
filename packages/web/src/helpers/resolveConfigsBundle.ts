@@ -4,11 +4,10 @@ import defaultServerConfigs from '../configFiles/server.config';
 import defaultClientWebpackConfigs from '../configFiles/webpack.config.client';
 import defaultServerWebpackConfigs from '../configFiles/webpack.config.server';
 import path from 'path';
-import { findFile } from '.';
+import { findFile } from './findFile';
 import { ClientConfigs, ServerConfigs } from '../types';
 import { Configuration as WebpackConfiguration } from 'webpack';
 import { PathsBundle } from './getPathsBundle';
-// import { useOwn } from './useOwn';
 
 export interface ConfigsBundleOptions {
   development: boolean, 

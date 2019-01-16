@@ -1,7 +1,7 @@
 import { Configuration as WebpackConfig } from 'webpack';
 import { WebpackBuilderMiddleware } from '../../types';
 import merge from 'webpack-merge';
-import { useOwn } from '../../helpers';
+import { useOwn } from '../../helpers/useOwn';
 
 /**
  * Patch React Native imports
