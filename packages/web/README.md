@@ -24,7 +24,7 @@ $ npm install -g @bluebase/cli-web
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-web/0.0.16 darwin-x64 node-v11.4.0
+@bluebase/cli-web/0.0.17 darwin-x64 node-v11.4.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -34,10 +34,8 @@ USAGE
 # Commands
 <!-- commands -->
 * [`bluebase web:build`](#bluebase-webbuild)
-* [`bluebase web:build-static`](#bluebase-webbuild-static)
 * [`bluebase web:init`](#bluebase-webinit)
 * [`bluebase web:start`](#bluebase-webstart)
-* [`bluebase web:start-static`](#bluebase-webstart-static)
 
 ## `bluebase web:build`
 
@@ -46,54 +44,13 @@ USAGE
   $ bluebase web:build
 
 OPTIONS
-  --appJsPath=appJsPath                              [default: ./bluebase/web/App] Path to App.js file relative to the
-                                                     root directory
-
-  --assetsDir=assetsDir                              [default: ./assets/web] Path to assets directory relative to the
-                                                     root directory
-
-  --buildDir=buildDir                                [default: ./build/web] Path to build directory relative to the root
-                                                     directory
-
-  --configDir=configDir                              [default: ./bluebase/web] Path to config directory relative to the
-                                                     root directory
-
-  --webpackClientConfigPath=webpackClientConfigPath  [default: ./bluebase/web/client-webpack-config.ts] Path to
-                                                     webpackClientConfigPath file relative to the root directory
-
-  --webpackServerConfigPath=webpackServerConfigPath  [default: ./bluebase/web/server-webpack-config.ts] Path to
-                                                     webpackServerConfigPath file relative to the root directory
+  --assetsDir=assetsDir  [default: ./assets/web] Path to assets directory relative to the project root directory
+  --buildDir=buildDir    [default: ./build/web] Path to build directory relative to the project root directory
+  --configDir=configDir  [default: ./bluebase/web] Path to config directory relative to the project root directory
+  --static               Create a static project.
 ```
 
-_See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.16/src/commands/web/build.ts)_
-
-## `bluebase web:build-static`
-
-```
-USAGE
-  $ bluebase web:build-static
-
-OPTIONS
-  --appJsPath=appJsPath                              [default: ./bluebase/web/App] Path to App.js file relative to the
-                                                     root directory
-
-  --assetsDir=assetsDir                              [default: ./assets/web] Path to assets directory relative to the
-                                                     root directory
-
-  --buildDir=buildDir                                [default: ./build/web] Path to build directory relative to the root
-                                                     directory
-
-  --configDir=configDir                              [default: ./bluebase/web] Path to config directory relative to the
-                                                     root directory
-
-  --webpackClientConfigPath=webpackClientConfigPath  [default: ./bluebase/web/client-webpack-config.ts] Path to
-                                                     webpackClientConfigPath file relative to the root directory
-
-  --webpackServerConfigPath=webpackServerConfigPath  [default: ./bluebase/web/server-webpack-config.ts] Path to
-                                                     webpackServerConfigPath file relative to the root directory
-```
-
-_See code: [src/commands/web/build-static.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.16/src/commands/web/build-static.ts)_
+_See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.17/src/commands/web/build.ts)_
 
 ## `bluebase web:init`
 
@@ -104,29 +61,16 @@ USAGE
   $ bluebase web:init
 
 OPTIONS
-  --appJsPath=appJsPath                              [default: ./bluebase/web/App] Path to App.js file relative to the
-                                                     root directory
-
-  --assetsDir=assetsDir                              [default: ./assets/web] Path to assets directory relative to the
-                                                     root directory
-
-  --buildDir=buildDir                                [default: ./build/web] Path to build directory relative to the root
-                                                     directory
-
-  --configDir=configDir                              [default: ./bluebase/web] Path to config directory relative to the
-                                                     root directory
-
-  --webpackClientConfigPath=webpackClientConfigPath  [default: ./bluebase/web/client-webpack-config.ts] Path to
-                                                     webpackClientConfigPath file relative to the root directory
-
-  --webpackServerConfigPath=webpackServerConfigPath  [default: ./bluebase/web/server-webpack-config.ts] Path to
-                                                     webpackServerConfigPath file relative to the root directory
+  --assetsDir=assetsDir  [default: ./assets/web] Path to assets directory relative to the project root directory
+  --buildDir=buildDir    [default: ./build/web] Path to build directory relative to the project root directory
+  --configDir=configDir  [default: ./bluebase/web] Path to config directory relative to the project root directory
+  --static               Create a static project.
 
 EXAMPLE
   $ bluebase web:init
 ```
 
-_See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.16/src/commands/web/init.ts)_
+_See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.17/src/commands/web/init.ts)_
 
 ## `bluebase web:start`
 
@@ -135,52 +79,11 @@ USAGE
   $ bluebase web:start
 
 OPTIONS
-  --appJsPath=appJsPath                              [default: ./bluebase/web/App] Path to App.js file relative to the
-                                                     root directory
-
-  --assetsDir=assetsDir                              [default: ./assets/web] Path to assets directory relative to the
-                                                     root directory
-
-  --buildDir=buildDir                                [default: ./build/web] Path to build directory relative to the root
-                                                     directory
-
-  --configDir=configDir                              [default: ./bluebase/web] Path to config directory relative to the
-                                                     root directory
-
-  --webpackClientConfigPath=webpackClientConfigPath  [default: ./bluebase/web/client-webpack-config.ts] Path to
-                                                     webpackClientConfigPath file relative to the root directory
-
-  --webpackServerConfigPath=webpackServerConfigPath  [default: ./bluebase/web/server-webpack-config.ts] Path to
-                                                     webpackServerConfigPath file relative to the root directory
+  --assetsDir=assetsDir  [default: ./assets/web] Path to assets directory relative to the project root directory
+  --buildDir=buildDir    [default: ./build/web] Path to build directory relative to the project root directory
+  --configDir=configDir  [default: ./bluebase/web] Path to config directory relative to the project root directory
+  --static               Create a static project.
 ```
 
-_See code: [src/commands/web/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.16/src/commands/web/start.ts)_
-
-## `bluebase web:start-static`
-
-```
-USAGE
-  $ bluebase web:start-static
-
-OPTIONS
-  --appJsPath=appJsPath                              [default: ./bluebase/web/App] Path to App.js file relative to the
-                                                     root directory
-
-  --assetsDir=assetsDir                              [default: ./assets/web] Path to assets directory relative to the
-                                                     root directory
-
-  --buildDir=buildDir                                [default: ./build/web] Path to build directory relative to the root
-                                                     directory
-
-  --configDir=configDir                              [default: ./bluebase/web] Path to config directory relative to the
-                                                     root directory
-
-  --webpackClientConfigPath=webpackClientConfigPath  [default: ./bluebase/web/client-webpack-config.ts] Path to
-                                                     webpackClientConfigPath file relative to the root directory
-
-  --webpackServerConfigPath=webpackServerConfigPath  [default: ./bluebase/web/server-webpack-config.ts] Path to
-                                                     webpackServerConfigPath file relative to the root directory
-```
-
-_See code: [src/commands/web/start-static.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.16/src/commands/web/start-static.ts)_
+_See code: [src/commands/web/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.17/src/commands/web/start.ts)_
 <!-- commandsstop -->
