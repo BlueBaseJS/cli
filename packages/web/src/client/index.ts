@@ -1,5 +1,5 @@
 import 'normalize.css';
-import App from 'APP_JS_PATH';
+import App from 'APP_JS';
 import { AppRegistry } from 'react-native';
 
 // register the app

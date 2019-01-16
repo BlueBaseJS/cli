@@ -5,7 +5,7 @@ import { WebpackBuilderMiddleware } from '../../types';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import WebpackBuilder from '../WebpackBuilder';
 import merge from 'webpack-merge';
-import { useOwn } from '../../scripts';
+import { useOwn } from '../../helpers/useOwn';
 
 // tslint:disable-next-line:no-var-requires
 const HappyPack = require('happypack');
@@ -25,11 +25,10 @@ const LoaderTypescript: WebpackBuilderMiddleware =
 
 			plugins: removeNil([
 
-			// HappyPack 'typescript' instance.
+				// HappyPack 'typescript' instance.
 				new HappyPack({
 					id: 'happypack-typescript',
 					verbose: false,
-				// tslint:disable-next-line:object-literal-sort-keys
 					threads: 4,
 					loaders: [
 						{
@@ -42,15 +41,6 @@ const LoaderTypescript: WebpackBuilderMiddleware =
 								]
 							},
 						},
-						// {
-						// 	loader: useOwn('ts-loader'),
-						// 	options: {
-						// 		transpileOnly: true,
-
-						// 		// IMPORTANT! use happyPackMode mode to speed-up compilation and reduce errors reported to webpack
-						// 		happyPackMode: true,
-						// 	}
-						// }
 					],
 				}),
 

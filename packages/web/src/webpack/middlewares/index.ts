@@ -6,11 +6,11 @@ import CopyAssets from './CopyAssets';
 import HotModuleReplacement from './HotModuleReplacement';
 import Jarvis from './Jarvis';
 import LoaderCss from './LoaderCss';
-import LoaderJavascript from './LoaderJavascript';
 import LoaderTypescript from './LoaderTypescript';
 import NodeExternals from './NodeExternals';
 import ReactNative from './ReactNative';
 import SourceMaps from './SourceMaps';
+import WriteJson from './WriteJson';
 
 export {
 	AssetsJson,
@@ -21,9 +21,9 @@ export {
 	HotModuleReplacement,
 	Jarvis,
 	LoaderCss,
-	LoaderJavascript,
 	LoaderTypescript,
 	NodeExternals,
 	ReactNative,
 	SourceMaps,
+	WriteJson,
 };

@@ -1,15 +1,15 @@
 import serve from 'webpack-serve';
-import webpack from 'webpack';
 import { Utils } from '@bluebase/cli-core';
+import deepmerge from 'deepmerge';
 
 /**
  * compiles a webpack config.
  * @param configs
  */
-export const webpackCompileDev = async (configs: webpack.Configuration, label: string) => {
+export const webpackCompileDev = async (configs: serve.Options, label: string) => {
 
-	return serve({}, {
-		config: configs,
+	const defaultConfigs = {
+		// open: true,
 
 		devMiddleware: {
 			publicPath: '/',
@@ -17,13 +17,6 @@ export const webpackCompileDev = async (configs: webpack.Configuration, label: s
 		},
 
 		on: {
-			'build-started': () => {
-				Utils.logger.log({
-					label,
-					level: 'info',
-					message: 'Build Started',
-				});
-			},
 
 			'build-finished': () => {
 				Utils.logger.log({
@@ -43,7 +36,14 @@ export const webpackCompileDev = async (configs: webpack.Configuration, label: s
 				});
 			},
 		}
+	};
 
+	const mergedConfigs = {
+		...deepmerge(defaultConfigs, configs),
 
-	});
+		// If we rely on deepmerge, webpack messes up
+		config: configs.config
+	};
+
+	return serve({}, mergedConfigs);
 };

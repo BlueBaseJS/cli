@@ -3,7 +3,7 @@ import { Configuration as WebpackConfig } from 'webpack';
 import { WebpackBuilderMiddleware } from '../../types';
 import WebpackBuilder from '../WebpackBuilder';
 import merge from 'webpack-merge';
-import { useOwn } from '../../scripts';
+import { useOwn } from '../../helpers/useOwn';
 
 // const removeNil = Utils.removeNil;
 

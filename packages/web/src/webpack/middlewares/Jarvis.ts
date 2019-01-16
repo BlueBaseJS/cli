@@ -15,7 +15,7 @@ const removeNil = Utils.removeNil;
  * @param builder
  */
 const JarvisMiddleware: WebpackBuilderMiddleware =
-	() =>
+	(port: number = 1338) =>
 	(config: WebpackConfig, builder: WebpackBuilder): WebpackConfig => {
 
 		return merge(config, {
@@ -24,7 +24,7 @@ const JarvisMiddleware: WebpackBuilderMiddleware =
 				builder.ifDevClient(
 					() =>
 						new Jarvis({
-							port: 1338 // optional: set a port
+							port
 						})
 				),
 			]),

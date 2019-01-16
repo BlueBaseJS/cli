@@ -4,9 +4,9 @@
  */
 
 import React, { Children } from 'react';
-import { ServerConfigsBundle } from '../../server';
-import { Utils } from '@bluebase/cli-core';
-// tslint:disable-next-line:no-submodule-imports
+import { ConfigsBundle } from '../../types';
+import { ifElse } from '@bluebase/cli-core/lib/utils/logic';
+import { removeNil } from '@bluebase/cli-core/lib/utils/arrays';
 import { renderToStaticMarkup } from 'react-dom/server';
 import HTML from '../../components/HTML';
 import Helmet from 'react-helmet';
@@ -33,16 +33,13 @@ export interface ServerHTMLProperties {
 	styleElement?: any;
 }
 
-export type GetServerHTMLType = (configs: ServerConfigsBundle) => React.StatelessComponent<ServerHTMLProperties>;
+export type GetServerHTMLType = (configs: ConfigsBundle) => React.StatelessComponent<ServerHTMLProperties>;
 
 const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 
-	const ifElse = Utils.ifElse;
-	const removeNil = Utils.removeNil;
-
 	// Resolve the assets (js/css) for the client bundle's entry chunk.
 	const clientEntryAssets = getClientBundleEntryAssets(configs)();
-
+	
 	const { reactAppString, styleElement } = props;
 
 	const helmet = Helmet.rewind();
@@ -61,7 +58,7 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 		ifElse(helmet)(() => styleElement),
 	]);
 
-	// const devVendorDLL = configs.client.devVendorDLL;
+	// const devVendorDLL = configs.clientConfigs.devVendorDLL;
 
 	const bodyElements = removeNil([
 		// When we are in development mode our development server will
@@ -72,7 +69,7 @@ const getServerHTML: GetServerHTMLType = (configs) => (props) => {
 		// 		process.env.BUILD_FLAG_IS_DEV === 'true' && devVendorDLL && devVendorDLL.enabled,
 		// )(() =>
 		// 	scriptTag(
-		// 		`${configs.client.publicPath}/${devVendorDLL && devVendorDLL.name}.js?t=${Date.now()}`,
+		// 		`${configs.clientConfigs.publicPath}/${devVendorDLL && devVendorDLL.name}.js?t=${Date.now()}`,
 		// 	),
 		// ),
 		ifElse(clientEntryAssets && clientEntryAssets.js)(() => scriptTag(clientEntryAssets.js)),

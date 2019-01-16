@@ -54,6 +54,6 @@ export interface BundleDefinition {
    * one of our Webpack loaders (e.g. CSS). Add any file types to the list
    * below to allow them to be processed by Webpack.
 	 */
-	nodeExternalsFileTypeWhitelist: RegExp[],
+	nodeExternalsFileTypeWhitelist: Array<RegExp | string>,
 
 }

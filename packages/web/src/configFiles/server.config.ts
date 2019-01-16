@@ -1,33 +1,26 @@
 // tslint:disable:object-literal-sort-keys
-import { ServerConfigs } from '../types';
-import { Utils } from '@bluebase/cli-core';
+import { ServerConfigs, PathsBundle } from '../types';
+import { isProduction } from '@bluebase/cli-core/lib/utils/logic';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
 import deepmerge from 'deepmerge';
-import { fromRoot } from '../scripts';
 import path from 'path';
-
-const EnvVars = Utils.EnvVars;
 
 export const fromHere = (file: string) => {
 	return path.resolve(__dirname, file);
 };
 
-export interface HookArgs {
-	buildDir: string,
-	configDir: string,
-}
-
-export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
+export default (input: ServerConfigs, args: PathsBundle): ServerConfigs => {
 
 	const configs: ServerConfigs = {
 
 		target: 'node',
-		mode: Utils.isProduction() ? 'production' : 'development',
+		mode: isProduction() ? 'production' : 'development',
 
-		host: EnvVars.string('HOST', '0.0.0.0'),
-		port: EnvVars.number('PORT', 1337),
+		host: '0.0.0.0',
+		port: 1338,
 
-		welcomeMessage: EnvVars.string('WELCOME_MSG', 'Hello world!'),
-		disableSSR: true,
+		welcomeMessage: 'Hello world!',
+		disableSSR: false,
 		browserCacheMaxAge: '365d',
 		cspExtensions: {
 			childSrc: [],
@@ -36,7 +29,6 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 			fontSrc: [],
 			imgSrc: [],
 			mediaSrc: [],
-			// manifestSrc: [],
 			objectSrc: [],
 			scriptSrc: [],
 			styleSrc: [],
@@ -64,19 +56,25 @@ export default (input: ServerConfigs, args: HookArgs): ServerConfigs => {
 		// 	'.web.js', '.js',
 		// 	'.web.jsx', '.jsx'
 		// ],
-		extensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+		extensions: ['ssr.ts', 'ts', 'tsx', 'js', 'jsx', 'json'],
 
 		srcEntryFile: fromHere('../server/index'),
 		includePaths: [
 			args.configDir,
-			Utils.fromProjectRoot('./src'),
-			fromRoot('node_modules')
+			fromProjectRoot('./src'),
+			args.appJsPath
+			// fromRoot('node_modules')
 			// fromHere('../../server'),
 			// fromHere('../../client/App'),
 		],
 		outputPath: path.join(args.buildDir, 'server'),
 
-		nodeExternalsFileTypeWhitelist: [],
+		nodeExternalsFileTypeWhitelist: [
+			// /\.(eot|woff|woff2|ttf|otf)$/,
+			// /\.(svg|png|jpg|jpeg|gif|ico)$/,
+			// /\.(mp4|mp3|ogg|swf|webp)$/,
+			// /\.(css|scss|sass|sss|less)$/,
+		],
 	};
 
 	return deepmerge(input, configs);

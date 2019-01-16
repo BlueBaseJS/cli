@@ -1,13 +1,13 @@
-import { ServerConfigsBundle } from '../server';
-import { Utils } from '@bluebase/cli-core';
 import express from 'express';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
+import { ConfigsBundle } from '../types';
 
 /**
- * Middleware to server our client bundle.
+ * Middleware to serve our client bundle.
  */
-export default (configs: ServerConfigsBundle) => express.static(
-	Utils.fromProjectRoot(configs.client.outputPath),
+export default (configs: ConfigsBundle) => express.static(
+	fromProjectRoot(configs.clientConfigs.outputPath),
 	{
-		maxAge: configs.server.browserCacheMaxAge,
+		maxAge: configs.serverConfigs.browserCacheMaxAge,
 	},
 );

@@ -5,7 +5,7 @@ import { WebpackBuilderMiddleware } from '../../types';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import WebpackBuilder from '../WebpackBuilder';
 import merge from 'webpack-merge';
-import { useOwn } from '../../scripts';
+import { useOwn } from '../../helpers/useOwn';
 
 // tslint:disable-next-line:no-var-requires
 const WebpackStylish = require('webpack-stylish');
@@ -131,10 +131,10 @@ const BaseConfig: WebpackBuilderMiddleware =
 						'@bluebase/core': Utils.fromProjectRoot('node_modules/@bluebase/core'),
 
 						// BlueBase boot options file, AKA bluebase.js
-						BLUERAIN_BOOT_OPTIONS: builder.bluebaseJsPath,
+						BLUEBASE_BOOT_OPTIONS: builder.bluebaseJsPath,
 
 						// Custom App.js
-						APP_JS_PATH: builder.appJsPath,
+						APP_JS: builder.appJsPath,
 					},
 				},
 

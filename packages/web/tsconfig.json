@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "esnext",
     "outDir": "lib",
     "rootDir": "src",
     "moduleResolution": "node",
@@ -39,7 +39,10 @@
     // "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
     "skipLibCheck": true,
-    
+
+    // Don't emit; allow Babel to transform files.
+    "noEmit": true,
+
     "lib": ["es2017", "dom"],
     "types": ["node"],
     "typeRoots": ["node_modules/@types"],
@@ -48,7 +51,7 @@
 			"*": ["typings/*"]
 		}
   },
-  "include": ["src/**/*"],
+  "include": ["src"],
   "exclude": ["node_modules", "lib", "**/*.test.ts", "src/**/*.test.ts"],
   "compileOnSave": false
 }

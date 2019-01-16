@@ -1,44 +1,37 @@
 import { Request, Response } from 'express';
-// tslint:disable-next-line:no-submodule-imports
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
-import { ServerConfigsBundle } from '../../server';
-// import App from '../../../client/App';
 import React from 'react';
 import getServerHTML from './ServerHTML';
+import { AppRegistry } from 'react-native';
+import App from 'APP_JS';
+import { ConfigsBundle } from '../../types';
 
 // tslint:disable-next-line:no-var-requires
-const { AppRegistry } = require('react-native-web');
+// const { AppRegistry } = require('react-native-web');
 
-export default (_request: Request, response: Response, configs: ServerConfigsBundle) => {
+export default (_request: Request, response: Response, configs: ConfigsBundle) => {
 
 	const ServerHTML = getServerHTML(configs);
-
+	
 	// Ensure a nonce has been provided to us.
 	// See the server/middleware/security.js for more info.
 	if (typeof response.locals.nonce !== 'string') {
 		throw new Error('A "nonce" value has not been attached to the response');
 	}
 	const nonce = response.locals.nonce;
-
-	// TODO: Remove dirty hack, added temporarily because of bad plugins!
-	if (typeof window === 'undefined') {
-		(global as any).window = {
-			createElement: () => null,
-		};
-	}
-
+	
 	// register the app
-	AppRegistry.registerComponent('App', () => null);
-
+	AppRegistry.registerComponent('App', () => App);
+	
 	// prerender the app
 	const { element, getStyleElement } = AppRegistry.getApplication('App');
-
+	
 	// first the element
 	const appString = renderToString(element);
-
+	
 	// then the styles (optionally include a nonce if your CSP policy requires it)
 	const StyleElement = getStyleElement({ nonce });
-
+	
 	// Generate the html response.
 	const html = renderToStaticMarkup(
 		<ServerHTML

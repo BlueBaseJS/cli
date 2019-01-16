@@ -2,7 +2,7 @@ import * as React from 'react';
 import { BlueBaseApp } from '@bluebase/core';
 
 // tslint:disable-next-line:no-var-requires
-let bootOptions = require('BLUERAIN_BOOT_OPTIONS');
+let bootOptions = require('BLUEBASE_BOOT_OPTIONS');
 
 // ES Module
 bootOptions = bootOptions.default ? bootOptions.default : bootOptions;
