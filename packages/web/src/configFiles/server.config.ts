@@ -1,11 +1,9 @@
 // tslint:disable:object-literal-sort-keys
-import { ServerConfigs } from '../types';
+import { ServerConfigs, PathsBundle } from '../types';
 import { isProduction } from '@bluebase/cli-core/lib/utils/logic';
 import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
 import deepmerge from 'deepmerge';
-// import { fromRoot } from '../helpers';
 import path from 'path';
-import { PathsBundle } from '../helpers/getPathsBundle';
 
 export const fromHere = (file: string) => {
 	return path.resolve(__dirname, file);
@@ -19,7 +17,7 @@ export default (input: ServerConfigs, args: PathsBundle): ServerConfigs => {
 		mode: isProduction() ? 'production' : 'development',
 
 		host: '0.0.0.0',
-		port: 2337,
+		port: 1338,
 
 		welcomeMessage: 'Hello world!',
 		disableSSR: false,
@@ -31,7 +29,6 @@ export default (input: ServerConfigs, args: PathsBundle): ServerConfigs => {
 			fontSrc: [],
 			imgSrc: [],
 			mediaSrc: [],
-			// manifestSrc: [],
 			objectSrc: [],
 			scriptSrc: [],
 			styleSrc: [],

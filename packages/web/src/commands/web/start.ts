@@ -3,7 +3,7 @@ import { FlagDefs } from '../../cli-flags';
 import { Command } from '@oclif/command';
 import { spawn } from 'child_process';
 import { Flags } from '../../types';
-import { getPathsBundle } from '../../helpers/getPathsBundle';
+import { resolvePaths } from '../../helpers/resolvePaths';
 import { resolveConfigsBundle } from '../../helpers/resolveConfigsBundle';
 import { webpackCompileDev } from '../../helpers/webpackCompileDev';
 import { webpackCompile } from '../../helpers/webpackCompile';
@@ -30,7 +30,7 @@ export class StartCommand extends Command {
 
 		const parsed = this.parse(StartCommand);
 		const flags = parsed.flags as Flags;
-		const paths = getPathsBundle(flags);
+		const paths = resolvePaths(flags);
 		const configs = resolveConfigsBundle(paths, { development });
 
 		///////////////////////////

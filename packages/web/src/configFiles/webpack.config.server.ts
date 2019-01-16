@@ -1,16 +1,21 @@
 import * as WebpackTools from '../webpack';
 import * as webpack from 'webpack';
 import { WebpackHookArguments } from '../types/WebpackHookArguments';
-import { Flags } from '../types';
+import { PathsBundle } from '../types';
 
 export default
 	(webpackConfigInput: webpack.Configuration = {}, buildOptions: WebpackHookArguments): webpack.Configuration => {
 
-    const flags: Partial<Flags> = {
+    const paths: PathsBundle = {
       appJsPath: buildOptions.appJsPath,
-      assetsDir: buildOptions.assetsDirPath,
-      buildDir: buildOptions.buildDirPath,
-      configDir: buildOptions.configDirPath,
+			assetsDir: buildOptions.assetsDir,
+			bluebaseJsPath: buildOptions.bluebaseJsPath,
+      buildDir: buildOptions.buildDir,
+			clientConfigPath: buildOptions.clientConfigPath,
+			clientWebpackConfigPath: buildOptions.clientWebpackConfigPath,
+      configDir: buildOptions.configDir,
+			serverConfigPath: buildOptions.serverConfigPath,
+			serverWebpackConfigPath: buildOptions.serverWebpackConfigPath,
       static: buildOptions.static,
     };
 
@@ -44,8 +49,8 @@ export default
 
 			// Generate configs.json
 			.use(WebpackTools.WriteJson({
-				filename: 'flags.json',
-				object: flags,
+				filename: 'paths.json',
+				object: paths,
 				pretty: true // makes file human-readable (default false)
 			}))
 

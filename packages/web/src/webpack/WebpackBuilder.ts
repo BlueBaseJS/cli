@@ -6,15 +6,15 @@ import merge from 'webpack-merge';
 
 export type ifCondition = (then: any, or?: any) => any;
 
-export default class WebpackBuilder implements BuilderOptions {
+export default class WebpackBuilder {
 
 	/** Path of the boot options file (boot.js) */
 	public bluebaseJsPath: string;
 
 	public appJsPath: string;
-	public assetsDirPath: string;
-	public buildDirPath: string;
-	public configDirPath: string;
+	public assetsDir: string;
+	public buildDir: string;
+	public configDir: string;
 
 	////////////////////////////
 	////// Configurations //////
@@ -72,7 +72,7 @@ export default class WebpackBuilder implements BuilderOptions {
 
 	constructor(buildOptions: BuilderOptions, private webpackConfig: WebpackConfig = {}) {
 
-		const { appJsPath, assetsDirPath, buildDirPath, configDirPath, configs, bluebaseJsPath } = buildOptions;
+		const { appJsPath, assetsDir, buildDir, configDir, configs, bluebaseJsPath } = buildOptions;
 
 		if (!configs) {
 			throw Error(`No bundle configuration given to WebpackBuilder.`);
@@ -87,11 +87,11 @@ export default class WebpackBuilder implements BuilderOptions {
 
 		// Init
 		this.appJsPath = appJsPath;
-		this.assetsDirPath = assetsDirPath;
+		this.assetsDir = assetsDir;
 		this.bluebaseJsPath = bluebaseJsPath;
-		this.buildDirPath = buildDirPath;
+		this.buildDir = buildDir;
 		this.configs = configs;
-		this.configDirPath = configDirPath;
+		this.configDir = configDir;
 
 		// Path helpers
 		this.isProd = this.configs.mode === 'production' ? true : false;
