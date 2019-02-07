@@ -81,7 +81,14 @@ function getDependenciesRecursive(_package: string, skip: string[] = []) {
 	const list: string[] = [];
 
 	function run(pkg: string) {
-		const pkgJson = require(`${pkg}/package.json`);
+
+		let pkgJson;
+
+		try {
+			pkgJson = require(`${pkg}/package.json`);
+		} catch (error) {
+			return;
+		}
 	
 		const name = pkgJson.name;
 	

@@ -2,6 +2,9 @@ import serve from 'webpack-serve';
 import { Utils } from '@bluebase/cli-core';
 import deepmerge from 'deepmerge';
 
+const history = require('connect-history-api-fallback');
+const convert = require('koa-connect');
+
 /**
  * compiles a webpack config.
  * @param configs
@@ -14,6 +17,14 @@ export const webpackCompileDev = async (configs: serve.Options, label: string) =
 		devMiddleware: {
 			publicPath: '/',
 			writeToDisk: true,
+		},
+
+		add: (app: any) => {
+			const historyOptions = {
+				// ... see: https://github.com/bripkens/connect-history-api-fallback#options
+			};
+	
+			app.use(convert(history(historyOptions)));
 		},
 
 		on: {
