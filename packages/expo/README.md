@@ -24,7 +24,7 @@ $ npm install -g @bluebase/cli-expo
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-expo/0.0.8 darwin-x64 node-v11.4.0
+@bluebase/cli-expo/0.0.9 darwin-x64 node-v11.4.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -56,7 +56,7 @@ EXAMPLE
   $ bluebase expo:build:android
 ```
 
-_See code: [lib/commands/expo/build/android.js](https://github.com/BlueBaseJS/cli/blob/v0.0.8/lib/commands/expo/build/android.js)_
+_See code: [lib/commands/expo/build/android.js](https://github.com/BlueBaseJS/cli/blob/v0.0.9/lib/commands/expo/build/android.js)_
 
 ## `bluebase expo:build:ios`
 
@@ -76,7 +76,7 @@ EXAMPLE
   $ bluebase expo:build:ios
 ```
 
-_See code: [lib/commands/expo/build/ios.js](https://github.com/BlueBaseJS/cli/blob/v0.0.8/lib/commands/expo/build/ios.js)_
+_See code: [lib/commands/expo/build/ios.js](https://github.com/BlueBaseJS/cli/blob/v0.0.9/lib/commands/expo/build/ios.js)_
 
 ## `bluebase expo:init`
 
@@ -96,7 +96,7 @@ EXAMPLE
   $ bluebase expo:init
 ```
 
-_See code: [lib/commands/expo/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.8/lib/commands/expo/init.js)_
+_See code: [lib/commands/expo/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.9/lib/commands/expo/init.js)_
 
 ## `bluebase expo:start`
 
@@ -116,5 +116,5 @@ EXAMPLE
   $ bluebase expo:start
 ```
 
-_See code: [lib/commands/expo/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.8/lib/commands/expo/start.js)_
+_See code: [lib/commands/expo/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.9/lib/commands/expo/start.js)_
 <!-- commandsstop -->

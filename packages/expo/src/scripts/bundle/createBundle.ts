@@ -7,6 +7,13 @@ import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
 
+// Transpile files on the fly
+// tslint:disable-next-line: no-var-requires
+require('@babel/register')({
+	extensions: ['.js', '.jsx', '.ts', '.tsx'],
+	presets: ['babel-preset-bluebase'],
+});
+
 export interface CreateBundleInterface {
 	assetsDir: string,
 	buildDir: string,
