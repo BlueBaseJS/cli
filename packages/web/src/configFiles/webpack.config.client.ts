@@ -11,6 +11,9 @@ export default
 			// Base Config
 			.use(WebpackTools.BaseConfig())
 
+			// favIcon plugin
+			.use(WebpackTools.FavIcon())
+
 			// Hot Module Replacement
 			.use(WebpackTools.HotModuleReplacement())
 

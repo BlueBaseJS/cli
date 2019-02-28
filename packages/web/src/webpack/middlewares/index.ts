@@ -11,6 +11,7 @@ import NodeExternals from './NodeExternals';
 import ReactNative from './ReactNative';
 import SourceMaps from './SourceMaps';
 import WriteJson from './WriteJson';
+import FavIcon from './FavIcon';
 
 export {
 	AssetsJson,
@@ -26,4 +27,5 @@ export {
 	ReactNative,
 	SourceMaps,
 	WriteJson,
+	FavIcon
 };
