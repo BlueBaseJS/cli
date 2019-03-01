@@ -1,9 +1,10 @@
-// tslint:disable:object-literal-sort-keys
-import { Configuration as WebpackConfig, EnvironmentPlugin, NoEmitOnErrorsPlugin } from 'webpack';
-import { Utils } from '@bluebase/cli-core';
-import { WebpackBuilderMiddleware } from '../../types';
+// tslint:disable-next-line: sort-imports
+import { EnvironmentPlugin, NoEmitOnErrorsPlugin, Configuration as WebpackConfig } from 'webpack';
+
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import { Utils } from '@bluebase/cli-core';
 import WebpackBuilder from '../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../types';
 import merge from 'webpack-merge';
 import { useOwn } from '../../helpers/useOwn';
 
@@ -268,8 +269,8 @@ const BaseConfig: WebpackBuilderMiddleware =
 							// server.
 							ifElse(builder.isClient || builder.isServer)(() => {
 								return {
-									loader: useOwn('file-loader'),
 									exclude: [/\.ts$/, /\.js$/, /\.html$/, /\.json$/],
+									loader: useOwn('file-loader'),
 									query: {
 
 										// What is the web path that the client bundle will be served from?

@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
+
 import { ConfigsBundle } from '../types';
-import { readFile } from 'fs';
 import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
+import { readFile } from 'fs';
 
 /**
  * Middleware to intercept calls to our offline page to ensure that

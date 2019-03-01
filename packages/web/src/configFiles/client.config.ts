@@ -1,23 +1,21 @@
 // tslint:disable:object-literal-sort-keys
 import { ClientConfigs } from '../types';
-import { isProduction } from '@bluebase/cli-core/lib/utils/logic';
-import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
 import deepmerge from 'deepmerge';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
+import { isProduction } from '@bluebase/cli-core/lib/utils/logic';
 import path from 'path';
-
 
 export const fromHere = (file: string) => {
 	return path.resolve(__dirname, file);
 };
 
 export interface HookArgs {
-	buildDir: string,
-	configDir: string,
+	buildDir: string;
+	configDir: string;
 }
 
 export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 	const configs: ClientConfigs = {
-
 		target: 'web',
 		mode: isProduction() ? 'production' : 'development',
 
@@ -64,26 +62,25 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 
 		nodeExternalsFileTypeWhitelist: [],
 
-		//TODO add this in dir path
+		// TODO add this in dir path
 		favIconConfig: {
 			// Your source logo
 			logo: './assets/web/icon.png',
-		  },
+		},
 
-			// devVendorDLL: {
+		// devVendorDLL: {
 
-			// 	enabled: true,
+		// 	enabled: true,
 
-			// 	include: [
-			// 		'react',
-			// 		'react-dom',
-			// 		// 'react-helmet',
-			// 		// 'react-router-dom',
-			// 	],
+		// 	include: [
+		// 		'react',
+		// 		'react-dom',
+		// 		// 'react-helmet',
+		// 		// 'react-router-dom',
+		// 	],
 
-			// 	name: '__dev_vendor_dll__',
-			// },
-
+		// 	name: '__dev_vendor_dll__',
+		// },
 	};
 
 	return deepmerge(input, configs);

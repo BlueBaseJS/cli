@@ -1,7 +1,8 @@
-import { Configuration as WebpackConfig } from 'webpack';
-import { WebpackBuilderMiddleware } from '../../types';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import WebpackBuilder from '../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../types';
+// tslint:disable-next-line: sort-imports
+import { Configuration as WebpackConfig } from 'webpack';
 import merge from 'webpack-merge';
 
 /**

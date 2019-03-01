@@ -1,8 +1,9 @@
-import { Configuration as WebpackConfig } from 'webpack';
-import { Utils } from '@bluebase/cli-core';
-import { WebpackBuilderMiddleware } from '../../types';
 import AssetsPlugin from 'assets-webpack-plugin';
+import { Utils } from '@bluebase/cli-core';
 import WebpackBuilder from '../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../types';
+// tslint:disable-next-line: sort-imports
+import { Configuration as WebpackConfig } from 'webpack';
 import merge from 'webpack-merge';
 
 const removeNil = Utils.removeNil;
@@ -16,10 +17,11 @@ const removeNil = Utils.removeNil;
  * @param config
  * @param builder
  */
-const AssetsJson: WebpackBuilderMiddleware = () => (config: WebpackConfig, builder: WebpackBuilder): WebpackConfig => {
-
+const AssetsJson: WebpackBuilderMiddleware = () => (
+	config: WebpackConfig,
+	builder: WebpackBuilder
+): WebpackConfig => {
 	return merge(config, {
-
 		plugins: removeNil([
 			builder.ifClient(
 				() =>
@@ -27,10 +29,9 @@ const AssetsJson: WebpackBuilderMiddleware = () => (config: WebpackConfig, build
 						filename: builder.configs.bundleAssetsFileName,
 						path: builder.configs.outputPath,
 						prettyPrint: builder.isDev ? true : false,
-					}),
+					})
 			),
 		]),
-
 	});
 };
 

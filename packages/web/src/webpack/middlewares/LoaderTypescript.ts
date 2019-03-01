@@ -1,9 +1,10 @@
-// tslint:disable:object-literal-sort-keys
-import { Configuration as WebpackConfig } from 'webpack';
-import { Utils } from '@bluebase/cli-core';
-import { WebpackBuilderMiddleware } from '../../types';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { Utils } from '@bluebase/cli-core';
 import WebpackBuilder from '../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../types';
+// tslint:disable:object-literal-sort-keys
+// tslint:disable-next-line: sort-imports
+import { Configuration as WebpackConfig } from 'webpack';
 import merge from 'webpack-merge';
 import { useOwn } from '../../helpers/useOwn';
 

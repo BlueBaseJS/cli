@@ -3,6 +3,7 @@ import BaseConfig from './BaseConfig';
 import CleanBuildDir from './CleanBuildDir';
 import ClientHTML from './ClientHTML';
 import CopyAssets from './CopyAssets';
+import FavIcon from './FavIcon';
 import HotModuleReplacement from './HotModuleReplacement';
 import Jarvis from './Jarvis';
 import LoaderCss from './LoaderCss';
@@ -11,7 +12,6 @@ import NodeExternals from './NodeExternals';
 import ReactNative from './ReactNative';
 import SourceMaps from './SourceMaps';
 import WriteJson from './WriteJson';
-import FavIcon from './FavIcon';
 
 export {
 	AssetsJson,
