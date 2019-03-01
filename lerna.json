@@ -11,7 +11,6 @@
     "packages/essentials",
     "packages/expo",
     "packages/storybook",
-    "packages/storybook-native",
     "packages/web"
   ],
   "npmClient": "yarn",
