@@ -63,6 +63,13 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 		includeSourceMapsForOptimisedBundle: false,
 
 		nodeExternalsFileTypeWhitelist: [],
+
+		//TODO add this in dir path
+		favIconConfig: {
+			// Your source logo
+			logo: './assets/web/icon.png',
+		  },
+
 			// devVendorDLL: {
 
 			// 	enabled: true,

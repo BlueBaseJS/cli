@@ -4,6 +4,7 @@ import { Utils } from '@bluebase/cli-core';
 import { WebpackBuilderMiddleware } from '../../types';
 import merge from 'webpack-merge';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+import WebpackBuilder from '../WebpackBuilder';
 
 // tslint:disable-next-line:no-var-requires
 
@@ -16,14 +17,14 @@ const removeNil = Utils.removeNil;
  */
 const FavIcon: WebpackBuilderMiddleware =
 	() =>
-	(config: WebpackConfig): WebpackConfig => {
+	(config: WebpackConfig, builder: WebpackBuilder): WebpackConfig => {
 
 		const newConfig: any = merge(config, {
 
 			plugins: removeNil([
 
 			// favIconPlugin
-                    new FaviconsWebpackPlugin({logo: './assets/web/icon.png'})
+                    new FaviconsWebpackPlugin(builder.configs.favIconConfig)
 			]),
 		});
 		return newConfig;
