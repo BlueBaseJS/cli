@@ -1,6 +1,6 @@
 {
   "name": "@bluebase/cli-web",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueBaseJS/cli/issues",
   "main": "lib/index.js",
@@ -17,7 +17,7 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-react-native-web": "^0.9.13",
-    "babel-preset-bluebase": "^1.0.0",
+    "babel-preset-bluebase": "^2.0.0",
     "cache-loader": "^1.2.2",
     "chokidar": "^2.0.4",
     "clean-webpack-plugin": "^0.1.19",
