@@ -37,7 +37,7 @@ const LoaderTypescript: WebpackBuilderMiddleware =
 								cacheDirectory: true,
 								babelrc: false,
 								presets: [
-									'babel-preset-bluebase',
+									useOwn('babel-preset-bluebase'),
 								]
 							},
 						},
@@ -80,7 +80,7 @@ const LoaderTypescript: WebpackBuilderMiddleware =
 		// Typescript
 		{
 			test: /\.(j|t)sx?$/,
-			exclude: /node_modules/,
+			// exclude: /node_modules/,
 			include: removeNil([
 				...builder.configs.includePaths,
 				// ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
