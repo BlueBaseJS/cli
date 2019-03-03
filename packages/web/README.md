@@ -24,7 +24,7 @@ $ npm install -g @bluebase/cli-web
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-web/0.0.19 darwin-x64 node-v11.4.0
+@bluebase/cli-web/0.0.20 darwin-x64 node-v11.4.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -50,7 +50,7 @@ OPTIONS
   --static               Create a static project.
 ```
 
-_See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.19/src/commands/web/build.ts)_
+_See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.20/src/commands/web/build.ts)_
 
 ## `bluebase web:init`
 
@@ -70,7 +70,7 @@ EXAMPLE
   $ bluebase web:init
 ```
 
-_See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.19/src/commands/web/init.ts)_
+_See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.20/src/commands/web/init.ts)_
 
 ## `bluebase web:start`
 
@@ -85,5 +85,5 @@ OPTIONS
   --static               Create a static project.
 ```
 
-_See code: [src/commands/web/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.19/src/commands/web/start.ts)_
+_See code: [src/commands/web/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.20/src/commands/web/start.ts)_
 <!-- commandsstop -->
