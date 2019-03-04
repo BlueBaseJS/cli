@@ -1,6 +1,6 @@
+import { ConfigsBundle } from '../types';
 import express from 'express';
 import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
-import { ConfigsBundle } from '../types';
 
 /**
  * Middleware to serve our client bundle.

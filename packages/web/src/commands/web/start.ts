@@ -1,20 +1,18 @@
-import { Utils } from '@bluebase/cli-core';
-import { FlagDefs } from '../../cli-flags';
 import { Command } from '@oclif/command';
-import { spawn } from 'child_process';
+import { FlagDefs } from '../../cli-flags';
 import { Flags } from '../../types';
-import { resolvePaths } from '../../helpers/resolvePaths';
-import { resolveConfigsBundle } from '../../helpers/resolveConfigsBundle';
-import { webpackCompileDev } from '../../helpers/webpackCompileDev';
-import { webpackCompile } from '../../helpers/webpackCompile';
+import { Utils } from '@bluebase/cli-core';
 import { createCleanDir } from '../../helpers/createCleanDir';
+import { resolveConfigsBundle } from '../../helpers/resolveConfigsBundle';
+import { resolvePaths } from '../../helpers/resolvePaths';
+import { spawn } from 'child_process';
+import { webpackCompile } from '../../helpers/webpackCompile';
+import { webpackCompileDev } from '../../helpers/webpackCompileDev';
 
 export class StartCommand extends Command {
-
 	static flags = FlagDefs;
 
 	async run() {
-
 		const label = '@bluebase/cli/web';
 		const development = true;
 
@@ -46,34 +44,36 @@ export class StartCommand extends Command {
 		Utils.logger.log({
 			label,
 			level: 'info',
-			message: `👨‍💻 Compiling BlueBase's client bundle`
+			message: `👨‍💻 Compiling BlueBase's client bundle`,
 		});
 
-		webpackCompileDev({
-			config: configs.clientWebpackConfigs,
-			host: configs.clientConfigs.devServerHost,
-			port: configs.clientConfigs.devServerPort,
+		webpackCompileDev(
+			{
+				config: configs.clientWebpackConfigs,
+				host: configs.clientConfigs.devServerHost,
+				port: configs.clientConfigs.devServerPort,
 
-			on: {
-				'build-finished': () => {
+				on: {
+					'build-finished': () => {
+						if (flags.static === false) {
+							// startServer(configs, '@bluebase/cli/web-server');
 
-					if (flags.static === false) {
-						// startServer(configs, '@bluebase/cli/web-server');
-
-						webpackCompile(configs.serverWebpackConfigs).then(() => {
-							spawn(
-								'node',
-								[Utils.fromProjectRoot(configs.buildDir, 'server/index.js')],
-								{ shell: true, env: process.env, stdio: 'inherit' }
-							)
-								.on('close', (_code: number) => process.exit(0))
-								.on('error', (spawnError: Error) => Utils.logger.error(spawnError));
-
-						});
-							
-					}
-				}
-			}
-		}, label);
+							webpackCompile(configs.serverWebpackConfigs).then(() => {
+								spawn(
+									'node',
+									[Utils.fromProjectRoot(configs.buildDir, 'server/index.js')],
+									{ shell: true, env: process.env, stdio: 'inherit' }
+								)
+									.on('close', (_code: number) => process.exit(0))
+									.on('error', (spawnError: Error) =>
+										Utils.logger.error(spawnError)
+									);
+							});
+						}
+					},
+				},
+			},
+			label
+		);
 	}
 }

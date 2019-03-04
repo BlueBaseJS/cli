@@ -1,7 +1,8 @@
-import { Configuration as WebpackConfig } from 'webpack';
 import { Utils } from '@bluebase/cli-core';
-import { WebpackBuilderMiddleware } from '../../types';
 import WebpackBuilder from '../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../types';
+// tslint:disable-next-line: sort-imports
+import { Configuration as WebpackConfig } from 'webpack';
 import merge from 'webpack-merge';
 
 // tslint:disable-next-line:no-var-requires

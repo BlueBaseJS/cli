@@ -1,11 +1,12 @@
 /* tslint:disable:quotemark object-literal-sort-keys */
 import { NextFunction, Request, Response } from 'express';
 import { ifElse, isProduction } from '@bluebase/cli-core/lib/utils/logic';
-import { removeNil } from '@bluebase/cli-core/lib/utils/arrays';
+
+import { ConfigsBundle } from '../types';
 import helmet from 'helmet';
 import hpp from 'hpp';
+import { removeNil } from '@bluebase/cli-core/lib/utils/arrays';
 import uuid from 'uuid';
-import { ConfigsBundle } from '../types';
 
 export default (configs: ConfigsBundle) => {
 

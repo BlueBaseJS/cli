@@ -1,5 +1,6 @@
-import { Configuration as WebpackConfiguration } from 'webpack';
 import { ClientConfigs, ServerConfigs } from './configs';
+
+import { Configuration as WebpackConfiguration } from 'webpack';
 
 export interface Flags {
 	/** Path of the directory that the output be generated in */
@@ -20,30 +21,30 @@ export interface Flags {
  */
 export interface PathsBundle extends Flags {
 	/** Path of the App.js file */
-  appJsPath: string,
+	appJsPath: string;
 
 	/** Path of the bluebase.js file */
-  bluebaseJsPath: string,
+	bluebaseJsPath: string;
 
 	/** Path of Client configurations */
-	clientConfigPath: string,
+	clientConfigPath: string;
 
 	/** Path of Client webpack configurations */
-	clientWebpackConfigPath: string,
-	
+	clientWebpackConfigPath: string;
+
 	/** Path of Server configurations */
-  serverConfigPath: string,
+	serverConfigPath: string;
 
 	/** Path of Server webpack configurations */
-	serverWebpackConfigPath: string,
-};
+	serverWebpackConfigPath: string;
+}
 
 /**
  * Paths of all relevant files
  */
 export interface ConfigsBundle extends PathsBundle {
-  clientConfigs: ClientConfigs,
-	serverConfigs: ServerConfigs,
-  clientWebpackConfigs: WebpackConfiguration,
-  serverWebpackConfigs: WebpackConfiguration,
-};
+	clientConfigs: ClientConfigs;
+	serverConfigs: ServerConfigs;
+	clientWebpackConfigs: WebpackConfiguration;
+	serverWebpackConfigs: WebpackConfiguration;
+}

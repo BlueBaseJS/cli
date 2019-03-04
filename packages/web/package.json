@@ -63,7 +63,8 @@
     "webpack-serve": "^2.0.2",
     "webpack-serve-waitpage": "^1.0.2",
     "webpack-stylish": "^0.1.8",
-    "write-json-webpack-plugin": "^1.0.2"
+    "write-json-webpack-plugin": "^1.0.2",
+    "favicons-webpack-plugin": "^0.0.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

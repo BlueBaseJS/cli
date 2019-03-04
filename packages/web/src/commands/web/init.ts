@@ -1,9 +1,10 @@
-import { FlagDefs } from '../../cli-flags';
 import { requiredDependencies, requiredDevDependencies } from '../../helpers/dependencies';
+
 import { Command } from '@oclif/command';
+import { FlagDefs } from '../../cli-flags';
+import { Flags } from '../../types';
 import { Utils } from '@bluebase/cli-core';
 import { copyTemplateFiles } from '../../helpers/copyTemplateFiles';
-import { Flags } from '../../types';
 
 export default class CustomCommand extends Command {
 	static description = 'Initializes a directory with an example project.';
