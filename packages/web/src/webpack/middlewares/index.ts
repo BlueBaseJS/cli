@@ -11,6 +11,7 @@ import LoaderTypescript from './LoaderTypescript';
 import NodeExternals from './NodeExternals';
 import ReactNative from './ReactNative';
 import SourceMaps from './SourceMaps';
+import WorkBox from './WorkBox';
 import WriteJson from './WriteJson';
 
 export {
@@ -27,5 +28,6 @@ export {
 	ReactNative,
 	SourceMaps,
 	WriteJson,
-	FavIcon
+	FavIcon,
+	WorkBox
 };

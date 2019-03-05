@@ -67,6 +67,10 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 			// Your source logo
 			logo: './assets/web/icon.png',
 		},
+		workBox:{
+			config:{},
+			disable: false
+		}
 
 		// devVendorDLL: {
 
