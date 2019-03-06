@@ -65,10 +65,45 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 		// TODO add this in dir path
 		favIconConfig: {
 			// Your source logo
-			logo: './assets/web/icon.png',
+			logo: './assets/web/icon.png'
 		},
 		workBox:{
-			config:{},
+			config:{
+				swDest: 'sw.js',
+				runtimeCaching: [{
+					urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+					handler: 'StaleWhileRevalidate',
+					options: {
+						cacheName: 'google-fonts-stylesheets'
+					}
+				}, {
+					urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+					handler: 'CacheFirst',
+					options: {
+						cacheName: 'google-fonts-webfonts',
+						expiration: {
+							maxEntries: 30,
+							maxAgeSeconds: 60 * 60 * 24 * 365
+						}
+					}
+				}, {
+					urlPattern: /\.(?:png|gif|jpg|jpeg|svg)$/,
+					handler: 'CacheFirst',
+					options: {
+						cacheName: 'images',
+						expiration: {
+							maxEntries: 60,
+							maxAgeSeconds: 30 * 24 * 60 * 60
+						}
+					}
+				}, {
+					urlPattern: /\.(?:js|css)$/,
+					handler: 'StaleWhileRevalidate',
+					options: {
+						cacheName: 'static-resources'
+					}
+				}]
+			},
 			disable: false
 		}
 
