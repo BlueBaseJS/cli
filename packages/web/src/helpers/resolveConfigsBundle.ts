@@ -9,7 +9,7 @@ import defaultServerWebpackConfigs from '../configFiles/webpack.config.server';
 // tslint:disable-next-line:no-var-requires
 require('@babel/register')({
 	extensions: ['.js', '.jsx', '.ts', '.tsx'],
-	presets: ['babel-preset-bluebase'],
+	presets: ['@bluebase/babel-preset-bluebase'],
 });
 
 export interface ConfigsBundleOptions {

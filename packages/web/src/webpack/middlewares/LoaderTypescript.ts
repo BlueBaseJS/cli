@@ -38,7 +38,7 @@ const LoaderTypescript: WebpackBuilderMiddleware =
 								cacheDirectory: true,
 								babelrc: false,
 								presets: [
-									useOwn('babel-preset-bluebase'),
+									useOwn('@bluebase/babel-preset-bluebase'),
 								]
 							},
 						},

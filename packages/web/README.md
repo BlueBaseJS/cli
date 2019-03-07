@@ -24,7 +24,7 @@ $ npm install -g @bluebase/cli-web
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-web/0.0.21 darwin-x64 node-v11.4.0
+@bluebase/cli-web/0.0.21 linux-x64 node-v8.9.4
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
