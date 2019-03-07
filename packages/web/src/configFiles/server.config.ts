@@ -1,8 +1,9 @@
 // tslint:disable:object-literal-sort-keys
-import { ServerConfigs, PathsBundle } from '../types';
-import { isProduction } from '@bluebase/cli-core/lib/utils/logic';
-import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
+import { PathsBundle, ServerConfigs } from '../types';
+
 import deepmerge from 'deepmerge';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
+import { isProduction } from '@bluebase/cli-core/lib/utils/logic';
 import path from 'path';
 
 export const fromHere = (file: string) => {

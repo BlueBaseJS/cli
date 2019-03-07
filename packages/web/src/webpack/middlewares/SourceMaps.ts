@@ -1,7 +1,9 @@
 import { BannerPlugin, Configuration as WebpackConfig } from 'webpack';
+
 import { Utils } from '@bluebase/cli-core';
-import { WebpackBuilderMiddleware } from '../../types';
+// tslint:disable-next-line: sort-imports
 import WebpackBuilder from '../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../types';
 import merge from 'webpack-merge';
 
 const ifElse = Utils.ifElse;

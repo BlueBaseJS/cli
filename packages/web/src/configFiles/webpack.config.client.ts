@@ -1,5 +1,6 @@
 import * as WebpackTools from '../webpack';
 import * as webpack from 'webpack';
+
 import { WebpackHookArguments } from '../types';
 
 export default
@@ -10,6 +11,9 @@ export default
 		const configs = builder
 			// Base Config
 			.use(WebpackTools.BaseConfig())
+
+			// favIcon plugin
+			.use(WebpackTools.FavIcon())
 
 			// Hot Module Replacement
 			.use(WebpackTools.HotModuleReplacement())

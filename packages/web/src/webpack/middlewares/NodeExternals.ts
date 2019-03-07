@@ -1,12 +1,13 @@
-import { Configuration as WebpackConfig } from 'webpack';
 import { Utils } from '@bluebase/cli-core';
-import { WebpackBuilderMiddleware } from '../../types';
 import WebpackBuilder from '../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../types';
+// tslint:disable-next-line: sort-imports
+import { Configuration as WebpackConfig } from 'webpack';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils';
 import { fromRoot } from '../../helpers/fromRoot';
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
-import { fromProjectRoot } from '@bluebase/cli-core/lib/utils';
- 
+
 const removeNil = Utils.removeNil;
 
 /**
@@ -18,70 +19,67 @@ const removeNil = Utils.removeNil;
  * @param config
  * @param builder
  */
-const NodeExternals: WebpackBuilderMiddleware =
-	(options: nodeExternals.Options = {}) =>
-	(config: WebpackConfig, builder: WebpackBuilder): WebpackConfig => {
+const NodeExternals: WebpackBuilderMiddleware = (
+	options: nodeExternals.Options = {}
+) => (config: WebpackConfig, builder: WebpackBuilder): WebpackConfig => {
+	return merge(config, {
+		// externals: externalsConfig(builder.isServer, 'node'),
 
-			return merge(config, {
-				
-				// externals: externalsConfig(builder.isServer, 'node'),
+		externals: [
+			nodeExternals(
+				// Some of our node_modules may contain files that depend on our
+				// webpack loaders, e.g. CSS or SASS.
+				// For these cases please make sure that the file extensions are
+				// registered within the following configuration setting.
+				{
+					// Modules dir
+					modulesDir: fromRoot('./node_modules'),
 
-				externals: [
+					// modulesFromFile: {
+					// 	exclude: ['devDependencies'],
+					// 	include: ['dependencies']
+					// } as any,
 
-				nodeExternals(
-					// Some of our node_modules may contain files that depend on our
-					// webpack loaders, e.g. CSS or SASS.
-					// For these cases please make sure that the file extensions are
-					// registered within the following configuration setting.
-					{
-						// Modules dir
-						modulesDir: fromRoot('./node_modules'),
+					whitelist: removeNil([
+						// We always want the source-map-support included in
+						// our node target bundles.
+						'source-map-support/register',
 
-						// modulesFromFile: {
-						// 	exclude: ['devDependencies'],
-						// 	include: ['dependencies']
-						// } as any,
+						// Since the CLI maybe installed globally, the dependencies
+						// of these repo may not be available in project modules
+						// So, we're not excluding them.
+						...getDependenciesRecursive('@bluebase/cli-core'),
+						...getDependenciesRecursive('express'),
+						...getDependenciesRecursive('react-helmet'),
+						...getDependenciesRecursive('react-native-web'),
+						...getDependenciesRecursive('react-art'),
+						...getDependenciesRecursive('helmet'),
+						...getDependenciesRecursive('hpp'),
 
-						whitelist: removeNil([
-							// We always want the source-map-support included in
-							// our node target bundles.
-							'source-map-support/register',
+						// We want to add project's dependencies too
+						// because they may need the react-native alias
+						...getDependenciesRecursive('@bluebase/core'),
+						...getDependenciesRecursive(fromProjectRoot(), [
+							'expo',
+							'react-native',
+						]),
+					])
+						// And any items that have been whitelisted in the config need
+						// to be included in the bundling process too.
+						.concat(builder.configs.nodeExternalsFileTypeWhitelist || []),
 
-							// Since the CLI maybe installed globally, the dependencies
-							// of these repo may not be available in project modules
-							// So, we're not excluding them.
-							...getDependenciesRecursive('@bluebase/cli-core'),
-							...getDependenciesRecursive('express'),
-							...getDependenciesRecursive('react-helmet'),
-							...getDependenciesRecursive('react-native-web'),
-							...getDependenciesRecursive('react-art'),
-							...getDependenciesRecursive('helmet'),
-							...getDependenciesRecursive('hpp'),
-							
-							// We want to add project's dependencies too
-							// because they may need the react-native alias
-							...getDependenciesRecursive('@bluebase/core'),
-							...getDependenciesRecursive(fromProjectRoot(), ['expo', 'react-native']),
-						])
-							// And any items that have been whitelisted in the config need
-							// to be included in the bundling process too.
-							.concat(builder.configs.nodeExternalsFileTypeWhitelist || []),
-
-						// Overriders
-						...options,
-					}
-				),
-			],
-
-		});
-	};
+					// Overriders
+					...options,
+				}
+			),
+		],
+	});
+};
 
 function getDependenciesRecursive(_package: string, skip: string[] = []) {
-	
 	const list: string[] = [];
 
 	function run(pkg: string) {
-
 		let pkgJson;
 
 		try {
@@ -89,27 +87,27 @@ function getDependenciesRecursive(_package: string, skip: string[] = []) {
 		} catch (error) {
 			return;
 		}
-	
+
 		const name = pkgJson.name;
-	
+
 		if (!name) {
 			return;
 		}
-	
+
 		// This package is already processed, skip!
 		if (list.indexOf(name) !== -1) {
 			return;
 		}
-	
+
 		// The package is in skip list
 		if (skip.indexOf(name) !== -1) {
 			return;
 		}
-	
+
 		const dependencies = Object.keys(pkgJson.dependencies || {});
-	
+
 		list.push(name);
-	
+
 		dependencies.forEach(dep => {
 			run(dep);
 		});

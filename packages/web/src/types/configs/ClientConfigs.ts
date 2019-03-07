@@ -59,4 +59,8 @@ export interface ClientConfigs extends BundleDefinition {
 		/** The name of the vendor DLL. */
 		name: string,
 	},
+
+	favIconConfig:{
+		logo: string
+	}
 }

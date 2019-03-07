@@ -1,19 +1,19 @@
-import fs from 'fs';
-import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
-import { resolvePaths } from '../helpers/resolvePaths';
+import { ConfigsBundle } from './types';
+import { PathsBundle } from '../types';
+import clientBundle from './middleware/clientBundle';
+import compression from 'compression';
 import customClientConfigs from 'CLIENT_CONFIG';
 import customServerConfigs from 'SERVER_CONFIG';
 import defaultClientConfigs from '../configFiles/client.config';
 import defaultServerConfigs from '../configFiles/server.config';
-import { PathsBundle } from '../types';
-import express from 'express';
-import logger from '@bluebase/cli-core/lib/utils/logger';
-import clientBundle from './middleware/clientBundle';
-import reactApplication from './middleware/reactApplication';
-import security from './middleware/security';
-import compression from 'compression';
 import errorHandlers from './middleware/errorHandlers';
-import { ConfigsBundle } from './types';
+import express from 'express';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
+import fs from 'fs';
+import logger from '@bluebase/cli-core/lib/utils/logger';
+import reactApplication from './middleware/reactApplication';
+import { resolvePaths } from '../helpers/resolvePaths';
+import security from './middleware/security';
 
 ///////////////////////////
 ///// Load paths.json /////
@@ -23,7 +23,7 @@ const configsPath = fromProjectRoot('./build/web/server/paths.json');
 
 if (!fs.existsSync(configsPath)) {
 	throw new Error(
-		`We could not find the "paths.json" file. Please ensure that the server bundle has been built.`,
+		`We could not find the "paths.json" file. Please ensure that the server bundle has been built.`
 	);
 }
 
@@ -45,7 +45,11 @@ serverConfigs = customServerConfigs(serverConfigs, paths);
 ///// Configs /////
 ///////////////////
 
-const configs: ConfigsBundle = { ...resolvePaths(paths), clientConfigs, serverConfigs };
+const configs: ConfigsBundle = {
+	...resolvePaths(paths),
+	clientConfigs,
+	serverConfigs,
+};
 
 //////////////////
 ///// Server /////
@@ -113,7 +117,9 @@ app.listen(serverConfigs.port, () => {
 		Server Side Rendering: ${!serverConfigs.disableSSR}
 
 		Server is now listening on Port ${serverConfigs.port}
-		You can access it in the browser at http://${serverConfigs.host}:${serverConfigs.port}
+		You can access it in the browser at http://${serverConfigs.host}:${
+			serverConfigs.port
+		}
 		Press Ctrl-C to stop.
 
 

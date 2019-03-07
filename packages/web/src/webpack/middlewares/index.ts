@@ -3,6 +3,7 @@ import BaseConfig from './BaseConfig';
 import CleanBuildDir from './CleanBuildDir';
 import ClientHTML from './ClientHTML';
 import CopyAssets from './CopyAssets';
+import FavIcon from './FavIcon';
 import HotModuleReplacement from './HotModuleReplacement';
 import Jarvis from './Jarvis';
 import LoaderCss from './LoaderCss';
@@ -26,4 +27,5 @@ export {
 	ReactNative,
 	SourceMaps,
 	WriteJson,
+	FavIcon
 };
