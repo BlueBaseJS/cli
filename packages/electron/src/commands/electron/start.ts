@@ -1,5 +1,6 @@
 import { FileManager, Utils } from '@bluebase/cli-core';
 import { FlagDefs, Flags } from '../../cli-flags';
+
 import { Command } from '@oclif/command';
 import { fromRoot } from '../../scripts';
 import fs from 'fs';
@@ -10,7 +11,9 @@ import serve from 'webpack-serve';
 import shell from 'shelljs';
 import webpack from 'webpack';
 
+// tslint:disable-next-line:no-var-requires
 const { spawn } = require('child_process');
+// tslint:disable-next-line:no-var-requires
 const webpackServeWaitpage = require('webpack-serve-waitpage');
 
 // import { webpackCompileDev } from '../../scripts/webpackCompileDev';
