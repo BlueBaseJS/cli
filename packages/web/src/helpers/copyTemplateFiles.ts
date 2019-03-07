@@ -1,5 +1,5 @@
 import { Utils, copyTemplateFiles as copyCoreTemplateFiles } from '@bluebase/cli-core';
-import fromRoot from './fromRoot';
+import { fromRoot } from './fromRoot';
 import path from 'path';
 
 /**

@@ -1,7 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { Utils } from '@bluebase/cli-core';
-
-const logger = Utils.logger;
+import logger from '@bluebase/cli-core/lib/utils/logger';
 
 const errorHandlersMiddleware = [
   /**

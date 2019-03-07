@@ -1,9 +1,6 @@
-import { FileManager, Utils, getDefaults } from '@bluebase/cli-core';
-import { execSync } from 'child_process';
-import fromRoot from '../fromRoot';
+import defaultConfigs from '../../configs';
+import { findFile } from './findFile';
 import path from 'path';
-// import shell from 'shelljs';
-import rimraf from 'rimraf';
 
 export interface CreateBundleInterface {
 	assetsDir: string,
@@ -12,56 +9,35 @@ export interface CreateBundleInterface {
 	name: string,
 }
 
-export const getAppJson = async ({ assetsDir, buildDir, configDir, name }: CreateBundleInterface) => {
+export const getAppJson = async ({ assetsDir, buildDir, configDir }: CreateBundleInterface) => {
 
-	const distDir = path.join(buildDir, 'dist');
+	///////////////////////////////////
+  ///// Generate Client Configs /////
+  ///////////////////////////////////
 
-	await Utils.copyTemplateFiles(fromRoot('./templates/dist'), distDir, {
-		force: true,
-		prompt: false,
-		variables: {
-			'CONFIG_DIR_PATH': path.relative(distDir, configDir),
-			'ROOT_DIR_PATH': path.relative(distDir, Utils.fromProjectRoot()),
-		},
-		writeFiles: ['tsconfig.json'],
-	});
-	// shell.cp(`${fromRoot('./templates/tsconfig.json')}`, distDir);
+	const paths = { buildDir, configDir, assetsDir };
 
-	/////////////////////
-	///// Transpile /////
-	/////////////////////
+  // Get default configs
+	let configs = defaultConfigs({} as any, paths as any);
 
-	execSync(
-		// tslint:disable-next-line:max-classes-per-file
-		`${fromRoot('node_modules/.bin/tsc')} -p ${path.join(distDir, 'tsconfig.json')}`,
-		{ env: process.env, stdio: 'inherit' }
+	// See if there is a custom config file in the project
+	const configPath = findFile(
+    path.resolve(configDir, 'config.client'),
+    path.resolve(__dirname, './emptyFn.js')
 	);
 
-	Utils.copyTemplateFiles(path.resolve(assetsDir, '..'), path.join(distDir, 'assets'), { force: true });
+	// Import the file
+	let customConfigs = require(configPath);
+	customConfigs = customConfigs.default || customConfigs;
 
-	// Directory where we have our transpiled config code
-	// const originalConfigDir = configDir;
-	const tranpileConfigDir = path.join(distDir, path.relative(Utils.fromProjectRoot(), configDir));
+  // Use these configs
+	configs = customConfigs(configs, paths);
 
 	/////////////////////////////
 	///// Generate app.json /////
 	/////////////////////////////
 
-	const defaults = getDefaults(tranpileConfigDir);
-
-	const configFiles = [{
-		...defaults.configs,
-		defaultPath: path.join(__dirname, '../../configs')
-	}];
-
-	const fileManager = new FileManager(name, configFiles);
-	await fileManager.setup();
-
-	const configs = await fileManager.Hooks.run(`${name}.configs`, {}, { buildDir, configDir, assetsDir });
 	const appJson = { expo: configs.manifest };
-
-	// Clean  up
-	rimraf.sync(distDir);
 
 	return appJson;
 };

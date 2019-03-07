@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { BlueBaseApp } from '@bluebase/core';
-// import ReactHotLoaderPlugin from './ReactHotLoaderPlugin/HOC';
 
 // tslint:disable-next-line:no-var-requires
-let bootConfig = require('BLUERAIN_BOOT_OPTIONS');
+let bootOptions = require('BLUEBASE_BOOT_OPTIONS');
 
 // ES Module
-bootConfig = bootConfig.default ? bootConfig.default : bootConfig;
+bootOptions = bootOptions.default ? bootOptions.default : bootOptions;
 
 // const isDev = process.env.BUILD_FLAG_IS_DEV === 'true';
 // const isClient = process.env.BUILD_FLAG_IS_CLIENT === 'true';
@@ -22,7 +21,7 @@ bootConfig = bootConfig.default ? bootConfig.default : bootConfig;
 // }
 
 const App = () => (
-	<BlueBaseApp {...bootConfig} />
+	<BlueBaseApp {...bootOptions} />
 );
 
 export default App;

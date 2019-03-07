@@ -1,5 +1,5 @@
 import { ConfigFileInfo, getDefaults } from '@bluebase/cli-core';
-// import fromRoot from '../scripts/fromRoot';
+// import fromRoot from '../helpers/fromRoot';
 import path from 'path';
 
 const fromHere = (file: string) => {

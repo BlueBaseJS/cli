@@ -1,10 +1,11 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../flags';
+
 import { Command } from '@oclif/command';
 import { Utils } from '@bluebase/cli-core';
 import { createBundle } from '../../scripts';
-import { spawn } from 'child_process';
 import fromRoot from '../../scripts/fromRoot';
 import path from 'path';
+import { spawn } from 'child_process';
 
 export default class ExpoStart extends Command {
 	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';

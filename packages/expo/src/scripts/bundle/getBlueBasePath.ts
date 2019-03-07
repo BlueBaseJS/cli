@@ -1,24 +1,18 @@
-import { FileManager, getDefaults } from '@bluebase/cli-core';
+import { Utils } from '@bluebase/cli-core';
+import { findFile } from './findFile';
+import path from 'path';
 
 export interface CreateBundleInterface {
 	configDir: string,
 	name: string,
 }
 
-export const getBlueBasePath = async ({ configDir, name }: CreateBundleInterface) => {
+export const getBlueBasePath = async ({ configDir }: CreateBundleInterface) => {
 
-	const defaults = getDefaults(configDir);
-
-	const configFiles = [defaults.bluebase];
-
-	const fileManager = new FileManager(name, configFiles);
-	await fileManager.setup();
-
-	// Path to bluebase.js file
-	let bluebaseJsPath = await fileManager.resolveFilePath('bluebase');
-
-	// Remove (.ts|.js) extension
-	bluebaseJsPath = bluebaseJsPath.replace(/\.[^/.]+$/, '');
+	const bluebaseJsPath = findFile(
+    path.resolve(configDir, 'bluebase'),
+    Utils.fromCore('templates/common/bluebase.ts')
+	);
 
 	return bluebaseJsPath;
 };

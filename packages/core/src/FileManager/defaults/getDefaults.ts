@@ -1,6 +1,6 @@
 import { ConfigFileInfo } from '../ConfigFileInfo';
-import path from 'path';
 import { fromCore } from '../../utils';
+import path from 'path';
 
 const fromHere = (filename: string) => path.resolve(__dirname, filename);
 

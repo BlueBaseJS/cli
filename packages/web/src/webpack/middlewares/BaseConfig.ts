@@ -1,11 +1,12 @@
-// tslint:disable:object-literal-sort-keys
-import { Configuration as WebpackConfig, EnvironmentPlugin, NoEmitOnErrorsPlugin } from 'webpack';
-import { Utils } from '@bluebase/cli-core';
-import { WebpackBuilderMiddleware } from '../../types';
+// tslint:disable-next-line: sort-imports
+import { EnvironmentPlugin, NoEmitOnErrorsPlugin, Configuration as WebpackConfig } from 'webpack';
+
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import { Utils } from '@bluebase/cli-core';
 import WebpackBuilder from '../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../types';
 import merge from 'webpack-merge';
-import useOwn from '../../scripts/useOwn';
+import { useOwn } from '../../helpers/useOwn';
 
 // tslint:disable-next-line:no-var-requires
 const WebpackStylish = require('webpack-stylish');
@@ -35,11 +36,11 @@ const BaseConfig: WebpackBuilderMiddleware =
 				// Mode
 				mode: builder.configs.mode,
 
-				target: builder.configs.target || builder.isClient
+				target: builder.configs.target || (builder.isClient
 					? // Only our client bundle will target the web as a runtime.
 					'web'
 					: // Any other bundle must be targetting node as a runtime.
-					'node',
+					'node'),
 
 				// Ensure that webpack polyfills the following node features for use
 				// within any bundles that are targetting node as a runtime. This will be
@@ -131,7 +132,10 @@ const BaseConfig: WebpackBuilderMiddleware =
 						'@bluebase/core': Utils.fromProjectRoot('node_modules/@bluebase/core'),
 
 						// BlueBase boot options file, AKA bluebase.js
-						BLUERAIN_BOOT_OPTIONS: builder.bluebaseJsPath,
+						BLUEBASE_BOOT_OPTIONS: builder.bluebaseJsPath,
+
+						// Custom App.js
+						APP_JS: builder.appJsPath,
 					},
 				},
 
@@ -265,8 +269,8 @@ const BaseConfig: WebpackBuilderMiddleware =
 							// server.
 							ifElse(builder.isClient || builder.isServer)(() => {
 								return {
-									loader: useOwn('file-loader'),
 									exclude: [/\.ts$/, /\.js$/, /\.html$/, /\.json$/],
+									loader: useOwn('file-loader'),
 									query: {
 
 										// What is the web path that the client bundle will be served from?

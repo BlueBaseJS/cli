@@ -6,7 +6,13 @@
     }
   },
   "packages": [
-    "packages/*"
+    "packages/cli",
+    "packages/core",
+    "packages/essentials",
+    "packages/expo",
+    "packages/storybook",
+    "packages/storybook-native",
+    "packages/web"
   ],
   "npmClient": "yarn",
   "version": "1.0.0"

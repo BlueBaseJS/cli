@@ -1,7 +1,7 @@
 {
   "gitflow4code.features": [
     {
-      "name": "feature/new-release",
+      "name": "feature/web-improvements",
       "base": "develop"
     }
   ]

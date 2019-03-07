@@ -1,15 +1,16 @@
 import { Request, Response } from 'express';
-import { ServerConfigsBundle } from '../../server';
-import { Utils } from '@bluebase/cli-core';
-// tslint:disable-next-line:no-submodule-imports
-import { renderToStaticMarkup } from 'react-dom/server';
+
+import { ConfigsBundle } from '../../types';
 import React from 'react';
 import getServerHTML from './ServerHTML';
+import logger from '@bluebase/cli-core/lib/utils/logger';
+import { renderToStaticMarkup } from 'react-dom/server';
 
-const logger = Utils.logger;
-
-export default (request: Request, response: Response, configs: ServerConfigsBundle) => {
-
+export default (
+	request: Request,
+	response: Response,
+	configs: ConfigsBundle
+) => {
 	const ServerHTML = getServerHTML(configs);
 
 	// Ensure a nonce has been provided to us.

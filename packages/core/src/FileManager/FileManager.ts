@@ -3,8 +3,8 @@ import { ConfigFileInfo } from './ConfigFileInfo';
 import { HookRegistry } from './bluebase/HookRegistry';
 import { Registry } from './bluebase/Registry';
 import { Utils } from '..';
-import findFiles from 'file-regex';
 import { isFunction } from 'util';
+import findFiles from 'file-regex';
 import path from 'path';
 
 export interface BRCommand extends Command {

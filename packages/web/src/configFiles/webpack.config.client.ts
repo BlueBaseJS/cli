@@ -1,5 +1,6 @@
 import * as WebpackTools from '../webpack';
 import * as webpack from 'webpack';
+
 import { WebpackHookArguments } from '../types';
 
 export default
@@ -11,6 +12,9 @@ export default
 			// Base Config
 			.use(WebpackTools.BaseConfig())
 
+			// favIcon plugin
+			.use(WebpackTools.FavIcon())
+
 			// Hot Module Replacement
 			.use(WebpackTools.HotModuleReplacement())
 
@@ -20,19 +24,8 @@ export default
 			// Patch React Native
 			.use(WebpackTools.ReactNative())
 
-			// Use Custom App.js feature
-			.use(WebpackTools.CustomApp())
-
-			// Add Jarvis Dashboard
-			.use(WebpackTools.Jarvis())
-
 			// Generate assets.json
 			.use(WebpackTools.AssetsJson())
-
-			// // Generate configs.json
-			// .use(WebpackTools.ConfigsJson())
-
-			// .use(WebpackTools.ClientHTML())
 
 			///// Loaders
 
@@ -42,14 +35,16 @@ export default
 			// TS Loader
 			.use(WebpackTools.LoaderTypescript())
 
-			// // JS Loader
-			// .use(WebpackTools.LoaderJavascript())
-
 			// Finally, merge user input overrides
-			.merge(webpackConfigInput)
+			.merge(webpackConfigInput);
 
-			// Build
-			.build();
+		if (buildOptions.static === true) {
+			configs.use(WebpackTools.ClientHTML());
+		}
 
-		return configs;
+		if (buildOptions.configs.devDashboardEnable === true) {
+			configs.use(WebpackTools.Jarvis(buildOptions.configs.devDashboardPort));
+		}
+
+		return configs.build();
 	};

@@ -16,10 +16,11 @@ export const requiredDevDependencies = [
 	...coreDevDeps,
 	'@types/deepmerge',
 	'react-native-typescript-transformer@^1.2.10',
+	'schedule@0.4.0',
 ];
 
 const expoVersion = getLatestExpoVersion();
 
 requiredDependencies.push(`expo@${expoVersion.expo}`);
 requiredDependencies.push(`react@^${expoVersion.react}`);
-requiredDependencies.push(expoVersion.reactNative);
+requiredDependencies.push(`react-native@${expoVersion.reactNativeVersion}`);

@@ -1,30 +1,28 @@
 // tslint:disable:object-literal-sort-keys
 import { ClientConfigs } from '../types';
-import { Utils } from '@bluebase/cli-core';
 import deepmerge from 'deepmerge';
+import { fromProjectRoot } from '@bluebase/cli-core/lib/utils/paths';
+import { isProduction } from '@bluebase/cli-core/lib/utils/logic';
 import path from 'path';
-
-const EnvVars = Utils.EnvVars;
 
 export const fromHere = (file: string) => {
 	return path.resolve(__dirname, file);
 };
 
 export interface HookArgs {
-	buildDir: string,
-	configDir: string,
+	buildDir: string;
+	configDir: string;
 }
 
 export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 	const configs: ClientConfigs = {
-
 		target: 'web',
-		mode: Utils.isProduction() ? 'production' : 'development',
+		mode: isProduction() ? 'production' : 'development',
 
-		devServerHost: EnvVars.string('HOST', '0.0.0.0'),
-		devServerPort: EnvVars.number('PORT', 1337),
-		devDashboardEnable: EnvVars.bool('CLIENT_DEV_DASHBOARD_ENABLE', true),
-		devDashboardPort: EnvVars.number('CLIENT_DEV_DASHBOARD_PORT', 7332),
+		devServerHost: '0.0.0.0',
+		devServerPort: 1337,
+		devDashboardEnable: true,
+		devDashboardPort: 7332,
 
 		htmlPage: {
 			titleTemplate: 'BlueBase - %s',
@@ -48,7 +46,7 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 
 		includePaths: [
 			args.configDir,
-			Utils.fromProjectRoot('./src'),
+			fromProjectRoot('./src'),
 			// fromHere('../../client'),
 			// The service worker offline page generation needs access to the
 			// config folder.  Don't worry we have guards within the config files
@@ -63,20 +61,26 @@ export default (input: ClientConfigs, args: HookArgs): ClientConfigs => {
 		includeSourceMapsForOptimisedBundle: false,
 
 		nodeExternalsFileTypeWhitelist: [],
-			// devVendorDLL: {
 
-			// 	enabled: true,
+		// TODO add this in dir path
+		favIconConfig: {
+			// Your source logo
+			logo: './assets/web/icon.png',
+		},
 
-			// 	include: [
-			// 		'react',
-			// 		'react-dom',
-			// 		// 'react-helmet',
-			// 		// 'react-router-dom',
-			// 	],
+		// devVendorDLL: {
 
-			// 	name: '__dev_vendor_dll__',
-			// },
+		// 	enabled: true,
 
+		// 	include: [
+		// 		'react',
+		// 		'react-dom',
+		// 		// 'react-helmet',
+		// 		// 'react-router-dom',
+		// 	],
+
+		// 	name: '__dev_vendor_dll__',
+		// },
 	};
 
 	return deepmerge(input, configs);

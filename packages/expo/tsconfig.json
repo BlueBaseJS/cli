@@ -39,6 +39,9 @@
     // "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
     "skipLibCheck": true,
+
+    // Don't emit; allow Babel to transform files.
+    "noEmit": true,
     
     "lib": ["es2017", "dom"],
     "types": ["node"],

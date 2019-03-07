@@ -1,5 +1,5 @@
 import path from 'path';
 
-export default (...segments: string[]) => {
+export const fromRoot = (...segments: string[]) => {
 	return path.resolve(__dirname, '..', '..', ...segments);
 };

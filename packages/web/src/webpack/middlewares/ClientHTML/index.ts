@@ -1,9 +1,10 @@
-// import * as webpack from 'webpack';
-import { Configuration as WebpackConfig } from 'webpack';
-import { Utils } from '@bluebase/cli-core';
-import { WebpackBuilderMiddleware } from '../../../types';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { Utils } from '@bluebase/cli-core';
 import WebpackBuilder from '../../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../../types';
+// import * as webpack from 'webpack';
+// tslint:disable-next-line: sort-imports
+import { Configuration as WebpackConfig } from 'webpack';
 import merge from 'webpack-merge';
 import path from 'path';
 
@@ -21,7 +22,7 @@ const ClientHTML: WebpackBuilderMiddleware = () => (config: WebpackConfig, build
 		plugins: removeNil([
 
 			// We need this plugin to enable hot reloading of our client.
-			builder.ifDevClient(
+			builder.ifClient(
 				() => new HtmlWebpackPlugin({
 					filename: 'index.html',
 					inject: true,

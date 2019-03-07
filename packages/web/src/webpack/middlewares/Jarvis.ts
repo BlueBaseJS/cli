@@ -1,7 +1,8 @@
-import { Configuration as WebpackConfig } from 'webpack';
 import { Utils } from '@bluebase/cli-core';
-import { WebpackBuilderMiddleware } from '../../types';
 import WebpackBuilder from '../WebpackBuilder';
+import { WebpackBuilderMiddleware } from '../../types';
+// tslint:disable-next-line: sort-imports
+import { Configuration as WebpackConfig } from 'webpack';
 import merge from 'webpack-merge';
 
 // tslint:disable-next-line:no-var-requires
@@ -15,7 +16,7 @@ const removeNil = Utils.removeNil;
  * @param builder
  */
 const JarvisMiddleware: WebpackBuilderMiddleware =
-	() =>
+	(port: number = 1338) =>
 	(config: WebpackConfig, builder: WebpackBuilder): WebpackConfig => {
 
 		return merge(config, {
@@ -24,7 +25,7 @@ const JarvisMiddleware: WebpackBuilderMiddleware =
 				builder.ifDevClient(
 					() =>
 						new Jarvis({
-							port: 1338 // optional: set a port
+							port
 						})
 				),
 			]),

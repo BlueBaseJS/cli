@@ -6,7 +6,12 @@ import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDep
 export const requiredDependencies = [
 	...coreDeps,
 	'deepmerge',
-	'react-dom@^16.4.2'
+	'react-dom@^16.4.2',
+	'@babel/core',
+	'source-map-support',
+	'@babel/runtime',
+	'uuid',
+	'compression'
 ];
 
 /**
@@ -14,5 +19,9 @@ export const requiredDependencies = [
  */
 export const requiredDevDependencies = [
 	...coreDevDeps,
+	'babel-preset-bluebase',
 	'@types/deepmerge',
+	'@types/source-map-support',
+	'@types/uuid',
+	'@types/compression'
 ];
