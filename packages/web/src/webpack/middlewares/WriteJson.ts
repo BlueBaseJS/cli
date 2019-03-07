@@ -3,6 +3,7 @@ import { WebpackBuilderMiddleware } from '../../types';
 import { Configuration as WebpackConfig } from 'webpack';
 import merge from 'webpack-merge';
 
+// tslint:disable-next-line:no-var-requires
 const WriteJsonPlugin = require('write-json-webpack-plugin');
 
 /**

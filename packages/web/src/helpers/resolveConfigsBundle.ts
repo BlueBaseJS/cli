@@ -6,6 +6,7 @@ import defaultServerConfigs from '../configFiles/server.config';
 import defaultServerWebpackConfigs from '../configFiles/webpack.config.server';
 
 // Transpile files on the fly
+// tslint:disable-next-line:no-var-requires
 require('@babel/register')({
 	extensions: ['.js', '.jsx', '.ts', '.tsx'],
 	presets: ['babel-preset-bluebase'],

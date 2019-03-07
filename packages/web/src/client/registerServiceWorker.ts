@@ -14,6 +14,7 @@ if (process.env.BUILD_FLAG_IS_DEV === 'false') {
 	// We check the shared config, ensuring that the service worker has been
 	// enabled.
 	// if (config('serviceWorker.enabled')) {
+	// tslint:disable-next-line:no-var-requires
 	const OfflinePluginRuntime = require('offline-plugin/runtime');
 
 	// Install the offline plugin, which instantiates our service worker and app
