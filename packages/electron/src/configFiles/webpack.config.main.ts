@@ -1,4 +1,5 @@
 import * as webpack from 'webpack';
+
 import { Utils } from '@bluebase/cli-core';
 import { WebpackHookArguments } from '../types';
 import { WebpackTools } from '@bluebase/cli-web';
@@ -65,7 +66,7 @@ export default
 			// Build
 			.build();
 
-			console.log(webpackConfigInput);
+		// console.log(webpackConfigInput);
 			// console.log(configs);
 		return configs;
 	};
