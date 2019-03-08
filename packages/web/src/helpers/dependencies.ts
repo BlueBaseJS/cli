@@ -11,7 +11,8 @@ export const requiredDependencies = [
 	'source-map-support',
 	'@babel/runtime',
 	'uuid',
-	'compression'
+	'compression',
+	'metro-react-native-babel-preset'
 ];
 
 /**
