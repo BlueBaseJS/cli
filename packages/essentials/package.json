@@ -2,7 +2,7 @@
   "name": "@bluebase/cli-essentials",
   "description": "This package has all the essential exports for use with BlueBase CLI projects.",
   "author": "BlueEast Team <code@blueeast.com>",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/index.js",
