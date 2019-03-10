@@ -1,7 +1,7 @@
 {
   "name": "@bluebase/cli-expo",
   "description": "An Expo plugin for BlueBaseJS CLI",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "./lib",
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueBaseJS/cli/issues",
@@ -28,6 +28,7 @@
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-typescript": "^7.1.0",
+    "@bluebase/code-standards": "^1.0.2",
     "@blueeast/tslint-config-blueeast": "^0.7.0",
     "@oclif/dev-cli": "^1.21.0",
     "@oclif/plugin-help": "^2",
