@@ -6,10 +6,10 @@
   "author": "BlueEast Team <code@blueeast.com>",
   "bugs": "https://github.com/BlueBaseJS/cli/issues",
   "dependencies": {
-    "@babel/core": "^7.2.0",
+    "@babel/core": "^7.3.4",
     "@babel/register": "^7.0.0",
-    "@babel/runtime": "^7.2.0",
-    "@bluebase/cli-core": "^0.0.10",
+    "@babel/runtime": "^7.3.4",
+    "@bluebase/cli-core": "^0.0.13",
     "@oclif/command": "^1.5.8",
     "@oclif/config": "^1.10.4",
     "babel-preset-bluebase": "^1.0.0",
