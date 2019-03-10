@@ -1,9 +1,8 @@
 import { createPlugin } from '@bluebase/core';
 
 export default createPlugin({
-	categories: ['ui'],
-	description: 'Material UI (web) comes to BlueBase!',
-	key: 'material-ui',
-	name: 'Material UI',
-	version: '0.0.1',
+	description: '<%= PROJECT_DESCRIPTION %>',
+	key: '<%= PROJECT_NAME %>',
+	name: '<%= PROJECT_TITLE %>',
+	version: '1.0.0',
 });
