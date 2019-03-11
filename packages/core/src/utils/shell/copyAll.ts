@@ -37,5 +37,5 @@ export const copyAll = async (src: string, dest: string, prompt: boolean = true,
 		shell.mkdir('-p', dest);
 	}
 
-	shell.cp('-rf', src + '/*', dest);
+	shell.cp('-rf', src + '/.*', dest);
 };
