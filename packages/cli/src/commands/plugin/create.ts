@@ -80,6 +80,7 @@ export default class ExpoStart extends Command {
 			gitclone('BlueBaseJS/plugin-boilerplate', true, resolve);
 		});
 
+		// Copy file and add template variables
 		await Utils.copyTemplateFiles(
 			Utils.fromProjectRoot('./plugin-boilerplate'),
 			Utils.fromProjectRoot(answers.GIT_REPO),
@@ -91,7 +92,10 @@ export default class ExpoStart extends Command {
 			}
 		);
 
+		// Delete original folder
 		execSync(`rm -rf plugin-boilerplate`);
+
+		// Change working directory
 		process.chdir(Utils.fromProjectRoot(answers.GIT_REPO));
 
     ////////////////////////////
