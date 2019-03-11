@@ -2,8 +2,12 @@
 import { requiredDependencies, requiredDevDependencies } from '../../scripts/dependencies';
 import { Command } from '@oclif/command';
 import { Utils } from '@bluebase/cli-core';
-import fromRoot from '../../scripts/fromRoot';
+// import fromRoot from '../../scripts/fromRoot';
 import inquirer from 'inquirer';
+
+// tslint:disable: no-var-requires
+const gitclone = require('gitclone');
+const { execSync } = require('child_process');
 
 export default class ExpoStart extends Command {
 	static description = 'Creates a boilerplate for BlueBase Plugin development.';
@@ -68,15 +72,27 @@ export default class ExpoStart extends Command {
 		Utils.logger.log({
 			label: '@bluebase/cli/expo',
 			level: 'info',
-			message: '📂 Creating Expo configuration directory...',
+			message: '📂 Creating Plugin Boilerplate directory...',
 		});
 
-		await Utils.copyTemplateFiles(fromRoot('./templates/plugin'), Utils.fromProjectRoot(), {
-			force: true,
-			prompt: false,
-			variables: answers,
-			writeFiles: ['package.json', 'README.md', 'src/index.ts', 'src/__tests__/index.test.ts'],
+		// clones with SSH
+		await new Promise((resolve) => {
+			gitclone('BlueBaseJS/plugin-boilerplate', true, resolve);
 		});
+
+		await Utils.copyTemplateFiles(
+			Utils.fromProjectRoot('./plugin-boilerplate'),
+			Utils.fromProjectRoot(answers.GIT_REPO),
+			{
+				force: true,
+				prompt: false,
+				variables: answers,
+				writeFiles: ['package.json', 'README.md', 'src/index.ts', 'src/__tests__/index.test.ts'],
+			}
+		);
+
+		execSync(`rm -rf plugin-boilerplate`);
+		process.chdir(Utils.fromProjectRoot(answers.GIT_REPO));
 
     ////////////////////////////
     ///// Add dependencies /////
@@ -96,7 +112,7 @@ export default class ExpoStart extends Command {
 		Utils.logger.log({
 			label: '@bluebase/cli/expo',
 			level: 'info',
-			message: '✅ Done! BlueBase + Expo project initialized.',
+			message: '✅ Done! BlueBase Plugin Boilerplate initialized.',
 		});
 
 	}

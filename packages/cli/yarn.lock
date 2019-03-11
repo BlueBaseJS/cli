@@ -1475,6 +1475,14 @@ caniuse-lite@^1.0.30000939:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000943.tgz#00b25bd5808edc2ed1cfb53533a6a6ff6ca014ee"
   integrity sha512-nJMjU4UaesbOHTcmz6VS+qaog++Fdepg4KAya5DL/AZrL/aaAZDGOOQ0AECtsJa09r4cJBdHZMive5mw8lnQ5A==
 
+capture-spawn@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/capture-spawn/-/capture-spawn-1.0.1.tgz#0f3b01fcefb59cc808b7bad04dab8eec0ec85ccd"
+  integrity sha1-DzsB/O+1nMgIt7rQTauO7A7IXM0=
+  dependencies:
+    error-base "^0.2.0"
+    is-child-process "^1.0.0"
+
 cardinal@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/cardinal/-/cardinal-2.1.1.tgz#7cc1055d822d212954d07b085dea251cc7bc5505"
@@ -1751,7 +1759,7 @@ cross-spawn@^4, cross-spawn@^4.0.2:
     lru-cache "^4.0.1"
     which "^1.2.9"
 
-cross-spawn@^5.0.1:
+cross-spawn@^5.0.0, cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
   integrity sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk=
@@ -1954,6 +1962,11 @@ env-variable@0.0.x:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/env-variable/-/env-variable-0.0.5.tgz#913dd830bef11e96a039c038d4130604eba37f88"
   integrity sha512-zoB603vQReOFvTg5xMl9I1P2PnHsHQQKTEowsKKD7nseUfJq6UWzK+4YtlWUO1nhiQUxe6XMkk+JleSZD1NZFA==
+
+error-base@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/error-base/-/error-base-0.2.0.tgz#4533d660a483607bc12d061a6b57fccefc9a2cdb"
+  integrity sha1-RTPWYKSDYHvBLQYaa1f8zvyaLNs=
 
 error-ex@^1.2.0, error-ex@^1.3.1:
   version "1.3.2"
@@ -2317,6 +2330,24 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
+gitclone-defaults@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gitclone-defaults/-/gitclone-defaults-2.0.0.tgz#99208dd79684184cec20f466111fa52b714ffa13"
+  integrity sha1-mSCN15aEGEzsIPRmER+lK3FP+hM=
+  dependencies:
+    parse-github-url "^0.3.2"
+    stringify-github-short-url "^3.0.0"
+
+gitclone@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gitclone/-/gitclone-2.0.0.tgz#a6a76b3e5c0c7f3b2e7e29fdb8a3c2a5e8772623"
+  integrity sha1-pqdrPlwMfzsufin9uKPCpeh3JiM=
+  dependencies:
+    capture-spawn "^1.0.1"
+    cross-spawn "^5.0.0"
+    gitclone-defaults "^2.0.0"
+    lazy-cache "^2.0.1"
+
 glob-parent@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
@@ -2657,6 +2688,14 @@ is-callable@^1.1.4:
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.1.4.tgz#1e1adf219e1eeb684d691f9d6a05ff0d30a24d75"
   integrity sha512-r5p9sxJjYnArLjObpjA4xu5EKI3CuKHkJXMhT7kwbpUyIFD1n5PMAsoPvWnvtZiNz7LjkYDRZhd7FlI0eMijEA==
 
+is-child-process@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/is-child-process/-/is-child-process-1.0.2.tgz#c22961acd629e128cb008ed6355b3bcbf85d9bd8"
+  integrity sha1-wilhrNYp4SjLAI7WNVs7y/hdm9g=
+  dependencies:
+    is-node-emitter "^1.0.2"
+    isarray "^1.0.0"
+
 is-data-descriptor@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/is-data-descriptor/-/is-data-descriptor-0.1.4.tgz#0b5ee648388e2c860282e793f1856fec3f301b56"
@@ -2737,6 +2776,14 @@ is-glob@^4.0.0:
   dependencies:
     is-extglob "^2.1.1"
 
+is-node-emitter@^1.0.2:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/is-node-emitter/-/is-node-emitter-1.0.6.tgz#807a8b0194ceccf99b6f7d5e95a39f1c957eaa36"
+  integrity sha1-gHqLAZTOzPmbb31elaOfHJV+qjY=
+  dependencies:
+    is-real-object "^1.0.1"
+    isarray "^1.0.0"
+
 is-number@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/is-number/-/is-number-3.0.0.tgz#24fd6201a4782cf50561c810276afc7d12d71195"
@@ -2760,6 +2807,14 @@ is-promise@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-promise/-/is-promise-2.1.0.tgz#79a2a9ece7f096e80f36d2b2f3bc16c1ff4bf3fa"
   integrity sha1-eaKp7OfwlugPNtKy87wWwf9L8/o=
+
+is-real-object@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/is-real-object/-/is-real-object-1.0.2.tgz#dd170ead88829c38c5d4b430596d91e2b9773883"
+  integrity sha1-3RcOrYiCnDjF1LQwWW2R4rl3OIM=
+  dependencies:
+    is-extendable "^0.1.1"
+    isarray "^1.0.0"
 
 is-regex@^1.0.4:
   version "1.0.4"
@@ -2805,7 +2860,7 @@ isarray@0.0.1:
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
   integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
 
-isarray@1.0.0, isarray@~1.0.0:
+isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
@@ -2966,6 +3021,13 @@ kuler@1.0.x:
   integrity sha512-J9nVUucG1p/skKul6DU3PUZrhs0LPulNaeUOox0IyXDi8S4CztTHs1gQphhuZmzXG7VOQSf6NJfKuzteQLv9gQ==
   dependencies:
     colornames "^1.1.1"
+
+lazy-cache@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-2.0.2.tgz#b9190a4f913354694840859f8a8f7084d8822264"
+  integrity sha1-uRkKT5EzVGlIQIWfio9whNiCImQ=
+  dependencies:
+    set-getter "^0.1.0"
 
 lcid@^1.0.0:
   version "1.0.0"
@@ -3595,6 +3657,11 @@ package-hash@^2.0.0:
     md5-hex "^2.0.0"
     release-zalgo "^1.0.0"
 
+parse-github-url@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/parse-github-url/-/parse-github-url-0.3.2.tgz#76ef01ebfe0b1e9c0f493672952cc6a4cd9cb260"
+  integrity sha1-du8B6/4LHpwPSTZylSzGpM2csmA=
+
 parse-json@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/parse-json/-/parse-json-2.2.0.tgz#f480f40434ef80741f8469099f8dea18f55a4dc9"
@@ -4068,6 +4135,13 @@ set-blocking@^2.0.0, set-blocking@~2.0.0:
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
 
+set-getter@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/set-getter/-/set-getter-0.1.0.tgz#d769c182c9d5a51f409145f2fba82e5e86e80376"
+  integrity sha1-12nBgsnVpR9AkUXy+6guXoboA3Y=
+  dependencies:
+    to-object-path "^0.3.0"
+
 set-value@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/set-value/-/set-value-0.4.3.tgz#7db08f9d3d22dc7f78e53af3c3bf4666ecdfccf1"
@@ -4335,6 +4409,11 @@ string_decoder@~1.1.1:
   integrity sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==
   dependencies:
     safe-buffer "~5.1.0"
+
+stringify-github-short-url@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/stringify-github-short-url/-/stringify-github-short-url-3.0.0.tgz#fe3c568d84ac28133f961ce28080f8f343acb843"
+  integrity sha1-/jxWjYSsKBM/lhzigID480OsuEM=
 
 strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
