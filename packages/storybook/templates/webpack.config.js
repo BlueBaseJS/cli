@@ -1,7 +1,9 @@
 const path = require('path');
 const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 
-module.exports = (baseConfig, env, config) => {
+module.exports = ({
+	config
+}) => {
 
 	config.module.rules.push({
 		test: /\.(ts|tsx)$/,
@@ -12,7 +14,7 @@ module.exports = (baseConfig, env, config) => {
 	config.resolve.extensions.push('.ts', '.tsx');
 
 	config.resolve.extensions.push('.ts', '.tsx');
-	
+
 	config.resolve.alias['react-native$'] = require.resolve('react-native-web');
 	config.resolve.alias['react-art$'] = require.resolve('react-art');
 
