@@ -1,7 +1,7 @@
 {
   "name": "@bluebase/cli",
   "description": "CLI tool to make life with BlueBase easier!",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "author": "BlueEast Team <code@blueeast.com>",
   "bin": {
     "bluebase": "./bin/run"
