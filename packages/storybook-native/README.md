@@ -24,7 +24,7 @@ $ npm install -g @bluebase/cli-storybook-native
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-storybook-native/0.0.4 darwin-x64 node-v11.4.0
+@bluebase/cli-storybook-native/0.0.6 darwin-x64 node-v11.4.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -33,8 +33,11 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
-* [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
+- [@bluebase/cli-storybook-native](#bluebasecli-storybook-native)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
+  - [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
 
 ## `bluebase storybook-native:init`
 
@@ -54,7 +57,7 @@ EXAMPLE
   $ bluebase storybook-native:start
 ```
 
-_See code: [lib/commands/storybook-native/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.4/lib/commands/storybook-native/init.js)_
+_See code: [lib/commands/storybook-native/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.6/lib/commands/storybook-native/init.js)_
 
 ## `bluebase storybook-native:start`
 
@@ -74,5 +77,5 @@ EXAMPLE
   $ bluebase storybook-native:start
 ```
 
-_See code: [lib/commands/storybook-native/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.4/lib/commands/storybook-native/start.js)_
+_See code: [lib/commands/storybook-native/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.6/lib/commands/storybook-native/start.js)_
 <!-- commandsstop -->

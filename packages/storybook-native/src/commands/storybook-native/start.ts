@@ -1,8 +1,9 @@
 import { ExpoFlagDefs, ExpoFlags } from '../../flags';
+import { execSync, spawn } from 'child_process';
+
 import { Command } from '@oclif/command';
 import { Utils } from '@bluebase/cli-core';
 import { createBundle } from '@bluebase/cli-expo';
-import { spawn } from 'child_process';
 import fromRoot from '../../scripts/fromRoot';
 import fs from 'fs';
 import path from 'path';
@@ -73,6 +74,8 @@ export default class StartCommand extends Command {
 		});
 
 		const appJsonPath = path.join(buildDir, 'app.json');
+
+		execSync(Utils.fromProjectRoot('./node_modules/.bin/rnstl'));
 
 		const expoProcess = await spawn(
 			fromRoot('./node_modules/.bin/expo'),

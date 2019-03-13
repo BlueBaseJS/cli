@@ -11,7 +11,8 @@ export const requiredDependencies = [
 	'source-map-support',
 	'@babel/runtime',
 	'uuid',
-	'compression'
+	'compression',
+	'metro-react-native-babel-preset'
 ];
 
 /**
@@ -19,7 +20,7 @@ export const requiredDependencies = [
  */
 export const requiredDevDependencies = [
 	...coreDevDeps,
-	'babel-preset-bluebase',
+	'@bluebase/babel-preset-bluebase',
 	'@types/deepmerge',
 	'@types/source-map-support',
 	'@types/uuid',

@@ -7,7 +7,6 @@
     "object-literal-sort-keys": true,
     "no-implicit-dependencies": false,
     "max-classes-per-file": true,
-    "no-submodule-imports": false,
-    "no-var-requires": false
+    "no-submodule-imports": false
   }
 }

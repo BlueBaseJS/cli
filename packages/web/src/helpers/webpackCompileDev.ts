@@ -2,7 +2,9 @@ import { Utils } from '@bluebase/cli-core';
 import deepmerge from 'deepmerge';
 import serve from 'webpack-serve';
 
+// tslint:disable-next-line:no-var-requires
 const history = require('connect-history-api-fallback');
+// tslint:disable-next-line:no-var-requires
 const convert = require('koa-connect');
 
 /**
