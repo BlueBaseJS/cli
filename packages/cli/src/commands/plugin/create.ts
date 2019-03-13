@@ -1,5 +1,6 @@
 // import { ExpoFlagDefs, ExpoFlags } from '../../flags';
 import { requiredDependencies, requiredDevDependencies } from '../../scripts/dependencies';
+
 import { Command } from '@oclif/command';
 import { Utils } from '@bluebase/cli-core';
 // import fromRoot from '../../scripts/fromRoot';
