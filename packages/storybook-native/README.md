@@ -33,8 +33,11 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
-* [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
+- [@bluebase/cli-storybook-native](#bluebasecli-storybook-native)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
+  - [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
 
 ## `bluebase storybook-native:init`
 

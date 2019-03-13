@@ -23,6 +23,7 @@ export const requiredDevDependencies = [
 	'@storybook/addon-viewport',
 	'@storybook/react',
 	'@types/deepmerge',
+	'@types/storybook__addon-actions',
 	'@types/storybook__addon-info',
 	'@types/storybook__addon-knobs',
 	// 'babel-core@^6.26.3',
