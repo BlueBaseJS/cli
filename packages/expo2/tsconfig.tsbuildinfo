@@ -2431,6 +2431,7 @@
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/expoversions.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/semver/index.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getexposdk.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/configs.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/copytemplatefiles.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/findfile.ts",
@@ -2440,6 +2441,7 @@
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/rimraf/index.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/shelljs/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/createbundle.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getlatestexpoversion.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/dependencies.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts",
@@ -2448,9 +2450,7 @@
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/start.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/android.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/ios.ts",
-      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/emptyfn.ts",
-      "/users/artalat/coding/bluebase/cli/packages/expo2/src/configs.ts",
-      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/createbundle.ts"
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/emptyfn.ts"
     ]
   },
   "version": "3.4.1"
