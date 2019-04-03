@@ -7,12 +7,21 @@ import path from 'path';
 import rimraf from 'rimraf';
 import shell from 'shelljs';
 
-// Transpile files on the fly
-// tslint:disable-next-line: no-var-requires
-require('@babel/register')({
-	extensions: ['.js', '.jsx', '.ts', '.tsx'],
-	presets: ['@bluebase/code-standards/babel.config'],
-});
+// // Transpile files on the fly
+// // tslint:disable-next-line: no-var-requires
+// require('@babel/register')({
+// 	extensions: ['.js', '.jsx', '.ts', '.tsx'],
+// 	plugins: [
+// 		'@babel/proposal-class-properties',
+// 		'@babel/proposal-object-rest-spread',
+// 		'@babel/transform-runtime',
+// 	],
+// 	presets: [
+// 		// '@babel/react',
+// 		'module:metro-react-native-babel-preset',
+// 		'@babel/typescript',
+// 	]
+// });
 
 export interface CreateBundleInterface {
 	assetsDir: string,
