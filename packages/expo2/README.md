@@ -16,27 +16,27 @@ An Expo plugin for BlueBaseJS CLI
 <!-- usage -->
 ```sh-session
 $ npm install -g @bluebase/cli-expo
-$ oclif-example COMMAND
+$ bluebase COMMAND
 running command...
-$ oclif-example (-v|--version|version)
+$ bluebase (-v|--version|version)
 @bluebase/cli-expo/0.0.12 darwin-x64 node-v11.4.0
-$ oclif-example --help [COMMAND]
+$ bluebase --help [COMMAND]
 USAGE
-  $ oclif-example COMMAND
+  $ bluebase COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example hello [FILE]`](#oclif-example-hello-file)
+* [`bluebase hello [FILE]`](#bluebase-hello-file)
 
-## `oclif-example hello [FILE]`
+## `bluebase hello [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ oclif-example hello [FILE]
+  $ bluebase hello [FILE]
 
 OPTIONS
   -f, --force
