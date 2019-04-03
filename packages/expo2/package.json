@@ -21,7 +21,6 @@
     "@babel/node": "^7.2.2",
     "@oclif/dev-cli": "^1",
     "@oclif/plugin-help": "^2",
-    "@oclif/tslint": "^3",
     "@types/node": "^10",
     "globby": "^8",
     "npm-run-all": "^4.1.3",
