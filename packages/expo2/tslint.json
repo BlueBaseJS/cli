@@ -1,5 +1,0 @@
-{
-  "extends": [
-    "@bluebase/code-standards/tslint"
-  ]
-}

@@ -42,4 +42,11 @@ export const expoVersions: Array<{
 	reactNative: 'https://github.com/expo/react-native/archive/sdk-31.0.1.tar.gz',
 	reactNativeVersion: '^0.57.0',
 	sdkVersion: '31.0.0'
+}, {
+	expo: '^32.0.0',
+	id: 32,
+	react: '16.5.0',
+	reactNative: 'https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz',
+	reactNativeVersion: '^0.57.0',
+	sdkVersion: '32.0.0'
 }];

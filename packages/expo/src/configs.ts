@@ -1,4 +1,4 @@
-import { Constants } from 'expo';
+// import { Constants } from 'expo';
 import { ExpoFlags } from './flags';
 import { getExpoSdk } from './scripts/expo/getExpoSdk';
 import path from 'path';
@@ -6,7 +6,7 @@ import path from 'path';
 import { Utils } from '@bluebase/cli-core';
 
 export interface ExpoConfigs {
-	manifest: Partial<Constants.Manifest>
+	manifest: any; // Partial<Constants.Manifest>
 }
 
 export default (input: any, paths: ExpoFlags): ExpoConfigs => {
