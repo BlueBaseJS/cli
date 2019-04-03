@@ -9,6 +9,7 @@
     "@babel/register": "^7.4.0",
     "@babel/runtime": "^7.4.3",
     "@bluebase/cli-core": "^0.0.26",
+    "@bluebase/code-standards": "^1.0.3",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "expo-cli": "^2.14.0",
@@ -52,9 +53,13 @@
   },
   "repository": "BlueBaseJS/cli",
   "scripts": {
+    "build": "run-s clean && run-p build:*",
+    "build:main": "tsc -p tsconfig.json && babel ./src --out-dir lib --extensions \".ts,.tsx\"",
+    "clean": "rimraf coverage lib tmp",
+    "prepare": "npm run build",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p . -t stylish",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "npm run build && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md"
   }

@@ -419,6 +419,7 @@
       "strict": true,
       "target": 4,
       "composite": true,
+      "project": "tsconfig.json",
       "configFilePath": "/Users/artalat/Coding/bluebase/cli/packages/expo2/tsconfig.json"
     },
     "referencedMap": {
@@ -1230,6 +1231,10 @@
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/events/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts": [
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
@@ -1478,10 +1483,6 @@
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/globals.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts"
       ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/events/index.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/cross-spawn/index.d.ts": [
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
@@ -1562,6 +1563,7 @@
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/assert.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/async_hooks.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/buffer.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/events/index.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/cluster.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/console.d.ts",
@@ -1602,7 +1604,6 @@
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/globals.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/events/index.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/cross-spawn/index.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/minimatch/index.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts",

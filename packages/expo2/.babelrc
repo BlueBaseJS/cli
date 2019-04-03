@@ -1,0 +1,7 @@
+{
+  "plugins": [
+  ],
+  "presets": [
+    "@bluebase/code-standards/babel.config"
+  ]
+}
