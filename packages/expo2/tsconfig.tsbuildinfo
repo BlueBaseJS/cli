@@ -17,6 +17,10 @@
         "version": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743",
         "signature": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743"
       },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.d.ts": {
+        "version": "2edd3ddf436ef8e12df876dcae4ecd6a8748577944c477bf4b20d5596e0c9843",
+        "signature": "2edd3ddf436ef8e12df876dcae4ecd6a8748577944c477bf4b20d5596e0c9843"
+      },
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.core.d.ts": {
         "version": "384f66a3422d80014c51de2682159bb26f1e35854029880ccd5f6d1f00e6a36d",
         "signature": "384f66a3422d80014c51de2682159bb26f1e35854029880ccd5f6d1f00e6a36d"
@@ -77,13 +81,33 @@
         "version": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46",
         "signature": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46"
       },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": {
+        "version": "42102aaeb1bfec213be1e9777466a6d551eeba8567fed18c0cdbca8c35e3c6e4",
+        "signature": "42102aaeb1bfec213be1e9777466a6d551eeba8567fed18c0cdbca8c35e3c6e4"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.intl.d.ts": {
+        "version": "1b820b57379c726f94af50cd60053674af53ff9d079c1563cc70071e8b757dd0",
+        "signature": "1b820b57379c726f94af50cd60053674af53ff9d079c1563cc70071e8b757dd0"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.promise.d.ts": {
+        "version": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62",
+        "signature": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.regexp.d.ts": {
+        "version": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8",
+        "signature": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.esnext.intl.d.ts": {
+        "version": "f6e0c89daaf72eac38dfb1d5ef0972183f7f26a68da15bfe5bcb7cfccf0c7db8",
+        "signature": "f6e0c89daaf72eac38dfb1d5ef0972183f7f26a68da15bfe5bcb7cfccf0c7db8"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.esnext.bigint.d.ts": {
+        "version": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8",
+        "signature": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8"
+      },
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/tslib/tslib.d.ts": {
         "version": "8a0a25ded65c0cb7b03c0109bc6ca580eeb8435bb073c5fb89cd043c9a1ee42e",
         "signature": "8a0a25ded65c0cb7b03c0109bc6ca580eeb8435bb073c5fb89cd043c9a1ee42e"
-      },
-      "/users/artalat/coding/bluebase/cli/packages/expo2/src/index.ts": {
-        "version": "fc00d19bc94e10c24f07bd9be1c2bb24d4978856963c5a68745338ecbf131dfc",
-        "signature": "d889ca31ecf859432c9e675cf056009a227f839856a8cac58a70875e2d619a8b"
       },
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/args.d.ts": {
         "version": "b8fac2a2a066d140f34e5e0c698440f1f8c8a94eea2c95d156ce821ed53336e2",
@@ -161,9 +185,441 @@
         "version": "778d7164f3612aad776e12987f46889f3fe3541e5d9aed5f673daed728b643d5",
         "signature": "778d7164f3612aad776e12987f46889f3fe3541e5d9aed5f673daed728b643d5"
       },
-      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/hello.ts": {
-        "version": "e5447fa48ae2068d2b51f01a648fe9d97ab850a2903ed51541e1d09820c66cde",
-        "signature": "1b98fbaf2009b4fc8b65bcb9875124b56ccdd41de683316e34d8013fd3178de3"
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts": {
+        "version": "9dd7d651e8bc8c377784afee0803ee312f563b2c2bc97668d1bd3aab6885c55d",
+        "signature": "1fad0d22ee8c39bc5782d497ac7dfcd22fc550ed0d1e9ffe8430a80250fd5192"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/removenil.d.ts": {
+        "version": "c01e21f04deeffac582f10ddae7efdadfeb85458fa3aab229cfafd86dcc3a826",
+        "signature": "c01e21f04deeffac582f10ddae7efdadfeb85458fa3aab229cfafd86dcc3a826"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/index.d.ts": {
+        "version": "35e68e8e8ed08ed912fcf27794369ab1caa4ae4d90588fc63adc12bc51818b37",
+        "signature": "35e68e8e8ed08ed912fcf27794369ab1caa4ae4d90588fc63adc12bc51818b37"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/envvars.d.ts": {
+        "version": "161d4c50ce132c507db3a77035db25c60262f5b346ccaa8e8235ddab8b12f8a3",
+        "signature": "161d4c50ce132c507db3a77035db25c60262f5b346ccaa8e8235ddab8b12f8a3"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/index.d.ts": {
+        "version": "6894a7bc924df3df54d5f4789de3e2631cb61ab83f4ff849b439866d6613c196",
+        "signature": "6894a7bc924df3df54d5f4789de3e2631cb61ab83f4ff849b439866d6613c196"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/ifelse.d.ts": {
+        "version": "6b87dca74b9df059d01f618ce1b84403a603278874a7a2374579aa691e813fa9",
+        "signature": "6b87dca74b9df059d01f618ce1b84403a603278874a7a2374579aa691e813fa9"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/isproduction.d.ts": {
+        "version": "82e21f5b6080db1dabf8a5e97e35da384c874c5480826261ebce4641686dcf97",
+        "signature": "82e21f5b6080db1dabf8a5e97e35da384c874c5480826261ebce4641686dcf97"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/index.d.ts": {
+        "version": "a9bbe53fb4d8640d0b2167b793525742279232777c2fb20e09d3299e7b99db8e",
+        "signature": "a9bbe53fb4d8640d0b2167b793525742279232777c2fb20e09d3299e7b99db8e"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/filterwithrules.d.ts": {
+        "version": "42049d0d0f0e1e28703aabc9fee1cde976fc679b56861b182cc369f38ca2d134",
+        "signature": "42049d0d0f0e1e28703aabc9fee1cde976fc679b56861b182cc369f38ca2d134"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/mergedeep.d.ts": {
+        "version": "ae4eb1af3c32b4a03ed09a59698b02fa6f1a64f296364c72065e33b13b55dbc4",
+        "signature": "ae4eb1af3c32b4a03ed09a59698b02fa6f1a64f296364c72065e33b13b55dbc4"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/index.d.ts": {
+        "version": "f389853b9c64c7dcf710f672c249dab94297a24fcdbc21a12400c49814ba85d5",
+        "signature": "f389853b9c64c7dcf710f672c249dab94297a24fcdbc21a12400c49814ba85d5"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromcore.d.ts": {
+        "version": "c5b90ef8250126d4803d6d8093cc00098597dfec2ac3ad1ca13096b18497f098",
+        "signature": "c5b90ef8250126d4803d6d8093cc00098597dfec2ac3ad1ca13096b18497f098"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromprojectroot.d.ts": {
+        "version": "1f7b2737dff79406783139a893a710bdfdf565a2b495d09e52da04e456d84c70",
+        "signature": "1f7b2737dff79406783139a893a710bdfdf565a2b495d09e52da04e456d84c70"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/frombluebasedir.d.ts": {
+        "version": "d48ddc037951f19ea8cae082b8874d01ff26a022d4665a85f65a9cce905fd5fc",
+        "signature": "d48ddc037951f19ea8cae082b8874d01ff26a022d4665a85f65a9cce905fd5fc"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/index.d.ts": {
+        "version": "c64c39a7bbcd1158cf8283eca6f0e0e84ba0a116e69e45b805f6ae9445b51ce1",
+        "signature": "c64c39a7bbcd1158cf8283eca6f0e0e84ba0a116e69e45b805f6ae9445b51ce1"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/copyall.d.ts": {
+        "version": "cbd3d6b74860dcbc5cbcdb3b2985392f44a2746a1a6e8dcbd5d7d1a6f707459e",
+        "signature": "cbd3d6b74860dcbc5cbcdb3b2985392f44a2746a1a6e8dcbd5d7d1a6f707459e"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/detectinstalled.d.ts": {
+        "version": "06c49e45853ca4d8a9e7627cfbd4d47a0911f1198818d28854a6bfd3f6eaccff",
+        "signature": "06c49e45853ca4d8a9e7627cfbd4d47a0911f1198818d28854a6bfd3f6eaccff"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/install.d.ts": {
+        "version": "e75d0188f0978b40eed1c6a45a01934da3c573666022576fc0251343292f0043",
+        "signature": "e75d0188f0978b40eed1c6a45a01934da3c573666022576fc0251343292f0043"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/installmissing.d.ts": {
+        "version": "f6ac018ecf34222d5c2f1539d1d78572b5180bed476cc0141febeef6467f9693",
+        "signature": "f6ac018ecf34222d5c2f1539d1d78572b5180bed476cc0141febeef6467f9693"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/index.d.ts": {
+        "version": "c8522ca8d2baf208edea33c2ee479627ce50d8053dfe330c49275175dd116fcb",
+        "signature": "c8522ca8d2baf208edea33c2ee479627ce50d8053dfe330c49275175dd116fcb"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/copytemplatefiles.d.ts": {
+        "version": "d5b07bd571bc4622ba9b906da543ba650c4d9731a769c5933102225c151fc0db",
+        "signature": "d5b07bd571bc4622ba9b906da543ba650c4d9731a769c5933102225c151fc0db"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/mergepackagejson.d.ts": {
+        "version": "a8023f9c0892f6abe377d2bdb73f1c13cd287463e0de6432209e02a73d4ac99d",
+        "signature": "a8023f9c0892f6abe377d2bdb73f1c13cd287463e0de6432209e02a73d4ac99d"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/index.d.ts": {
+        "version": "2d62ea23e777caf4e944bda1fac86da2b9eaeca9a15fbee51b71ebd113c505d1",
+        "signature": "2d62ea23e777caf4e944bda1fac86da2b9eaeca9a15fbee51b71ebd113c505d1"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/globals.d.ts": {
+        "version": "1bba2fc2e58c0340b92eeb9185be6e75e27d52f10a315aa65810a19b3277f1c7",
+        "signature": "1bba2fc2e58c0340b92eeb9185be6e75e27d52f10a315aa65810a19b3277f1c7"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/assert.d.ts": {
+        "version": "e37e4814461321ef67cbb2f4c9def6be18ff85670e6c665131b320e052905b75",
+        "signature": "e37e4814461321ef67cbb2f4c9def6be18ff85670e6c665131b320e052905b75"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/async_hooks.d.ts": {
+        "version": "138476cfdccbb9e2c7e06602bc216af843a56c4f3469a79106bc660ba94bd66a",
+        "signature": "138476cfdccbb9e2c7e06602bc216af843a56c4f3469a79106bc660ba94bd66a"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/buffer.d.ts": {
+        "version": "fe892fea1e75a442fffb4a604d7eeb451e858787a9f2f01c4e83bf12a3b5048d",
+        "signature": "fe892fea1e75a442fffb4a604d7eeb451e858787a9f2f01c4e83bf12a3b5048d"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/events/index.d.ts": {
+        "version": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935",
+        "signature": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts": {
+        "version": "f1086bf9854d882321f28c3691987832c97e5bb360f9bbc5e0e5a150fa055f56",
+        "signature": "f1086bf9854d882321f28c3691987832c97e5bb360f9bbc5e0e5a150fa055f56"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/cluster.d.ts": {
+        "version": "d2704553f735d9b9cf31a26cbf4dd085e89b0ec3eec33d684b2517555370b665",
+        "signature": "d2704553f735d9b9cf31a26cbf4dd085e89b0ec3eec33d684b2517555370b665"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/console.d.ts": {
+        "version": "525c8fc510d9632d2a0a9de2d41c3ac1cdd79ff44d3b45c6d81cacabb683528d",
+        "signature": "525c8fc510d9632d2a0a9de2d41c3ac1cdd79ff44d3b45c6d81cacabb683528d"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/constants.d.ts": {
+        "version": "b952021e804dcd9cb5e5552e1ec8bf9f479b61e20da5641e2a542fe77db9a598",
+        "signature": "b952021e804dcd9cb5e5552e1ec8bf9f479b61e20da5641e2a542fe77db9a598"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/crypto.d.ts": {
+        "version": "6b956acd0fa4df8f2723012d18498954438874cc63a0bd639dc470135a782101",
+        "signature": "6b956acd0fa4df8f2723012d18498954438874cc63a0bd639dc470135a782101"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dgram.d.ts": {
+        "version": "525f8306266375b46334fcfa9d7b62fdcfed5171b2a76c98b278b230419437c6",
+        "signature": "525f8306266375b46334fcfa9d7b62fdcfed5171b2a76c98b278b230419437c6"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts": {
+        "version": "92bd533d635f967b198fde9bc789996370f0db3322306646d961f64e67ed5b7a",
+        "signature": "92bd533d635f967b198fde9bc789996370f0db3322306646d961f64e67ed5b7a"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/domain.d.ts": {
+        "version": "ae3487bdb9b50c1d8bbeb6b55c8b2b9aa79bbc46d7afbc3483169ad8750c4304",
+        "signature": "ae3487bdb9b50c1d8bbeb6b55c8b2b9aa79bbc46d7afbc3483169ad8750c4304"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts": {
+        "version": "4a419878f025046ff6748d073123b0451849f83b7dbca907037a53e3eaa9bbbb",
+        "signature": "4a419878f025046ff6748d073123b0451849f83b7dbca907037a53e3eaa9bbbb"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts": {
+        "version": "c3c4f0875544378188c840f167a35aa511365b047286ec2c4e985ed49c78d19c",
+        "signature": "c3c4f0875544378188c840f167a35aa511365b047286ec2c4e985ed49c78d19c"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts": {
+        "version": "896c59370c35abd48415751b78ce927eda463a20f1a3921bf3dc4962504ec06e",
+        "signature": "896c59370c35abd48415751b78ce927eda463a20f1a3921bf3dc4962504ec06e"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http2.d.ts": {
+        "version": "e36a3ca6d86f19ff207dabc61d27088c464f2dc3ffb64b0daf17dc33b85191e6",
+        "signature": "e36a3ca6d86f19ff207dabc61d27088c464f2dc3ffb64b0daf17dc33b85191e6"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/https.d.ts": {
+        "version": "152af7c23ec219f632afa2d861abc65993f56cd39a4f3a4018515dbc05950a74",
+        "signature": "152af7c23ec219f632afa2d861abc65993f56cd39a4f3a4018515dbc05950a74"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/inspector.d.ts": {
+        "version": "0d668f73487c0d16fd6c1051c61b76d3b590cd986fadea91da08dff459dbec45",
+        "signature": "0d668f73487c0d16fd6c1051c61b76d3b590cd986fadea91da08dff459dbec45"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/module.d.ts": {
+        "version": "03394bf8deb8781b490ae9266a843fbdf00647947d79e25fcbf1d89a9e9c8a66",
+        "signature": "03394bf8deb8781b490ae9266a843fbdf00647947d79e25fcbf1d89a9e9c8a66"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts": {
+        "version": "56a15cc211894d79aa44cbb46c276bfd3f10458a61bff2dec99114db8a7e71e3",
+        "signature": "56a15cc211894d79aa44cbb46c276bfd3f10458a61bff2dec99114db8a7e71e3"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/os.d.ts": {
+        "version": "0ab49f803fa1d0f26682096e87ae239be05fee89ac538d30c59ab5a15bd38e6a",
+        "signature": "0ab49f803fa1d0f26682096e87ae239be05fee89ac538d30c59ab5a15bd38e6a"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts": {
+        "version": "61c84c3b0eb6e60196d15ae5e21793a1d4241c547f0bdd0529ffae838d1a073c",
+        "signature": "61c84c3b0eb6e60196d15ae5e21793a1d4241c547f0bdd0529ffae838d1a073c"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/perf_hooks.d.ts": {
+        "version": "981192e57b0e159c977f1d8e8b8576e9d6b4e013b902e9c0d4b178cb47e2dc86",
+        "signature": "981192e57b0e159c977f1d8e8b8576e9d6b4e013b902e9c0d4b178cb47e2dc86"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/process.d.ts": {
+        "version": "3a8848a9c307429b861402cc69bc472ffe0c05b86474fc158723169161e16389",
+        "signature": "3a8848a9c307429b861402cc69bc472ffe0c05b86474fc158723169161e16389"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/punycode.d.ts": {
+        "version": "eeb0d1ad28e70773ac57ae9fe939c3bad6af2525a463c28f9ec31b5953de6735",
+        "signature": "eeb0d1ad28e70773ac57ae9fe939c3bad6af2525a463c28f9ec31b5953de6735"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/querystring.d.ts": {
+        "version": "8969e0b4d22ca77ad011c8fc4a25ec5d515bdfae4ecbd22608ed0d5c38829c1e",
+        "signature": "8969e0b4d22ca77ad011c8fc4a25ec5d515bdfae4ecbd22608ed0d5c38829c1e"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/readline.d.ts": {
+        "version": "544728a999d35afc7b9e6d7420fb10046c16fcc5cb54fef21d2f5de78bf98830",
+        "signature": "544728a999d35afc7b9e6d7420fb10046c16fcc5cb54fef21d2f5de78bf98830"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/repl.d.ts": {
+        "version": "d0b0b533dc34ff7ffd019665fdc2b2aeae717bc1347e17a5bdc4d6572b5c109a",
+        "signature": "d0b0b533dc34ff7ffd019665fdc2b2aeae717bc1347e17a5bdc4d6572b5c109a"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts": {
+        "version": "6e04fe987766b22afe0b959da7145f904c164fe2c17586b218b8fcdad5792d51",
+        "signature": "6e04fe987766b22afe0b959da7145f904c164fe2c17586b218b8fcdad5792d51"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/string_decoder.d.ts": {
+        "version": "17e157df6125098a1a34eb4d201ee4ac03bbe97e471ab5627bb2c40fce555948",
+        "signature": "17e157df6125098a1a34eb4d201ee4ac03bbe97e471ab5627bb2c40fce555948"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/timers.d.ts": {
+        "version": "b40652bf8ce4a18133b31349086523b219724dca8df3448c1a0742528e7ad5b9",
+        "signature": "b40652bf8ce4a18133b31349086523b219724dca8df3448c1a0742528e7ad5b9"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts": {
+        "version": "68f639766f4b9d5c832bbca1203955969a8686137a4a197285dd64519cc26e58",
+        "signature": "68f639766f4b9d5c832bbca1203955969a8686137a4a197285dd64519cc26e58"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/trace_events.d.ts": {
+        "version": "978aecd2e6bc2ac094e9a35eda98ff8586713857b3655e7c98ca5ed8f7d50662",
+        "signature": "978aecd2e6bc2ac094e9a35eda98ff8586713857b3655e7c98ca5ed8f7d50662"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tty.d.ts": {
+        "version": "3a59044813b24482ad7a7963bbee6b62507561969e273fbdc992ed9bc948fe13",
+        "signature": "3a59044813b24482ad7a7963bbee6b62507561969e273fbdc992ed9bc948fe13"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts": {
+        "version": "431151f55411c3f27cf539b987a7d1de453188ed58e54bc946183d280d3444a2",
+        "signature": "431151f55411c3f27cf539b987a7d1de453188ed58e54bc946183d280d3444a2"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts": {
+        "version": "62588e1d1de12cfb60f01badcb34db248df3ae2bc983d5f76376c4884783bdb2",
+        "signature": "62588e1d1de12cfb60f01badcb34db248df3ae2bc983d5f76376c4884783bdb2"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/v8.d.ts": {
+        "version": "e880a08fbb0d9ee2f733f9183f4d1bdb75bc9e0e64060a8a1fc30540791fcded",
+        "signature": "e880a08fbb0d9ee2f733f9183f4d1bdb75bc9e0e64060a8a1fc30540791fcded"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/vm.d.ts": {
+        "version": "f98df5ec124f441b465332271d0b083aeec815cd3c92d9249b9739e6318477a9",
+        "signature": "f98df5ec124f441b465332271d0b083aeec815cd3c92d9249b9739e6318477a9"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/worker_threads.d.ts": {
+        "version": "e761c833140e3ab6f9deab37fe034154f3eb15547dce61395d9b0b1f130f3fa3",
+        "signature": "e761c833140e3ab6f9deab37fe034154f3eb15547dce61395d9b0b1f130f3fa3"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/zlib.d.ts": {
+        "version": "58257a0147702ab415ed18164557a0feb9c5d1351792ea293a876e6b7ed0c559",
+        "signature": "58257a0147702ab415ed18164557a0feb9c5d1351792ea293a876e6b7ed0c559"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/base.d.ts": {
+        "version": "6622f76993bdfeaacb947ba7c4cf26f2e5c5194194d02d792c3cba4174cd8fce",
+        "signature": "6622f76993bdfeaacb947ba7c4cf26f2e5c5194194d02d792c3cba4174cd8fce"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts": {
+        "version": "4f54f0a9dd3b644c99ec32b32f8804d5978bc854799b228ae9c467bf3c84c64c",
+        "signature": "4f54f0a9dd3b644c99ec32b32f8804d5978bc854799b228ae9c467bf3c84c64c"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/globals.d.ts": {
+        "version": "ce6b191c382ee19f23678b8c364484627bcf424e8f408357a2f5530fb8d52a45",
+        "signature": "ce6b191c382ee19f23678b8c364484627bcf424e8f408357a2f5530fb8d52a45"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts": {
+        "version": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c",
+        "signature": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/logform/index.d.ts": {
+        "version": "6dbcfbc6f4662840d93d1d9d7fb5cce1b1fa00f43caa595ffee1a70f1583a0b0",
+        "signature": "6dbcfbc6f4662840d93d1d9d7fb5cce1b1fa00f43caa595ffee1a70f1583a0b0"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston-transport/index.d.ts": {
+        "version": "d667ec244bc8f65d0ac176f7ea91ef9e2904e7aa10923fbbe843d19f1270593b",
+        "signature": "d667ec244bc8f65d0ac176f7ea91ef9e2904e7aa10923fbbe843d19f1270593b"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/config/index.d.ts": {
+        "version": "e9c33c05be71c17c3b08988fe6755605632a09c5cdd267cede8de5558ec80027",
+        "signature": "e9c33c05be71c17c3b08988fe6755605632a09c5cdd267cede8de5558ec80027"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/transports/index.d.ts": {
+        "version": "87ccbc897e31409ff604f0b0b0f7a29efa1e51f0858aaea9ec294deec863558c",
+        "signature": "87ccbc897e31409ff604f0b0b0f7a29efa1e51f0858aaea9ec294deec863558c"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/index.d.ts": {
+        "version": "4bd85c7eeaceccc938121fcbd580883f6bb84d8326eb0db9c79a9961551a2bc5",
+        "signature": "4bd85c7eeaceccc938121fcbd580883f6bb84d8326eb0db9c79a9961551a2bc5"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logger/index.d.ts": {
+        "version": "0367d7be744fca7a79c3c152b312f5df1a70e64394915ebf6190c0d94cdda813",
+        "signature": "0367d7be744fca7a79c3c152b312f5df1a70e64394915ebf6190c0d94cdda813"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/index.d.ts": {
+        "version": "588edae7de6169beb4deccfcf9246eea84a8cd3379786d9e94d84e373551cbd8",
+        "signature": "588edae7de6169beb4deccfcf9246eea84a8cd3379786d9e94d84e373551cbd8"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts": {
+        "version": "fba56e0d7a0b35b4aa48c162ec378da0c87fae09a1845f0e6bb7b46a91622096",
+        "signature": "fba56e0d7a0b35b4aa48c162ec378da0c87fae09a1845f0e6bb7b46a91622096"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/getdefaults.d.ts": {
+        "version": "aca0c86111b1f974da6797d92bd2491986493bd258340a4a7a79443966af2797",
+        "signature": "aca0c86111b1f974da6797d92bd2491986493bd258340a4a7a79443966af2797"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/index.d.ts": {
+        "version": "7e2ba015e56814ff6c51a99f0f2ca067bb8f7ae3566820d4fa9038fab8fb10e0",
+        "signature": "7e2ba015e56814ff6c51a99f0f2ca067bb8f7ae3566820d4fa9038fab8fb10e0"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/registry.d.ts": {
+        "version": "2a1b2a6b9764036c3f503d47f96c494ae0c598f66c3bf8797185a5465e889751",
+        "signature": "2a1b2a6b9764036c3f503d47f96c494ae0c598f66c3bf8797185a5465e889751"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/hookregistry.d.ts": {
+        "version": "ea3be76d4511e4788f7850c72a6622c3790d2eac5563f84ccba9b09ae45b5b33",
+        "signature": "ea3be76d4511e4788f7850c72a6622c3790d2eac5563f84ccba9b09ae45b5b33"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/filemanager.d.ts": {
+        "version": "b4cd66a11ac6d9e3e189478fc3e95285a377f272258e14946cc9e0c5ce2c657e",
+        "signature": "b4cd66a11ac6d9e3e189478fc3e95285a377f272258e14946cc9e0c5ce2c657e"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/index.d.ts": {
+        "version": "178332bb124d8c35ec86dcf745459eac5581865557c866437c8c1dfcff31c29a",
+        "signature": "178332bb124d8c35ec86dcf745459eac5581865557c866437c8c1dfcff31c29a"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/index.d.ts": {
+        "version": "53e24b3c42db7be743e9ea93d90a723a2767413102f38ef09d330ff24dbdd380",
+        "signature": "53e24b3c42db7be743e9ea93d90a723a2767413102f38ef09d330ff24dbdd380"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/copytemplatefiles.d.ts": {
+        "version": "0c83232b3cb9878562aae9518a32cb0e894ac588f216a0c1e6bc8a62fe72d004",
+        "signature": "0c83232b3cb9878562aae9518a32cb0e894ac588f216a0c1e6bc8a62fe72d004"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/dependencies.d.ts": {
+        "version": "df26a3351934277bea6616a3434aa742da9ccb8c65bf2c4e85bc8cc485519db9",
+        "signature": "df26a3351934277bea6616a3434aa742da9ccb8c65bf2c4e85bc8cc485519db9"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts": {
+        "version": "ef73962f9892e43be5b40f45fcaf7b14f5f936f85ac6aef35c121b4e188f7500",
+        "signature": "ef73962f9892e43be5b40f45fcaf7b14f5f936f85ac6aef35c121b4e188f7500"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/expoversions.ts": {
+        "version": "17176457bc82ea60625ac751592162feef14b9e0036c63cf39cfd5c0f507855c",
+        "signature": "7e73e959b752f899c059ba6ac55c8966291772b7b6fa54c61ca7592d4871104b"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/semver/index.d.ts": {
+        "version": "053f38a8646cb2b1316e1a79c918b32b62ceb0758417fb087b2a05010ba9cc0c",
+        "signature": "053f38a8646cb2b1316e1a79c918b32b62ceb0758417fb087b2a05010ba9cc0c"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getexposdk.ts": {
+        "version": "91068795f0cd95b4436eaa02a8d71a1ff528c90125e1c288a03f8149815867cf",
+        "signature": "c2c31e61e279ccd23c9d22bc3536532fd87356aa6c6b680ccbe0c6faf587a8b4"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/configs.ts": {
+        "version": "ddf6a93211936c10ca61619506b85a56e231fed3e17662739be336d86c79fd94",
+        "signature": "2d606e4483d68dc68a27aa559652458f919aebefc19ec5a578cfcaccaf8578f4"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts": {
+        "version": "b07a12f121e8acdf4a6f5910eb12d6e65c13eb3af8411d31f1519462407386e2",
+        "signature": "f0dd0bbc57d0195d81680d71266851a548353d921fad29bab5df28157b0cd808"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/copytemplatefiles.ts": {
+        "version": "b02f403d022d4a526bd52386c25726552a1c432cc863f9b6828aa2955ce3bc92",
+        "signature": "6a2747f500e0d3827b9d99c87c5e8481eed83914f04291fe2e8f7edff40809c1"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/findfile.ts": {
+        "version": "81edfa7ad9b412ce0d5f95dcfd0baa6e35b3aa7b101503f3112108a27bb6c3d1",
+        "signature": "bab5044754f72e976dad023ed10b0ad56a0062b0caf841f45ad1ca1da8ff9c71"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/getappjson.ts": {
+        "version": "6e7012c5dc28d17fa4e617b9db671aa61c3973c138593cdfa04558434023403a",
+        "signature": "28f9d4ed4f2b82880a6574b59d9e79d47ac781b8fc7ee20a10bc82dc2ecfb4f7"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/getbluebasepath.ts": {
+        "version": "d09723ba0ec9e2904cea1d8f463b5af34c20207e3656685e869629c3387486df",
+        "signature": "77fbbcf72face9395f2a942f1556ee6fcb1b6df53117672f70d39f102c50f798"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/minimatch/index.d.ts": {
+        "version": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
+        "signature": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts": {
+        "version": "d852d6282c8dc8156d26d6bda83ab4bde51fee05ba2fe0ecdc165ddda009d3ee",
+        "signature": "d852d6282c8dc8156d26d6bda83ab4bde51fee05ba2fe0ecdc165ddda009d3ee"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/rimraf/index.d.ts": {
+        "version": "020902fda20b7d8937c30699f217e198054a0d0d5c1c309dab7d588adadfcade",
+        "signature": "020902fda20b7d8937c30699f217e198054a0d0d5c1c309dab7d588adadfcade"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/shelljs/index.d.ts": {
+        "version": "f3ac831b2776064d157a3f6c542f812170095d7968ae4532fc35036bd46e6adb",
+        "signature": "f3ac831b2776064d157a3f6c542f812170095d7968ae4532fc35036bd46e6adb"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/createbundle.ts": {
+        "version": "95ad276425ec7dd6a6a74ac79b1f299e3065c2923e965c2b36564ba24fc1a90c",
+        "signature": "47196a0def67be97d3337f951bfeb05083a8220ab14e5f2223096ac78c3673d4"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getlatestexpoversion.ts": {
+        "version": "596dbb885c30b97294cbd4e0efa02f056120131d91e0532cd6259d51a1fc63eb",
+        "signature": "77d3f4f6d389a32160ac7492eae9cb8d5370418c59a2a3f7f320bb7e644206b9"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/dependencies.ts": {
+        "version": "aa0a3c3fcd5120db4759785937db3797d7930d1f2249932d3226caea028601ce",
+        "signature": "df26a3351934277bea6616a3434aa742da9ccb8c65bf2c4e85bc8cc485519db9"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts": {
+        "version": "59ab9613eae4e489d66ef338e4685a6ea651219da428ea887469fdeb5d75dd37",
+        "signature": "2b2d3103734e2cbc896c42d9a5fbdb3cba3c31648a092b4e7b35130f499828a2"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/index.ts": {
+        "version": "d2b409d836a8551407113ef013260b94c418e5fc88da7ecb36288afea40e0c72",
+        "signature": "b8643863f569404c7497e38f8c8dd6e2e4470c0f465c5ebb34864ef4ef8ee682"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/init.ts": {
+        "version": "abb2c40c07869f5a148c69a731a0527d3ebfe665ca6935b98761a3586822f1f7",
+        "signature": "fdb18151d2a7d634836ebc5c380a6cc112af8a3e285e2c5a4a6992de8c75eacc"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/start.ts": {
+        "version": "a751d30b6354b4eca1ed2c20115e611aafdc681104d77355dee1fd6a28f76790",
+        "signature": "fdb18151d2a7d634836ebc5c380a6cc112af8a3e285e2c5a4a6992de8c75eacc"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/android.ts": {
+        "version": "90939fb3632bec92b144126d9b2473457cda951d1cb5231a494c8a3db13afbd9",
+        "signature": "db0d7e654ce417539d02502c8f8c79a80a7480b7e26bbba5f5536e329ea57e2d"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/ios.ts": {
+        "version": "d59d4a427fa4cc354f7a52d68013cd143f8c8cf4343d981e07d58a5391131b57",
+        "signature": "db0d7e654ce417539d02502c8f8c79a80a7480b7e26bbba5f5536e329ea57e2d"
+      },
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/emptyfn.ts": {
+        "version": "dcd7c56e1d1ce6875087344a44adc2d4b74c3e0cb4beee5f920541d5e975d306",
+        "signature": "1f3b600d393b41714af932811dafe1ecfd559cd8fcbda211bfe670f7772bfeb7"
       }
     },
     "options": {
@@ -196,79 +652,6 @@
       "configFilePath": "/Users/artalat/Coding/bluebase/cli/packages/expo2/tsconfig.json"
     },
     "referencedMap": {
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/alphabet.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/parse.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/args.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/metadata.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/help.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/index.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/args.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/parse.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/help.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/index.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/hooks.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/manifest.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/plugin.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/manifest.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/pjson.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/topic.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/config.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/hooks.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/pjson.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/plugin.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/topic.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/config.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/hooks.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/manifest.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/pjson.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/plugin.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/topic.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/index.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/command.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/index.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/main.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/command.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts",
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/main.d.ts"
-      ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/hello.ts": [
-        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts"
-      ]
-    },
-    "exportedModulesMap": {
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es5.d.ts": [
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
@@ -282,6 +665,10 @@
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.d.ts": [
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -342,6 +729,30 @@
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.intl.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.promise.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.regexp.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.esnext.intl.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.esnext.bigint.d.ts": [
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -465,8 +876,1422 @@
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/hello.ts": [
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/removenil.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/removenil.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/envvars.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/envvars.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/ifelse.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/isproduction.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/ifelse.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/isproduction.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/filterwithrules.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/mergedeep.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/filterwithrules.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/mergedeep.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromcore.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromprojectroot.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/frombluebasedir.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromcore.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromprojectroot.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/frombluebasedir.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/copyall.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/detectinstalled.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/install.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/installmissing.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/copyall.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/detectinstalled.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/install.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/installmissing.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/copytemplatefiles.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/mergepackagejson.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/copytemplatefiles.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/mergepackagejson.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/globals.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/assert.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/async_hooks.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/buffer.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/events/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/cluster.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/console.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/constants.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/crypto.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dgram.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/domain.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http2.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/https.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/inspector.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/module.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/os.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/perf_hooks.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/async_hooks.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/process.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/punycode.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/querystring.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/readline.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/repl.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/readline.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/vm.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/string_decoder.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/timers.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/crypto.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/trace_events.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tty.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/querystring.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/v8.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/vm.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/worker_threads.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/zlib.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/base.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/globals.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/assert.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/async_hooks.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/buffer.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/cluster.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/console.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/constants.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/crypto.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dgram.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/domain.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http2.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/https.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/inspector.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/module.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/os.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/perf_hooks.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/punycode.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/querystring.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/readline.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/repl.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/string_decoder.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/timers.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/trace_events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tty.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/v8.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/vm.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/worker_threads.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/zlib.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/globals.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/base.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/globals.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/logform/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston-transport/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/logform/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/config/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/transports/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston-transport/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/logform/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston-transport/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/config/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/transports/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logger/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logger/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/getdefaults.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/getdefaults.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/registry.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/hookregistry.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/registry.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/filemanager.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/hookregistry.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/registry.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/filemanager.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/copytemplatefiles.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/dependencies.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/copytemplatefiles.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/dependencies.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/expoversions.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/semver/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getexposdk.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/expoversions.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/semver/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/configs.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getexposdk.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/copytemplatefiles.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/findfile.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/getappjson.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/configs.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/findfile.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/getbluebasepath.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/findfile.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/minimatch/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/minimatch/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/rimraf/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/shelljs/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/createbundle.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/getappjson.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/getbluebasepath.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/rimraf/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/shelljs/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getlatestexpoversion.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/expoversions.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/dependencies.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getlatestexpoversion.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/copytemplatefiles.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/createbundle.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/dependencies.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/expoversions.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getexposdk.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getlatestexpoversion.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/index.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/init.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/dependencies.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/start.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/android.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/ios.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/emptyfn.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ]
+    },
+    "exportedModulesMap": {
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es5.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2016.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.intl.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.promise.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.regexp.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.esnext.intl.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.esnext.bigint.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/tslib/tslib.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/args.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/alphabet.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/alphabet.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/metadata.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/parse.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/args.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/metadata.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/help.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/args.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/parse.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/help.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/hooks.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/pjson.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/manifest.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/topic.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/plugin.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/manifest.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/pjson.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/topic.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/config.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/hooks.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/pjson.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/plugin.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/topic.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/config.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/command.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/hooks.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/manifest.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/pjson.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/plugin.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/topic.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/command.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/main.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/command.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/main.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/removenil.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/removenil.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/envvars.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/envvars.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/ifelse.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/isproduction.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/ifelse.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/isproduction.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/filterwithrules.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/mergedeep.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/filterwithrules.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/mergedeep.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromcore.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromprojectroot.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/frombluebasedir.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromcore.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromprojectroot.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/frombluebasedir.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/copyall.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/detectinstalled.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/install.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/installmissing.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/copyall.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/detectinstalled.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/install.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/installmissing.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/copytemplatefiles.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/mergepackagejson.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/copytemplatefiles.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/mergepackagejson.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/globals.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/assert.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/async_hooks.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/buffer.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/events/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/cluster.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/console.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/constants.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/crypto.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dgram.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/domain.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http2.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/https.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/inspector.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/module.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/os.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/perf_hooks.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/async_hooks.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/process.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/punycode.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/querystring.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/readline.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/repl.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/readline.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/vm.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/string_decoder.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/timers.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/crypto.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/trace_events.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tty.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/querystring.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/v8.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/vm.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/worker_threads.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/zlib.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/base.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/globals.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/assert.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/async_hooks.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/buffer.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/cluster.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/console.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/constants.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/crypto.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dgram.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/domain.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http2.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/https.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/inspector.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/module.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/os.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/perf_hooks.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/punycode.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/querystring.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/readline.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/repl.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/string_decoder.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/timers.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/trace_events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tty.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/v8.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/vm.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/worker_threads.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/zlib.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/globals.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/base.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/globals.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/logform/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston-transport/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/logform/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/config/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/transports/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston-transport/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/logform/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston-transport/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/config/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/transports/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logger/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logger/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/getdefaults.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/getdefaults.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/registry.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/hookregistry.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/registry.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/filemanager.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/config/lib/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/hookregistry.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/registry.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/filemanager.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/copytemplatefiles.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/dependencies.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/copytemplatefiles.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/dependencies.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/semver/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/configs.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/minimatch/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/minimatch/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/rimraf/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/shelljs/index.d.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/copytemplatefiles.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/createbundle.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/dependencies.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/expoversions.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getexposdk.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getlatestexpoversion.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/index.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/init.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/start.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/android.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts",
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts"
+      ],
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/ios.ts": [
+        "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/flags.d.ts",
         "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts"
       ]
     },
@@ -475,6 +2300,7 @@
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2016.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.core.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.collection.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2015.generator.d.ts",
@@ -490,8 +2316,13 @@
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.string.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.intl.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.esnext.intl.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/tslib/tslib.d.ts",
-      "/users/artalat/coding/bluebase/cli/packages/expo2/src/index.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/args.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/alphabet.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/parser/lib/flags.d.ts",
@@ -511,7 +2342,115 @@
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/command.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/main.d.ts",
       "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@oclif/command/lib/index.d.ts",
-      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/hello.ts"
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/flags.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/removenil.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/arrays/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/envvars.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/env/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/ifelse.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/isproduction.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logic/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/filterwithrules.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/mergedeep.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/objects/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromcore.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/fromprojectroot.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/frombluebasedir.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/paths/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/copyall.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/detectinstalled.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/install.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/installmissing.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/shell/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/copytemplatefiles.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/mergepackagejson.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/templates/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/globals.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/assert.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/async_hooks.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/buffer.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/events/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/child_process.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/cluster.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/console.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/constants.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/crypto.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dgram.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/dns.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/domain.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/events.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/fs.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/http2.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/https.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/inspector.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/module.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/net.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/os.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/path.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/perf_hooks.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/process.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/punycode.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/querystring.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/readline.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/repl.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/stream.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/string_decoder.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/timers.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tls.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/trace_events.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/tty.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/url.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/util.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/v8.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/vm.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/worker_threads.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/zlib.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/base.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/util.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/globals.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/node/ts3.2/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/logform/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston-transport/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/config/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/lib/winston/transports/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/winston/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/logger/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/utils/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/configfileinfo.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/getdefaults.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/defaults/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/registry.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/bluebase/hookregistry.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/filemanager.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/filemanager/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/copytemplatefiles.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/init/dependencies.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@bluebase/cli-core/lib/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/expoversions.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/semver/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getexposdk.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/fromroot.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/copytemplatefiles.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/findfile.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/getappjson.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/getbluebasepath.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/minimatch/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/glob/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/rimraf/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/node_modules/@types/shelljs/index.d.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/expo/getlatestexpoversion.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/dependencies.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/index.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/index.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/init.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/start.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/android.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/commands/expo/build/ios.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/emptyfn.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/configs.ts",
+      "/users/artalat/coding/bluebase/cli/packages/expo2/src/scripts/bundle/createbundle.ts"
     ]
   },
   "version": "3.4.1"
