@@ -18,7 +18,8 @@
     "semver": "^5.5.1",
     "shelljs": "^0.8.2",
     "tslib": "^1",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "snyk": "^1.169.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -109,7 +110,9 @@
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d lib/docs",
     "reset": "git clean -dfx && git reset --hard && npm i",
     "all": "run-s reset test cov:check doc:html",
-    "prepare-release": "run-s all version doc:publish"
+    "prepare-release": "run-s all version doc:publish",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
@@ -123,5 +126,6 @@
     "version": "Bump package.json version, update CHANGELOG.md, tag release",
     "reset": "Delete all untracked files and reset the repo to the last commit",
     "prepare-release": "One-step: clean, build, test, publish docs, and prep a release"
-  }
+  },
+  "snyk": true
 }
