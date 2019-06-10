@@ -19,7 +19,7 @@ $ npm install -g @bluebase/cli-expo
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-expo/0.0.21 darwin-x64 node-v11.4.0
+@bluebase/cli-expo/0.0.22 darwin-x64 node-v11.14.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -51,7 +51,7 @@ EXAMPLE
   $ bluebase expo:build:android
 ```
 
-_See code: [src/commands/expo/build/android.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.21/src/commands/expo/build/android.ts)_
+_See code: [src/commands/expo/build/android.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.22/src/commands/expo/build/android.ts)_
 
 ## `bluebase expo:build:ios`
 
@@ -71,7 +71,7 @@ EXAMPLE
   $ bluebase expo:build:ios
 ```
 
-_See code: [src/commands/expo/build/ios.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.21/src/commands/expo/build/ios.ts)_
+_See code: [src/commands/expo/build/ios.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.22/src/commands/expo/build/ios.ts)_
 
 ## `bluebase expo:init`
 
@@ -91,7 +91,7 @@ EXAMPLE
   $ bluebase expo:init
 ```
 
-_See code: [src/commands/expo/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.21/src/commands/expo/init.ts)_
+_See code: [src/commands/expo/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.22/src/commands/expo/init.ts)_
 
 ## `bluebase expo:start`
 
@@ -111,5 +111,5 @@ EXAMPLE
   $ bluebase expo:start
 ```
 
-_See code: [src/commands/expo/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.21/src/commands/expo/start.ts)_
+_See code: [src/commands/expo/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.22/src/commands/expo/start.ts)_
 <!-- commandsstop -->
