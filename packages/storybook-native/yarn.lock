@@ -777,10 +777,10 @@
     winston "^3.0.0"
     yarn-install "^1.0.0"
 
-"@bluebase/cli-expo@^0.0.21":
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/@bluebase/cli-expo/-/cli-expo-0.0.21.tgz#b21ff4305f66a073a59c29628f75e9b8e6223f6d"
-  integrity sha512-9s6ZW/m8rQOVS2ASGsDrk462+p8Cu4MVSpZMRMV/YLRdmb8als8tdDa9/hHhLzCBvZKhT81yYGzdd6Nv8KJaRA==
+"@bluebase/cli-expo@^0.0.22":
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/@bluebase/cli-expo/-/cli-expo-0.0.22.tgz#8faa4e3967fc3018eff395f221c872718ff75bad"
+  integrity sha512-rXgbO2e0BkffiZ0Dhfw6l4ER0G/zHQvxvn2iPUAULo0vzWF7uV/BrPJYGuqt55hUQBqnbo7huAfXhQtGa/gpZA==
   dependencies:
     "@babel/core" "^7.4.3"
     "@babel/plugin-proposal-class-properties" "^7.3.4"
