@@ -9206,9 +9206,10 @@ react-loadable@^5.5.0:
   dependencies:
     prop-types "^15.5.0"
 
-react-native-web@^0.9.13:
-  version "0.9.13"
-  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.9.13.tgz#b277ccce2e4985a256ed340823104c08505f3096"
+react-native-web@^0.11.4:
+  version "0.11.4"
+  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.11.4.tgz#86e8158d83a6a41983e43b1c84acaaa342d443b2"
+  integrity sha512-xuiHd9mxtOUlCY/CY8UO25a3cX5u3qsEdhl7zXLDNbJ0nu1Tf98GsplBZgdnDB0q/LpYVPQWmjnTEerncsO2vw==
   dependencies:
     array-find-index "^1.0.2"
     create-react-class "^15.6.2"
