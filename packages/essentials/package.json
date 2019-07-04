@@ -37,7 +37,9 @@
     "version": "standard-version",
     "reset": "git clean -dfx && git reset --hard && npm i",
     "all": "run-s reset test cov:check doc:html",
-    "prepare-release": "run-s all version doc:publish"
+    "prepare-release": "run-s all version doc:publish",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
@@ -60,7 +62,8 @@
     "react-art": "^16.7.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-native-web": "^0.9.10",
-    "webpack": "^4.28.2"
+    "webpack": "^4.28.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@blueeast/tslint-config-blueeast": "^0.7.0",
@@ -92,5 +95,6 @@
     "singleQuote": true,
     "useTabs": true,
     "trailingComma": "es5"
-  }
+  },
+  "snyk": true
 }
