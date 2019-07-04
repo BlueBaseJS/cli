@@ -64,7 +64,8 @@
     "webpack-serve-waitpage": "^1.0.2",
     "webpack-stylish": "^0.1.8",
     "write-json-webpack-plugin": "^1.0.2",
-    "favicons-webpack-plugin": "^0.0.9"
+    "favicons-webpack-plugin": "^0.0.9",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -203,7 +204,9 @@
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d lib/docs",
     "reset": "git clean -dfx && git reset --hard && npm i",
     "all": "run-s reset test cov:check doc:html",
-    "prepare-release": "run-s all version doc:publish"
+    "prepare-release": "run-s all version doc:publish",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
@@ -217,5 +220,6 @@
     "version": "Bump package.json version, update CHANGELOG.md, tag release",
     "reset": "Delete all untracked files and reset the repo to the last commit",
     "prepare-release": "One-step: clean, build, test, publish docs, and prep a release"
-  }
+  },
+  "snyk": true
 }

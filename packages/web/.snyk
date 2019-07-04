@@ -1,0 +1,54 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - '@bluebase/cli-core > winston > async > lodash':
+        patched: '2019-07-04T06:28:31.080Z'
+    - webpack-merge > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - hpp > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - fork-ts-checker-webpack-plugin > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - favicons-webpack-plugin > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - css-loader > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - html-webpack-plugin > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - '@babel/core > @babel/generator > lodash':
+        patched: '2019-07-04T06:28:31.080Z'
+    - '@bluebase/cli-core > inquirer > lodash':
+        patched: '2019-07-04T06:28:31.080Z'
+    - thread-loader > async > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - '@babel/core > @babel/traverse > @babel/types > lodash':
+        patched: '2019-07-04T06:28:31.080Z'
+    - '@babel/register > lodash':
+        patched: '2019-07-04T06:28:31.080Z'
+    - '@bluebase/cli-core > file-regex > async > lodash':
+        patched: '2019-07-04T06:28:31.080Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - '@babel/core > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2019-07-04T06:28:31.080Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2019-07-04T06:28:31.080Z'
+    - babel-preset-bluebase > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2019-07-04T06:28:31.080Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T06:28:31.080Z'
