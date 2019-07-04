@@ -1,0 +1,50 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - '@babel/core > lodash':
+        patched: '2019-07-04T08:58:22.892Z'
+    - '@bluebase/cli-core > inquirer > lodash':
+        patched: '2019-07-04T08:58:22.892Z'
+    - '@babel/core > @babel/types > lodash':
+        patched: '2019-07-04T08:58:22.892Z'
+    - '@bluebase/cli-core > file-regex > async > lodash':
+        patched: '2019-07-04T08:58:22.892Z'
+    - expo-cli > xdl > analytics-node > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - expo-cli > xdl > @expo/json-file > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - '@bluebase/cli-core > winston > async > lodash':
+        patched: '2019-07-04T08:58:22.892Z'
+    - '@babel/core > @babel/traverse > @babel/types > lodash':
+        patched: '2019-07-04T08:58:22.892Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - expo-cli > xdl > inquirer > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - expo-cli > inquirer > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - expo-cli > xdl > @expo/ngrok > logfmt > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - '@babel/core > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2019-07-04T08:58:22.892Z'
+    - expo-cli > xdl > request-promise-native > request-promise-core > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2019-07-04T08:58:22.892Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - babel-preset-bluebase > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - '@babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2019-07-04T08:58:22.892Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
+    - babel-preset-bluebase > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T08:58:22.892Z'
