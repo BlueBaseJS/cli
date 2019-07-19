@@ -15,9 +15,9 @@ import { removeNil } from '@bluebase/cli-core/lib/utils/arrays';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 // PRIVATES
-function KeyedComponent({ children }: { children: React.ReactNode }) {
+const KeyedComponent: any = ({ children }: { children: React.ReactNode }) => {
 	return Children.only(children);
-}
+};
 
 function stylesheetTag(stylesheetFilePath: string) {
 	return (
