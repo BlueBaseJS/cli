@@ -1,11 +1,5 @@
 {
   "extends": [
-    "@blueeast/tslint-config-blueeast/react"
-  ],
-  "rules": {
-    "no-expression-statement": false,
-    "object-literal-sort-keys": true,
-    "no-implicit-dependencies": false,
-    "max-classes-per-file": true
-  }
+    "@bluebase/code-standards/tslint"
+  ]
 }

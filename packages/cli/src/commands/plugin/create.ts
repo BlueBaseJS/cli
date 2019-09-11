@@ -99,6 +99,9 @@ export default class ExpoStart extends Command {
 		// Change working directory
 		process.chdir(Utils.fromProjectRoot(answers.GIT_REPO));
 
+		// Delete .git dir
+		execSync(`rm -rf .git`);
+
     ////////////////////////////
     ///// Add dependencies /////
     ////////////////////////////
