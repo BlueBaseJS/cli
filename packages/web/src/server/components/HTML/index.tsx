@@ -35,10 +35,10 @@ const HTML = (props: HTMLProperties) => {
 							content="width=device-width, initial-scale=1"
 						/>
 						<meta name="msapplication-TileColor" content="#2b2b2b" />
-						<meta
+						{/* <meta
 							name="msapplication-TileImage"
 							content="/favicons/mstile-144x144.png"
-						/>
+						/> */}
 						<meta name="theme-color" content="#2b2b2b" />
 						<title>BlueBase</title>
 						{/*
@@ -49,7 +49,7 @@ const HTML = (props: HTMLProperties) => {
 						http://realfavicongenerator.net/
 						http://www.favicomatic.com/
 					*/}
-						<link
+						{/* <link
 							rel="apple-touch-icon-precomposed"
 							sizes="152x152"
 							href="/favicons/apple-touch-icon-152x152.png"
@@ -123,9 +123,9 @@ const HTML = (props: HTMLProperties) => {
 							href="/favicons/favicon-32x32.png"
 							sizes="32x32"
 						/>
-						<link rel="icon" sizes="16x16 32x32" href="/favicon.ico" />
+						<link rel="icon" sizes="16x16 32x32" href="/favicon.ico" /> */}
 						<meta name="msapplication-TileColor" content="#2b2b2b" />
-						<meta
+						{/* <meta
 							name="msapplication-TileImage"
 							content="/favicons/mstile-144x144.png"
 						/>
@@ -144,7 +144,7 @@ const HTML = (props: HTMLProperties) => {
 						<meta
 							name="msapplication-square310x310logo"
 							content="/favicons/mstile-310x310.png"
-						/>
+						/> */}
 						<link rel="manifest" href="/manifest.json" />
 					</Helmet>
 				</div>

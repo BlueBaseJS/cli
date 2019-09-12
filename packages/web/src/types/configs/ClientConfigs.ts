@@ -60,5 +60,10 @@ export interface ClientConfigs extends BundleDefinition {
 		name: string,
 	},
 
-	favIconConfig: object
+	favIconConfig: object,
+
+	workBox:{
+		config:object,
+		disable: boolean,
+	},
 }

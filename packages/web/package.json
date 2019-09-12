@@ -7,6 +7,8 @@
 	"typings": "lib/index.d.ts",
 	"module": "lib/index.js",
 	"dependencies": {
+    "@types/workbox-webpack-plugin": "^3.6.1",
+    "workbox-webpack-plugin": "^4.0.0",
 		"@babel/core": "^7.2.0",
 		"@babel/register": "^7.0.0",
 		"@babel/runtime": "^7.2.0",
