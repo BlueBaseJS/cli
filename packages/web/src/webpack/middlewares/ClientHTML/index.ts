@@ -38,6 +38,8 @@ const ClientHTML: WebpackBuilderMiddleware = () => (config: WebpackConfig, build
 						// removeNilAttributes: true,
 						useShortDoctype: true,
 					},
+
+					meta: { viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
 					production: true,
 					template: `${path.resolve(__dirname, './template.js')}`,
 					// We pass our config and client config script compoent as it will
