@@ -19,7 +19,7 @@ $ npm install -g @bluebase/cli-expo
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-expo/0.0.24 darwin-x64 node-v12.4.0
+@bluebase/cli-expo/0.0.25 darwin-x64 node-v12.4.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -28,10 +28,31 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`bluebase expo:build`](#bluebase-expobuild)
 * [`bluebase expo:build:android`](#bluebase-expobuildandroid)
 * [`bluebase expo:build:ios`](#bluebase-expobuildios)
 * [`bluebase expo:init`](#bluebase-expoinit)
 * [`bluebase expo:start`](#bluebase-expostart)
+
+## `bluebase expo:build`
+
+creates a expo build directory with app.json file
+
+```
+USAGE
+  $ bluebase expo:build
+
+OPTIONS
+  --appJsPath=appJsPath  [default: ./bluebase/expo/App] Path to App.js file relative to the root directory
+  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
+  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
+  --configDir=configDir  [default: ./bluebase/expo] Path to config directory relative to the root directory
+
+EXAMPLE
+  $ bluebase expo:build
+```
+
+_See code: [src/commands/expo/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.25/src/commands/expo/build.ts)_
 
 ## `bluebase expo:build:android`
 
@@ -51,7 +72,7 @@ EXAMPLE
   $ bluebase expo:build:android
 ```
 
-_See code: [src/commands/expo/build/android.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.24/src/commands/expo/build/android.ts)_
+_See code: [src/commands/expo/build/android.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.25/src/commands/expo/build/android.ts)_
 
 ## `bluebase expo:build:ios`
 
@@ -71,7 +92,7 @@ EXAMPLE
   $ bluebase expo:build:ios
 ```
 
-_See code: [src/commands/expo/build/ios.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.24/src/commands/expo/build/ios.ts)_
+_See code: [src/commands/expo/build/ios.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.25/src/commands/expo/build/ios.ts)_
 
 ## `bluebase expo:init`
 
@@ -91,7 +112,7 @@ EXAMPLE
   $ bluebase expo:init
 ```
 
-_See code: [src/commands/expo/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.24/src/commands/expo/init.ts)_
+_See code: [src/commands/expo/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.25/src/commands/expo/init.ts)_
 
 ## `bluebase expo:start`
 
@@ -111,5 +132,5 @@ EXAMPLE
   $ bluebase expo:start
 ```
 
-_See code: [src/commands/expo/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.24/src/commands/expo/start.ts)_
+_See code: [src/commands/expo/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.25/src/commands/expo/start.ts)_
 <!-- commandsstop -->
