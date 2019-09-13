@@ -17,7 +17,7 @@
 		"@bluebase/code-standards": "^1.0.3",
 		"@oclif/command": "^1",
 		"@oclif/config": "^1",
-		"expo-cli": "^2.19.4",
+		"expo-cli": "^3.0.10",
 		"metro-react-native-babel-preset": "^0.53.1",
 		"rimraf": "^2.6.3",
 		"semver": "^6.0.0",
