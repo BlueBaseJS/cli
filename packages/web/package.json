@@ -1,14 +1,14 @@
 {
 	"name": "@bluebase/cli-web",
-	"version": "0.0.30",
+	"version": "0.0.31",
 	"author": "BlueEast Team <code@blueeast.com>",
 	"bugs": "https://github.com/BlueBaseJS/cli/issues",
 	"main": "lib/index.js",
 	"typings": "lib/index.d.ts",
 	"module": "lib/index.js",
 	"dependencies": {
-    "@types/workbox-webpack-plugin": "^3.6.1",
-    "workbox-webpack-plugin": "^4.0.0",
+		"@types/workbox-webpack-plugin": "^3.6.1",
+		"workbox-webpack-plugin": "^4.0.0",
 		"@babel/core": "^7.2.0",
 		"@babel/register": "^7.0.0",
 		"@babel/runtime": "^7.2.0",
