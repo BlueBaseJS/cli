@@ -2,6 +2,13 @@ import defaultConfigs from '../../configs';
 import { findFile } from './findFile';
 import path from 'path';
 
+// Transpile files on the fly
+// tslint:disable-next-line:no-var-requires
+require('@babel/register')({
+	extensions: ['.js', '.jsx', '.ts', '.tsx'],
+	presets: ['@bluebase/code-standards/babel.config.js'],
+});
+
 export interface CreateBundleInterface {
 	assetsDir: string,
 	buildDir: string,
@@ -22,7 +29,7 @@ export const getAppJson = async ({ assetsDir, buildDir, configDir }: CreateBundl
 
 	// See if there is a custom config file in the project
 	const configPath = findFile(
-    path.resolve(configDir, 'config.client'),
+    path.resolve(configDir, 'configs'),
     path.resolve(__dirname, './emptyFn.js')
 	);
 
