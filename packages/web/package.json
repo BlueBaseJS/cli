@@ -7,8 +7,6 @@
 	"typings": "lib/index.d.ts",
 	"module": "lib/index.js",
 	"dependencies": {
-		"@types/workbox-webpack-plugin": "^3.6.1",
-		"workbox-webpack-plugin": "^4.0.0",
 		"@babel/core": "^7.2.0",
 		"@babel/register": "^7.0.0",
 		"@babel/runtime": "^7.2.0",
@@ -16,6 +14,7 @@
 		"@bluebase/cli-core": "^0.0.10",
 		"@oclif/command": "^1.5.8",
 		"@oclif/config": "^1.10.4",
+		"@types/workbox-webpack-plugin": "^3.6.1",
 		"assets-webpack-plugin": "^3.8.4",
 		"babel-loader": "^8.0.4",
 		"babel-plugin-module-resolver": "^3.1.1",
@@ -66,6 +65,7 @@
 		"webpack-serve": "^2.0.2",
 		"webpack-serve-waitpage": "^1.0.2",
 		"webpack-stylish": "^0.1.8",
+		"workbox-webpack-plugin": "^4.0.0",
 		"write-json-webpack-plugin": "^1.0.2"
 	},
 	"devDependencies": {
@@ -131,6 +131,9 @@
 		"prettier": "^1.13.4",
 		"react": "^16.8.6",
 		"rimraf": "^2.6.3",
+		"semantic-release": "^15.13.24",
+		"semantic-release-monorepo": "^6.1.1",
+		"semantic-release-monorepo-hooks": "^2.9.5",
 		"standard-version": "^4.4.0",
 		"trash-cli": "^1.4.0",
 		"ts-node": "^7.0.0",

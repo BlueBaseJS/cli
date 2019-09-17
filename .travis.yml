@@ -1,20 +1,15 @@
-sudo: false
 language: node_js
-node_js:
-  - '10'
 cache:
   yarn: true
   directories:
     - node_modules
-notifications:
-  email: false
+    - ~/.npm
+    - .jest
 node_js:
-  - lts/*
-before_install:
-  - chmod +x .travis/before_install.sh
-after_success:
-  - .travis/after_success.sh
-  - test $TRAVIS_BRANCH = "master" && yarn semantic-release
+  - 12
 script: yarn lint
-git:
-  depth: 1
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    - yarn lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
