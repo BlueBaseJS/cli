@@ -8,7 +8,7 @@ import { getLatestExpoVersion } from './expo/getLatestExpoVersion';
 /**
  * List of dependencies required by this plugin
  */
-export const requiredDependencies = [...coreDeps, 'deepmerge'];
+export const requiredDependencies = [...coreDeps, 'deepmerge', '@bluebase/code-standards'];
 
 /**
  * List of dev dependencies required by this plugin

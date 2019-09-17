@@ -6,9 +6,8 @@ import path from 'path';
 // tslint:disable-next-line:no-var-requires
 require('@babel/register')({
 	extensions: ['.js', '.jsx', '.ts', '.tsx'],
-	presets: ['@bluebase/babel-preset-bluebase'],
+	presets: ['@bluebase/code-standards/babel.config.js'],
 });
-
 
 export interface CreateBundleInterface {
 	assetsDir: string,
