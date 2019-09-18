@@ -9,14 +9,14 @@
 		"lerna",
 		"bluebase"
 	],
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
-		"wizard": "lerna-wizard",
-		"commit": "git-cz",
-		"semantic-release": "lerna-semantic-release pre && lerna-semantic-release perform && lerna-semantic-release post",
 		"postinstall": "yarn bootstrap",
 		"bootstrap": "lerna bootstrap",
 		"clean": "lerna clean",
-		"lint": "lerna exec yarn lint"
+		"lint": "lerna exec --parallel yarn lint"
 	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^3.0.1",
@@ -25,7 +25,7 @@
 		"@semantic-release/github": "5.2.1",
 		"@semantic-release/npm": "5.0.5",
 		"@semantic-release/release-notes-generator": "7.1.2",
-		"lerna": "^2.9.0",
+		"lerna": "^3.16.4",
 		"prettier": "^1.10.2"
 	},
 	"dependencies": {

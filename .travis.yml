@@ -8,8 +8,5 @@ cache:
 node_js:
   - 12
 script: yarn lint
-deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-    - yarn lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
+after_success:
+  - yarn lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
