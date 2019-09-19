@@ -20,7 +20,7 @@ export const requiredDependencies = [
  */
 export const requiredDevDependencies = [
 	...coreDevDeps,
-	'@bluebase/babel-preset-bluebase',
+	'@bluebase/code-standards',
 	'@types/deepmerge',
 	'@types/source-map-support',
 	'@types/uuid',
