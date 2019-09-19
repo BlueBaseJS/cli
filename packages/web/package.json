@@ -1,6 +1,6 @@
 {
 	"name": "@bluebase/cli-web",
-	"version": "0.0.30",
+	"version": "0.0.31",
 	"author": "BlueEast Team <code@blueeast.com>",
 	"bugs": "https://github.com/BlueBaseJS/cli/issues",
 	"main": "lib/index.js",
