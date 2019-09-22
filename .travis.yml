@@ -9,4 +9,4 @@ node_js:
   - 12
 script: yarn lint
 after_success:
-  - yarn lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
+  - yarn lerna exec --concurrency 1 "npx --no-install semantic-release@beta -e semantic-release-monorepo" && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
