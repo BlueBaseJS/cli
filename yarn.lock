@@ -990,17 +990,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bluebase/babel-preset-bluebase@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@bluebase/babel-preset-bluebase/-/babel-preset-bluebase-2.4.1.tgz#ecd63c38679bd795b3d5419deec79ce716f74b4e"
-  integrity sha512-x8PNUVOmUhLNOh2N8SvsgvjuLRGrTCxHIaQS+7T5d3e/lrrffLdqjOF8M4kPZQq9B4Dc5rjdrbtq5prCv/HUnw==
-  dependencies:
-    "@babel/plugin-proposal-class-properties" "^7.2.1"
-    "@babel/plugin-proposal-object-rest-spread" "^7.2.0"
-    "@babel/preset-env" "^7.2.0"
-    "@babel/preset-react" "^7.0.0"
-    "@babel/preset-typescript" "^7.1.0"
-
 "@bluebase/cli-core@^0.0.10":
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/@bluebase/cli-core/-/cli-core-0.0.10.tgz#9f2ce8b845e3cc657b6024213492f1267e2c8e17"
@@ -1122,7 +1111,7 @@
     webpack-stylish "^0.1.8"
     write-json-webpack-plugin "^1.0.2"
 
-"@bluebase/code-standards@^1.0.3":
+"@bluebase/code-standards@^1.0.3", "@bluebase/code-standards@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@bluebase/code-standards/-/code-standards-1.5.0.tgz#044f5e651722acf25db1c89ac9fef340acc65f57"
   integrity sha512-UEpyYnmIAllHnMnZuGIbzVZHcmmvKhUxY3J2Q0+M0VKRHtTB7gN+EzUQKROw8+xp2u/QcyhJnwGAGw6AU5bEOA==
@@ -3726,10 +3715,10 @@
   dependencies:
     winston "*"
 
-"@types/workbox-webpack-plugin@^3.6.1":
-  version "3.6.2"
-  resolved "https://registry.yarnpkg.com/@types/workbox-webpack-plugin/-/workbox-webpack-plugin-3.6.2.tgz#5e62b1ecefab35f17631f2c6ed6f63ec63a474f8"
-  integrity sha512-raPMdsHWxgGM3lRBLXpfdYZDX4aciCTPlk+JFznpYN6fNTSseXtFnGhEeF86TKTm8OMjR0XJ18Vz45GtM/1T+Q==
+"@types/workbox-webpack-plugin@3.6.1":
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/@types/workbox-webpack-plugin/-/workbox-webpack-plugin-3.6.1.tgz#19d1964fc3f65d84fc9de3238f416942d47127f4"
+  integrity sha512-pC1jP7LVvCd/ffNKX4VFm0mdLoeLHP7uoz4C5F9OgiH41fBZT7i3ElFMnw1vXYaa3llHrHlPGlH97UA4NP7BxA==
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
@@ -21773,7 +21762,7 @@ workbox-build@^3.6.3:
     workbox-streams "^3.6.3"
     workbox-sw "^3.6.3"
 
-workbox-build@^4.3.1:
+workbox-build@^4.0.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/workbox-build/-/workbox-build-4.3.1.tgz#414f70fb4d6de47f6538608b80ec52412d233e64"
   integrity sha512-UHdwrN3FrDvicM3AqJS/J07X0KXj67R8Cg0waq1MKEOqzo89ap6zh6LmaLnRAjpB+bDIz+7OlPye9iii9KBnxw==
@@ -21954,6 +21943,15 @@ workbox-sw@^4.3.1:
   resolved "https://registry.yarnpkg.com/workbox-sw/-/workbox-sw-4.3.1.tgz#df69e395c479ef4d14499372bcd84c0f5e246164"
   integrity sha512-0jXdusCL2uC5gM3yYFT6QMBzKfBr2XTk0g5TPAV4y8IZDyVNDyj1a8uSXy3/XrvkVTmQvLN4O5k3JawGReXr9w==
 
+workbox-webpack-plugin@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/workbox-webpack-plugin/-/workbox-webpack-plugin-4.0.0.tgz#8c976e7569392ac810c5115d5131ba029b311caf"
+  integrity sha512-J1FGWnOcLySCcV9V0t8bIQKTxrQy4OoIT9aBMjnapwPPFJqFcCmxhnU3ozhJDhZh5nrFzE9gbO16yyMs3DQC6g==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    json-stable-stringify "^1.0.1"
+    workbox-build "^4.0.0"
+
 workbox-webpack-plugin@^3.6.3:
   version "3.6.3"
   resolved "https://registry.yarnpkg.com/workbox-webpack-plugin/-/workbox-webpack-plugin-3.6.3.tgz#a807bb891b4e4e3c808df07e58f17de2d5ba6182"
@@ -21962,15 +21960,6 @@ workbox-webpack-plugin@^3.6.3:
     babel-runtime "^6.26.0"
     json-stable-stringify "^1.0.1"
     workbox-build "^3.6.3"
-
-workbox-webpack-plugin@^4.0.0:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/workbox-webpack-plugin/-/workbox-webpack-plugin-4.3.1.tgz#47ff5ea1cc074b6c40fb5a86108863a24120d4bd"
-  integrity sha512-gJ9jd8Mb8wHLbRz9ZvGN57IAmknOipD3W4XNE/Lk/4lqs5Htw4WOQgakQy/o/4CoXQlMCYldaqUg+EJ35l9MEQ==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    json-stable-stringify "^1.0.1"
-    workbox-build "^4.3.1"
 
 workbox-window@^4.3.1:
   version "4.3.1"

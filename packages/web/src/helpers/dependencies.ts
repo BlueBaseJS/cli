@@ -8,10 +8,7 @@ export const requiredDependencies = [
 	'deepmerge',
 	'react-dom@^16.4.2',
 	'@babel/core',
-	'source-map-support',
 	'@babel/runtime',
-	'uuid',
-	'compression',
 	'metro-react-native-babel-preset'
 ];
 
@@ -20,9 +17,8 @@ export const requiredDependencies = [
  */
 export const requiredDevDependencies = [
 	...coreDevDeps,
-	'@bluebase/babel-preset-bluebase',
+	'@types/workbox-webpack-plugin@3.6.1',
+	'workbox-webpack-plugin@4.0.0',
+	'@bluebase/code-standards',
 	'@types/deepmerge',
-	'@types/source-map-support',
-	'@types/uuid',
-	'@types/compression'
 ];
