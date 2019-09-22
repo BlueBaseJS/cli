@@ -3,7 +3,7 @@
   <h1>
 		BlueBase CLI
 	</h1>
-  <p>🤖 CLI tool to text, build & publish BlueBase projects on various platforms.</p>
+  <p>🤖 CLI tool to test, build & publish BlueBase projects on various platforms.</p>
 </div>
 
 <hr />
