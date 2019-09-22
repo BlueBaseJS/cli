@@ -11,7 +11,7 @@
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@bluebase/cli-web.svg)](https://npmjs.org/package/@bluebase/cli-web)
 
-## Table of Contents
+# Table of Contents
 
 <!-- toc -->
 
@@ -19,7 +19,7 @@
 - [Commands](#commands)
   <!-- tocstop -->
 
-## Usage
+# Usage
 
 <!-- usage -->
 
@@ -37,7 +37,7 @@ USAGE
 
 <!-- usagestop -->
 
-## Commands
+# Commands
 
 <!-- commands -->
 
@@ -45,7 +45,7 @@ USAGE
 - [`bluebase web:init`](#bluebase-webinit)
 - [`bluebase web:start`](#bluebase-webstart)
 
-### `bluebase web:build`
+## `bluebase web:build`
 
 ```
 USAGE
@@ -60,7 +60,7 @@ OPTIONS
 
 _See code: [src/commands/web/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.31/src/commands/web/build.ts)_
 
-### `bluebase web:init`
+## `bluebase web:init`
 
 Initializes a directory with an example project.
 
@@ -80,7 +80,7 @@ EXAMPLE
 
 _See code: [src/commands/web/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.31/src/commands/web/init.ts)_
 
-### `bluebase web:start`
+## `bluebase web:start`
 
 ```
 USAGE
