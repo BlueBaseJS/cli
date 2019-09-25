@@ -1,18 +1,17 @@
 /**
  * List of dependencies required by this plugin
  */
-export const requiredDependencies = [
-	'react@^16',
-];
+export const requiredDependencies = ['react'];
 
 /**
  * List of dev dependencies required by this plugin
  */
 export const requiredDevDependencies = [
 	'@bluebase/core',
-	'@blueeast/tslint-config-blueeast',
+	'@bluebase/code-standards',
+	// '@blueeast/tslint-config-blueeast',
 	// '@types/node',
 	'@types/react',
 	'@types/react-native',
-	'typescript@^3',
+	'typescript',
 ];
