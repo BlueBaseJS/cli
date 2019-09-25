@@ -1136,13 +1136,14 @@
     tslint-react "^3.6.0"
     typescript "^3.1.4"
 
-"@bluebase/core@^4.0.0-aplha.5", "@bluebase/core@^4.0.0-aplha.6":
-  version "4.0.0-aplha.27"
-  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.27.tgz#f7dea206836b45fd8196a1cc4f47a9d89a09c6d6"
-  integrity sha512-bnwGXL3MO2KCYnmCUM0e8U01x/gHOkWbScvMq/SQgDAxkoEWqxSG034ZL8lELyuRjdGK+5PZ6ucu7wowJ7omQg==
+"@bluebase/core@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-5.0.2.tgz#e2e0e38a9065b82bf10ae202462b965b16faff12"
+  integrity sha512-L9F2ybRkjam2miPDyccKcQuGKbr8RybDOvAjPvXRacG4U8Rdvm8eQyo7DiderSTP1uIU1i9J2/C4R1pz0FV+7g==
   dependencies:
-    deepmerge "^3.2.0"
+    deepmerge "^4.0.0"
     hoist-non-react-statics "^3.3.0"
+    is-plain-object "^3.0.0"
     lodash.flowright "^3.5.0"
     lodash.isboolean "^3.0.3"
     lodash.isfunction "^3.0.9"
@@ -1151,7 +1152,7 @@
     lodash.kebabcase "^4.1.1"
     react-loadable "^5.5.0"
     rtl-detect "^1.0.2"
-    tslib "^1.9.3"
+    tslib "^1.10.0"
 
 "@blueeast/tslint-config-blueeast@^0.5.6":
   version "0.5.6"
