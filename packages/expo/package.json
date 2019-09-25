@@ -67,7 +67,7 @@
 		"fix:tslint": "tslint --fix --project .",
 		"build": "run-s clean && run-p build:*",
 		"build:main": "tsc -p tsconfig.json && babel ./src --out-dir lib --extensions \".ts,.tsx\"",
-		"lint": "tslint -t stylish --project \"tsconfig.json\"",
+		"lint": "tslint -t stylish --project \"../../tsconfig.json\"",
 		"clean": "rimraf coverage lib tmp",
 		"prepare": "npm run build",
 		"postpack": "rm -f oclif.manifest.json",
