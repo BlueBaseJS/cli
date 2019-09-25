@@ -14,7 +14,7 @@
 		"clean": "rimraf coverage dist tmp",
 		"watch": "tsc -w -p tsconfig.json",
 		"watch:test": "jest --watch",
-		"lint": "tslint -t stylish --project \"tsconfig.json\"",
+		"lint": "tslint -t stylish --project \"../../tsconfig.json\"",
 		"test:only": "jest --coverage",
 		"info": "npm-scripts-info",
 		"build": "run-s clean && run-p build:*",

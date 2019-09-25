@@ -1,24 +1,28 @@
-@bluebase/cli-storybook-native
-===============================
+<div align="center">
+	<img height=125 src="./assets/logo.jpg">
+  <h1>
+		BlueBase CLI Storybook Native
+	</h1>
+  <p>🤖 BlueBase CLI plugin to create React Native Storybook projects.</p>
+</div>
 
-An Web plugin for BlueRain CLI
+<hr />
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@bluebase/cli-storybook-native.svg)](https://npmjs.org/package/@bluebase/cli-storybook-native)
 
-[![CircleCI](https://circleci.com/gh/BlueBaseJS/cli/tree/master.svg?style=shield)](https://circleci.com/gh/BlueBaseJS/cli/tree/master)
-
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/BlueBaseJS/cli?branch=master&svg=true)](https://ci.appveyor.com/project/BlueBaseJS/cli/branch/master)
-[![Codecov](https://codecov.io/gh/BlueBaseJS/cli/branch/master/graph/badge.svg)](https://codecov.io/gh/BlueBaseJS/cli)
-[![Downloads/week](https://img.shields.io/npm/dw/@bluebase/cli-storybook-native.svg)](https://npmjs.org/package/@bluebase/cli-storybook-native)
-[![License](https://img.shields.io/npm/l/@bluebase/cli-storybook-native.svg)](https://github.com/BlueBaseJS/cli/blob/master/package.json)
+# Table of Contents
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+
+- [Usage](#usage)
+- [Commands](#commands)
+  <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @bluebase/cli-storybook-native
 $ bluebase COMMAND
@@ -30,11 +34,15 @@ USAGE
   $ bluebase COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
-* [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
+
+- [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
+- [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
 
 ## `bluebase storybook-native:init`
 
@@ -75,4 +83,5 @@ EXAMPLE
 ```
 
 _See code: [lib/commands/storybook-native/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.11/lib/commands/storybook-native/start.js)_
+
 <!-- commandsstop -->

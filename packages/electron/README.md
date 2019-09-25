@@ -1,24 +1,28 @@
-@blueeast/bluerain-cli-electron
-===============================
+<div align="center">
+	<img height=125 src="./assets/logo.jpg">
+  <h1>
+		BlueBase CLI Electron
+	</h1>
+  <p>🤖 BlueBase CLI plugin to build electron apps.</p>
+</div>
 
-An Electron plugin for BlueRain CLI
+<hr />
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/@blueeast/bluerain-cli-electron.svg)](https://npmjs.org/package/@blueeast/bluerain-cli-electron)
+[![Version](https://img.shields.io/npm/v/@bluebase/cli-electron.svg)](https://npmjs.org/package/@bluebase/cli-electron)
 
-[![CircleCI](https://circleci.com/gh/BlueEastCode/bluerain-cli/tree/master.svg?style=shield)](https://circleci.com/gh/BlueEastCode/bluerain-cli/tree/master)
-
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/BlueEastCode/bluerain-cli?branch=master&svg=true)](https://ci.appveyor.com/project/BlueEastCode/bluerain-cli/branch/master)
-[![Codecov](https://codecov.io/gh/BlueEastCode/bluerain-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/BlueEastCode/bluerain-cli)
-[![Downloads/week](https://img.shields.io/npm/dw/@blueeast/bluerain-cli-electron.svg)](https://npmjs.org/package/@blueeast/bluerain-cli-electron)
-[![License](https://img.shields.io/npm/l/@blueeast/bluerain-cli-electron.svg)](https://github.com/BlueEastCode/bluerain-cli/blob/master/package.json)
+# Table of Contents
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+
+- [Usage](#usage)
+- [Commands](#commands)
+  <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @bluebase/cli-electron
 $ oclif-example COMMAND
@@ -30,11 +34,15 @@ USAGE
   $ oclif-example COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`oclif-example electron:init`](#oclif-example-electroninit)
-* [`oclif-example electron:start`](#oclif-example-electronstart)
+
+- [`oclif-example electron:init`](#oclif-example-electroninit)
+- [`oclif-example electron:start`](#oclif-example-electronstart)
 
 ## `oclif-example electron:init`
 
@@ -68,4 +76,5 @@ OPTIONS
 ```
 
 _See code: [src/commands/electron/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.5/src/commands/electron/start.ts)_
+
 <!-- commandsstop -->

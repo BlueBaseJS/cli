@@ -1,19 +1,28 @@
-@bluebase/cli-expo
-==================
+<div align="center">
+	<img height=125 src="./assets/logo.jpg">
+  <h1>
+		BlueBase CLI Expo
+	</h1>
+  <p>🤖 BlueBase CLI plugin to build expo apps.</p>
+</div>
 
-An Expo plugin for BlueBaseJS CLI
+<hr />
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@bluebase/cli-expo.svg)](https://npmjs.org/package/@bluebase/cli-expo)
-[![Downloads/week](https://img.shields.io/npm/dw/@bluebase/cli-expo.svg)](https://npmjs.org/package/@bluebase/cli-expo)
-[![License](https://img.shields.io/npm/l/@bluebase/cli-expo.svg)](https://github.com/BlueBaseJS/cli/blob/master/package.json)
+
+# Table of Contents
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+
+- [Usage](#usage)
+- [Commands](#commands)
+  <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @bluebase/cli-expo
 $ bluebase COMMAND
@@ -25,14 +34,18 @@ USAGE
   $ bluebase COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`bluebase expo:build`](#bluebase-expobuild)
-* [`bluebase expo:build:android`](#bluebase-expobuildandroid)
-* [`bluebase expo:build:ios`](#bluebase-expobuildios)
-* [`bluebase expo:init`](#bluebase-expoinit)
-* [`bluebase expo:start`](#bluebase-expostart)
+
+- [`bluebase expo:build`](#bluebase-expobuild)
+- [`bluebase expo:build:android`](#bluebase-expobuildandroid)
+- [`bluebase expo:build:ios`](#bluebase-expobuildios)
+- [`bluebase expo:init`](#bluebase-expoinit)
+- [`bluebase expo:start`](#bluebase-expostart)
 
 ## `bluebase expo:build`
 
@@ -133,4 +146,5 @@ EXAMPLE
 ```
 
 _See code: [src/commands/expo/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.26/src/commands/expo/start.ts)_
+
 <!-- commandsstop -->

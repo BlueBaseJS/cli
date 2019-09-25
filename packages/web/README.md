@@ -1,24 +1,28 @@
-@bluebase/cli-web
-===============================
+<div align="center">
+	<img height=125 src="./assets/logo.jpg">
+  <h1>
+		BlueBase CLI Web
+	</h1>
+  <p>🤖 BlueBase CLI plugin to build web apps.</p>
+</div>
 
-An Web plugin for BlueRain CLI
+<hr />
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@bluebase/cli-web.svg)](https://npmjs.org/package/@bluebase/cli-web)
 
-[![CircleCI](https://circleci.com/gh/BlueBaseJS/cli/tree/master.svg?style=shield)](https://circleci.com/gh/BlueBaseJS/cli/tree/master)
-
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/BlueBaseJS/cli?branch=master&svg=true)](https://ci.appveyor.com/project/BlueBaseJS/cli/branch/master)
-[![Codecov](https://codecov.io/gh/BlueBaseJS/cli/branch/master/graph/badge.svg)](https://codecov.io/gh/BlueBaseJS/cli)
-[![Downloads/week](https://img.shields.io/npm/dw/@bluebase/cli-web.svg)](https://npmjs.org/package/@bluebase/cli-web)
-[![License](https://img.shields.io/npm/l/@bluebase/cli-web.svg)](https://github.com/BlueBaseJS/cli/blob/master/package.json)
+# Table of Contents
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+
+- [Usage](#usage)
+- [Commands](#commands)
+  <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @bluebase/cli-web
 $ bluebase COMMAND
@@ -30,12 +34,16 @@ USAGE
   $ bluebase COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`bluebase web:build`](#bluebase-webbuild)
-* [`bluebase web:init`](#bluebase-webinit)
-* [`bluebase web:start`](#bluebase-webstart)
+
+- [`bluebase web:build`](#bluebase-webbuild)
+- [`bluebase web:init`](#bluebase-webinit)
+- [`bluebase web:start`](#bluebase-webstart)
 
 ## `bluebase web:build`
 
@@ -86,4 +94,5 @@ OPTIONS
 ```
 
 _See code: [src/commands/web/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.31/src/commands/web/start.ts)_
+
 <!-- commandsstop -->
