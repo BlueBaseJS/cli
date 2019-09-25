@@ -24,17 +24,21 @@ import shell from 'shelljs';
 // });
 
 export interface CreateBundleInterface {
-	assetsDir: string,
-	buildDir: string,
-	configDir: string,
-	appJsPath: string,
-	name: string,
-	templateVars?: any
+	assetsDir: string;
+	buildDir: string;
+	configDir: string;
+	appJsPath: string;
+	name: string;
+	templateVars?: any;
 }
 export const createBundle = async ({
-	assetsDir, buildDir, configDir, appJsPath, name, templateVars
+	assetsDir,
+	buildDir,
+	configDir,
+	appJsPath,
+	name,
+	templateVars,
 }: CreateBundleInterface) => {
-
 	///////////////////////////
 	///// Clear build dir /////
 	///////////////////////////
@@ -73,12 +77,11 @@ export const createBundle = async ({
 		force: true,
 		prompt: false,
 		variables: {
-			'APP_JSON': JSON.stringify(appJson, null, 2),
-			'APP_JS_PATH': `./${appJsLocation}`,
-			'BLUERAIN_JS_PATH': `./${path.relative(buildDir, bluebaseJsPath)}`,
-			...templateVars
+			APP_JSON: JSON.stringify(appJson, null, 2),
+			APP_JS_PATH: `./${appJsLocation}`,
+			BLUEBASE_JS_PATH: `./${path.relative(buildDir, bluebaseJsPath)}`,
+			...templateVars,
 		},
 		writeFiles: ['App.js', 'app.json', 'AppEntry.js'],
 	});
-
 };

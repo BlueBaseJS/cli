@@ -1,6 +1,6 @@
-import { BlueBaseApp } from "@bluebase/core";
-import React from "react";
-import bootConfig from "<%= BLUERAIN_JS_PATH %>";
+import { BlueBaseApp } from '@bluebase/core';
+import React from 'react';
+import bootConfig from '<%= BLUEBASE_JS_PATH %>';
 
 const App = () => React.createElement(BlueBaseApp, bootConfig);
 
