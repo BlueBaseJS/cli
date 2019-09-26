@@ -1,13 +1,13 @@
 {
 	"name": "@bluebase/cli-storybook-native",
 	"description": "An BLueBaseJS CLI plugin to integrate Storybook for React Native",
-	"version": "0.0.11",
+	"version": "0.0.13",
 	"main": "./lib",
 	"author": "BlueEast Team <code@blueeast.com>",
 	"bugs": "https://github.com/BlueBaseJS/cli/issues",
 	"dependencies": {
-		"@bluebase/cli-core": "^0.0.26",
-		"@bluebase/cli-expo": "^0.0.24",
+		"@bluebase/cli-core": "^0.0.27",
+		"@bluebase/cli-expo": "^0.0.28",
 		"@oclif/command": "^1.5.12",
 		"@oclif/config": "^1.12.12",
 		"deepmerge": "^3.2.0",
@@ -20,7 +20,7 @@
 		"typescript": "^3.4.1"
 	},
 	"devDependencies": {
-		"@bluebase/core": "^4.0.0-aplha.5",
+		"@bluebase/core": "^5.0.2",
 		"@blueeast/tslint-config-blueeast": "^0.7.0",
 		"@oclif/dev-cli": "^1.22.0",
 		"@oclif/plugin-help": "^2.1.6",
@@ -45,8 +45,8 @@
 		"tslint": "^5.15.0"
 	},
 	"peerDependencies": {
-		"@bluebase/core": "^4.*",
-		"react": "^16.*"
+		"@bluebase/core": "^5.0.2",
+		"react": "^16.6.0"
 	},
 	"engines": {
 		"node": ">=8.0.0"

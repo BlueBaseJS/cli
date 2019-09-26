@@ -14,35 +14,32 @@
 # Table of Contents
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
-  <!-- tocstop -->
+* [Table of Contents](#table-of-contents)
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @bluebase/cli-storybook-native
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-storybook-native/0.0.11 darwin-x64 node-v12.4.0
+@bluebase/cli-storybook-native/0.0.13 darwin-x64 node-v12.10.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
-- [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
+* [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
+* [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
 
 ## `bluebase storybook-native:init`
 
@@ -62,7 +59,7 @@ EXAMPLE
   $ bluebase storybook-native:start
 ```
 
-_See code: [lib/commands/storybook-native/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.11/lib/commands/storybook-native/init.js)_
+_See code: [lib/commands/storybook-native/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.13/lib/commands/storybook-native/init.js)_
 
 ## `bluebase storybook-native:start`
 
@@ -82,6 +79,5 @@ EXAMPLE
   $ bluebase storybook-native:start
 ```
 
-_See code: [lib/commands/storybook-native/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.11/lib/commands/storybook-native/start.js)_
-
+_See code: [lib/commands/storybook-native/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.13/lib/commands/storybook-native/start.js)_
 <!-- commandsstop -->
