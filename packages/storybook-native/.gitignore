@@ -66,3 +66,6 @@ MacOS
 .expo
 
 .cache
+
+lib
+dist
