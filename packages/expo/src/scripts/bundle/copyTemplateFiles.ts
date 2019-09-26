@@ -4,11 +4,11 @@ import {
 } from '@bluebase/cli-core';
 
 import fromRoot from '../fromRoot';
+import fs from 'fs';
 import slugify from 'slugify';
 
 // tslint:disable: no-var-requires
 const parseRepositoryURL = require(`@hutson/parse-repository-url`);
-const pkginfo = require('pkginfo')(module, 'name', 'description', 'repository');
 
 /**
  * Copy template files to project directory.
@@ -19,17 +19,17 @@ export const copyTemplateFiles = async (
 ) => {
 	await copyCoreTemplateFiles(assetsDir, configDir);
 
-	// Copy files
+	const pkg = JSON.parse(
+		fs.readFileSync(Utils.fromProjectRoot('package.json'), 'utf8')
+	);
 
 	let OWNER = '';
 
 	try {
 		const repositoryURL =
-			typeof pkginfo.repository === 'string'
-				? pkginfo.repository
-				: pkginfo.repository.url;
+			typeof pkg.repository === 'string' ? pkg.repository : pkg.repository.url;
 
-		OWNER = parseRepositoryURL(repositoryURL);
+		OWNER = parseRepositoryURL(repositoryURL).user;
 	} catch (error) {
 		//
 	}
@@ -41,14 +41,14 @@ export const copyTemplateFiles = async (
 			force: true,
 			prompt: false,
 			variables: {
-				NAMESPACE: slugify(pkginfo.name, {
+				NAMESPACE: slugify(pkg.name, {
 					remove: /[*+~.()'"!:@]/g, // regex to remove characters
 					replacement: '.', // replace spaces with replacement
 				}),
 				OWNER,
-				PROJECT_DESCRIPTION: pkginfo.description,
-				PROJECT_NAME: pkginfo.name,
-				SLUG: slugify(pkginfo.name, {
+				PROJECT_DESCRIPTION: pkg.description,
+				PROJECT_NAME: pkg.name,
+				SLUG: slugify(pkg.name, {
 					remove: /[*+~.()'"!:@]/g, // regex to remove characters
 				}),
 			},
