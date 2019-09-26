@@ -87,6 +87,6 @@ export const expoVersions: Array<{
 		reactNative:
 			'https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz',
 		reactNativeVersion: '^0.59.8',
-		sdkVersion: '35	.0.0',
+		sdkVersion: '35.0.0',
 	},
 ];
