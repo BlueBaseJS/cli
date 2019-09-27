@@ -56,7 +56,7 @@
 		"uuid": "^3.3.2",
 		"webpack": "^4.28.3",
 		"webpack-dev-middleware": "^3.5.0",
-		"webpack-hot-client": "^4.1.1",
+		"webpack-hot-client": "^4.1.2",
 		"webpack-hot-middleware": "^2.22.3",
 		"webpack-jarvis": "^0.3.2",
 		"webpack-md5-hash": "^0.0.6",
