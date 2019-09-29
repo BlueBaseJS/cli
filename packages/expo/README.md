@@ -27,7 +27,7 @@ $ npm install -g @bluebase/cli-expo
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-expo/0.0.29 darwin-x64 node-v12.10.0
+@bluebase/cli-expo/0.0.30 darwin-x64 node-v12.10.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -62,7 +62,7 @@ EXAMPLE
   $ bluebase expo:build
 ```
 
-_See code: [src/commands/expo/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.29/src/commands/expo/build.ts)_
+_See code: [src/commands/expo/build.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.30/src/commands/expo/build.ts)_
 
 ## `bluebase expo:build:android`
 
@@ -82,7 +82,7 @@ EXAMPLE
   $ bluebase expo:build:android
 ```
 
-_See code: [src/commands/expo/build/android.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.29/src/commands/expo/build/android.ts)_
+_See code: [src/commands/expo/build/android.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.30/src/commands/expo/build/android.ts)_
 
 ## `bluebase expo:build:ios`
 
@@ -102,7 +102,7 @@ EXAMPLE
   $ bluebase expo:build:ios
 ```
 
-_See code: [src/commands/expo/build/ios.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.29/src/commands/expo/build/ios.ts)_
+_See code: [src/commands/expo/build/ios.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.30/src/commands/expo/build/ios.ts)_
 
 ## `bluebase expo:init`
 
@@ -122,7 +122,7 @@ EXAMPLE
   $ bluebase expo:init
 ```
 
-_See code: [src/commands/expo/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.29/src/commands/expo/init.ts)_
+_See code: [src/commands/expo/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.30/src/commands/expo/init.ts)_
 
 ## `bluebase expo:start`
 
@@ -133,14 +133,31 @@ USAGE
   $ bluebase expo:start
 
 OPTIONS
-  --appJsPath=appJsPath  [default: ./bluebase/expo/App] Path to App.js file relative to the root directory
-  --assetsDir=assetsDir  [default: ./assets/expo] Path to assets directory relative to the root directory
-  --buildDir=buildDir    [default: ./build/expo] Path to build directory relative to the root directory
-  --configDir=configDir  [default: ./bluebase/expo] Path to config directory relative to the root directory
+  -a, --android                  Opens your app in Expo on a connected Android device
+  -c, --clear                    Clear the React Native packager cache
+  -i, --ios                      Opens your app in Expo in a currently running iOS simulator on your computer
+  -s, --send-to=send-to          An email address to send a link to
+  -w, --web                      Opens your app in a web browser
+  --appJsPath=appJsPath          [default: ./bluebase/expo/App] Path to App.js file relative to the root directory
+  --assetsDir=assetsDir          [default: ./assets/expo] Path to assets directory relative to the root directory
+  --buildDir=buildDir            [default: ./build/expo] Path to build directory relative to the root directory
+  --configDir=configDir          [default: ./bluebase/expo] Path to config directory relative to the root directory
+  --dev                          Turns dev flag on
+  --host=(lan|tunnel|localhost)  [default: lan] Maximum number of tasks to allow Metro to spawn.
+  --https                        To start webpack with https protocol
+  --lan                          Same as --host lan
+  --localhost                    Same as --host localhost
+  --max-workers=max-workers      Maximum number of tasks to allow Metro to spawn.
+  --minify                       Turns minify flag on
+  --no-dev                       Turns dev flag off
+  --no-https                     To start webpack with http protocol
+  --no-minify                    Turns minify flag off
+  --offline                      Allows this command to run while offline
+  --tunnel                       Same as --host tunnel
 
 EXAMPLE
   $ bluebase expo:start
 ```
 
-_See code: [src/commands/expo/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.29/src/commands/expo/start.ts)_
+_See code: [src/commands/expo/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.30/src/commands/expo/start.ts)_
 <!-- commandsstop -->
