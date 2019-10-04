@@ -14,14 +14,16 @@
 # Table of Contents
 
 <!-- toc -->
-* [Table of Contents](#table-of-contents)
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+
+- [Table of Contents](#table-of-contents)
+- [Usage](#usage)
+- [Commands](#commands)
+  <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @bluebase/cli-storybook-native
 $ bluebase COMMAND
@@ -33,13 +35,15 @@ USAGE
   $ bluebase COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
-* [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
+
+- [`bluebase storybook-native:init`](#bluebase-storybook-nativeinit)
+- [`bluebase storybook-native:start`](#bluebase-storybook-nativestart)
 
 ## `bluebase storybook-native:init`
 
@@ -80,4 +84,5 @@ EXAMPLE
 ```
 
 _See code: [lib/commands/storybook-native/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.15/lib/commands/storybook-native/start.js)_
+
 <!-- commandsstop -->
