@@ -20,7 +20,7 @@
 		"typescript": "^3.4.1"
 	},
 	"devDependencies": {
-		"@bluebase/core": "^5.0.2",
+		"@bluebase/core": "^5.1.0",
 		"@blueeast/tslint-config-blueeast": "^0.7.0",
 		"@oclif/dev-cli": "^1.22.0",
 		"@oclif/plugin-help": "^2.1.6",
