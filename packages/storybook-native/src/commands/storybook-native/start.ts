@@ -9,16 +9,14 @@ import fs from 'fs';
 import path from 'path';
 
 export default class StartCommand extends Command {
-	static description = 'Starts or restarts a local server for your app and gives you a URL to it.';
+	static description =
+		'Starts or restarts a local server for your app and gives you a URL to it.';
 
-	static examples = [
-		`$ bluebase storybook-native:start`,
-	];
+	static examples = [`$ bluebase storybook-native:start`];
 
 	static flags = ExpoFlagDefs;
 
 	async run() {
-
 		const parsed = this.parse(StartCommand);
 		const flags = parsed.flags as ExpoFlags;
 
@@ -47,7 +45,10 @@ export default class StartCommand extends Command {
 			name: 'storybook-native',
 		});
 
-		let STORYBOOK_APP_PATH = path.relative(buildDir, path.join(configDir, 'storybook/'));
+		let STORYBOOK_APP_PATH = path.relative(
+			buildDir,
+			path.join(configDir, 'storybook/')
+		);
 
 		// change STORYBOOK_APP_PATH to defined path is App.js exists in that path
 		if (fs.existsSync(appJsPath + '.js')) {
@@ -58,7 +59,7 @@ export default class StartCommand extends Command {
 			force: true,
 			prompt: false,
 			variables: {
-				STORYBOOK_APP_PATH
+				STORYBOOK_APP_PATH,
 			},
 			writeFiles: ['AppEntry.js'],
 		});
@@ -75,12 +76,22 @@ export default class StartCommand extends Command {
 
 		const appJsonPath = path.join(buildDir, 'app.json');
 
+		console.log('appJsonPath', appJsonPath);
+		console.log(
+			'fromProjectRoot appJsonPath',
+			Utils.fromProjectRoot(appJsonPath)
+		);
 		execSync(Utils.fromProjectRoot('./node_modules/.bin/rnstl'));
 
 		const expoProcess = await spawn(
 			fromRoot('./node_modules/.bin/expo'),
 			['start', '--config', Utils.fromProjectRoot(appJsonPath)],
-			{ shell: true, env: process.env, cwd: Utils.fromProjectRoot(), stdio: 'inherit' }
+			{
+				shell: true,
+				env: process.env,
+				cwd: Utils.fromProjectRoot(),
+				stdio: 'inherit',
+			}
 		);
 
 		process.on('SIGINT', () => {
@@ -95,6 +106,5 @@ export default class StartCommand extends Command {
 			}
 			process.exit();
 		});
-
 	}
 }
