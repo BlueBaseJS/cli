@@ -19,7 +19,7 @@ export default class ExpoBuild extends Command {
 		Utils.logger.log({
 			label: '@bluebase/cli/expo',
 			level: 'info',
-			message: '🏗 Building android project...'
+			message: '🏗 Building android project...',
 		});
 
 		// run expo:ios build script
@@ -38,7 +38,7 @@ export default class ExpoBuild extends Command {
 			assetsDir,
 			buildDir,
 			configDir,
-			name: 'expo'
+			name: 'expo',
 		});
 
 		return;

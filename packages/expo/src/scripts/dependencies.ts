@@ -1,6 +1,6 @@
 import {
 	requiredDependencies as coreDeps,
-	requiredDevDependencies as coreDevDeps
+	requiredDevDependencies as coreDevDeps,
 } from '@bluebase/cli-core';
 
 import { getLatestExpoVersion } from './expo/getLatestExpoVersion';
@@ -8,15 +8,15 @@ import { getLatestExpoVersion } from './expo/getLatestExpoVersion';
 /**
  * List of dependencies required by this plugin
  */
-export const requiredDependencies = [...coreDeps, 'deepmerge', '@bluebase/code-standards'];
+export const requiredDependencies = [...coreDeps, '@bluebase/code-standards'];
 
 /**
  * List of dev dependencies required by this plugin
  */
 export const requiredDevDependencies = [
 	...coreDevDeps,
-	'@types/deepmerge',
-	'schedule@0.4.0'
+	'expo-keep-awake',
+	'schedule@0.4.0',
 ];
 
 const expoVersion = getLatestExpoVersion();

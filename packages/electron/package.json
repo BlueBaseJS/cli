@@ -21,7 +21,7 @@
 	},
 	"devDependencies": {
 		"@bluebase/cli-web": "^0.0.2",
-		"@bluebase/core": "^5.0.2",
+		"@bluebase/core": "^5.1.0",
 		"@blueeast/tslint-config-blueeast": "^0.5.6",
 		"@oclif/dev-cli": "^1",
 		"@oclif/plugin-help": "^2",

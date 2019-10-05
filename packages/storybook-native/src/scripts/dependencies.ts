@@ -1,11 +1,12 @@
-import { requiredDependencies as coreDeps, requiredDevDependencies as coreDevDeps } from '@bluebase/cli-expo';
+import {
+	requiredDependencies as coreDeps,
+	requiredDevDependencies as coreDevDeps,
+} from '@bluebase/cli-expo';
 
 /**
  * List of dependencies required by this plugin
  */
-export const requiredDependencies = [
-	...coreDeps,
-];
+export const requiredDependencies = [...coreDeps];
 
 /**
  * List of dev dependencies required by this plugin
