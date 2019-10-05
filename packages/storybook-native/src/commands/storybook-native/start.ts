@@ -76,11 +76,6 @@ export default class StartCommand extends Command {
 
 		const appJsonPath = path.join(buildDir, 'app.json');
 
-		console.log('appJsonPath', appJsonPath);
-		console.log(
-			'fromProjectRoot appJsonPath',
-			Utils.fromProjectRoot(appJsonPath)
-		);
 		execSync(Utils.fromProjectRoot('./node_modules/.bin/rnstl'));
 
 		const expoProcess = await spawn(
