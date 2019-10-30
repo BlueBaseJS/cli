@@ -6,6 +6,7 @@ import { Utils } from '@bluebase/cli-core';
 import WebpackBuilder from '../WebpackBuilder';
 import { WebpackBuilderMiddleware } from '../../types';
 import merge from 'webpack-merge';
+import path from 'path';
 import { useOwn } from '../../helpers/useOwn';
 
 // tslint:disable-next-line:no-var-requires
@@ -129,6 +130,8 @@ const BaseConfig: WebpackBuilderMiddleware =
 					// modules: [useOwn(), 'node_modules'],
 
 					alias: {
+						'react': path.resolve('./node_modules/react'),
+
 						'@bluebase/core': Utils.fromProjectRoot('node_modules/@bluebase/core'),
 
 						// BlueBase boot options file, AKA bluebase.js
