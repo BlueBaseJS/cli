@@ -1,4 +1,4 @@
-import CleanWebpackPlugin from 'clean-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import WebpackBuilder from '../WebpackBuilder';
 import { WebpackBuilderMiddleware } from '../../types';
 // tslint:disable-next-line: sort-imports
@@ -10,20 +10,17 @@ import merge from 'webpack-merge';
  * @param config
  * @param builder
  */
-const CleanBuildDir: WebpackBuilderMiddleware =
-	() =>
-	(config: WebpackConfig, builder: WebpackBuilder): WebpackConfig => {
+const CleanBuildDir: WebpackBuilderMiddleware = () => (
+	config: WebpackConfig,
+	_builder: WebpackBuilder
+): WebpackConfig => {
+	// if (!config.output || !config.output.path) {
+	// 	return config;
+	// }
 
-		// if (!config.output || !config.output.path) {
-		// 	return config;
-		// }
-
-		return merge(config, {
-
-			plugins: [
-				new CleanWebpackPlugin(builder.configs.outputPath)
-			]
-		});
-	};
+	return merge(config, {
+		plugins: [new CleanWebpackPlugin()],
+	});
+};
 
 export default CleanBuildDir;
