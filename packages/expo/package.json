@@ -14,7 +14,7 @@
 		"@babel/register": "^7.6.2",
 		"@babel/runtime": "^7.6.2",
 		"@bluebase/cli-core": "^0.0.27",
-		"@bluebase/code-standards": "^2.2.4",
+		"@bluebase/code-standards": "2.2.4",
 		"@hutson/parse-repository-url": "^4.0.3",
 		"@oclif/command": "^1",
 		"@oclif/config": "^1",
