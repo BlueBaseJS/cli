@@ -11,7 +11,7 @@
 		"@babel/register": "^7.6.2",
 		"@babel/runtime": "^7.6.2",
 		"@bluebase/cli-core": "^0.0.10",
-		"@bluebase/code-standards": "^1.5.0",
+		"@bluebase/code-standards": "2.2.4",
 		"@oclif/command": "^1.5.8",
 		"@oclif/config": "^1.10.4",
 		"@types/workbox-webpack-plugin": "3.6.1",
