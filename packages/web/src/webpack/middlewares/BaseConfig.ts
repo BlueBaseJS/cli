@@ -133,6 +133,7 @@ const BaseConfig: WebpackBuilderMiddleware = (
 
 			alias: {
 				react: Utils.fromProjectRoot('node_modules/react'),
+				'react-dom': Utils.fromProjectRoot('node_modules/react-dom'),
 
 				'@bluebase/core': Utils.fromProjectRoot('node_modules/@bluebase/core'),
 

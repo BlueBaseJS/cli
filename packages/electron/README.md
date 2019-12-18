@@ -14,35 +14,32 @@
 # Table of Contents
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
-  <!-- tocstop -->
+* [Table of Contents](#table-of-contents)
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @bluebase/cli-electron
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@bluebase/cli-electron/0.0.5 darwin-x64 node-v11.4.0
+@bluebase/cli-electron/1.0.0 linux-x64 node-v12.13.1
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`oclif-example electron:init`](#oclif-example-electroninit)
-- [`oclif-example electron:start`](#oclif-example-electronstart)
+* [`oclif-example electron:init`](#oclif-example-electroninit)
+* [`oclif-example electron:start`](#oclif-example-electronstart)
 
 ## `oclif-example electron:init`
 
@@ -61,7 +58,7 @@ EXAMPLE
   $ bluebase electron:init
 ```
 
-_See code: [src/commands/electron/init.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.5/src/commands/electron/init.ts)_
+_See code: [src/commands/electron/init.ts](https://github.com/BlueBaseJS/cli/blob/v1.0.0/src/commands/electron/init.ts)_
 
 ## `oclif-example electron:start`
 
@@ -75,6 +72,5 @@ OPTIONS
   --configDir=configDir  [default: ./bluebase/electron] Path to config directory relative to the root directory
 ```
 
-_See code: [src/commands/electron/start.ts](https://github.com/BlueBaseJS/cli/blob/v0.0.5/src/commands/electron/start.ts)_
-
+_See code: [src/commands/electron/start.ts](https://github.com/BlueBaseJS/cli/blob/v1.0.0/src/commands/electron/start.ts)_
 <!-- commandsstop -->
