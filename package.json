@@ -1,6 +1,6 @@
 {
 	"name": "@bluebase/cli-monorepo",
-	"description": "CLI tool to make life with BlueBase easier!",
+	"description": "CLI tool to make life with BlueBase easier! ",
 	"private": true,
 	"repository": "https://github.com/BlueBaseJS/cli.git",
 	"author": "BlueEast Team <code@blueeast.com>",
