@@ -1176,6 +1176,26 @@
     winston "^3.0.0"
     yarn-install "^1.0.0"
 
+"@bluebase/cli-core@^0.0.27":
+  version "0.0.27"
+  resolved "http://benpm.mevris.io/@bluebase%2fcli-core/-/cli-core-0.0.27.tgz#b9981de9d144e589ef7c04d46a9cc376c79e4850"
+  integrity sha512-aaBSNQsJT6+xBNiKhzmp6eWMAlGEJ3Ovh0VbiqTDy6YIf45SCo5s1gxnZkeNBKH3SnM6ru/18+Fj4o9RWK7NQQ==
+  dependencies:
+    "@oclif/command" "^1"
+    "@oclif/config" "^1"
+    deepmerge "^2.1.1"
+    detect-installed "^2.0.4"
+    dotenv "^6.0.0"
+    file-regex "^2.1.1"
+    inquirer "^6.2.0"
+    lodash.isnil "^4.0.0"
+    lodash.template "^4.4.0"
+    node-notifier "^5.2.1"
+    shelljs "^0.8.2"
+    tslib "^1"
+    winston "^3.0.0"
+    yarn-install "^1.0.0"
+
 "@bluebase/cli-core@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@bluebase/cli-core/-/cli-core-0.0.9.tgz#f2b37d4cf946bf896df289f7223ad98e1953bc85"
