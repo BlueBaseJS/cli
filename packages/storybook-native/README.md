@@ -11,7 +11,7 @@
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@bluebase/cli-storybook-native.svg)](https://npmjs.org/package/@bluebase/cli-storybook-native)
 
-# Table of Contents
+# Table of Contents 
 
 <!-- toc -->
 * [Table of Contents](#table-of-contents)
