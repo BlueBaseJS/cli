@@ -1,3 +1,10 @@
+# [@bluebase/cli-electron-v1.2.1](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-electron-v1.2.0...@bluebase/cli-electron-v1.2.1) (2020-01-03)
+
+
+### Bug Fixes
+
+* **modified readme's for release:** modified readme's for release ([757be49](https://github.com/BlueBaseJS/cli/commit/757be49))
+
 # @bluebase/cli-electron-v1.0.0 (2019-11-21)
 
 
