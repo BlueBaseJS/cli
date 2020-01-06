@@ -6,7 +6,7 @@
   <p>🤖 BlueBase CLI plugin to build expo apps.</p>
 </div>
 
-<hr />
+<hr /> 
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@bluebase/cli-expo.svg)](https://npmjs.org/package/@bluebase/cli-expo)

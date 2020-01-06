@@ -6,7 +6,7 @@
   <p>🤖 BlueBase CLI plugin to create React Native Storybook projects.</p>
 </div>
 
-<hr />
+<hr /> 
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@bluebase/cli-storybook-native.svg)](https://npmjs.org/package/@bluebase/cli-storybook-native)
