@@ -14,35 +14,32 @@
 # Table of Contents 
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
-  <!-- tocstop -->
+* [Table of Contents](#table-of-contents)
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @bluebase/cli-storybook
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-storybook/0.0.6 darwin-x64 node-v11.4.0
+@bluebase/cli-storybook/1.2.3 linux-x64 node-v12.14.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`bluebase storybook:init`](#bluebase-storybookinit)
-- [`bluebase storybook:start`](#bluebase-storybookstart)
+* [`bluebase storybook:init`](#bluebase-storybookinit)
+* [`bluebase storybook:start`](#bluebase-storybookstart)
 
 ## `bluebase storybook:init`
 
@@ -61,7 +58,7 @@ EXAMPLE
   $ bluebase storybook:init
 ```
 
-_See code: [lib/commands/storybook/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.6/lib/commands/storybook/init.js)_
+_See code: [lib/commands/storybook/init.js](https://github.com/BlueBaseJS/cli/blob/v1.2.3/lib/commands/storybook/init.js)_
 
 ## `bluebase storybook:start`
 
@@ -80,6 +77,5 @@ EXAMPLE
   $ bluebase storybook:start
 ```
 
-_See code: [lib/commands/storybook/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.6/lib/commands/storybook/start.js)_
-
+_See code: [lib/commands/storybook/start.js](https://github.com/BlueBaseJS/cli/blob/v1.2.3/lib/commands/storybook/start.js)_
 <!-- commandsstop -->
