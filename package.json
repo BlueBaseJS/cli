@@ -16,7 +16,8 @@
 		"postinstall": "yarn bootstrap",
 		"bootstrap": "lerna bootstrap",
 		"clean": "lerna clean",
-		"lint": "lerna exec --parallel yarn lint"
+		"lint": "lerna exec --parallel yarn lint",
+		"prepack": "lerna exec --parallel yarn prepack"
 	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^3.0.1",
