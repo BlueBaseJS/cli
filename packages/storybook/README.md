@@ -27,7 +27,7 @@ $ npm install -g @bluebase/cli-storybook
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-storybook/1.2.3 linux-x64 node-v12.14.0
+@bluebase/cli-storybook/1.3.1 linux-x64 node-v12.14.1
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -58,8 +58,6 @@ EXAMPLE
   $ bluebase storybook:init
 ```
 
-_See code: [lib/commands/storybook/init.js](https://github.com/BlueBaseJS/cli/blob/v1.2.3/lib/commands/storybook/init.js)_
-
 ## `bluebase storybook:start`
 
 Starts or restarts a local server for your app and gives you a URL to it.
@@ -76,6 +74,4 @@ OPTIONS
 EXAMPLE
   $ bluebase storybook:start
 ```
-
-_See code: [lib/commands/storybook/start.js](https://github.com/BlueBaseJS/cli/blob/v1.2.3/lib/commands/storybook/start.js)_
 <!-- commandsstop -->

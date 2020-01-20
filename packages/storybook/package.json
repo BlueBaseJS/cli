@@ -1,7 +1,7 @@
 {
 	"name": "@bluebase/cli-storybook",
 	"description": "A BlueBaseJS CLI plugin to integrate Storybook",
-	"version": "1.2.3",
+	"version": "1.3.1",
 	"main": "./lib",
 	"author": "BlueEast Team <code@blueeast.com>",
 	"bugs": "https://github.com/BlueBaseJS/cli/issues",
