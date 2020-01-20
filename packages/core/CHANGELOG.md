@@ -1,3 +1,10 @@
+# [@bluebase/cli-core-v1.2.4](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-core-v1.2.3...@bluebase/cli-core-v1.2.4) (2020-01-20)
+
+
+### Bug Fixes
+
+* Removed bad imports ([a08b731](https://github.com/BlueBaseJS/cli/commit/a08b731))
+
 # [@bluebase/cli-core-v1.2.3](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-core-v1.2.2...@bluebase/cli-core-v1.2.3) (2020-01-20)
 
 
