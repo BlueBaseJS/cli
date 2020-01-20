@@ -134,7 +134,7 @@ export default class ExpoStart extends Command {
 
 		const appJsonPath = path.join(buildDir, 'app.json');
 		const child = spawn(
-			fromRoot('./node_modules/.bin/expo'),
+			'expo',
 			['start', '--config', Utils.fromProjectRoot(appJsonPath), ...this.argv],
 			{ shell: true, env: process.env, stdio: 'inherit' }
 		)

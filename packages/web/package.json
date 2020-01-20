@@ -10,7 +10,7 @@
 		"@babel/core": "^7.6.2",
 		"@babel/register": "^7.6.2",
 		"@babel/runtime": "^7.6.2",
-		"@bluebase/cli-core": "^0.0.10",
+		"@bluebase/cli-core": "^1.2.3",
 		"@bluebase/code-standards": "2.2.4",
 		"@oclif/command": "^1.5.8",
 		"@oclif/config": "^1.10.4",
