@@ -27,7 +27,7 @@ $ npm install -g @bluebase/cli-storybook-native
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-storybook-native/1.2.3 linux-x64 node-v12.14.0
+@bluebase/cli-storybook-native/1.3.1 linux-x64 node-v12.14.1
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
