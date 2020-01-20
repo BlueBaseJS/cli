@@ -6,7 +6,7 @@
   <p>🤖 CLI tool to test, build & publish BlueBase projects on all platforms. </p>
 </div>
 
-<hr />
+<hr /> 
 
 ## Usage
 

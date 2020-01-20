@@ -6,12 +6,12 @@
   <p>🤖 BlueBase CLI plugin to create React Native Storybook projects.</p>
 </div>
 
-<hr />
+<hr />  
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@bluebase/cli-storybook-native.svg)](https://npmjs.org/package/@bluebase/cli-storybook-native)
 
-# Table of Contents
+# Table of Contents 
 
 <!-- toc -->
 * [Table of Contents](#table-of-contents)
@@ -27,7 +27,7 @@ $ npm install -g @bluebase/cli-storybook-native
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-storybook-native/0.0.18 darwin-x64 node-v12.10.0
+@bluebase/cli-storybook-native/1.2.3 linux-x64 node-v12.14.0
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
@@ -59,8 +59,6 @@ EXAMPLE
   $ bluebase storybook-native:start
 ```
 
-_See code: [lib/commands/storybook-native/init.js](https://github.com/BlueBaseJS/cli/blob/v0.0.18/lib/commands/storybook-native/init.js)_
-
 ## `bluebase storybook-native:start`
 
 Starts or restarts a local server for your app and gives you a URL to it.
@@ -78,6 +76,4 @@ OPTIONS
 EXAMPLE
   $ bluebase storybook-native:start
 ```
-
-_See code: [lib/commands/storybook-native/start.js](https://github.com/BlueBaseJS/cli/blob/v0.0.18/lib/commands/storybook-native/start.js)_
 <!-- commandsstop -->

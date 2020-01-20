@@ -1,3 +1,39 @@
+# [@bluebase/cli-core-v1.2.4](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-core-v1.2.3...@bluebase/cli-core-v1.2.4) (2020-01-20)
+
+
+### Bug Fixes
+
+* Removed bad imports ([a08b731](https://github.com/BlueBaseJS/cli/commit/a08b731))
+
+# [@bluebase/cli-core-v1.2.4](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-core-v1.2.3...@bluebase/cli-core-v1.2.4) (2020-01-20)
+
+
+### Bug Fixes
+
+* Removed bad imports ([a08b731](https://github.com/BlueBaseJS/cli/commit/a08b731))
+
+# [@bluebase/cli-core-v1.2.3](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-core-v1.2.2...@bluebase/cli-core-v1.2.3) (2020-01-20)
+
+
+### Bug Fixes
+
+* **edited readmes to iniate release :** edited readmes iniate release ([3a15835](https://github.com/BlueBaseJS/cli/commit/3a15835))
+* **storybook:** Fixed import issues ([97c70c5](https://github.com/BlueBaseJS/cli/commit/97c70c5))
+
+# [@bluebase/cli-core-v1.2.3](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-core-v1.2.2...@bluebase/cli-core-v1.2.3) (2020-01-06)
+
+
+### Bug Fixes
+
+* **edited readmes to iniate release :** edited readmes iniate release ([3a15835](https://github.com/BlueBaseJS/cli/commit/3a15835))
+
+# [@bluebase/cli-core-v1.2.1](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-core-v1.2.0...@bluebase/cli-core-v1.2.1) (2020-01-03)
+
+
+### Bug Fixes
+
+* **modified readme's for release:** modified readme's for release ([757be49](https://github.com/BlueBaseJS/cli/commit/757be49))
+
 # @bluebase/cli-core-v1.0.0 (2019-12-23)
 
 

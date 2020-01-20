@@ -15,6 +15,7 @@ export const requiredDependencies = [...coreDeps, '@bluebase/code-standards'];
  */
 export const requiredDevDependencies = [
 	...coreDevDeps,
+	'expo-cli',
 	'expo-keep-awake',
 	'schedule@0.4.0',
 ];

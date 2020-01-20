@@ -1,14 +1,14 @@
 {
 	"name": "@bluebase/cli",
 	"description": "CLI tool to make life with BlueBase easier!",
-	"version": "1.0.0",
+	"version": "1.2.3",
 	"author": "BlueEast Team <code@blueeast.com>",
 	"bin": {
 		"bluebase": "./bin/run"
 	},
 	"bugs": "https://github.com/BlueBaseJS/cli/issues",
 	"dependencies": {
-		"@bluebase/cli-core": "^0.0.27",
+		"@bluebase/cli-core": "^1.2.3",
 		"@oclif/command": "^1.5.8",
 		"@oclif/config": "^1.10.4",
 		"@oclif/plugin-help": "^2",

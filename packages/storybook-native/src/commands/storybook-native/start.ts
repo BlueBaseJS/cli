@@ -79,7 +79,7 @@ export default class StartCommand extends Command {
 		execSync(Utils.fromProjectRoot('./node_modules/.bin/rnstl'));
 
 		const expoProcess = await spawn(
-			fromRoot('./node_modules/.bin/expo'),
+			'expo',
 			['start', '--config', Utils.fromProjectRoot(appJsonPath)],
 			{
 				shell: true,
