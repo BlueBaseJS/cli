@@ -3,7 +3,6 @@ import { ExpoFlagDefs, ExpoFlags } from '../../flags';
 
 import { Utils } from '@bluebase/cli-core';
 import { createBundle } from '../../scripts';
-import fromRoot from '../../scripts/fromRoot';
 import path from 'path';
 import { spawn } from 'child_process';
 

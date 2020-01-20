@@ -17,6 +17,7 @@
 		"bootstrap": "lerna bootstrap",
 		"clean": "lerna clean",
 		"lint": "lerna exec --parallel yarn lint",
+		"build": "lerna exec --parallel yarn build",
 		"prepack": "lerna exec --parallel yarn prepack"
 	},
 	"devDependencies": {
