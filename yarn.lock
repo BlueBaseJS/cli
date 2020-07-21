@@ -3138,10 +3138,10 @@
   dependencies:
     winston "*"
 
-"@types/workbox-webpack-plugin@3.6.1":
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/@types/workbox-webpack-plugin/-/workbox-webpack-plugin-3.6.1.tgz#19d1964fc3f65d84fc9de3238f416942d47127f4"
-  integrity sha512-pC1jP7LVvCd/ffNKX4VFm0mdLoeLHP7uoz4C5F9OgiH41fBZT7i3ElFMnw1vXYaa3llHrHlPGlH97UA4NP7BxA==
+"@types/workbox-webpack-plugin@5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@types/workbox-webpack-plugin/-/workbox-webpack-plugin-5.1.2.tgz#083fd5834be31cdd6481110224de63a6c514feb2"
+  integrity sha512-iy5DUPeD/qUW0y2ifVM8E1K+/QOrlcJY4mljU9vu+eZN8n1aQSP3dTjMxin2l31M3A8btcTezbdEzIOul1G+nA==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
