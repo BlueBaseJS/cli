@@ -1,3 +1,10 @@
+# [@bluebase/cli-v1.3.1](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-v1.3.0...@bluebase/cli-v1.3.1) (2020-07-27)
+
+
+### Bug Fixes
+
+* **iniate release:** iniate release ([a0797d6](https://github.com/BlueBaseJS/cli/commit/a0797d6))
+
 # [@bluebase/cli-v1.3.1](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-v1.3.0...@bluebase/cli-v1.3.1) (2020-01-20)
 
 
