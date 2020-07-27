@@ -1,8 +1,5 @@
-// import { Constants } from 'expo';
 import { ExpoFlags } from './flags';
-// tslint:disable-next-line
-import { Utils } from "@bluebase/cli-core";
-import { getExpoSdk } from './scripts/expo/getExpoSdk';
+import { Utils } from '@bluebase/cli-core';
 import path from 'path';
 
 export interface ExpoConfigs {
@@ -15,7 +12,7 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 
 		manifest: {
 			android: {
-				package: 'com.bluebase.app'
+				package: 'com.bluebase.app',
 			},
 			description: 'This project is really great.',
 			entryPoint: path.relative(
@@ -28,20 +25,12 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 			),
 			ios: {
 				bundleIdentifier: 'com.bluebase.app',
-				supportsTablet: true
+				supportsTablet: true,
 			},
 			name: 'BlueBase',
 			orientation: 'portrait',
-			// packagerOpts: {
-			// 	sourceExts: [
-			// 		'ts',
-			// 		'tsx'
-			// 	],
-			// 	transformer: path.join('node_modules', 'react-native-typescript-transformer', 'index.js')
-			// },
 			platforms: ['ios', 'android', 'web'],
 			privacy: 'public',
-			sdkVersion: getExpoSdk(),
 			slug: 'bluebase-project-expo',
 			splash: {
 				backgroundColor: '#ffffff',
@@ -49,9 +38,9 @@ export default (input: any, paths: ExpoFlags): ExpoConfigs => {
 					Utils.fromProjectRoot(),
 					path.join(paths.assetsDir, './splash.png')
 				),
-				resizeMode: 'contain'
+				resizeMode: 'contain',
 			},
-			version: '1.0.0'
-		}
+			version: '1.0.0',
+		},
 	};
 };

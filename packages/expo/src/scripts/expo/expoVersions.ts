@@ -62,15 +62,15 @@ export const expoVersions: Array<{
 	// 	reactNativeVersion: '^0.57.0',
 	// 	sdkVersion: '32.0.0',
 	// },
-	{
-		expo: '^33.0.0',
-		id: 33,
-		react: '16.8.3',
-		reactNative:
-			'https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz',
-		reactNativeVersion: '^0.59.8',
-		sdkVersion: '33.0.0',
-	},
+	// {
+	// 	expo: '^33.0.0',
+	// 	id: 33,
+	// 	react: '16.8.3',
+	// 	reactNative:
+	// 		'https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz',
+	// 	reactNativeVersion: '^0.59.8',
+	// 	sdkVersion: '33.0.0',
+	// },
 	{
 		expo: '^34.0.0',
 		id: 34,
@@ -106,5 +106,14 @@ export const expoVersions: Array<{
 			'https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz',
 		reactNativeVersion: '^0.61.0',
 		sdkVersion: '37.0.0',
+	},
+	{
+		expo: '^38.0.0',
+		id: 38,
+		react: '16.11.0',
+		reactNative:
+			'https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz',
+		reactNativeVersion: '^0.62.0',
+		sdkVersion: '38.0.0',
 	},
 ];
