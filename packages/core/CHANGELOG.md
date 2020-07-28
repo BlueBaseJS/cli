@@ -1,3 +1,10 @@
+# [@bluebase/cli-core-v1.4.0](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-core-v1.3.3...@bluebase/cli-core-v1.4.0) (2020-07-28)
+
+
+### Features
+
+* **expo38:** add  support of expo 38 sdk version ([e55d479](https://github.com/BlueBaseJS/cli/commit/e55d479))
+
 # [@bluebase/cli-core-v1.3.3](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-core-v1.3.2...@bluebase/cli-core-v1.3.3) (2020-07-28)
 
 
