@@ -3,7 +3,7 @@
   <h1>
 		BlueBase CLI Storybook Native
 	</h1>
-  <p>🤖 BlueBase CLI plugin to create React Native Storybook in your project.</p>
+  <p>🤖 BlueBase CLI plugin to create React Native Storybook.</p>
 </div>
 
 <hr />  
