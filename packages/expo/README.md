@@ -46,7 +46,7 @@ USAGE
 
 ## `bluebase expo:build`
 
-creates a expo build directory with app.json file
+creates a expo build directory with app.json file in the bluebase
 
 ```
 USAGE

@@ -3,7 +3,7 @@
   <h1>
 		BlueBase CLI Web
 	</h1>
-  <p>🤖 BlueBase CLI plugin to build web apps.</p>
+  <p>🤖 BlueBase CLI plugin to build web apps in your project.</p>
 </div>
 
 <hr />  
