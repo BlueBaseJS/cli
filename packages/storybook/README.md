@@ -3,7 +3,7 @@
   <h1>
 		BlueBase CLI Storybook
 	</h1>
-  <p>🤖 BlueBase CLI plugin to create Storybook projects.</p>
+  <p>🤖 BlueBase CLI plugin to create Storybook in your projects.</p>
 </div>
 
 <hr />  
