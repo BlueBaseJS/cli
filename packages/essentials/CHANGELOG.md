@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.2.0](https://github.com/BlueBaseJS/cli/compare/v2.1.0...v2.2.0) (2020-07-28)
+
+
+### Bug Fixes
+
+* **Cli :** Expo 38SDK support package ([879c119](https://github.com/BlueBaseJS/cli/commit/879c119))
+
+
+### Features
+
+* **Expo:** Add the support of Expo SDK 38 ([601d5df](https://github.com/BlueBaseJS/cli/commit/601d5df))
+* **expo38:** add  support of expo 38 sdk version ([e55d479](https://github.com/BlueBaseJS/cli/commit/e55d479))
+* **ExpoSDK:** Add support of latest expo 38 sdk ([faa4b33](https://github.com/BlueBaseJS/cli/commit/faa4b33))
+
+
+
+# [@bluebase/cli-essentials-v2.1.0](https://github.com/BlueBaseJS/cli/compare/@bluebase/cli-essentials-v2.0.3...@bluebase/cli-essentials-v2.1.0) (2020-07-28)
+
+
+### Features
+
+* **Expo:** Add the support of Expo SDK 38 ([601d5df](https://github.com/BlueBaseJS/cli/commit/601d5df))
+* **ExpoSDK:** Add support of latest expo 38 sdk ([faa4b33](https://github.com/BlueBaseJS/cli/commit/faa4b33))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [2.0.3](https://github.com/BlueBaseJS/cli/compare/v2.0.0...v2.0.3) (2020-01-20)
 
 
