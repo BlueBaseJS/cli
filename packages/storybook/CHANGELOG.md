@@ -1,3 +1,11 @@
+# [@bluebase/cli-storybook-v1.4.0](https://github.com/BlueBaseJS/cli.git/compare/@bluebase/cli-storybook-v1.3.2...@bluebase/cli-storybook-v1.4.0) (2020-07-28)
+
+
+### Features
+
+* **Expo:** Add the support of Expo SDK 38 ([601d5df](https://github.com/BlueBaseJS/cli.git/commit/601d5df))
+* **ExpoSDK:** Add support of latest expo 38 sdk ([faa4b33](https://github.com/BlueBaseJS/cli.git/commit/faa4b33))
+
 # [@bluebase/cli-storybook-v1.3.1](https://github.com/BlueBaseJS/cli.git/compare/@bluebase/cli-storybook-v1.3.0...@bluebase/cli-storybook-v1.3.1) (2020-01-20)
 
 
