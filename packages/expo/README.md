@@ -3,7 +3,7 @@
   <h1>
 		BlueBase CLI Expo
 	</h1>
-  <p>🤖 BlueBase CLI plugin to build expo apps.</p>
+  <p>🤖 BlueBase CLI plugin to build expo your apps.</p>
 </div>
 
 <hr />   
