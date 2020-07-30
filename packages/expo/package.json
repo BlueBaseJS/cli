@@ -1,7 +1,7 @@
 {
 	"name": "@bluebase/cli-expo",
 	"description": "An Expo plugin for BlueBaseJS CLI",
-	"version": "1.2.3",
+	"version": "1.4.0",
 	"author": "BlueEast Team <code@blueeast.com>",
 	"bugs": "https://github.com/BlueBaseJS/cli/issues",
 	"main": "./lib",

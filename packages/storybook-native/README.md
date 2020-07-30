@@ -3,7 +3,7 @@
   <h1>
 		BlueBase CLI Storybook Native
 	</h1>
-  <p>🤖 BlueBase CLI plugin to create React Native Storybook projects.</p>
+  <p>🤖 BlueBase CLI plugin to create React Native Storybook.</p>
 </div>
 
 <hr />  
@@ -27,7 +27,7 @@ $ npm install -g @bluebase/cli-storybook-native
 $ bluebase COMMAND
 running command...
 $ bluebase (-v|--version|version)
-@bluebase/cli-storybook-native/1.2.3 linux-x64 node-v12.14.0
+@bluebase/cli-storybook-native/1.4.0 linux-x64 node-v12.18.3
 $ bluebase --help [COMMAND]
 USAGE
   $ bluebase COMMAND
