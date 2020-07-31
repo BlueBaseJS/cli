@@ -34,7 +34,7 @@
 		"@semantic-release/release-notes-generator": "7.3.0",
 		"@types/app-root-dir": "^0.1.0",
 		"@types/deepmerge": "^2.1.0",
-		"@types/dotenv": "^4.0.3",
+		"@types/dotenv": "^8.2.0",
 		"@types/inquirer": "^0.0.43",
 		"@types/lodash.isnil": "^4.0.4",
 		"@types/lodash.template": "^4.4.4",
