@@ -1,0 +1,35 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: expo
+    versions:
+    - 40.0.1
+    - 41.0.1
+  - dependency-name: metro-react-native-babel-preset
+    versions:
+    - 0.64.0
+    - 0.65.0
+    - 0.65.1
+    - 0.65.2
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.22
+    - 14.14.31
+    - 14.14.35
+  - dependency-name: "@babel/runtime"
+    versions:
+    - 7.12.5
+    - 7.13.7
+    - 7.13.9
+  - dependency-name: bl
+    versions:
+    - 4.0.3
+    - 4.0.4
+  - dependency-name: semantic-release-monorepo-hooks
+    versions:
+    - 2.9.7
