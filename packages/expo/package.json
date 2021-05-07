@@ -34,7 +34,7 @@
 		"@semantic-release/github": "5.5.0",
 		"@semantic-release/npm": "5.2.0",
 		"@semantic-release/release-notes-generator": "7.3.0",
-		"@types/node": "^10",
+		"@types/node": "^15",
 		"@types/rimraf": "^2.0.2",
 		"@types/semver": "^6.0.0",
 		"@types/shelljs": "^0.8.4",
